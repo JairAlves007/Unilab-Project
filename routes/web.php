@@ -58,6 +58,7 @@ Route::get('/category/{id}', [CategoriesController::class, 'show']);
 // Route::group(['middleware' => ['role:gestor|orientador']], function () {
 
     Route::get('/edital/create', [EdictsController::class, 'create']);
+    Route::get('/edital/show', [EdictsController::class, 'show']);
 
 //     Route::post('/edital/store', [EditalController::class, 'store'])->middleware('auth');
 

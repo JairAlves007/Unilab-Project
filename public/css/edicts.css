@@ -1,0 +1,19 @@
+#edicts-container{
+    width: 720px;
+    padding: 25px;
+    margin: auto;
+    background: #cccc;
+    border-radius: 10px;
+    display: flex;    
+    justify-content: space-around;
+}
+.edicts-content{
+    flex: 1;
+}
+.edicts-description{
+    flex: 1;
+}
+.edicts-view{
+    margin:auto;
+
+}

@@ -11,6 +11,7 @@
    <link rel="stylesheet" href="/css/estilo.css">
    <link rel="stylesheet" href="/css/dashboard.css">
    <link rel="stylesheet" href="/css/signin.css">
+   <link rel="stylesheet" href="/css/edicts.css">
    <link rel="stylesheet" href="/css/fontawesome.min.css">
 </head>
 

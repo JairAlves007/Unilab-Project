@@ -45,7 +45,7 @@ class EdictsController extends Controller
      * @param  \App\Models\Edicts  $edicts
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
         //
 
@@ -69,6 +69,7 @@ class EdictsController extends Controller
         //         echo "<p>{$c->name}</p>";
         //     }
         // }
+        return view("editals.viewEdict");
     }
 
     /**

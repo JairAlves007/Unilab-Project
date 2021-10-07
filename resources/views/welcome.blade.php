@@ -81,7 +81,7 @@
             <h6 class="card-subtitle mb-2 text-muted">enviado 07/10/2021</h6>
             <p class="card-text">Descrição</p>
 
-            <a href="#" class="btn btn-primary">Ver Mais</a>
+            <a href="/edital/show" class="btn btn-primary">Ver Mais</a>
         </div>
     </div>
     {{-- @foreach ($all_editals as $edital)
