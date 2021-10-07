@@ -232,6 +232,11 @@ button a{
 }
 
 .content{
+    display:flex;
+    flex-wrap: wrap;
+    gap:10% ;
+    justify-content: center;
+    align-items: center;
     width: 100%;
 }
 

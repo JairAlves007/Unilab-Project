@@ -25,7 +25,7 @@ class EdictsController extends Controller
      */
     public function create()
     {
-        //
+        return view("editals.createEdital");
     }
 
     /**
