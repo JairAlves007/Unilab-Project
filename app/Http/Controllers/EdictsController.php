@@ -25,7 +25,7 @@ class EdictsController extends Controller
      */
     public function create()
     {
-        return view("editals.createEdital");
+        return view("edicts.createEdict");
     }
 
     /**
@@ -69,7 +69,7 @@ class EdictsController extends Controller
         //         echo "<p>{$c->name}</p>";
         //     }
         // }
-        return view("editals.viewEdict");
+        return view("edicts.showEdict");
     }
 
     /**
