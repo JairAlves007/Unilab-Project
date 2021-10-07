@@ -17,20 +17,50 @@
 @extends('layouts.main')
 <div class="content p-5">
 
-    <form>
+    <form action="/edital/store" method="POST" enctype="multipart/form-data">
+        @csrf
         <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <label for="title">Titulo do Edital</label>
+            <input type="text" name="title" class="form-control" id="title" placeholder="Insira o Titulo Aqui...">
         </div>
         <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+            <label for="file">Arquivo do Edital</label>
+            <input type="file" name="file" class="form-control-file" id="file">
         </div>
-        <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        <div class="form-group">
+            <label for="description">Descrição do Edital</label>
+            <textarea class="form-control" name="description" id="description" rows="3" placeholder="Insira a Descrição Aqui..."></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="date_initial">Data de Início</label>
+                <input type="date" name="date_initial" id="date_initial" class="form-control" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="date_finish">Data de Término</label>
+                <input type="date" name="date_finish" id="date_finish" class="form-control" required>
+            </div>
+        </div>
+        <div class="form-row">
+
+            <div class="form-group col-md-6">
+                <label for="min_titulation">Titulação Mínima</label>
+                <select class="form-control" name="min_titulation" id="min_titulation">
+                    <option value="1">Graduado</option>
+                    <option value="2">Pós-Graduado</option>
+                    <option value="3">Doutorado</option>
+                    <option value="4">Mestrado</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="category">Categoria</label>
+                <select class="form-control" name="category" id="category">
+                    <option value="1">Desenvolvimento</option>
+                    <option value="2">Estágio</option>
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success">Criar Edital</button>
     </form>
 </div>
