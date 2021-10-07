@@ -16,6 +16,7 @@ class CreateEdictsTable extends Migration
         Schema::create('edicts', function (Blueprint $table) {
             $table->id();
             $table->year('edict_year');
+            $table->string('title');
             $table->string('archive');
             $table->string('code');
             $table->text('description');
