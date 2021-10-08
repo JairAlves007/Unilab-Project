@@ -60,7 +60,7 @@ class EdictsController extends Controller
         // dd($edict->titulations());
 
 
-        // $edict = Edicts::find($id);
+        $edict = Edicts::find($id);
 
         // if($edict) {
         //     echo "<h1>Código: {$edict->code}</h1>";
