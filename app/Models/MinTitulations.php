@@ -11,7 +11,12 @@ class MinTitulations extends Model
 
     protected $table = 'min_titulations';
 
-    public function edicts(){
+    protected $fillable = [
+        'titulation'
+    ];
+
+    public function edicts()
+    {
         return $this->hasMany(Edicts::class, 'min_titulations_id', 'id');
     }
 }

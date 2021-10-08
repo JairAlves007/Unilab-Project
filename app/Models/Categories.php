@@ -11,7 +11,12 @@ class Categories extends Model
 
     protected $table = "categories";
 
-    public function edicts() {
+    protected $fillable = [
+        'name'
+    ];
+
+    public function edicts()
+    {
         return $this->hasMany(Edicts::class, 'categories_id', 'id');
     }
 }
