@@ -8,10 +8,10 @@
 
     <div id="edicts-container">
         <div class="edicts-content">
-            <h2>Titulo</h2>
-            <p>Graduado</p>
-            <p>Categoria</p>
-            <p>07/10/2021-08/10/2021</p>
+            <h2>{{ $edict->title }}</h2>
+            <p>{{ $edict->titulations->titulation }}</p>
+            <p>{{ $edict->categories->name }}</p>
+            <p> {{ date("d-m-Y", strtotime($edict->submission_start)) }} até {{ date("d-m-Y", strtotime($edict->submission_finish)) }}</p>
             <a href="/events/join/" class="btn btn-primary" id="event-submit" onclick="event.preventDefault();
                 this.closest('form').submit();">
                 Baixar PDF
@@ -19,8 +19,8 @@
         </div>
         <div class="edicts-description">
             <h4>Descrição</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate pariatur nobis tempore eos qui soluta repellat labore, optio, suscipit saepe harum sit magni enim maiores quas rerum distinctio nostrum totam.</p>
-            <p>Autor: Neymar</p>
+            <p>{{ $edict->description }}</p>
+            <p>Autor: Não está relacionado</p>
         </div>
     </div>
 
@@ -33,7 +33,7 @@
         <div class="document">
             <div class="document-info">
                 <i class="far fa-file-pdf fa-lg"></i>
-    
+
                 <span>
                     Nome do projeto
                 </span>
@@ -53,7 +53,7 @@
         <div class="document">
             <div class="document-info">
                 <i class="far fa-file-pdf fa-lg"></i>
-    
+
                 <span>
                     Nome do projeto
                 </span>

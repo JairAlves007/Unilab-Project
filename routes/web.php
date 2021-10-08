@@ -7,9 +7,7 @@ use App\Http\Controllers\CategoriesController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', function(){
-    return view('welcome');
-});
+Route::get('/', [EdictsController::class, 'index']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])
 ->middleware('auth');
@@ -59,8 +57,8 @@ Route::group(['middleware' => ['role:super-admin|orientador']], function () {
 
     Route::get('/edict/create', [EdictsController::class, 'create'])
     ->middleware('auth');
-    
-    Route::get('/edict/show', [EdictsController::class, 'show'])
+
+    Route::get('/edict/show/{id}', [EdictsController::class, 'show'])
     ->middleware('auth');
 
     Route::post('/edict/store', [EdictsController::class, 'store'])
@@ -68,4 +66,4 @@ Route::group(['middleware' => ['role:super-admin|orientador']], function () {
 
 });
 
-// Route::any('/search', [EditalController::class , 'search']);
+Route::any('/search', [EdictsController::class , 'search']);

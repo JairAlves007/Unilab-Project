@@ -23,6 +23,6 @@ class Edicts extends Model
 
     public function titulations()
     {
-        return $this->hasOne(MinTitulations::class, 'id', 'min_titulation_id');
+        return $this->hasOne(MinTitulations::class, 'id', 'min_titulations_id');
     }
 }

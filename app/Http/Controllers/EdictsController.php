@@ -14,9 +14,30 @@ class EdictsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function search(Request $request){
+        $filters = $request->except('_token');
+
+        $search = $request->search;
+
+        $edicts = Edicts::where([
+            ['title', 'like', "%{$request->search}%"]
+            ])->paginate(1);
+
+        return view('welcome', [ "filters" => $filters, "edicts" => $edicts , "search" => $search]);
+    }
+
+
     public function index()
     {
-        //
+        // $search = request('search');
+        // if($search){
+        //   $edicts = Edicts::where([
+        //     ['title', 'like', '%'.$search.'%']
+        //     ])->paginate(1);
+        // }else{
+          $edicts = Edicts::paginate(1);
+        // }
+        return view('welcome',['edicts' => $edicts]);
     }
 
     /**
@@ -53,7 +74,7 @@ class EdictsController extends Controller
         $edict->submission_finish = $data['submission_finish'];
         $edict->min_titulations_id = $data['min_titulations_id'];
         $edict->categories_id = $data['categories_id'];
-        
+
         if($data['archive']->isValid() && $request->hasFile('archive')) {
             $extension = $data['archive']->extension();
             $name = md5( $data['archive']->getClientOriginalName() . strtotime('now') ) . '.' . $extension;
@@ -72,14 +93,14 @@ class EdictsController extends Controller
      * @param  \App\Models\Edicts  $edicts
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
         //
 
         // dd($edict->titulations());
 
 
-        // $edict = Edicts::find($id);
+        $edict = Edicts::find($id);
 
         // if($edict) {
         //     echo "<h1>Código: {$edict->code}</h1>";
@@ -96,7 +117,7 @@ class EdictsController extends Controller
         //         echo "<p>{$c->name}</p>";
         //     }
         // }
-        return view("edicts.showEdict");
+        return view("edicts.showEdict", [ "edict" => $edict]);
     }
 
     /**
