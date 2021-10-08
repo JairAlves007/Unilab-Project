@@ -14,7 +14,7 @@ Route::get('/', function(){
 Route::get('/dashboard', [DashboardController::class, 'index'])
 ->middleware('auth');
 
-Route::group(['middleware' => ['role:gestor']], function () {
+Route::group(['middleware' => ['role:gestor|super-admin']], function () {
 
     Route::get('/users/view', [DashboardController::class, 'show'])
     ->name('view')
@@ -50,18 +50,22 @@ Route::group(['middleware' => ['role:gestor']], function () {
 });
 
 
-Route::get('/edict/{id}', [EdictsController::class, 'show']);
-Route::get('/titulation/{id}', [MinTitulationsController::class, 'show']);
-Route::get('/category/{id}', [CategoriesController::class, 'show']);
+// Route::get('/edict/{id}', [EdictsController::class, 'show']);
+// Route::get('/titulation/{id}', [MinTitulationsController::class, 'show']);
+// Route::get('/category/{id}', [CategoriesController::class, 'show']);
 
 
-// Route::group(['middleware' => ['role:gestor|orientador']], function () {
+Route::group(['middleware' => ['role:super-admin|orientador']], function () {
 
-    Route::get('/edital/create', [EdictsController::class, 'create']);
-    Route::get('/edital/show', [EdictsController::class, 'show']);
+    Route::get('/edict/create', [EdictsController::class, 'create'])
+    ->middleware('auth');
+    
+    Route::get('/edict/show', [EdictsController::class, 'show'])
+    ->middleware('auth');
 
-//     Route::post('/edital/store', [EditalController::class, 'store'])->middleware('auth');
+    Route::post('/edict/store', [EdictsController::class, 'store'])
+    ->middleware('auth');
 
-// });
+});
 
 // Route::any('/search', [EditalController::class , 'search']);

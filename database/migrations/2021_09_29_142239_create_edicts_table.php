@@ -22,9 +22,11 @@ class CreateEdictsTable extends Migration
             $table->text('description');
             $table->dateTime('submission_start');
             $table->dateTime('submission_finish');
-            $table->dateTime('rate_start');
-            $table->dateTime('rate_finish');
+            $table->dateTime('rate_start')->nullable();
+            $table->dateTime('rate_finish')->nullable();
             
+            $table->timestamps();
+
             $table
                 ->foreignId('min_titulations_id')
                 ->constrained('min_titulations')

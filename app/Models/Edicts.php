@@ -11,11 +11,18 @@ class Edicts extends Model
 
     protected $table = "edicts";
 
-    public function categories() {
+    protected $dates = [
+        'submission_start',
+        'submission_finish'
+    ];
+
+    public function categories()
+    {
         return $this->hasOne(Categories::class, 'id', 'categories_id');
     }
 
-    public function titulations(){
+    public function titulations()
+    {
         return $this->hasOne(MinTitulations::class, 'id', 'min_titulation_id');
     }
 }

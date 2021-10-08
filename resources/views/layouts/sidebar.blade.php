@@ -166,7 +166,7 @@
 
                             @can('create-edict')
                                 <li>
-                                    <a href="/edital/create">
+                                    <a href="/edict/create">
                                         <i class="fas fa-users"></i>
                                         Inserir Edital
                                     </a>

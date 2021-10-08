@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categories;
 use App\Models\Edicts;
 use App\Models\MinTitulations;
 use Illuminate\Http\Request;
@@ -25,7 +26,12 @@ class EdictsController extends Controller
      */
     public function create()
     {
-        return view("edicts.createEdict");
+        $min_titulations = MinTitulations::all();
+        $categories = Categories::all();
+        return view("edicts.createEdict", [
+            'min_titulations' => $min_titulations,
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -36,7 +42,28 @@ class EdictsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $edict = new Edicts;
+        $data = $request->all();
+
+        $edict->edict_year = substr($data['submission_start'], 0, 4);
+        $edict->title = $data['title'];
+        $edict->code = md5(strtotime('now'));
+        $edict->description = $data['description'];
+        $edict->submission_start = $data['submission_start'];
+        $edict->submission_finish = $data['submission_finish'];
+        $edict->min_titulations_id = $data['min_titulations_id'];
+        $edict->categories_id = $data['categories_id'];
+        
+        if($data['archive']->isValid() && $request->hasFile('archive')) {
+            $extension = $data['archive']->extension();
+            $name = md5( $data['archive']->getClientOriginalName() . strtotime('now') ) . '.' . $extension;
+            $data['archive']->move(public_path('docs/edicts/', $name));
+            $edict->archive = $name;
+        }
+
+        $edict->save();
+
+        return redirect('/edict/create');
     }
 
     /**

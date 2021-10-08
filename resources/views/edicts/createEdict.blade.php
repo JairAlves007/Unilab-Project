@@ -6,15 +6,15 @@
 @section('content')    
     <div class="content p-5">
 
-        <form action="/edital/store" method="POST" enctype="multipart/form-data">
+        <form action="/edict/store" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="title">Titulo do Edital</label>
                 <input type="text" name="title" class="form-control" id="title" placeholder="Insira o Titulo Aqui...">
             </div>
             <div class="form-group">
-                <label for="file">Arquivo do Edital</label>
-                <input type="file" name="file" class="form-control-file" id="file">
+                <label for="archive">Arquivo do Edital</label>
+                <input type="file" name="archive" class="form-control-file" id="archive">
             </div>
             <div class="form-group">
                 <label for="description">Descrição do Edital</label>
@@ -24,29 +24,29 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="date_initial">Data de Início</label>
-                    <input type="date" name="date_initial" id="date_initial" class="form-control" required>
+                    <input type="date" name="submission_start" id="date_initial" class="form-control" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="date_finish">Data de Término</label>
-                    <input type="date" name="date_finish" id="date_finish" class="form-control" required>
+                    <input type="date" name="submission_finish" id="date_finish" class="form-control" required>
                 </div>
             </div>
             <div class="form-row">
 
                 <div class="form-group col-md-6">
                     <label for="min_titulation">Titulação Mínima</label>
-                    <select class="form-control" name="min_titulation" id="min_titulation">
-                        <option value="1">Graduado</option>
-                        <option value="2">Pós-Graduado</option>
-                        <option value="3">Doutorado</option>
-                        <option value="4">Mestrado</option>
+                    <select class="form-control" name="min_titulations_id" id="min_titulation">
+                        @foreach ($min_titulations as $titulation)
+                            <option value="{{ $titulation->id }}">{{ $titulation->titulation }}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="category">Categoria</label>
-                    <select class="form-control" name="category" id="category">
-                        <option value="1">Desenvolvimento</option>
-                        <option value="2">Estágio</option>
+                    <select class="form-control" name="categories_id" id="category">
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>
