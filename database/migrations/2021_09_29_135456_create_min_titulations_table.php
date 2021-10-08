@@ -16,6 +16,7 @@ class CreateMinTitulationsTable extends Migration
         Schema::create('min_titulations', function (Blueprint $table) {
             $table->id();
             $table->string('titulation', 45);
+            $table->timestamps();
         });
     }
 
