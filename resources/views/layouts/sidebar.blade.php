@@ -1,36 +1,3 @@
-{{-- <nav class="sidebar">
-   <ul class="list-unstyled">
-       <li><a href="/dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-       <li>
-           <a href="#submenu1" data-toggle="collapse">
-               <i class="fas fa-user"></i> Usuário
-           </a>
-           <ul id="submenu1" class="list-unstyled collapse">
-               <li><a href="/users/show"><i class="fas fa-users"></i> Usuários</a></li>
-           </ul>
-       </li>
-
-       <li class="active"><a href="/dashboard"> Documentações</a></li>
-
-       <li>
-           <form action="/logout" method="POST">
-               @csrf
-
-               <a
-                   href="/logout"
-                   onclick="
-                       event.preventDefault();
-                       this.closest('form').submit();
-                   "
-               >
-                   <i class="fas fa-sign-out-alt"></i>
-                   Sair
-               </a>
-           </form>
-       </li>
-   </ul>
-</nav> --}}
-
 <nav class="sidebar">
     <ul class="list-unstyled">
 
@@ -41,7 +8,7 @@
             </a>
         </li>
 
-        @if ($user->hasRole('gestor') || $user->hasRole('orientador'))
+        @if ($user->hasRole(['super-admin', 'orientador']))
             <li>
 
                 <a href="#submenu1" data-toggle="collapse">
@@ -107,6 +74,15 @@
             </a>
 
             <ul id="submenu3" class="list-unstyled collapse">
+                @role('super-admin')
+                    <li>
+                        <a href="/dashboard">
+                            <i class="fas fa-users"></i> 
+                            Admin
+                        </a>
+                    </li>
+                @endrole
+                
                 @role('gestor')
                     <li>
                         <a href="/dashboard">
@@ -145,7 +121,7 @@
             </ul>
         </li>
 
-        @if ($user->hasRole('gestor') || $user->hasRole('orientador'))
+        @if ($user->hasRole(['super-admin', 'orientador']))
 
             <li>
                 <a href="#submenu4" data-toggle="collapse">
@@ -161,7 +137,7 @@
                         </a>
 
                         <ul id="submenu5" class="list-unstyled collapse">
-                            @can('edit-edital')
+                            @can('edit-edict')
                                 <li>
                                     <a href="/dashboard">
                                         <i class="fas fa-users"></i>
@@ -170,7 +146,7 @@
                                 </li>
                             @endcan
 
-                            @can('delete-edital')
+                            @can('delete-edict')
                                 <li>
                                     <a href="/dashboard">
                                         <i class="fas fa-users"></i>
@@ -179,7 +155,7 @@
                                 </li>
                             @endcan
 
-                            @can('view-edital')
+                            @can('view-edict')
                                 <li>
                                     <a href="/dashboard">
                                         <i class="fas fa-users"></i>
@@ -188,7 +164,7 @@
                                 </li>
                             @endcan
 
-                            @can('create-edital')
+                            @can('create-edict')
                                 <li>
                                     <a href="/edital/create">
                                         <i class="fas fa-users"></i>
@@ -235,7 +211,7 @@
         @endif
 
 
-        @if ($user->hasRole('gestor') || $user->hasRole('membro'))
+        @if ($user->hasRole(['super-admin','gestor', 'membro']))
             <li>
                 <a href="#submenu7" data-toggle="collapse">
                     <i class="fas fa-user"></i> Projetos
