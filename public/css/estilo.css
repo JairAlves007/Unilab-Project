@@ -240,6 +240,10 @@ button a {
     width: 100%;
 }
 
+#dashboard-card {
+    width: 100%;
+}
+
 .search-bar {
     width: 100%;
     display: flex;
@@ -312,14 +316,14 @@ button a {
 
 /* Footer */
 
-.rodape {
+/* .rodape {
     background-color: #444444;
     color: #fff;
-    /* display: flex;
+    display: flex;
     justify-content: center;
-    align-items: center; */
+    align-items: center;
     margin: auto 0;
-}
+} */
 
 .icon {
     width: 15px;

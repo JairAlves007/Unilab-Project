@@ -2,7 +2,7 @@
 
    @include('layouts.sidebar')
 
-   <div class="content p-1">
+   <div id="dashboard-card" class="p-1">
       <div class="list-group-item">
          <div class="d-flex">
             <div class="mr-auto p-2">

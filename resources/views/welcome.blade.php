@@ -31,8 +31,17 @@
 
 
 
-    <div class="row content">
+    <div class="content">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Titulo Do Edital</h5>
+                <h6 class="card-subtitle mb-2 text-muted">enviado 07/10/2021</h6>
+                <p class="card-text">Descrição</p>
 
+                <a href="/edital/show" class="btn btn-primary">Ver Mais</a>
+            </div>
+        </div>
+        
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">Titulo Do Edital</h5>
