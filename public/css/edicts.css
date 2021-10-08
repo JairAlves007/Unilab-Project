@@ -1,19 +1,63 @@
 #edicts-container{
     width: 720px;
     padding: 25px;
-    margin: auto;
-    background: #cccc;
+    margin: 30px auto;
+    background: #ccc;
     border-radius: 10px;
     display: flex;    
     justify-content: space-around;
 }
+
 .edicts-content{
     flex: 1;
 }
 .edicts-description{
     flex: 1;
 }
-.edicts-view{
-    margin:auto;
 
+#documents-container {
+    width: 720px;
+    margin: auto;
+    display: flex;    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#documents-container .document {
+    background: #ccc;
+    margin: 30px 0;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#documents-container .document:hover {
+    cursor: pointer;
+    filter: brightness(95%);
+}
+
+.document .document-info {
+    width: 310px;
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.document .document-download {
+    width: 310px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.document span {
+    font-weight: bold;
+    user-select: none;
+}
+
+.document a {
+    margin-right: 0;
 }

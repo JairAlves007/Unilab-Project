@@ -5,8 +5,8 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
    <title>UNILAB - @yield('title')</title>
-   <link rel="icon" href="imagem/unilabsimbolo.png">
-   <link rel="icon" href="imagem/favicon.ico">
+   <link rel="icon" href="/imagem/unilabsimbolo.png">
+   {{-- <link rel="icon" href="/imagem/favicon.ico"> --}}
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
    <link rel="stylesheet" href="/css/estilo.css">
    <link rel="stylesheet" href="/css/dashboard.css">
