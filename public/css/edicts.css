@@ -1,3 +1,29 @@
+/* Form Create Edict */
+
+#form-create-edict {
+    width: 100%;
+    margin: auto;
+    padding: 20px;
+}
+
+#form-create-edict form {
+    width: 100%;
+    /* margin: 30px auto; */
+}
+
+#form-create-edict #form-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0 20px 0;
+    gap: 50px;
+}
+
+#form-area .form-content {
+    width: 40%;
+    /* background-color: black; */
+}
+
 #edicts-container{
     width: 720px;
     padding: 25px;
