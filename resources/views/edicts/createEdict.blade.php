@@ -32,7 +32,7 @@
     
                         <div class="form-group">
                             <label for="description">Descrição do Edital</label>
-                            <textarea class="form-control" name="description" id="description" rows="3"
+                            <textarea class="form-control" name="description" id="description" rows="5"
                                 placeholder="Insira a Descrição Aqui..."></textarea>
                         </div>
                     </div>

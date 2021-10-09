@@ -8,7 +8,7 @@
 
 #form-create-edict form {
     width: 100%;
-    /* margin: 30px auto; */
+    margin: 30px auto;
 }
 
 #form-create-edict #form-area {
@@ -21,8 +21,9 @@
 
 #form-area .form-content {
     width: 40%;
-    /* background-color: black; */
 }
+
+/* Ver Mais */
 
 #edicts-container{
     width: 720px;
