@@ -32,17 +32,12 @@ class DashboardController extends Controller
 
         $data = $request->all();
 
-        $checking_user_email = User::where('email', $data['email']);
+        $checking_user_email = User::where('email', $data['email'])->get();
 
-        if ($checking_user_email) {
-
-            return redirect('/user/register')
-                ->withErrors('Esse E-Mail Já Existe! Tente Outro E-Mail Válido');
-
-        } else {
+        if (count($checking_user_email) == 0) {
 
             User::create([
-                
+
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
@@ -50,8 +45,12 @@ class DashboardController extends Controller
             ])->syncRoles($data['niveis']);
 
             return redirect('/users/view');
-        }
+            
+        } else {
 
+            return redirect('/user/register')
+                ->withErrors('Esse E-Mail Já Existe! Tente Outro E-Mail Válido');
+        }
     }
 
     public function show()

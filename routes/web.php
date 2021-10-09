@@ -12,7 +12,7 @@ Route::get('/', [EdictsController::class, 'index']);
 Route::get('/dashboard', [DashboardController::class, 'index'])
 ->middleware('auth');
 
-Route::group(['middleware' => ['role:gestor|super-admin']], function () {
+Route::group(['middleware' => ['role:super-admin|gestor']], function () {
 
     Route::get('/users/view', [DashboardController::class, 'show'])
     ->name('view')
@@ -25,7 +25,6 @@ Route::group(['middleware' => ['role:gestor|super-admin']], function () {
     Route::get('/users/delete', [DashboardController::class, 'show'])
     ->name('delete')
     ->middleware('auth');
-
 
     Route::get('/user/show/{id}', [DashboardController::class, 'showUser'])
     ->middleware('auth');

@@ -232,12 +232,15 @@ button a {
 }
 
 .content {
+    width: 100%;
+}
+
+#edicts-home {
     display: flex;
     flex-wrap: wrap;
     gap: 10%;
     justify-content: center;
     align-items: center;
-    width: 100%;
 }
 
 #dashboard-card {

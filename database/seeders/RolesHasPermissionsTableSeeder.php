@@ -17,7 +17,7 @@ class RolesHasPermissionsTableSeeder extends Seeder
     {
 
         $permissions = [
-            Permission::all(),
+            Permission::all(), // Super-Admin
 
             [
                 1,
@@ -25,22 +25,22 @@ class RolesHasPermissionsTableSeeder extends Seeder
                 3,
                 4,
                 10
-            ],
+            ], // Gestor
 
             [
                 11,
                 12
-            ],
+            ], // Bolsista
 
             [
                 5,
                 12
-            ],
+            ], // Orientador
 
             [
                 9,
                 10
-            ]
+            ] // Membro
         ];
 
         for ($i = 1; $i <= 5; $i++) {

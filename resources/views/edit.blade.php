@@ -6,9 +6,9 @@
    @include('layouts.navbar')
 
     <div class="d-flex">
-        @role('gestor')
+        {{-- @role('gestor') --}}
             @include('layouts.sidebar')
-        @endrole
+        {{-- @endrole --}}
 
         <div class="content p-1">
             <div class="list-group-item">
@@ -17,7 +17,7 @@
                         <h2 class="display-4 titulo">Editar Usuário {{ $user_checking->name }}</h2>
                     </div>
 
-                    @role('gestor')
+                    @role('super-admin')
                         <div class="p-2">
                             <span class="d-none d-md-block">
                                 <a href="/users/view" class="btn btn-outline-info btn-sm">Ver Usuários</a>
@@ -40,6 +40,7 @@
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Ações
                                 </button>
+
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="acoesListar">
                                     <a class="dropdown-item" href="/users/view">Ver Usuários</a>
 
@@ -74,10 +75,10 @@
 
                 @endif
 
-                @role('gestor')
+                {{-- @role('gestor')
                     <hr>
                     <hr>
-                @endrole
+                @endrole --}}
 
                 <form
                     method="POST"
@@ -116,76 +117,76 @@
                         </div>
                     </div>
 
-                    @if ($user->hasRole('gestor') && $user_checking->id != $user->id)
+                    @if ($user->hasRole('super-admin') && $user_checking->id != $user->id)
 
-                    <p>
-                        <span class="text-danger">*</span>Campo obrigatório
-                    </p>
+                        <p>
+                            <span class="text-danger">*</span> Campo obrigatório
+                        </p>
 
-                    <div class="form-row">
+                        <div class="form-row">
 
-                        <div class="form-group col-md-12">
+                            <div class="form-group col-md-12">
 
-                            {{-- <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="niveis[]" value="gestor" id="checkGestor">
-                                <label class="form-check-label" for="checkGestor">
-                                    Gestor
-                                </label>
-                            </div> --}}
+                                {{-- <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="niveis[]" value="gestor" id="checkGestor">
+                                    <label class="form-check-label" for="checkGestor">
+                                        Gestor
+                                    </label>
+                                </div> --}}
 
-                            <div class="form-check">
-                                <input
-                                    class="form-check-input"
-                                    type="checkbox"
-                                    name="niveis[]"
-                                    value="bolsista"
-                                    id="checkBolsista"
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        name="niveis[]"
+                                        value="bolsista"
+                                        id="checkBolsista"
 
-                                    @if($user_checking->hasRole('bolsista'))
-                                        checked
-                                    @endif
-                                >
-                                <label class="form-check-label" for="checkBolsista">
-                                    Bolsista/Voluntário
-                                </label>
+                                        @if($user_checking->hasRole('bolsista'))
+                                            checked
+                                        @endif
+                                    >
+                                    <label class="form-check-label" for="checkBolsista">
+                                        Bolsista/Voluntário
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        name="niveis[]"
+                                        value="orientador"
+                                        id="checkOrientador"
+
+                                        @if($user_checking->hasRole('orientador'))
+                                            checked
+                                        @endif
+                                    >
+                                    <label class="form-check-label" for="checkOrientador">
+                                        Orientador/Coordenador
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        name="niveis[]"
+                                        value="membro"
+                                        id="checkMembro"
+
+                                        @if($user_checking->hasRole('membro'))
+                                            checked
+                                        @endif
+                                    >
+                                    <label class="form-check-label" for="checkMembro">
+                                        Membro da Comissão(CAPP)
+                                    </label>
+                                </div>
+
                             </div>
-
-                            <div class="form-check">
-                                <input
-                                    class="form-check-input"
-                                    type="checkbox"
-                                    name="niveis[]"
-                                    value="orientador"
-                                    id="checkOrientador"
-
-                                    @if($user_checking->hasRole('orientador'))
-                                        checked
-                                    @endif
-                                >
-                                <label class="form-check-label" for="checkOrientador">
-                                    Orientador/Coordenador
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input
-                                    class="form-check-input"
-                                    type="checkbox"
-                                    name="niveis[]"
-                                    value="membro"
-                                    id="checkMembro"
-
-                                    @if($user_checking->hasRole('membro'))
-                                        checked
-                                    @endif
-                                >
-                                <label class="form-check-label" for="checkMembro">
-                                    Membro da Comissão(CAPP)
-                                </label>
-                            </div>
-
                         </div>
-                    </div>
 
                     @endif
 
@@ -195,7 +196,7 @@
         </div>
     </div>
 
-    @role('gestor')
+    @role('super-admin')
         <form id="form-apagar" action="/user/delete/{{ $user_checking->id }}" method="POST">
             @csrf
 

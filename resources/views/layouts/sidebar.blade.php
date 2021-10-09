@@ -8,7 +8,7 @@
             </a>
         </li>
 
-        @if ($user->hasRole(['super-admin', 'orientador']))
+        @if ($user->hasRole(['super-admin', 'gestor']))
             <li>
 
                 <a href="#submenu1" data-toggle="collapse">
@@ -211,7 +211,7 @@
         @endif
 
 
-        @if ($user->hasRole(['super-admin','gestor', 'membro']))
+        @if ($user->hasRole(['super-admin', 'membro']))
             <li>
                 <a href="#submenu7" data-toggle="collapse">
                     <i class="fas fa-user"></i> Projetos
@@ -224,12 +224,15 @@
                         </a>
                     </li>
 
-                    <li>
-                        <a href="/dashboard">
-                            <i class="fas fa-users"></i>
-                            Avaliar
-                        </a>
-                    </li>
+                    @can('rate-project')    
+                        <li>
+                            <a href="/dashboard">
+                                <i class="fas fa-users"></i>
+                                Avaliar
+                            </a>
+                        </li>
+                    @endcan
+
                     
                 </ul>
 
