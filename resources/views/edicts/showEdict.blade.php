@@ -24,7 +24,7 @@
          <p>Autor: Não está relacionado</p>
       </div>
    </div>
-   <iframe src="/{{ $edict->archive }}" frameborder="0"></iframe>
+   <iframe src="{{ url("/storage/{$edict->archive}") }}" frameborder="0"></iframe>
 
    <h1 class="title-bold">
       Projetos Relacionados

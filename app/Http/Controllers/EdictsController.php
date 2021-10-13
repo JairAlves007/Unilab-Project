@@ -64,24 +64,24 @@ class EdictsController extends Controller
     public function store(Request $request)
     {
         $edict = new Edicts;
-        $data = $request->all();
 
-        $edict->edict_year = substr($data['submission_start'], 0, 4);
-        $edict->title = $data['title'];
+        $edict->edict_year = substr($request->submission_start, 0, 4);
+        $edict->title = $request->title;
         $edict->code = md5(strtotime('now'));
-        $edict->description = $data['description'];
-        $edict->submission_start = $data['submission_start'];
-        $edict->submission_finish = $data['submission_finish'];
-        $edict->min_titulations_id = $data['min_titulations_id'];
-        $edict->categories_id = $data['categories_id'];
+        $edict->description = $request->description;
+        $edict->submission_start = $request->submission_start;
+        $edict->submission_finish = $request->submission_finish;
+        $edict->min_titulations_id = $request->min_titulations_id;
+        $edict->categories_id = $request->categories_id;
 
-        if($data['archive']->isValid() && $request->hasFile('archive')) {
-            $extension = $data['archive']->extension();
-            $name = md5( $data['archive']->getClientOriginalName() . strtotime('now') ) . '.' . $extension;
-            $edict->archive = $name;
-            $data['archive']->move(public_path('docs/edicts/', $name));
+        if($request->file('archive')->isValid() && $request->hasFile('archive')) {
+            
+            $name = uniqid(date('HisYmd'));
+            $extension = $request->archive->extension();
 
-            // dd($data['archive']->store('docs/edicts'));
+            $nameFile = "{$name}.{$extension}";
+            $edict->archive = $request->archive->storeAs('edicts', $nameFile, 'public');
+
         }
 
         $edict->save();
