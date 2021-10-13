@@ -16,6 +16,10 @@ class Edicts extends Model
         'submission_finish'
     ];
 
+    public function projects() {
+        return $this->hasMany(Projects::class, 'edicts_id', 'id');
+    }
+
     public function categories()
     {
         return $this->hasOne(Categories::class, 'id', 'categories_id');

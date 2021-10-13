@@ -67,60 +67,6 @@
             </li>
         @endif
 
-        <li>
-            <a href="#submenu3" data-toggle="collapse">
-                <i class="fas fa-user"></i>
-                Níveis
-            </a>
-
-            <ul id="submenu3" class="list-unstyled collapse">
-                @role('super-admin')
-                    <li>
-                        <a href="/dashboard">
-                            <i class="fas fa-users"></i> 
-                            Admin
-                        </a>
-                    </li>
-                @endrole
-                
-                @role('gestor')
-                    <li>
-                        <a href="/dashboard">
-                            <i class="fas fa-users"></i> 
-                            Gestor
-                        </a>
-                    </li>
-                @endrole
-
-                @role('bolsista')
-                    <li>
-                        <a href="/dashboard">
-                            <i class="fas fa-users"></i> 
-                            Bolsista
-                        </a>
-                    </li>
-                @endrole
-
-                @role('orientador')
-                    <li>
-                        <a href="/dashboard">
-                            <i class="fas fa-users"></i> 
-                            Orientador
-                        </a>
-                    </li>
-                @endrole
-
-                @role('membro')
-                    <li>
-                        <a href="/dashboard">
-                            <i class="fas fa-users"></i>
-                            Membro
-                        </a>
-                    </li>
-                @endrole
-            </ul>
-        </li>
-
         @if ($user->hasRole(['super-admin', 'orientador']))
 
             <li>
@@ -169,6 +115,15 @@
                                     <a href="/edict/create">
                                         <i class="fas fa-users"></i>
                                         Inserir Edital
+                                    </a>
+                                </li>
+                            @endcan
+
+                            @can('attach-project')
+                                <li>
+                                    <a href="{{ route('edicts.projects') }}">
+                                        <i class="fas fa-users"></i>
+                                        Anexar Projetos
                                     </a>
                                 </li>
                             @endcan

@@ -78,8 +78,10 @@ class EdictsController extends Controller
         if($data['archive']->isValid() && $request->hasFile('archive')) {
             $extension = $data['archive']->extension();
             $name = md5( $data['archive']->getClientOriginalName() . strtotime('now') ) . '.' . $extension;
-            $data['archive']->move(public_path('docs/edicts/', $name));
             $edict->archive = $name;
+            $data['archive']->move(public_path('docs/edicts/', $name));
+
+            // dd($data['archive']->store('docs/edicts'));
         }
 
         $edict->save();
@@ -95,29 +97,14 @@ class EdictsController extends Controller
      */
     public function show($id)
     {
-        //
-
-        // dd($edict->titulations());
-
 
         $edict = Edicts::find($id);
+        $projects_attachs = $edict->projects;
 
-        // if($edict) {
-        //     echo "<h1>Código: {$edict->code}</h1>";
-        //     echo "<p>Descrição: {$edict->description}</p>";
-        // }
-
-        // $categories = $edict->categories()->get();
-
-        // if($categories) {
-
-        //     echo "<h1>Categoria</h1>";
-
-        //     foreach($categories as $c){
-        //         echo "<p>{$c->name}</p>";
-        //     }
-        // }
-        return view("edicts.showEdict", [ "edict" => $edict]);
+        return view("edicts.showEdict", [
+            "edict" => $edict,
+            'projects_attachs' => $projects_attachs
+        ]);
     }
 
     /**
@@ -152,5 +139,10 @@ class EdictsController extends Controller
     public function destroy(Edicts $edicts)
     {
         //
+    }
+
+    public function attachProject()
+    {
+        # code...
     }
 }

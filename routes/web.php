@@ -63,6 +63,10 @@ Route::group(['middleware' => ['role:super-admin|orientador']], function () {
     Route::post('/edict/store', [EdictsController::class, 'store'])
     ->middleware('auth');
 
+    Route::post('/edict/{id}/attachProjects', [EdictsController::class, 'attachProject'])
+    ->middleware('auth')
+    ->name('edicts.projects');
+
 });
 
 Route::any('/search', [EdictsController::class , 'search']);

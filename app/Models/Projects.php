@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Projects extends Model
 {
     use HasFactory;
+
+    protected $table = "projects";
+
+    public function edict() {
+        return $this->hasOne(Edicts::class, 'id', 'edicts_id');
+    }
 }
