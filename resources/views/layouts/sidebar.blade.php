@@ -119,14 +119,14 @@
                                 </li>
                             @endcan
 
-                            @can('attach-project')
+                            {{-- @can('attach-project') --}}
                                 <li>
                                     <a href="{{ route('edicts.projects') }}">
                                         <i class="fas fa-users"></i>
                                         Anexar Projetos
                                     </a>
                                 </li>
-                            @endcan
+                            {{-- @endcan --}}
 
                         </ul>
 

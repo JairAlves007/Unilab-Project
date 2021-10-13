@@ -143,6 +143,6 @@ class EdictsController extends Controller
 
     public function attachProject()
     {
-        # code...
+        return view('projects.attachProjects');
     }
 }
