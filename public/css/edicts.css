@@ -1,17 +1,17 @@
 /* Form Create Edict */
 
-#form-create-edict {
+.form-create {
     width: 100%;
     margin: auto;
     padding: 20px;
 }
 
-#form-create-edict form {
+.form-create form {
     width: 100%;
     margin: 30px auto;
 }
 
-#form-create-edict #form-area {
+.form-create #form-area {
     display: flex;
     justify-content: center;
     align-items: center;

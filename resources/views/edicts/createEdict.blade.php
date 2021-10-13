@@ -10,7 +10,7 @@
 
         @include('layouts.sidebar')
 
-        <div id="form-create-edict">
+        <div class="form-create">
 
             <h1>Crie Um Edital</h1>
 

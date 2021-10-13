@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Areas;
+use App\Models\BigAreas;
 use App\Models\Categories;
 use App\Models\Edicts;
+use App\Models\Institutes;
 use App\Models\MinTitulations;
+use App\Models\Specialities;
+use App\Models\SubAreas;
 use Illuminate\Http\Request;
 
 class EdictsController extends Controller
@@ -141,8 +146,31 @@ class EdictsController extends Controller
         //
     }
 
-    public function attachProject()
+    public function showAttachProject()
     {
-        return view('projects.attachProjects');
+        $edicts = Edicts::all();
+
+        return view('projects.attachProjects', [
+            'edicts' => $edicts
+        ]);
+    }
+
+    public function formAttachProject($id)
+    {
+        $edict = Edicts::findOrFail($id);
+        $institutes = Institutes::all();
+        $specialities = Specialities::all();
+        $big_areas = BigAreas::all();
+        $sub_areas = SubAreas::all();
+        $areas = Areas::all();
+
+        return view('projects.formAttachProject', [
+            'edict' => $edict,
+            'institutes' => $institutes,
+            'specialities' => $specialities,
+            'big_areas' => $big_areas,
+            'sub_areas' => $sub_areas,
+            'areas' => $areas
+        ]);
     }
 }
