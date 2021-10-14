@@ -231,9 +231,6 @@ button a {
 .sidebar [aria-expanded="true"] {
     background-color: #19222d;
 }
-.sidebar [aria-expanded="true"]:before {
-    content: "\f0d8";
-}
 
 .icon-rotate {
     transition: all .2s;
