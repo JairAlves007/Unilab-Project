@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\MinTitulations;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,6 +14,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
+            InstitutesTableSeeder::class,
+            BigAreasTableSeeder::class,
+            AreasTableSeeder::class,
+            SubAreasTableSeeder::class,
+            SpecialitiesTableSeeder::class,
             CategoriesTableSeeder::class,
             MinTitulationsTableSeeder::class,
             PermissionsTableSeeder::class,

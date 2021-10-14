@@ -14,7 +14,7 @@
       <div class="form-create">
          <h1>Anexe Um Projeto</h1>
 
-         <form action="/project/attach" method="POST" enctype="multipart/form-data">
+         <form action="{{ route('edicts.attach-project', $edict) }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <div id="form-area">
@@ -44,8 +44,8 @@
                   <div class="form-row">
 
                      <div class="form-group">
-                        <label for="exampleFormControlFile1">Arquivo do Projeto</label>
-                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                        <label for="archive">Arquivo do Projeto</label>
+                        <input type="file" name="archive" class="form-control-file" id="archive">
                      </div>
 
                   </div>
@@ -83,7 +83,7 @@
                      </div>
                      
                      <div class="form-group col-md-6">
-                        <label for="area">Área</label>
+                        <label for="areas">Área</label>
                         <select class="form-control" name="areas" id="areas">
                            @foreach ($areas as $area)
                               <option value="{{ $area->id }}">{{ $area->name }}</option>
@@ -95,7 +95,7 @@
 
                   <div class="form-row">
                      <div class="form-group col-md-12">
-                        <label for="sub_area">Sub Área</label>
+                        <label for="sub_areas">Sub Área</label>
                         <select class="form-control" name="sub_areas" id="sub_areas">
                            @foreach ($sub_areas as $area)
                               <option value="{{ $area->id }}">{{ $area->name }}</option>

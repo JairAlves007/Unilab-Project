@@ -17,6 +17,7 @@ class CreateBigAreasTable extends Migration
             $table->id();
             $table->string('code', 45);
             $table->string('name', 45);
+            $table->timestamps();
         });
     }
 

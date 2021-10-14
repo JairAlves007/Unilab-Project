@@ -17,8 +17,8 @@ class CreateAreasTable extends Migration
             $table->id();
             $table->string('code', 45);
             $table->string('name', 45);
+            $table->timestamps();
             $table->foreignId('big_areas_id')->constrained('big_areas')->onUpdate('cascade')->onDelete('cascade');
-
         });
     }
 

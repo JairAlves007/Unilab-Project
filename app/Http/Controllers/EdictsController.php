@@ -8,6 +8,7 @@ use App\Models\Categories;
 use App\Models\Edicts;
 use App\Models\Institutes;
 use App\Models\MinTitulations;
+use App\Models\Projects;
 use App\Models\Specialities;
 use App\Models\SubAreas;
 use Illuminate\Http\Request;
@@ -172,5 +173,9 @@ class EdictsController extends Controller
             'sub_areas' => $sub_areas,
             'areas' => $areas
         ]);
+    }
+
+    public function attachProject($id, Request $request) {
+        
     }
 }

@@ -17,6 +17,7 @@ class CreateInstitutesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('initials', 10);
+            $table->timestamps();
         });
     }
 
