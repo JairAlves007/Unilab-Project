@@ -216,9 +216,13 @@ button a {
 
 .sidebar [data-toggle="collapse"] {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3%;
 }
 .sidebar [data-toggle="collapse"]:before {
-    content: "\f0d7";
+    content: "";
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     position: absolute;
@@ -229,6 +233,19 @@ button a {
 }
 .sidebar [aria-expanded="true"]:before {
     content: "\f0d8";
+}
+
+.icon-rotate {
+    transition: all .2s;
+}
+
+.spin{
+    transform: rotate(-180deg);
+}
+
+.icon-space {
+    position: absolute;
+    right: 1rem;
 }
 
 .content {

@@ -40,22 +40,6 @@ body {
     }
 }
 
-.sidebar [data-toggle="collapse"]{
-    position: relative;
-}
-.sidebar [data-toggle="collapse"]:before{
-    content: "\f0d7";
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    position: absolute;
-    right: 1rem;
-}
-.sidebar [aria-expanded="true"]{
-    background-color: #19222d;
-}
-.sidebar [aria-expanded="true"]:before{
-    content: "\f0d8";
-}
 .content{
     width: 100%;
 }

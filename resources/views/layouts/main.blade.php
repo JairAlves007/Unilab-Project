@@ -29,6 +29,7 @@
    <script src="/js/personalizado.js"></script>
    <script src="/js/scrollreveal.min.js"></script>
    <script src="/js/dashboard.js"></script>
+   <script src="/js/spin-animation.js"></script>
 
    <script>
       $('.carousel').carousel({

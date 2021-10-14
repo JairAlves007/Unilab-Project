@@ -176,6 +176,32 @@ class EdictsController extends Controller
     }
 
     public function attachProject($id, Request $request) {
-        
+        $project = new Projects;
+
+        $project->title = $request->title;
+        $project->code = strtotime('now');
+        $project->content = $request->content;
+        $project->abstract = $request->abstract;
+        $project->references = $request->references;
+        $project->edict_id = $id;
+        $project->institutes_id = $request->institutes;
+        $project->specialities_id = $request->specialities;
+        $project->big_areas_id = $request->big_areas;
+        $project->areas_id = $request->areas;
+        $project->sub_areas_id = $request->sub_areas;
+
+        if($request->file('archive')->isValid() && $request->hasFile('archive')) {
+            
+            $name = uniqid(date('HisYmd'));
+            $extension = $request->archive->extension();
+
+            $nameFile = "{$name}.{$extension}";
+            $project->archive = $request->archive->storeAs('projects', $nameFile, 'public');
+
+        }
+
+        $project->save();
+
+        return redirect()->route('edicts.form-attach-project');
     }
 }
