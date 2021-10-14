@@ -14,4 +14,16 @@ class Projects extends Model
     public function edict() {
         return $this->hasOne(Edicts::class, 'id', 'edicts_id');
     }
+
+    public function big_area() {
+        return $this->hasOne(BigAreas::class, 'id', 'big_areas_id');
+    }
+
+    public function area() {
+        return $this->hasOne(Areas::class, 'id', 'areas_id');
+    }
+
+    public function sub_area() {
+        return $this->hasOne(SubAreas::class, 'id', 'sub_areas_id');
+    }
 }

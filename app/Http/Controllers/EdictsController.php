@@ -20,16 +20,17 @@ class EdictsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function search(Request $request){
+    public function search(Request $request)
+    {
         $filters = $request->except('_token');
 
         $search = $request->search;
 
         $edicts = Edicts::where([
             ['title', 'like', "%{$request->search}%"]
-            ])->paginate(1);
+        ])->paginate(1);
 
-        return view('welcome', [ "filters" => $filters, "edicts" => $edicts , "search" => $search]);
+        return view('welcome', ["filters" => $filters, "edicts" => $edicts, "search" => $search]);
     }
 
 
@@ -41,9 +42,9 @@ class EdictsController extends Controller
         //     ['title', 'like', '%'.$search.'%']
         //     ])->paginate(1);
         // }else{
-          $edicts = Edicts::paginate(1);
+        $edicts = Edicts::paginate(1);
         // }
-        return view('welcome',['edicts' => $edicts]);
+        return view('welcome', ['edicts' => $edicts]);
     }
 
     /**
@@ -80,14 +81,13 @@ class EdictsController extends Controller
         $edict->min_titulations_id = $request->min_titulations_id;
         $edict->categories_id = $request->categories_id;
 
-        if($request->file('archive')->isValid() && $request->hasFile('archive')) {
-            
+        if ($request->file('archive')->isValid() && $request->hasFile('archive')) {
+
             $name = uniqid(date('HisYmd'));
             $extension = $request->archive->extension();
 
             $nameFile = "{$name}.{$extension}";
             $edict->archive = $request->archive->storeAs('edicts', $nameFile, 'public');
-
         }
 
         $edict->save();
@@ -175,7 +175,8 @@ class EdictsController extends Controller
         ]);
     }
 
-    public function attachProject($id, Request $request) {
+    public function attachProject($id, Request $request)
+    {
         $project = new Projects;
 
         $project->title = $request->title;
@@ -183,25 +184,25 @@ class EdictsController extends Controller
         $project->content = $request->content;
         $project->abstract = $request->abstract;
         $project->references = $request->references;
-        $project->edict_id = $id;
+        $project->edicts_id = $id;
+        $project->teachers_id = auth()->user()->id;
         $project->institutes_id = $request->institutes;
         $project->specialities_id = $request->specialities;
         $project->big_areas_id = $request->big_areas;
         $project->areas_id = $request->areas;
         $project->sub_areas_id = $request->sub_areas;
 
-        if($request->file('archive')->isValid() && $request->hasFile('archive')) {
-            
+        if ($request->file('archive')->isValid() && $request->hasFile('archive')) {
+
             $name = uniqid(date('HisYmd'));
             $extension = $request->archive->extension();
 
             $nameFile = "{$name}.{$extension}";
             $project->archive = $request->archive->storeAs('projects', $nameFile, 'public');
-
         }
 
         $project->save();
 
-        return redirect()->route('edicts.form-attach-project');
+        return redirect()->route('edicts.form-attach-project', $id);
     }
 }
