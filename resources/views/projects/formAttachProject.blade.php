@@ -14,7 +14,7 @@
       <div class="form-create">
          <h1>Anexe Um Projeto</h1>
 
-         <form action="{{ route('edicts.attach-project', $edict) }}" method="POST" enctype="multipart/form-data">
+         <form action="{{ route('projects.attach-project', $edict) }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <div id="form-area">

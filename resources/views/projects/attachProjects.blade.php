@@ -36,7 +36,7 @@
                         <td class="text-center">
                            <span class="d-none d-md-block">
                               <a 
-                                 href="{{ route('edicts.form-attach-project', $edict) }}" 
+                                 href="{{ route('projects.form-attach-project', $edict) }}" 
                                  class="btn btn-outline-primary btn-sm"
                               >
                                  Anexar Um Projeto
@@ -51,7 +51,7 @@
                               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="acoesListar">
 
                                  <a 
-                                    href="{{ route('edicts.form-attach-project', $edict) }}" 
+                                    href="{{ route('projects.form-attach-project', $edict) }}" 
                                     class=" dropdown-item"
                                  >
                                     Visualizar

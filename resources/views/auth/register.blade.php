@@ -115,28 +115,6 @@
         <img class="img-fluid login-img d-none d-md-table-cell" src="imagem/Data_security_02.jpg" alt="">
     </div>
 
-    <div class="rodape">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-6">
-                    <h5>Contato</h5>
-                    <p>
-                        (XX)XXXX-XXXX <br>
-                        Redenção<br>
-                        CEP 62790-000 - Redençãod/CE<br>
-                    </p>
-                </div>
-                <div class="col-12 col-md-6">
-                    <h5>Redes Sociais</h5>
-                    <ul>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Twiter</a></li>
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">YouTube</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('layouts.footer')
 
 @endsection
