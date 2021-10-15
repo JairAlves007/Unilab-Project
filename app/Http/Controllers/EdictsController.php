@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FormCreateEdictRequest;
 use App\Models\Areas;
 use App\Models\BigAreas;
 use App\Models\Categories;
@@ -12,6 +13,7 @@ use App\Models\Projects;
 use App\Models\Specialities;
 use App\Models\SubAreas;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class EdictsController extends Controller
 {
@@ -68,31 +70,38 @@ class EdictsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FormCreateEdictRequest $request)
     {
-        $edict = new Edicts;
+        // $edict = new Edicts;
 
-        $edict->edict_year = substr($request->submission_start, 0, 4);
-        $edict->title = $request->title;
-        $edict->code = md5(strtotime('now'));
-        $edict->description = $request->description;
-        $edict->submission_start = $request->submission_start;
-        $edict->submission_finish = $request->submission_finish;
-        $edict->min_titulations_id = $request->min_titulations_id;
-        $edict->categories_id = $request->categories_id;
+        // $edict->edict_year = substr($request->submission_start, 0, 4);
+        // $edict->title = $request->title;
+        // $edict->code = md5(strtotime('now'));
+        // $edict->description = $request->description;
+        // $edict->submission_start = $request->submission_start;
+        // $edict->submission_finish = $request->submission_finish;
+        // $edict->min_titulations_id = $request->min_titulations_id;
+        // $edict->categories_id = $request->categories_id;
 
-        if ($request->file('archive')->isValid() && $request->hasFile('archive')) {
+        // if ($request->file('archive')->isValid() && $request->hasFile('archive')) {
 
-            $name = uniqid(date('HisYmd'));
-            $extension = $request->archive->extension();
+        //     $name = uniqid(date('HisYmd'));
+        //     $extension = $request->archive->extension();
 
-            $nameFile = "{$name}.{$extension}";
-            $edict->archive = $request->archive->storeAs('edicts', $nameFile, 'public');
-        }
+        //     $nameFile = "{$name}.{$extension}";
+        //     $edict->archive = $request->archive->storeAs('edicts', $nameFile, 'public');
+        // }
 
-        $edict->save();
+        // $edict->save();
 
-        return redirect('/edict/create');
+        // return redirect('/edict/create');
+
+        // $date1 = Carbon::createFromFormat('Y-m-d', $request->submission_start);
+        // $date2 = Carbon::createFromFormat('Y-m-d', $request->submission_finish);
+
+        // $result = $date1->gt($date2);
+        $request->validated();
+        dd("Well");
     }
 
     /**

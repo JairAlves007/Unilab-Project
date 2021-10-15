@@ -20,11 +20,13 @@ class CreateEdictsTable extends Migration
             $table->string('archive');
             $table->string('code');
             $table->text('description');
-            $table->dateTime('submission_start');
-            $table->dateTime('submission_finish');
-            $table->dateTime('rate_start')->nullable();
-            $table->dateTime('rate_finish')->nullable();
-            
+            $table->date('submission_start');
+            $table->date('submission_finish');
+            $table->date('rate_start');
+            $table->date('rate_finish');
+            $table->date('execution_start');
+            $table->date('execution_finish');
+
             $table->timestamps();
 
             $table

@@ -13,7 +13,11 @@ class Edicts extends Model
 
     protected $dates = [
         'submission_start',
-        'submission_finish'
+        'submission_finish',
+        'rate_start',
+        'rate_finish',
+        'execution_start',
+        'execution_finish'
     ];
 
     public function projects() {
