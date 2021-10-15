@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\SubmissionStartRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class FormCreateEdictRequest extends FormRequest
@@ -30,12 +31,12 @@ class FormCreateEdictRequest extends FormRequest
             'archive' => ['required', 'file', 'mimes:pdf, docx, doc, odt'],
             'min_titulations_id' => ['required'],
             'categories_id' => ['required'],
-            'submission_start' => ['required'],
-            'submission_finish' => ['required'],
-            'rate_start' => ['required'],
-            'rate_finish' => ['required'],
-            'execution_start' => ['required'],
-            'execution_finish' => ['required']
+            'submission_start' => ['required', 'date', 'date_format:Y-m-d', 'after:yesterday'],
+            'submission_finish' => ['required', 'date', 'date_format:Y-m-d', 'after:submission_start'],
+            'rate_start' => ['required', 'date', 'date_format:Y-m-d', 'after:submission_finish'],
+            'rate_finish' => ['required', 'date', 'date_format:Y-m-d', 'after:rate_start'],
+            'execution_start' => ['required', 'date', 'date_format:Y-m-d', 'after:rate_finish'],
+            'execution_finish' => ['required', 'date', 'date_format:Y-m-d', 'after:execution_start']
 
         ];
     }
@@ -56,7 +57,12 @@ class FormCreateEdictRequest extends FormRequest
             'rate_finish.required' => 'Por Favor, Informe Uma Data Do Encerramento de Avaliação',
             'execution_start.required' => 'Por Favor, Informe Uma Data Do Início de Execução',
             'execution_finish.required' => 'Por Favor, Informe Uma Data Do Encerramento de Execução',
-
+            'submission_start.after' => 'A Data De Início Do Período De Submissão Tem Que Ser Maior Que Hoje',
+            'submission_end.after' => 'A Data De Término Do Período De Submissão Tem Que Ser Maior Que A De Início',
+            'rate_start.after' => 'A Data De Início Do Período De Avaliação Tem Que Ser Maior Que A De Término De Submissão',
+            'rate_end.after' => 'A Data De Término Do Período De Avaliação Tem Que Ser Maior Que A De Início',
+            'execution_start.after' => 'A Data De Início Do Período De Execução Tem Que Ser Maior Que A De Término De Avaliação',
+            'execution_end.after' => 'A Data De Término Do Período De Execução Tem Que Ser Maior Que A De Início',
         ];
     }
 
