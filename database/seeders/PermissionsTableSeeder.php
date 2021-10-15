@@ -27,7 +27,8 @@ class PermissionsTableSeeder extends Seeder
             'rate-project',
             'join-project',
             'create-relatory',
-            'rate-relatory'
+            'rate-relatory',
+            'attach-project'
         ];
 
         foreach($permissions as $permission) {

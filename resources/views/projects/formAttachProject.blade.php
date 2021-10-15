@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'pirulito.debug')
+@section('title', 'Anexe um Projeto')
 
 @section('content')
    @include('layouts.navbar')
@@ -8,8 +8,6 @@
    <div class="d-flex">
 
       @include('layouts.sidebar')
-
-      {{-- Tabela... --}}
 
       <div class="form-create">
          <h1>Anexe Um Projeto</h1>
@@ -137,7 +135,9 @@
                            <option value="">Selecione</option>
 
                            @foreach ($big_areas as $area)
-                              <option value="{{ $area->id }}">{{ $area->name }}</option>
+                              <option value="{{ $area->id }}">
+                                 {{ $area->name }}
+                              </option>
                            @endforeach
 
                         </select>
