@@ -35,16 +35,12 @@ class ProjectsController extends Controller
         $institutes = Institutes::all();
         $specialities = Specialities::all();
         $big_areas = BigAreas::all();
-        $sub_areas = SubAreas::all();
-        $areas = Areas::all();
 
         return view('projects.formAttachProject', [
             'edict' => $edict,
             'institutes' => $institutes,
             'specialities' => $specialities,
             'big_areas' => $big_areas,
-            'sub_areas' => $sub_areas,
-            'areas' => $areas
         ]);
     }
 
@@ -128,5 +124,17 @@ class ProjectsController extends Controller
     public function destroy(Projects $projects)
     {
         //
+    }
+
+    public function findAreas(Request $request)
+    {
+        $areas = Areas::all();
+        return $areas->where('big_areas_id', $request['big_areas_id']);
+    }
+
+    public function findSubAreas(Request $request)
+    {
+        $areas = SubAreas::all();
+        return $areas->where('areas_id', $request['sub_areas_id']);
     }
 }

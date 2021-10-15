@@ -1,9 +1,5 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\EdictsController;
-use App\Http\Controllers\MinTitulationsController;
-use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ProjectsController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +17,10 @@ Route::group(['middleware' => ['role:super-admin|orientador']], function () {
    Route::post('/project/{id}/attach', [ProjectsController::class, 'store'])
       ->middleware('auth')
       ->name('projects.attach-project');
-});
 
-// Route::any('/search', [EdictsController::class, 'search']);
+   Route::post('/project/findAreas', [ProjectsController::class, 'findAreas'])
+      ->middleware('auth');
+
+   Route::post('/project/findSubAreas', [ProjectsController::class, 'findSubAreas'])
+      ->middleware('auth');
+});

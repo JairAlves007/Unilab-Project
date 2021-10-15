@@ -27,40 +27,36 @@
 
                   <tbody>
                      @foreach ($edicts as $edict)
-                     <tr>
-                        <th>{{ $edict->id }}</th>
-                        <td>{{ $edict->title }}</td>
-                        <td class="d-none d-sm-table-cell">{{ $edict->code }}</td>
-                        <td class="d-none d-lg-table-cell">{{ $edict->edict_year }}</td>
-                        <td class="d-none d-lg-table-cell">{{ count($edict->projects) }}</td>
-                        <td class="text-center">
-                           <span class="d-none d-md-block">
-                              <a 
-                                 href="{{ route('projects.form-attach-project', $edict) }}" 
-                                 class="btn btn-outline-primary btn-sm"
-                              >
-                                 Anexar Um Projeto
-                              </a>
-
-                           </span>
-                           <div class="dropdown d-block d-md-none">
-                              <button class="btn btn-primary dropdown-toggle btn-sm" type="button" id="acoesListar"
-                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                 Ações
-                              </button>
-                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="acoesListar">
-
-                                 <a 
-                                    href="{{ route('projects.form-attach-project', $edict) }}" 
-                                    class=" dropdown-item"
-                                 >
-                                    Visualizar
+                     
+                        <tr>
+                           <th>{{ $edict->id }}</th>
+                           <td>{{ $edict->title }}</td>
+                           <td class="d-none d-sm-table-cell">{{ $edict->code }}</td>
+                           <td class="d-none d-lg-table-cell">{{ $edict->edict_year }}</td>
+                           <td class="d-none d-lg-table-cell">{{ count($edict->projects) }}</td>
+                           <td class="text-center">
+                              <span class="d-none d-md-block">
+                                 <a href="{{ route('projects.form-attach-project', $edict) }}"
+                                    class="btn btn-outline-primary btn-sm">
+                                    Anexar Um Projeto
                                  </a>
 
+                              </span>
+                              <div class="dropdown d-block d-md-none">
+                                 <button class="btn btn-primary dropdown-toggle btn-sm" type="button" id="acoesListar"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Ações
+                                 </button>
+                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="acoesListar">
+
+                                    <a href="{{ route('projects.form-attach-project', $edict) }}" class=" dropdown-item">
+                                       Visualizar
+                                    </a>
+
+                                 </div>
                               </div>
-                           </div>
-                        </td>
-                     </tr>
+                           </td>
+                        </tr>
 
                      @endforeach
                   </tbody>
