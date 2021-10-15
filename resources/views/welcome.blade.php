@@ -40,7 +40,7 @@
                         {{ date('d-m-Y', strtotime($edict->submission_start)) }}</h6>
                     <p class="card-text">{{ $edict->description }}</p>
 
-                    <a href="/edict/show/{{ $edict->id }}" class="btn btn-primary">Ver Mais</a>
+                    <a href="{{ route('edicts.showHome', $edict) }}" class="btn btn-primary">Ver Mais</a>
                 </div>
             </div>
         @endforeach

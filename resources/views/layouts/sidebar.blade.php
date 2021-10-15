@@ -11,7 +11,7 @@
       @if ($user->hasRole(['super-admin', 'gestor']))
          <li class="menu-click">
 
-            <a href="#submenu1" data-toggle="collapse">
+            <a href="#submenu1" data-toggle="collapse" class="collapsed">
                <i class="fas fa-user"></i>
                
                Usuário
@@ -65,7 +65,7 @@
       @if ($user->hasRole(['super-admin', 'orientador']))
 
          <li class="menu-click">
-            <a href="#submenu2" data-toggle="collapse">
+            <a href="#submenu2" data-toggle="collapse" class="collapsed">
                <i class="fas fa-user"></i>
                Editais
                <div class="icon-rotate icon-space">
@@ -76,7 +76,7 @@
             <ul id="submenu2" class="list-unstyled collapse">
                @can('edit-edict')
                   <li>
-                     <a href="/dashboard">
+                     <a href="{{ route('edicts.edit') }}">
                         <i class="fas fa-users"></i>
                         Atualizar Edital
                      </a>
@@ -85,7 +85,7 @@
 
                @can('delete-edict')
                   <li>
-                     <a href="/dashboard">
+                     <a href="{{ route('edicts.delete') }}">
                         <i class="fas fa-users"></i>
                         Deletar Edital
                      </a>
@@ -94,16 +94,16 @@
 
                @can('view-edict')
                   <li>
-                     <a href="/dashboard">
+                     <a href="{{ route('edicts.showAll') }}">
                         <i class="fas fa-users"></i>
-                        Ver Edital
+                        Ver Editais
                      </a>
                   </li>
                @endcan
 
                @can('create-edict')
                   <li>
-                     <a href="/edict/create">
+                     <a href="{{ route('edicts.create') }}">
                         <i class="fas fa-users"></i>
                         Inserir Edital
                      </a>
@@ -124,7 +124,7 @@
          </li>
 
          <li class="menu-click">
-            <a href="#submenu3" data-toggle="collapse">
+            <a href="#submenu3" data-toggle="collapse" class="collapsed">
                <i class="fas fa-user"></i>
                
                Relatórios
@@ -164,7 +164,7 @@
 
       @if ($user->hasRole(['super-admin', 'membro']))
          <li class="menu-click">
-            <a href="#submenu7" data-toggle="collapse">
+            <a href="#submenu7" data-toggle="collapse" class="collapsed">
                <i class="fas fa-user"></i> 
                
                Projetos

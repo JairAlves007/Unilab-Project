@@ -240,6 +240,10 @@ button a {
     transform: rotate(-180deg);
 }
 
+.back-spin{
+    transform: rotate(0deg);
+}
+
 .icon-space {
     position: absolute;
     right: 1rem;

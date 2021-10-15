@@ -30,7 +30,7 @@ class EdictsController extends Controller
 
         $edicts = Edicts::where([
             ['title', 'like', "%{$request->search}%"]
-        ])->paginate(1);
+        ])->paginate(6);
 
         return view('welcome', ["filters" => $filters, "edicts" => $edicts, "search" => $search]);
     }
@@ -38,14 +38,7 @@ class EdictsController extends Controller
 
     public function index()
     {
-        // $search = request('search');
-        // if($search){
-        //   $edicts = Edicts::where([
-        //     ['title', 'like', '%'.$search.'%']
-        //     ])->paginate(1);
-        // }else{
-        $edicts = Edicts::paginate(1);
-        // }
+        $edicts = Edicts::paginate(6);
         return view('welcome', ['edicts' => $edicts]);
     }
 
@@ -90,7 +83,7 @@ class EdictsController extends Controller
 
             $nameFile = "{$name}.{$extension}";
             $edict->archive = $request->archive->storeAs('edicts', $nameFile, 'public');
-            
+
         }
 
         $edict->save();
@@ -119,13 +112,24 @@ class EdictsController extends Controller
         ]);
     }
 
+    public function showAll()
+    {
+
+        $edicts = Edicts::all();
+
+        return view("edicts.showEdicts", [
+            'edicts' => $edicts
+        ]);
+
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Edicts  $edicts
      * @return \Illuminate\Http\Response
      */
-    public function edit(Edicts $edicts)
+    public function edit()
     {
         //
     }
@@ -153,12 +157,8 @@ class EdictsController extends Controller
         //
     }
 
-    public function showAttachProject()
-    {
-        $edicts = Edicts::all();
-
-        return view('projects.attachProjects', [
-            'edicts' => $edicts
-        ]);
-    }
+    // public function showAttachProject()
+    // {
+    //     //
+    // }
 }

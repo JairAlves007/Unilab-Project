@@ -17,13 +17,13 @@
         @if($errors->any())
 
         @foreach ($errors->all() as $error)
-        <div class="alert alert-danger" role="alert">
-            {{ $error }}
+            <div class="alert alert-danger" role="alert">
+                {{ $error }}
 
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
         @endforeach
 
         @endif
@@ -54,34 +54,34 @@
                 <div class="form-content">
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="date_initial">Início da Submissão</label>
-                            <input type="date" name="submission_start" id="date_initial" class="form-control">
+                            <label for="submission_start">Início da Submissão</label>
+                            <input type="date" name="submission_start" id="submission_start" class="form-control">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="date_finish">Término da Submissão</label>
-                            <input type="date" name="submission_finish" id="date_finish" class="form-control">
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="date_initial">Início da Avaliação</label>
-                            <input type="date" name="rate_start" id="date_initial" class="form-control">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="date_finish">Término da Avaliação</label>
-                            <input type="date" name="rate_finish" id="date_finish" class="form-control">
+                            <label for="submission_finish">Término da Submissão</label>
+                            <input type="date" name="submission_finish" id="submission_finish" class="form-control">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="date_initial">Início da Execução</label>
-                            <input type="date" name="execution_start" id="date_initial" class="form-control">
+                            <label for="rate_start">Início da Avaliação</label>
+                            <input type="date" name="rate_start" id="rate_start" class="form-control">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="date_finish">Término da Execução</label>
-                            <input type="date" name="execution_finish" id="date_finish" class="form-control">
+                            <label for="rate_finish">Término da Avaliação</label>
+                            <input type="date" name="rate_finish" id="rate_finish" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="execution_start">Início da Execução</label>
+                            <input type="date" name="execution_start" id="execution_start" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="execution_finish">Término da Execução</label>
+                            <input type="date" name="execution_finish" id="execution_finish" class="form-control">
                         </div>
                     </div>
 
@@ -112,6 +112,7 @@
             <button type="submit" class="btn btn-success">Criar Edital</button>
         </form>
     </div>
+    
 </div>
 
 @endsection

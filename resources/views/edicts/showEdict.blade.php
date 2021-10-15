@@ -4,76 +4,103 @@
 
 @section('content')
 
-   @include('layouts.navbarWelcome')
+   @if (Request::route()->getName() === 'edicts.showHome')
 
-   <div id="edicts-container">
-      <div class="edicts-content">
-         <h2>{{ $edict->title }}</h2>
-         <p>{{ $edict->titulations->titulation }}</p>
-         <p>{{ $edict->categories->name }}</p>
-         <p> {{ date('d-m-Y', strtotime($edict->submission_start)) }} até
-            {{ date('d-m-Y', strtotime($edict->submission_finish)) }}</p>
-         <a href="/events/join/" class="btn btn-primary" id="event-submit" onclick="event.preventDefault();
-                         this.closest('form').submit();">
-            Baixar PDF
-         </a>
+      @include('layouts.navbarWelcome')
+
+   @elseif(Request::route()->getName() === 'edicts.showDashboard')
+
+      @include('layouts.navbar')
+
+   @endif
+
+   @if (Request::route()->getName() === 'edicts.showDashboard')
+      <div class="d-flex">
+         
+         @include('layouts.sidebar')
+
+         <div class="content p-1">
+            
+   @endif
+
+      <div id="edicts-container">
+         <div class="edicts-content">
+            <h2>{{ $edict->title }}</h2>
+            <p>{{ $edict->titulations->titulation }}</p>
+            <p>{{ $edict->categories->name }}</p>
+            <p> {{ date('d-m-Y', strtotime($edict->submission_start)) }} até
+               {{ date('d-m-Y', strtotime($edict->submission_finish)) }}</p>
+            <a href="/events/join/" class="btn btn-primary" id="event-submit" onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+               Baixar PDF
+            </a>
+         </div>
+   
+         <div class="edicts-description">
+            <h4>Descrição</h4>
+            <p>{{ $edict->description }}</p>
+            <p>Autor: Não está relacionado</p>
+         </div>
       </div>
 
-      <div class="edicts-description">
-         <h4>Descrição</h4>
-         <p>{{ $edict->description }}</p>
-         <p>Autor: Não está relacionado</p>
-      </div>
-   </div>
-   {{-- <iframe src="{{ url("/storage/{$edict->archive}") }}" frameborder="0"></iframe> --}}
-
-   <h1 class="title-bold">
-      Projetos Relacionados
-   </h1>
-
-   <div id="documents-container">
-      <div class="table-responsive">
-         <table class="table table-striped table-hover table-bordered">
-            <thead>
-               <tr>
-                  <th scope="col">ID</th>
-                  <th scope="col">Título</th>
-                  <th scope="col">Grande Área</th>
-                  <th scope="col">Área</th>
-                  <th scope="col">Sub-Área</th>
-                  <th scope="col">Ações</th>
-               </tr>
-            </thead>
-
-            <tbody>
-               @forelse($projects_attachs as $project)
+      {{-- <iframe src="{{ url("/storage/{$edict->archive}") }}" frameborder="0"></iframe> --}}
+   
+      <h1 class="title-bold">
+         Projetos Relacionados
+      </h1>
+   
+      <div id="documents-container">
+         <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered">
+               <thead>
                   <tr>
-                     <th scope="row">{{ $project->id }}</th>
-                     <td>{{ $project->title }}</td>
-                     <td>{{ $project->big_area->name }}</td>
-                     <td>{{ $project->area->name }}</td>
-                     <td>{{ $project->sub_area->name }}</td>
-                     <td>Aleatorio</td>
+                     <th scope="col">ID</th>
+                     <th scope="col">Título</th>
+                     <th scope="col">Grande Área</th>
+                     <th scope="col">Área</th>
+                     <th scope="col">Sub-Área</th>
+                     <th scope="col">Ações</th>
                   </tr>
-
-               @empty
-                  <tr>
-                     <th scope="row"></th>
-                     <td>Nenhum projeto relacionado</td>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                  </tr>
-
-               @endforelse
-
-            </tbody>
-         </table>
+               </thead>
+   
+               <tbody>
+                  @forelse($projects_attachs as $project)
+                     <tr>
+                        <th scope="row">{{ $project->id }}</th>
+                        <td>{{ $project->title }}</td>
+                        <td>{{ $project->big_area->name }}</td>
+                        <td>{{ $project->area->name }}</td>
+                        <td>{{ $project->sub_area->name }}</td>
+                        <td>Aleatorio</td>
+                     </tr>
+   
+                  @empty
+                     <tr>
+                        <th scope="row"></th>
+                        <td>Nenhum projeto relacionado</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                     </tr>
+   
+                  @endforelse
+   
+               </tbody>
+            </table>
+         </div>
+   
+      </div>
+      
+   @if (Request::route()->getName() === 'edicts.showDashboard')
+      
+         </div>
       </div>
 
-   </div>
+   @endif
 
-   @include('layouts.footer')
+   @if (Request::route()->getName() === 'edicts.showHome')
+      @include('layouts.footer')
+   @endif
 
 @endsection
