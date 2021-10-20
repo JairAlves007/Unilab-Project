@@ -3,7 +3,7 @@
         <span class="navbar-toggler-icon"></span>
     </a>
 
-    <a class="navbar-brand" href="#">UNILAB</a>
+    <a class="navbar-brand" href="/">UNILAB</a>
 
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
@@ -16,12 +16,12 @@
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
 
                     <a class="dropdown-item" href="/">
-                        <i class="fas fa-home"></i> 
+                        <i class="fas fa-home"></i>
                         Voltar Para Home
                     </a>
 
                     <a class="dropdown-item" href="/profile/edit/{{ $user->id }}">
-                        <i class="fas fa-user"></i> 
+                        <i class="fas fa-user"></i>
                         Editar Perfil
                     </a>
 
