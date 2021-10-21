@@ -35,7 +35,7 @@
                         </div>
                     @else
                         <a class="nav-link d-flex justify-content-center align-items-center" href="/dashboard">
-                            <i class="fas fa-tachometer-alt mr-2"></i>
+                            <i class="fa fa-folder-open mr-2" aria-hidden="true"></i>
                             Dashboard
                         </a>
                     @endif

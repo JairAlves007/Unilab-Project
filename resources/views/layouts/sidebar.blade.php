@@ -3,7 +3,7 @@
 
       <li>
          <a href="/dashboard">
-            <i class="fas fa-tachometer-alt"></i>
+            <i class="fa fa-folder-open" aria-hidden="true"></i>
             Dashboard
          </a>
       </li>
@@ -13,20 +13,39 @@
 
             <a href="#submenu1" data-toggle="collapse" class="collapsed">
                <i class="fas fa-user"></i>
-               
+
                Usuário
 
                <div class="icon-rotate icon-space">
                   <i class="fas fa-angle-down"></i>
                </div>
             </a>
-            
+
             <ul id="submenu1" class="list-unstyled collapse">
+
                @can('view-user')
                   <li>
                      <a href="{{ route('users.view') }}">
                         <i class="fas fa-users"></i>
-                        Visualizar
+                        Visualizar Usuários
+                     </a>
+                  </li>
+               @endcan
+
+               @can('create-user')
+                   <li>
+                      <a href="{{ route('users.create') }}">
+                         <i class="fa fa-user-plus" aria-hidden="true"></i>
+                         Inserir Usuários
+                      </a>
+                   </li>
+                @endcan
+
+               @can('edit-user')
+                  <li>
+                     <a href="{{ route('users.edit') }}">
+                        <i class="fas fa-user-edit"></i>
+                        Editar Usuários
                      </a>
                   </li>
                @endcan
@@ -34,29 +53,13 @@
                @can('delete-user')
                   <li>
                      <a href="{{ route('users.delete') }}">
-                        <i class="fas fa-users"></i>
-                        Deletar
+                        <i class="fas fa-user-alt-slash"></i>
+                        Deletar Usuários
                      </a>
                   </li>
                @endcan
 
-               @can('edit-user')
-                  <li>
-                     <a href="{{ route('users.edit') }}">
-                        <i class="fas fa-users"></i>
-                        Editar
-                     </a>
-                  </li>
-               @endcan
 
-               @can('create-user')
-                  <li>
-                     <a href="{{ route('users.create') }}">
-                        <i class="fas fa-users"></i>
-                        Inserir
-                     </a>
-                  </li>
-               @endcan
             </ul>
 
          </li>
@@ -66,7 +69,7 @@
 
          <li class="menu-click">
             <a href="#submenu2" data-toggle="collapse" class="collapsed">
-               <i class="fas fa-user"></i>
+                <i class="fas fa-file-invoice"></i>
                Editais
                <div class="icon-rotate icon-space">
                   <i class="fas fa-angle-down"></i>
@@ -77,7 +80,7 @@
                @can('edit-edict')
                   <li>
                      <a href="{{ route('edicts.edit') }}">
-                        <i class="fas fa-users"></i>
+                        <i class="fas fa-file-signature"></i>
                         Atualizar Edital
                      </a>
                   </li>
@@ -86,7 +89,7 @@
                @can('delete-edict')
                   <li>
                      <a href="{{ route('edicts.delete') }}">
-                        <i class="fas fa-users"></i>
+                        <i class="fas fa-file-excel"></i>
                         Deletar Edital
                      </a>
                   </li>
@@ -95,7 +98,7 @@
                @can('view-edict')
                   <li>
                      <a href="{{ route('edicts.showAll') }}">
-                        <i class="fas fa-users"></i>
+                        <i class="fas fa-copy"></i>
                         Ver Editais
                      </a>
                   </li>
@@ -104,7 +107,7 @@
                @can('create-edict')
                   <li>
                      <a href="{{ route('edicts.create') }}">
-                        <i class="fas fa-users"></i>
+                        <i class="fas fa-file-medical"></i>
                         Inserir Edital
                      </a>
                   </li>
@@ -113,7 +116,7 @@
                @can('attach-project')
                   <li>
                      <a href="{{ route('edicts.projects') }}">
-                        <i class="fas fa-users"></i>
+                        <i class="fas fa-file-import"></i>
                         Anexar Projetos
                      </a>
                   </li>
@@ -126,7 +129,7 @@
          <li class="menu-click">
             <a href="#submenu3" data-toggle="collapse" class="collapsed">
                <i class="fas fa-user"></i>
-               
+
                Relatórios
 
                <div class="icon-rotate icon-space">
@@ -165,8 +168,8 @@
       @if ($user->hasRole(['super-admin', 'membro']))
          <li class="menu-click">
             <a href="#submenu7" data-toggle="collapse" class="collapsed">
-               <i class="fas fa-user"></i> 
-               
+               <i class="fas fa-user"></i>
+
                Projetos
 
                <div class="icon-rotate icon-space">
