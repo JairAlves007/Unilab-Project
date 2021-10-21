@@ -24,7 +24,7 @@
             <ul id="submenu1" class="list-unstyled collapse">
                @can('view-user')
                   <li>
-                     <a href="/users/view">
+                     <a href="{{ route('users.view') }}">
                         <i class="fas fa-users"></i>
                         Visualizar
                      </a>
@@ -33,7 +33,7 @@
 
                @can('delete-user')
                   <li>
-                     <a href="/users/delete">
+                     <a href="{{ route('users.delete') }}">
                         <i class="fas fa-users"></i>
                         Deletar
                      </a>
@@ -42,7 +42,7 @@
 
                @can('edit-user')
                   <li>
-                     <a href="/users/edit">
+                     <a href="{{ route('users.edit') }}">
                         <i class="fas fa-users"></i>
                         Editar
                      </a>
@@ -51,7 +51,7 @@
 
                @can('create-user')
                   <li>
-                     <a href="/user/register">
+                     <a href="{{ route('users.create') }}">
                         <i class="fas fa-users"></i>
                         Inserir
                      </a>
