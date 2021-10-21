@@ -14,6 +14,20 @@ class Edicts extends Model
 
     protected $table = "edicts";
 
+    protected $fillable = [
+        'title',
+        'archive',
+        'description',
+        'min_titulations_id',
+        'categories_id',
+        'submission_start',
+        'submission_finish',
+        'rate_start',
+        'rate_finish',
+        'execution_start',
+        'execution_finish'
+    ];
+
     protected $dates = [
         'submission_start',
         'submission_finish',

@@ -10,36 +10,45 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['role:super-admin|orientador']], function () {
 
-   Route::get('/edict/create', [EdictsController::class, 'create'])
-      ->middleware('auth')
-      ->name('edicts.create');
+    Route::get('/edict/create', [EdictsController::class, 'create'])
+        ->middleware('auth')
+        ->name('edicts.create');
 
-   Route::post('/edict/store', [EdictsController::class, 'store'])
-      ->middleware('auth');
+    Route::post('/edict/store', [EdictsController::class, 'store'])
+        ->middleware('auth');
 
-   Route::get('/edict/attachProjects', [EdictsController::class, 'showAll'])
-      ->middleware('auth')
-      ->name('edicts.projects');
+    Route::get('/edict/attachProjects', [EdictsController::class, 'showAll'])
+        ->middleware('auth')
+        ->name('edicts.projects');
 
-   Route::get('/edicts/show', [EdictsController::class, 'showAll'])
-      ->middleware('auth')
-      ->name('edicts.showAll');
+    Route::get('/edicts/show', [EdictsController::class, 'showAll'])
+        ->middleware('auth')
+        ->name('edicts.showAll');
 
-   Route::get('/edicts/edit', [EdictsController::class, 'showAll'])
-      ->middleware('auth')
-      ->name('edicts.edit');
+    Route::get('/edicts/edit', [EdictsController::class, 'showAll'])
+        ->middleware('auth')
+        ->name('edicts.edit');
 
-   Route::get('/edicts/delete', [EdictsController::class, 'showAll'])
-      ->middleware('auth')
-      ->name('edicts.delete');
+    Route::get('/edicts/edit/{id}', [EdictsController::class, 'edit'])
+        ->middleware('auth')
+        ->name('edicts.formUpdate');
 
-   Route::get('/edict/{id}/show/', [EdictsController::class, 'show'])
-      ->middleware('auth')
-      ->name('edicts.showDashboard');
+    Route::put('/edicts/update/{id}', [EdictsController::class, 'update'])
+        ->middleware('auth')
+        ->name('edicts.update');
+
+
+    Route::get('/edicts/delete', [EdictsController::class, 'showAll'])
+        ->middleware('auth')
+        ->name('edicts.delete');
+
+    Route::get('/edict/{id}/show/', [EdictsController::class, 'show'])
+        ->middleware('auth')
+        ->name('edicts.showDashboard');
 });
 
 Route::get('/edict/show/{id}', [EdictsController::class, 'show'])
-   ->name('edicts.showHome');
+    ->name('edicts.showHome');
 
 Route::any('/search', [EdictsController::class, 'search']);
 

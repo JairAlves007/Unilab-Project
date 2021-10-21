@@ -133,9 +133,17 @@ class EdictsController extends Controller
      * @param  \App\Models\Edicts  $edicts
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit($id)
     {
-        //
+        $edict = Edicts::findOrFail($id);
+        $min_titulations = MinTitulations::all();
+        $categories = Categories::all();
+
+        return view("edicts.updateEdict", [
+            "edict" => $edict,
+            "min_titulations" => $min_titulations,
+            "categories" => $categories
+        ]);
     }
 
     /**
@@ -145,9 +153,25 @@ class EdictsController extends Controller
      * @param  \App\Models\Edicts  $edicts
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Edicts $edicts)
+    public function update(FormCreateEdictRequest $request, $id)
     {
-        //
+        $request->validated();
+
+        $edict = Edicts::findOrFail($id);
+
+        $data = $request->except(['_token', '_method']);
+
+        if ($request->hasFile('archive')) {
+            $name = uniqid(date('HisYmd'));
+            $extension = $request->archive->extension();
+
+            $nameFile = "{$name}.{$extension}";
+            $data['archive'] = $request->archive->storeAs('edicts', $nameFile, 'public');
+
+        }
+
+        $edict->update($data);
+        return redirect()->route("edicts.edit");
     }
 
     /**

@@ -24,11 +24,10 @@ class FormCreateEdictRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-
+        $rules = [
             'title' => ['required'],
             'description' => ['required'],
-            'archive' => ['required', 'file', 'mimes:pdf, docx, doc, odt'],
+            'archive' => ['file', 'mimes:pdf, docx, doc, odt'],
             'min_titulations_id' => ['required'],
             'categories_id' => ['required'],
             'submission_start' => ['required', 'date', 'date_format:Y-m-d', 'after:yesterday'],
@@ -37,13 +36,17 @@ class FormCreateEdictRequest extends FormRequest
             'rate_finish' => ['required', 'date', 'date_format:Y-m-d', 'after:rate_start'],
             'execution_start' => ['required', 'date', 'date_format:Y-m-d', 'after:rate_finish'],
             'execution_finish' => ['required', 'date', 'date_format:Y-m-d', 'after:execution_start']
-
         ];
+
+        if($this->isMethod('post')) {
+            $rules['archive'] = ['required', 'file', 'mimes:pdf, docx, doc, odt'];
+        }
+
+        return $rules;
     }
 
     public function messages() {
         return [
-
             'title.required' => 'Por Favor, Digite O Título Do Edital',
             'description.required' => 'Por Favor, Digite Uma Descrição Para O Edital',
             'archive.required' => 'Por Favor, Anexe Um Arquivo',

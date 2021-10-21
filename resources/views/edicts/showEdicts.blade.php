@@ -52,7 +52,7 @@
                                     @break
 
                                     @case('edicts.edit')
-                                       <a href="{{ route('edicts.edit', $edict) }}"
+                                       <a href="{{ route('edicts.formUpdate', $edict) }}"
                                        class="btn btn-outline-warning btn-sm">
                                           Editar
                                        </a>
