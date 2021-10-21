@@ -9,35 +9,38 @@ use App\Http\Requests\FormProfileValidationRequest;
 
 class ProfileController extends Controller
 {
-    public function show($id) {
+    public function show($id)
+    {
 
-        if($id == auth()->user()->id) {
+        if ($id == auth()->user()->id) {
             $user_checking = User::findOrFail($id);
 
             $user_roles = User::find($id)->roles;
 
-            return view('showUser', [
+            return view('users.showUser', [
                 'user_checking' => $user_checking,
                 'user_roles' => $user_roles
             ]);
         } else {
-            return redirect('/dashboard'); // futuramente uma página de erro
+            return redirect()->route('dashboard'); // futuramente uma página de erro
         }
-
     }
 
-    public function edit($id) {
+    public function edit($id)
+    {
 
-        if($id == auth()->user()->id) {
+        if ($id == auth()->user()->id) {
             $user_checking = User::findOrFail($id);
 
-            return view('edit', ['user_checking' => $user_checking]);
-        }  else {
-            return redirect('/dashboard');
+            return view('users.userEdit', ['user_checking' => $user_checking]);
+            
+        } else {
+            return redirect()->route('dashboard');
         }
     }
 
-    public function update(FormProfileValidationRequest $request){
+    public function update(FormProfileValidationRequest $request)
+    {
 
         $request->validated();
 
@@ -47,7 +50,6 @@ class ProfileController extends Controller
 
         User::findOrFail($request->id)->update($data);
 
-        return redirect('/dashboard');
-
+        return redirect()->route('users.view');
     }
 }

@@ -15,7 +15,7 @@
          <div class="list-group-item">
             <div class="d-flex">
                <div class="mr-auto p-2">
-                  <h2 class="display-4 titulo">Usuário{{ $user_checking->name }}</h2>
+                  <h2 class="display-4 titulo">Usuário {{ $user_checking->name }}</h2>
                </div>
 
                @role('gestor')
@@ -24,9 +24,9 @@
                         <a href="/users/view" class="btn btn-outline-info btn-sm">Ver Usuários</a>
 
                         @if($user_checking->id !== $user->id)
-                           <a href="/users/edit/{{ $user_checking->id }}" class="btn btn-outline-warning btn-sm">Editar</a>
+                           <a href="{{ route('user.editAnUser', $user_checking) }}" class="btn btn-outline-warning btn-sm">Editar</a>
                         @else
-                           <a href="/profile/edit/{{ $user_checking->id }}" class="btn btn-outline-warning btn-sm">Editar</a>
+                           <a href="{{ route('profile.edit', $user) }}" class="btn btn-outline-warning btn-sm">Editar</a>
                         @endif
 
                         @if($user_checking->id !== $user->id)
@@ -44,9 +44,9 @@
                            <a class="dropdown-item" href="/users/view">Ver Usuários</a>
 
                            @if($user_checking->id !== $user->id)
-                              <a class="dropdown-item" href="/users/edit/{{ $user_checking->id }}">Editar</a>
+                              <a class="dropdown-item" href="{{ route('user.editAnUser', $user_checking) }}">Editar</a>
                            @else
-                              <a class="dropdown-item" href="/profile/edit/{{ $user_checking->id }}">Editar</a>
+                              <a class="dropdown-item" href="{{ route('profile.edit', $user) }}">Editar</a>
                            @endif
 
                            @if($user_checking->id !== $user->id)
@@ -92,7 +92,7 @@
    </div>
 
    @role('gestor')
-      <form id="form-apagar" action="/user/delete/{{ $user_checking->id }}" method="POST">
+      <form id="form-apagar" action="{{ route('users.destroy', $user_checking) }}" method="POST">
          @csrf
          @method('DELETE')
       </form>
