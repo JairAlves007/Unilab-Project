@@ -52,17 +52,24 @@
                                     @break
 
                                     @case('edicts.edit')
-                                       <a href="{{ route('edicts.edit', $edict) }}" 
+                                       <a href="{{ route('edicts.edit', $edict) }}"
                                        class="btn btn-outline-warning btn-sm">
                                           Editar
                                        </a>
                                     @break
 
                                     @case('edicts.delete')
-                                       <a href="{{ route('edicts.showDashboard', $edict) }}"
-                                          class="btn btn-outline-danger btn-sm">
-                                          Apagar
-                                       </a>
+                                       <form action="{{ route('edicts.destroy', $edict) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <a href="{{ route('edicts.destroy', $edict) }}"
+                                            class="btn btn-outline-danger btn-sm"
+                                            onclick="event.preventDefault();
+                                                    this.closest('form').submit();"
+                                            >
+                                            Apagar
+                                        </a>
+                                    </form>
                                     @break
 
 

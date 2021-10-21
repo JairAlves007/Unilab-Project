@@ -42,3 +42,6 @@ Route::get('/edict/show/{id}', [EdictsController::class, 'show'])
    ->name('edicts.showHome');
 
 Route::any('/search', [EdictsController::class, 'search']);
+
+
+Route::delete("/edicts/destroy/{id}", [EdictsController::class, 'destroy'])->name('edicts.destroy');

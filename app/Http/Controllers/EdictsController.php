@@ -156,9 +156,13 @@ class EdictsController extends Controller
      * @param  \App\Models\Edicts  $edicts
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Edicts $edicts)
+    public function destroy($id)
     {
         //
+        Edicts::findOrFail($id)->delete();
+
+        return redirect()->route('edicts.showAll');
+
     }
 
     // public function showAttachProject()

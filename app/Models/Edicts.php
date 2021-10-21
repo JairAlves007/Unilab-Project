@@ -4,10 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class Edicts extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
     protected $table = "edicts";
 
@@ -17,7 +20,8 @@ class Edicts extends Model
         'rate_start',
         'rate_finish',
         'execution_start',
-        'execution_finish'
+        'execution_finish',
+        'deleted_at'
     ];
 
     public function projects() {
