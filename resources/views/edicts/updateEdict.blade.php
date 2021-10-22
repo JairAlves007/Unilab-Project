@@ -14,19 +14,7 @@
 
             <h1>Edite Seu Edital</h1>
 
-            @if ($errors->any())
-
-                @foreach ($errors->all() as $error)
-                    <div class="alert alert-danger" role="alert">
-                        {{ $error }}
-
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                @endforeach
-
-            @endif
+            @include('errors.cardMessage')
 
             <form action="{{ route('edicts.update', $edict) }}" method="POST" enctype="multipart/form-data">
                 @csrf

@@ -14,7 +14,7 @@
         </div>
     </nav>
 
-    <x-jet-validation-errors class="mb-4" />
+    @include('errors.cardMessage')
 
     <div class="login borda_redonda">
         <div class="form">

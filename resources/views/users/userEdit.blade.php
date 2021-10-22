@@ -5,223 +5,186 @@
 @section('content')
    @include('layouts.navbar')
 
-    <div class="d-flex">
-        {{-- @role('gestor') --}}
-            @include('layouts.sidebar')
-        {{-- @endrole --}}
+   <div class="d-flex">
+      @include('layouts.sidebar')
 
-        <div class="content p-1">
-            <div class="list-group-item">
-                <div class="d-flex">
-                    <div class="mr-auto p-2">
-                        <h2 class="display-4 titulo">Editar Usuário {{ $user_checking->name }}</h2>
-                    </div>
+      <div class="content p-1">
+         <div class="list-group-item">
+            <div class="d-flex">
+               <div class="mr-auto p-2">
+                  <h2 class="display-4 titulo">Editar Usuário {{ $user_checking->name }}</h2>
+               </div>
 
-                    @role('super-admin')
-                        <div class="p-2">
-                            <span class="d-none d-md-block">
-                                <a href="/users/view" class="btn btn-outline-info btn-sm">Ver Usuários</a>
+               @role('super-admin')
+                  <div class="p-2">
+                     <span class="d-none d-md-block">
+                        <a href="/users/view" class="btn btn-outline-info btn-sm">Ver Usuários</a>
 
-                                @if($user_checking->id === $user->id)
-                                    <a href="/profile/show/{{ $user_checking->id }}" class="btn btn-outline-primary btn-sm">Visualizar</a>
-                                @else
-                                    <a href="/user/show/{{ $user_checking->id }}" class="btn btn-outline-primary btn-sm">Visualizar</a>
-                                @endif
+                        @if ($user_checking->id === $user->id)
+                           <a href="/profile/show/{{ $user_checking->id }}"
+                              class="btn btn-outline-primary btn-sm">Visualizar</a>
+                        @else
+                           <a href="/user/show/{{ $user_checking->id }}"
+                              class="btn btn-outline-primary btn-sm">Visualizar</a>
+                        @endif
 
-                                @if($user_checking->id !== $user->id)
-                                    <a href="apagar.html" class="btn btn-outline-danger btn-sm" data-toggle="modal"
-                                    data-target="#apagarRegistro">Apagar</a>
-                                @endif
+                        @if ($user_checking->id !== $user->id)
+                           <a href="apagar.html" class="btn btn-outline-danger btn-sm" data-toggle="modal"
+                              data-target="#apagarRegistro">Apagar</a>
+                        @endif
 
-                            </span>
+                     </span>
 
-                            <div class="dropdown d-block d-md-none">
-                                <button class="btn btn-primary dropdown-toggle btn-sm" type="button" id="acoesListar"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Ações
-                                </button>
+                     <div class="dropdown d-block d-md-none">
+                        <button class="btn btn-primary dropdown-toggle btn-sm" type="button" id="acoesListar"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           Ações
+                        </button>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="acoesListar">
-                                    <a class="dropdown-item" href="/users/view">Ver Usuários</a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="acoesListar">
+                           <a class="dropdown-item" href="/users/view">Ver Usuários</a>
 
-                                    @if($user_checking->id === $user->id)
-                                        <a class="dropdown-item" href="/profile/show/{{ $user_checking->id }}">Visualizar</a>
-                                    @else
-                                        <a class="dropdown-item" href="/user/show/{{ $user_checking->id }}">Visualizar</a>
-                                    @endif
+                           @if ($user_checking->id === $user->id)
+                              <a class="dropdown-item" href="/profile/show/{{ $user_checking->id }}">Visualizar</a>
+                           @else
+                              <a class="dropdown-item" href="/user/show/{{ $user_checking->id }}">Visualizar</a>
+                           @endif
 
-                                    @if($user_checking->id !== $user->id)
-                                        <a class="dropdown-item" href="apagar.html" data-toggle="modal"
-                                            data-target="#apagarRegistro">Apagar</a>
-                                    @endif
+                           @if ($user_checking->id !== $user->id)
+                              <a class="dropdown-item" href="apagar.html" data-toggle="modal"
+                                 data-target="#apagarRegistro">Apagar</a>
+                           @endif
 
-                                </div>
-                            </div>
                         </div>
-                    @endrole
-                </div>
+                     </div>
+                  </div>
+               @endrole
+            </div>
 
-                @if($errors->any())
+            @include('errors.cardMessage')
 
-                    @foreach ($errors->all() as $error)
-                        <div class="alert alert-danger" role="alert">
-                            {{ $error }}
+            <form method="POST" @if ($user_checking->id == $user->id)
+               action="/profile/update/{{ $user_checking->id }}"
+            @else
+               action="/user/update/{{ $user_checking->id }}"
+               @endif
+               >
 
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    @endforeach
+               @csrf
+               @method('PUT')
 
-                @endif
+               <div class="form-row">
+                  <div class="form-group col-md-6">
+                     <x-jet-label for="name" value="{{ __('Nome') }}" />
+                     <x-jet-input id="name" value="{{ $user_checking->name }}" class="form-control" type="text"
+                        name="name" autofocus autocomplete="name" />
+                  </div>
+                  <div class="form-group col-md-6">
+                     <x-jet-label for="email" value="{{ __('Email') }}" />
+                     <x-jet-input id="email" value="{{ $user_checking->email }}" class="form-control" type="email"
+                        name="email" />
+                  </div>
+               </div>
 
-                {{-- @role('gestor')
-                    <hr>
-                    <hr>
-                @endrole --}}
+               <div class="form-row">
+                  <div class="form-group col-md-6">
+                     <x-jet-label for="password" value="{{ __('Senha') }}" />
+                     <x-jet-input id="password" class="form-control" type="password" name="password"
+                        autocomplete="new-password" />
+                  </div>
+                  <div class="form-group col-md-6">
+                     <x-jet-label for="password_confirmation" value="{{ __('Confirmar Senha') }}" />
+                     <x-jet-input id="password_confirmation" class="form-control" type="password"
+                        name="password_confirmation" autocomplete="new-password" />
+                  </div>
+               </div>
 
-                <form
-                    method="POST"
-                    @if ($user_checking->id == $user->id)
-                        action="/profile/update/{{ $user_checking->id }}"
-                    @else
-                        action="/user/update/{{ $user_checking->id }}"
-                    @endif
-                >
+               @if ($user->hasRole('super-admin') && $user_checking->id != $user->id)
 
-                    @csrf
-                    @method('PUT')
+                  <p>
+                     <span class="text-danger">*</span> Campo obrigatório
+                  </p>
 
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <x-jet-label for="name" value="{{ __('Nome') }}" />
-                            <x-jet-input id="name" value="{{ $user_checking->name }}" class="form-control" type="text" name="name"
-                            autofocus autocomplete="name" />
-                        </div>
-                        <div class="form-group col-md-6">
-                            <x-jet-label for="email" value="{{ __('Email') }}" />
-                            <x-jet-input id="email" value="{{ $user_checking->email }}" class="form-control" type="email" name="email"  />
-                        </div>
-                    </div>
+                  <div class="form-row">
 
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <x-jet-label for="password" value="{{ __('Senha') }}" />
-                            <x-jet-input id="password" class="form-control" type="password" name="password"
-                            autocomplete="new-password" />
-                        </div>
-                        <div class="form-group col-md-6">
-                            <x-jet-label for="password_confirmation" value="{{ __('Confirmar Senha') }}" />
-                            <x-jet-input id="password_confirmation" class="form-control" type="password"
-                            name="password_confirmation" autocomplete="new-password" />
-                        </div>
-                    </div>
+                     <div class="form-group col-md-12">
 
-                    @if ($user->hasRole('super-admin') && $user_checking->id != $user->id)
-
-                        <p>
-                            <span class="text-danger">*</span> Campo obrigatório
-                        </p>
-
-                        <div class="form-row">
-
-                            <div class="form-group col-md-12">
-
-                                {{-- <div class="form-check">
+                        {{-- <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="niveis[]" value="gestor" id="checkGestor">
                                     <label class="form-check-label" for="checkGestor">
                                         Gestor
                                     </label>
                                 </div> --}}
 
-                                <div class="form-check">
-                                    <input
-                                        class="form-check-input"
-                                        type="checkbox"
-                                        name="niveis[]"
-                                        value="bolsista"
-                                        id="checkBolsista"
+                        <div class="form-check">
+                           <input class="form-check-input" type="checkbox" name="niveis[]" value="bolsista"
+                              id="checkBolsista" @if ($user_checking->hasRole('bolsista'))
+                           checked
+               @endif
+               >
+               <label class="form-check-label" for="checkBolsista">
+                  Bolsista/Voluntário
+               </label>
+         </div>
 
-                                        @if($user_checking->hasRole('bolsista'))
-                                            checked
-                                        @endif
-                                    >
-                                    <label class="form-check-label" for="checkBolsista">
-                                        Bolsista/Voluntário
-                                    </label>
-                                </div>
+         <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="niveis[]" value="orientador" id="checkOrientador"
+               @if ($user_checking->hasRole('orientador'))
+            checked
+            @endif
+            >
+            <label class="form-check-label" for="checkOrientador">
+               Orientador/Coordenador
+            </label>
+         </div>
 
-                                <div class="form-check">
-                                    <input
-                                        class="form-check-input"
-                                        type="checkbox"
-                                        name="niveis[]"
-                                        value="orientador"
-                                        id="checkOrientador"
+         <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="niveis[]" value="membro" id="checkMembro" @if ($user_checking->hasRole('membro'))
+            checked
+            @endif
+            >
+            <label class="form-check-label" for="checkMembro">
+               Membro da Comissão(CAPP)
+            </label>
+         </div>
 
-                                        @if($user_checking->hasRole('orientador'))
-                                            checked
-                                        @endif
-                                    >
-                                    <label class="form-check-label" for="checkOrientador">
-                                        Orientador/Coordenador
-                                    </label>
-                                </div>
+      </div>
+   </div>
 
-                                <div class="form-check">
-                                    <input
-                                        class="form-check-input"
-                                        type="checkbox"
-                                        name="niveis[]"
-                                        value="membro"
-                                        id="checkMembro"
+   @endif
 
-                                        @if($user_checking->hasRole('membro'))
-                                            checked
-                                        @endif
-                                    >
-                                    <label class="form-check-label" for="checkMembro">
-                                        Membro da Comissão(CAPP)
-                                    </label>
-                                </div>
+   <button type="submit" class="btn btn-primary">Editar</button>
+   </form>
+   </div>
+   </div>
+   </div>
 
-                            </div>
-                        </div>
+   @role('super-admin')
+      <form id="form-apagar" action="/user/delete/{{ $user_checking->id }}" method="POST">
+         @csrf
 
-                    @endif
+         @method('DELETE')
+      </form>
 
-                    <button type="submit" class="btn btn-primary">Editar</button>
-                </form>
+      <div class="modal fade" id="apagarRegistro" tabindex="-1" role="dialog" aria-labelledby="apagarRegistroLabel"
+         aria-hidden="true">
+         <div class="modal-dialog" role="document">
+            <div class="modal-content">
+               <div class="modal-header bg-danger text-white">
+                  <h5 class="modal-title" id="exampleModalLabel">EXCLUIR ITEM</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  Tem certeza de que deseja excluir o item selecionado?
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button>
+                  <button type="submit" form="form-apagar" class="btn btn-danger">Apagar</button>
+               </div>
             </div>
-        </div>
-    </div>
-
-    @role('super-admin')
-        <form id="form-apagar" action="/user/delete/{{ $user_checking->id }}" method="POST">
-            @csrf
-
-            @method('DELETE')
-        </form>
-
-        <div class="modal fade" id="apagarRegistro" tabindex="-1" role="dialog" aria-labelledby="apagarRegistroLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header bg-danger text-white">
-                        <h5 class="modal-title" id="exampleModalLabel">EXCLUIR ITEM</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        Tem certeza de que deseja excluir o item selecionado?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" form="form-apagar" class="btn btn-danger">Apagar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endrole
+         </div>
+      </div>
+   @endrole
 @endsection

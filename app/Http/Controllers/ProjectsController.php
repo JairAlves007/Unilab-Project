@@ -78,7 +78,9 @@ class ProjectsController extends Controller
 
         $project->save();
 
-        return redirect()->route('projects.form-attach-project', $id);
+        return redirect()
+            ->route('projects.form-attach-project', $id)
+            ->with('msg', 'O Projeto Foi Criado Com Sucesso!');
     }
 
     /**

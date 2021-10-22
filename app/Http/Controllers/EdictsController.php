@@ -65,6 +65,8 @@ class EdictsController extends Controller
      */
     public function store(FormCreateEdictRequest $request)
     {
+        $request->validated();
+
         $edict = new Edicts;
 
         $edict->edict_year = substr($request->submission_start, 0, 4);
@@ -92,9 +94,9 @@ class EdictsController extends Controller
 
         $edict->save();
 
-        return redirect('/edict/create');
-
-        $request->validated();
+        return redirect()
+            ->route('edicts.create')
+            ->with('msg', 'Edital Criado Com Sucesso!');
 
     }
 
@@ -171,7 +173,10 @@ class EdictsController extends Controller
         }
 
         $edict->update($data);
-        return redirect()->route("edicts.edit");
+
+        return redirect()
+            ->route("edicts.edit")
+            ->with('msg', 'Edital Atualizado Com Sucesso!');
     }
 
     /**
@@ -182,10 +187,13 @@ class EdictsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $edictTitle = Edicts::findOrFail($id)->title;
+
         Edicts::findOrFail($id)->delete();
 
-        return redirect()->route('edicts.showAll');
+        return redirect()
+            ->route('edicts.showAll')
+            ->with('msg', "O Edital {$edictTitle}");
 
     }
 

@@ -10,6 +10,9 @@
       @include('layouts.sidebar')
 
       <div class="form-create">
+         
+         @include('errors.cardMessage')
+
          <h1>Anexe Um Projeto</h1>
 
          <form action="{{ route('projects.attach-project', $edict) }}" method="POST" enctype="multipart/form-data">

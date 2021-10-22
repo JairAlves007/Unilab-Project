@@ -34,12 +34,15 @@ class UserController extends Controller
 
          ])->syncRoles($data['niveis']);
 
-         return redirect()->route('users.view');
+         return redirect()
+            ->route('users.view')
+            ->with('msg', 'Usuário Criado Com Sucesso!');
       } else {
 
          return redirect()
             ->route('users.create')
             ->withErrors('Esse E-Mail Já Existe! Tente Outro E-Mail Válido');
+
       }
    }
 
@@ -91,13 +94,19 @@ class UserController extends Controller
          ->syncRoles($request['niveis'])
          ->update($data);
 
-      return redirect()->route('dashboard');
+      return redirect()
+         ->route('users.edit')
+         ->with('msg', 'Usuário Foi Atualizado Com Sucesso!');
    }
 
    public function destroy($id)
    {
+      $username = User::findOrFail($id)->name;
+
       User::findOrFail($id)->delete();
 
-      return redirect()->route('users.delete');
+      return redirect()
+         ->route('users.delete')
+         ->with('msg', "O Usuário {$username} Foi Apagado Com Sucesso!");
    }
 }
