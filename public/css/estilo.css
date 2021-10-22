@@ -143,6 +143,7 @@ button a {
 .rounded-circle {
     width: 50px;
     height: 50px;
+    margin: 10px;
 }
 
 .card {
@@ -233,10 +234,10 @@ button a {
 }
 
 .icon-rotate {
-    transition: all .2s;
+    transition: all 0.2s;
 }
 
-.spin{
+.spin {
     transform: rotate(-180deg);
 }
 
@@ -301,36 +302,6 @@ button a {
     height: 80px;
 }
 
-.form-signin {
-    width: 100%;
-    max-width: 330px;
-    padding: 15px;
-    margin: 0 auto;
-}
-.form-signin .checkbox {
-    font-weight: 400;
-}
-.form-signin .form-control {
-    position: relative;
-    box-sizing: border-box;
-    height: auto;
-    padding: 10px;
-    font-size: 16px;
-}
-.form-signin .form-control:focus {
-    z-index: 2;
-}
-.form-signin input[type="email"] {
-    margin-bottom: -1px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-}
-.form-signin input[type="password"] {
-    margin-bottom: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-}
-
 /* Footer */
 
 /* .rodape {
@@ -360,4 +331,14 @@ button a {
 
 .titulo-rodape {
     text-align: initial;
+}
+
+/* FormAttachProject */
+#form-group {
+    margin-bottom: 100px;
+}
+
+#form-group-md {
+    left: 0;
+    bottom: 70px;
 }
