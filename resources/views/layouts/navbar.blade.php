@@ -20,14 +20,14 @@
                         Voltar Para Home
                     </a>
 
-                    <a class="dropdown-item" href="/profile/edit/{{ $user->id }}">
-                        <i class="fas fa-user"></i>
-                        Editar Perfil
+                    <a class="dropdown-item" href="/profile/show/{{ $user->id }}">
+                        <i class="fas fa-eye"></i>
+                        Visualizar Perfil
                     </a>
 
-                    <a class="dropdown-item" href="/profile/show/{{ $user->id }}">
-                        <i class="fas fa-user"></i>
-                        Visualizar Perfil
+                    <a class="dropdown-item" href="/profile/edit/{{ $user->id }}">
+                        <i class="fas fa-edit"></i>>
+                        Editar Perfil
                     </a>
 
                     <form action="/logout" method="POST">

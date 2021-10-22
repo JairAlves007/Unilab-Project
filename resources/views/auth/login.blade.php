@@ -35,14 +35,17 @@
             </div>
 
             <div class="form-group">
-               <button type="submit" class="btn btn-primary">Login</button>
+                <button type="submit" class="btn btn-primary">
+                     <i class="fas fa-sign-in-alt mr-1"></i>
+                    Login
+                 </button>
 
-               @if (Route::has('password.request'))
-                  <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                     {{ __('Esqueceu Sua Senha?') }}
-                  </a>
-               @endif
-            </div>
+                @if (Route::has('password.request'))
+                   <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                      {{ __('Esqueceu sua senha?') }}
+                   </a>
+                @endif
+             </div>
          </form>
       </div>
    </div>

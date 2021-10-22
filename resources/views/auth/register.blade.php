@@ -82,7 +82,7 @@
                     </div>
                 </div>
 
-                
+
 
                 <div class="flex items-center justify-end mt-4">
                     <button type="submit" class="btn btn-lg btn-primary">Cadastrar</button>
@@ -167,10 +167,12 @@
                 </label>
             </div>
             <div class="flex items-center justify-end mt-4">
-                <button type="submit" class="btn btn-lg btn-primary">Cadastrar</button>
-
+                <button type="submit" class="btn btn-lg btn-primary">
+                    <i class="fas fa-user-plus"></i>
+                    Cadastrar
+                </button>
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Já Está Cadastrado?') }}
+                    {{ __('Já está cadastrado?') }}
                 </a>
             </div>
         </div>

@@ -318,11 +318,11 @@ button a {
     margin: 0 auto 4px 0;
 }
 
-.border {
+.footer-icons {
     width: 28px;
     height: 28px;
     margin-left: 8px;
-    background: #fff;
+    background: #ffff;
     border-radius: 100%;
     display: flex;
     justify-content: center;
@@ -341,4 +341,9 @@ button a {
 #form-group-md {
     left: 0;
     bottom: 70px;
+}
+
+.button-search{
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
 }

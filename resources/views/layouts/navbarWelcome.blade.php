@@ -69,8 +69,14 @@
                     Entrar
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/register">Cadastrar</a>
-                    <a class="dropdown-item" href="/login">Login</a>
+                    <a class="dropdown-item" href="/register">
+                        <i class="fas fa-user-plus"></i>
+                        Cadastrar
+                    </a>
+                    <a class="dropdown-item" href="/login">
+                        <i class="fas fa-sign-in-alt mr-2"></i>
+                        Logar
+                    </a>
                 </div>
             @else
                 <a class="nav-link d-flex justify-content-center align-items-center" href="/dashboard">
