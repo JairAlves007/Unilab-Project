@@ -136,8 +136,41 @@ button a {
     margin: 1%;
 }
 
-#menu {
-    margin-left: 600px;
+#menu-navbar-welcome {
+    border: none;
+    background-color: #343A40;
+}
+
+#menu-navbar-welcome .dropdown-item {
+    text-align: center;
+    color: #ecedee !important;
+}
+
+.dropdown-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#menu-navbar-welcome .dropdown-item:hover {
+    background-color: transparent !important;
+    color: #aa1010 !important;
+}
+
+@media (min-width: 1000px) {
+    #menu {
+        position: absolute;
+        right: 70px;
+    }
+
+    #menu-navbar-welcome {
+        background-color: #F8F9FA;
+    }
+
+    #menu-navbar-welcome .dropdown-item {
+        color: #141313 !important;
+    }
 }
 
 .rounded-circle {
