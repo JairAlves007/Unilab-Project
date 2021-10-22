@@ -23,31 +23,20 @@
 
          <li class="nav-item" id="menu">
             @if (!$user)
-<<<<<<< HEAD
                <a class="nav-link dropdown-toggle dropdown-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false">
                   Entrar
                </a>
                <div class="dropdown-menu" id="menu-navbar-welcome" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="/register">Cadastrar</a>
-                  <a class="dropdown-item" href="/login">Login</a>
+                  <a class="dropdown-item" href="/register">
+                     <i class="fas fa-user-plus"></i>
+                     Cadastrar
+                  </a>
+                  <a class="dropdown-item" href="/login">
+                     <i class="fas fa-sign-in-alt mr-2"></i>
+                     Login
+                  </a>
                </div>
-=======
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    Entrar
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/register">
-                        <i class="fas fa-user-plus"></i>
-                        Cadastrar
-                    </a>
-                    <a class="dropdown-item" href="/login">
-                        <i class="fas fa-sign-in-alt mr-2"></i>
-                        Logar
-                    </a>
-                </div>
->>>>>>> 8d720383b2cdadc8924c786fb52d2c825e373249
             @else
 
                <a class="nav-link d-flex justify-content-center align-items-center" href="/dashboard">

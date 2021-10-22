@@ -141,6 +141,21 @@ button a {
     background-color: #343A40;
 }
 
+@media (min-width: 1000px) {
+    #menu {
+        position: absolute;
+        right: 7%;
+    }
+
+    #menu-navbar-welcome {
+        background-color: #F8F9FA;
+    }
+
+    #menu-navbar-welcome .dropdown-item {
+        color: #141313 !important;
+    }
+}
+
 #menu-navbar-welcome .dropdown-item {
     text-align: center;
     color: #ecedee !important;
@@ -158,20 +173,6 @@ button a {
     color: #aa1010 !important;
 }
 
-@media (min-width: 1000px) {
-    #menu {
-        position: absolute;
-        right: 70px;
-    }
-
-    #menu-navbar-welcome {
-        background-color: #F8F9FA;
-    }
-
-    #menu-navbar-welcome .dropdown-item {
-        color: #141313 !important;
-    }
-}
 
 .rounded-circle {
     width: 50px;
