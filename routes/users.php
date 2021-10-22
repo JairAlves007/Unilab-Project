@@ -29,7 +29,7 @@ Route::group(['middleware' => ['role:super-admin|gestor']], function () {
       ->name('users.update')
       ->middleware('auth');
 
-   Route::delete('/user/delete/{id}', [UserController::class, 'destroy'])
+   Route::get('/user/delete/{id}', [UserController::class, 'destroy'])
       ->name('users.destroy')
       ->middleware('auth');
 

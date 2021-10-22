@@ -95,7 +95,7 @@ class EdictsController extends Controller
         $edict->save();
 
         return redirect()
-            ->route('edicts.create')
+            ->route('edicts.showAll')
             ->with('msg', 'Edital Criado Com Sucesso!');
 
     }
@@ -192,8 +192,8 @@ class EdictsController extends Controller
         Edicts::findOrFail($id)->delete();
 
         return redirect()
-            ->route('edicts.showAll')
-            ->with('msg', "O Edital {$edictTitle}");
+            ->route('edicts.delete')
+            ->with('msg', "O Edital {$edictTitle} Foi Excluído Com Sucesso!");
 
     }
 

@@ -12,6 +12,14 @@
 
       <div class="content p-1">
          <div class="list-group-item">
+            <div class="d-flex">
+               <div class="mr-auto p-2">
+                  <h2 class="display-4 titulo">Editais</h2>
+               </div>
+            </div>
+
+            @include('hintMessages')
+
             <div class="table-responsive">
                <table class="table table-striped table-hover table-bordered">
                   <thead>
@@ -36,6 +44,7 @@
                            <td class="d-none d-lg-table-cell">{{ count($edict->projects) }}</td>
                            <td class="text-center">
                               <span class="d-none d-md-block">
+
                                  @switch(Request::route()->getName())
                                     @case('edicts.showAll')
                                        <a href="{{ route('edicts.showDashboard', $edict) }}"
@@ -53,23 +62,18 @@
 
                                     @case('edicts.edit')
                                        <a href="{{ route('edicts.formUpdate', $edict) }}"
-                                       class="btn btn-outline-warning btn-sm">
+                                          class="btn btn-outline-warning btn-sm">
                                           Editar
                                        </a>
                                     @break
 
                                     @case('edicts.delete')
-                                       <form action="{{ route('edicts.destroy', $edict) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <a href="{{ route('edicts.destroy', $edict) }}"
-                                            class="btn btn-outline-danger btn-sm"
-                                            onclick="event.preventDefault();
-                                                    this.closest('form').submit();"
-                                            >
-                                            Apagar
-                                        </a>
-                                    </form>
+                                       <a href="{{ route('edicts.destroy', $edict) }}" class="btn btn-outline-danger btn-sm"
+                                          onclick="return confirm('Você Deseja Excluir Este Edital?');">
+
+                                          Apagar
+
+                                       </a>
                                     @break
 
 
@@ -83,9 +87,41 @@
                                  </button>
                                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="acoesListar">
 
-                                    <a href="{{ route('edicts.showDashboard', $edict) }}" class=" dropdown-item">
-                                       Visualizar
-                                    </a>
+                                    @switch(Request::route()->getName())
+                                       @case('edicts.showAll')
+                                          <a href="{{ route('edicts.showDashboard', $edict) }}" class="dropdown-item">
+
+                                             Visualizar
+
+                                          </a>
+                                       @break
+
+                                       @case('edicts.projects')
+                                          <a href="{{ route('projects.form-attach-project', $edict) }}"
+                                             class="dropdown-item">
+
+                                             Anexar Projetos
+
+                                          </a>
+                                       @break
+
+                                       @case('edicts.edit')
+                                          <a href="{{ route('edicts.formUpdate', $edict) }}" class="dropdown-item">
+                                             Editar
+                                          </a>
+                                       @break
+
+                                       @case('edicts.delete')
+                                          <a href="{{ route('edicts.destroy', $edict) }}" class="dropdown-item"
+                                             onclick="return confirm('Você Deseja Excluir Este Edital?');">
+
+                                             Apagar
+
+                                          </a>
+                                       @break
+
+
+                                    @endswitch
 
                                  </div>
                               </div>

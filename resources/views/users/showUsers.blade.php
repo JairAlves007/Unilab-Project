@@ -14,16 +14,11 @@
          <div class="list-group-item">
             <div class="d-flex">
                <div class="mr-auto p-2">
-                  <h2 class="display-4 titulo">Listar Usuário</h2>
+                  <h2 class="display-4 titulo">Usuários</h2>
                </div>
             </div>
 
-            <div class="alert alert-success" role="alert">
-               Usuário apagado com sucesso!
-               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-               </button>
-            </div>
+            @include('hintMessages')
 
             <div class="table-responsive">
                <table class="table table-striped table-hover table-bordered">
@@ -59,12 +54,17 @@
                                        <a href="{{ route('profile.edit', $user) }}"
                                           class="btn btn-outline-warning btn-sm">Editar</a>
                                     @endif
+
                                  @elseif(Route::currentRouteName() == 'users.delete')
-                                    <form action="{{ route('users.destroy', $user_checking) }}" method="POST">
-                                       @csrf
-                                       @method('DELETE')
-                                       <button type="submit" class="btn btn-outline-danger btn-sm">Apagar</button>
-                                    </form>
+
+                                    <a href="{{ route('users.destroy', $user_checking) }}"
+                                       class="btn btn-outline-danger btn-sm"
+                                       onclick="return confirm('Você Realmente Deseja Excluir Este Usuário?');">
+
+                                       Apagar
+
+                                    </a>
+
                                  @endif
 
                               </span>
@@ -87,11 +87,7 @@
                                           <a href="{{ route('profile.edit', $user) }}" class="dropdown-item">Editar</a>
                                        @endif
                                     @elseif(Route::currentRouteName() == 'users.delete')
-                                       <form action="{{ route('users.destroy', $user_checking) }}" method="POST">
-                                          @csrf
-                                          @method('DELETE')
-                                          <button type="submit" class="dropdown-item">Apagar</button>
-                                       </form>
+                                       <a href="{{ route('users.destroy', $user_checking) }}" class="dropdown-item">Apagar</a>
                                     @endif
                                  </div>
                               </div>

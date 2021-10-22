@@ -37,10 +37,13 @@ Route::group(['middleware' => ['role:super-admin|orientador']], function () {
         ->middleware('auth')
         ->name('edicts.update');
 
-
     Route::get('/edicts/delete', [EdictsController::class, 'showAll'])
         ->middleware('auth')
         ->name('edicts.delete');
+
+    Route::get("/edicts/destroy/{id}", [EdictsController::class, 'destroy'])
+        ->middleware('auth')
+        ->name('edicts.destroy');
 
     Route::get('/edict/{id}/show/', [EdictsController::class, 'show'])
         ->middleware('auth')
@@ -51,6 +54,3 @@ Route::get('/edict/show/{id}', [EdictsController::class, 'show'])
     ->name('edicts.showHome');
 
 Route::any('/search', [EdictsController::class, 'search']);
-
-
-Route::delete("/edicts/destroy/{id}", [EdictsController::class, 'destroy'])->name('edicts.destroy');
