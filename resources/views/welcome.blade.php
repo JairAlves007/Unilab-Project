@@ -14,8 +14,11 @@
                     <form action="/search" method="POST">
                         @csrf
                         <div class="input-group">
-                            <input type="search" name="search" placeholder="Busque um Edital" class="form-control">
-                            <button class="btn-lg btn-danger" type="submit">Buscar</button>
+                            <input type="search" name="search" placeholder="Busque um Edital" class="form-control border-right-0">
+                            <button class="btn-lg btn-danger border border-danger border-lef-0 button-search" type="submit">
+                                <i class="fa fa-fw fa-search"></i>
+                                Buscar
+                            </button>
                         </div>
                     </form>
                 </div>
