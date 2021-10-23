@@ -1,7 +1,7 @@
 <nav class="sidebar">
    <ul class="list-unstyled">
 
-      <li>
+      <li class="active">
          <a href="/dashboard">
             <i class="fa fa-folder-open" aria-hidden="true"></i>
             Dashboard
@@ -33,13 +33,13 @@
                @endcan
 
                @can('create-user')
-                   <li>
-                      <a href="{{ route('users.create') }}">
-                         <i class="fa fa-user-plus" aria-hidden="true"></i>
-                         Inserir Usuários
-                      </a>
-                   </li>
-                @endcan
+                  <li>
+                     <a href="{{ route('users.create') }}">
+                        <i class="fa fa-user-plus" aria-hidden="true"></i>
+                        Inserir Usuários
+                     </a>
+                  </li>
+               @endcan
 
                @can('edit-user')
                   <li>
@@ -69,7 +69,7 @@
 
          <li class="menu-click">
             <a href="#submenu2" data-toggle="collapse" class="collapsed">
-                <i class="fas fa-file-invoice"></i>
+               <i class="fas fa-file-invoice"></i>
                Editais
                <div class="icon-rotate icon-space">
                   <i class="fas fa-angle-down"></i>

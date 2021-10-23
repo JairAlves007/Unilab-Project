@@ -158,7 +158,7 @@ button a {
     color: #aa1010 !important;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 992px) {
     #menu {
         position: absolute;
         right: 7%;
