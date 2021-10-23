@@ -1,7 +1,7 @@
 <nav class="sidebar">
    <ul class="list-unstyled">
 
-      <li class="active">
+      <li class="{{ Request::route()->getName() === 'dashboard' ? 'active' : '' }}">
          <a href="/dashboard">
             <i class="fa fa-folder-open" aria-hidden="true"></i>
             Dashboard
@@ -24,16 +24,16 @@
             <ul id="submenu1" class="list-unstyled collapse">
 
                @can('view-user')
-                  <li>
+                  <li class="{{ Request::route()->getName() === 'users.view' ? 'active' : '' }}">
                      <a href="{{ route('users.view') }}">
                         <i class="fas fa-users"></i>
-                        Visualizar Usuários
+                        Ver Usuários
                      </a>
                   </li>
                @endcan
 
                @can('create-user')
-                  <li>
+                  <li class="{{ Request::route()->getName() === 'users.create' ? 'active' : '' }}">
                      <a href="{{ route('users.create') }}">
                         <i class="fa fa-user-plus" aria-hidden="true"></i>
                         Inserir Usuários
@@ -42,7 +42,7 @@
                @endcan
 
                @can('edit-user')
-                  <li>
+                  <li class="{{ Request::route()->getName() === 'users.edit' ? 'active' : '' }}">
                      <a href="{{ route('users.edit') }}">
                         <i class="fas fa-user-edit"></i>
                         Editar Usuários
@@ -51,7 +51,7 @@
                @endcan
 
                @can('delete-user')
-                  <li>
+                  <li class="{{ Request::route()->getName() === 'users.delete' ? 'active' : '' }}">
                      <a href="{{ route('users.delete') }}">
                         <i class="fas fa-user-alt-slash"></i>
                         Deletar Usuários
@@ -78,7 +78,7 @@
 
             <ul id="submenu2" class="list-unstyled collapse">
                @can('edit-edict')
-                  <li>
+                  <li class="{{ Request::route()->getName() === 'edicts.edit' ? 'active' : '' }}">
                      <a href="{{ route('edicts.edit') }}">
                         <i class="fas fa-file-signature"></i>
                         Atualizar Edital
@@ -87,7 +87,7 @@
                @endcan
 
                @can('delete-edict')
-                  <li>
+                  <li class="{{ Request::route()->getName() === 'edicts.delete' ? 'active' : '' }}">
                      <a href="{{ route('edicts.delete') }}">
                         <i class="fas fa-file-excel"></i>
                         Deletar Edital
@@ -96,7 +96,7 @@
                @endcan
 
                @can('view-edict')
-                  <li>
+                  <li class="{{ Request::route()->getName() === 'edicts.showAll' ? 'active' : '' }}">
                      <a href="{{ route('edicts.showAll') }}">
                         <i class="fas fa-copy"></i>
                         Ver Editais
@@ -105,7 +105,7 @@
                @endcan
 
                @can('create-edict')
-                  <li>
+                  <li class="{{ Request::route()->getName() === 'edicts.create' ? 'active' : '' }}">
                      <a href="{{ route('edicts.create') }}">
                         <i class="fas fa-file-medical"></i>
                         Inserir Edital
@@ -114,7 +114,7 @@
                @endcan
 
                @can('attach-project')
-                  <li>
+                  <li class="{{ Request::route()->getName() === 'edicts.projects' ? 'active' : '' }}">
                      <a href="{{ route('edicts.projects') }}">
                         <i class="fas fa-file-import"></i>
                         Anexar Projetos

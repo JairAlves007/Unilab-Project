@@ -88,7 +88,9 @@ class UserController extends Controller
 
       $data = $request->except('niveis');
 
-      $data['password'] = Hash::make($data['password']);
+      if($data['password']) {
+         $data['password'] = Hash::make($data['password']);
+      }
 
       User::findOrFail($request->id)
          ->syncRoles($request['niveis'])

@@ -32,8 +32,6 @@
         <h1 class="title2">Editais</h1>
     @endif
 
-
-
     <div class="content" id="edicts-home">
         @foreach ($edicts as $edict)
             <div class="card" style="width: 18rem;">

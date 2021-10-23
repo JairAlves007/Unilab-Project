@@ -11,7 +11,7 @@
 
       <div class="form-create">
          
-         @include('errors.cardMessage')
+         {{-- @include('errors.cardMessage') --}}
 
          <h1>Anexe Um Projeto</h1>
 
@@ -25,43 +25,73 @@
                      <input 
                         type="text" 
                         name="title" 
-                        class="form-control" 
+                        class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}" 
                         id="title" 
-                        required
                      >
+
+                     <div class="invalid-feedback">
+                        @foreach ($errors->get('title') as $error)
+                           {{ $error }}
+                        @endforeach
+                     </div>
+
                   </div>
 
                   <div class="form-group">
+
                      <label for="content">Descrição Completa</label>
+
                      <textarea 
-                        class="form-control" 
+                        class="form-control {{ $errors->has('content') ? 'is-invalid' : '' }}" 
                         name="content" 
                         id="content" 
                         rows="3" 
-                        required
                      ></textarea>
+
+                     <div class="invalid-feedback">
+                        @foreach ($errors->get('content') as $error)
+                           {{ $error }}
+                        @endforeach
+                     </div>
+
                   </div>
 
                   <div class="form-group">
+
                      <label for="abstract">Descrição Resumida</label>
+
                      <textarea 
-                        class="form-control" 
+                        class="form-control {{ $errors->has('abstract') ? 'is-invalid' : '' }}" 
                         name="abstract" 
                         id="abstract" 
                         rows="2"
-                        required
                      ></textarea>
+
+                     <div class="invalid-feedback">
+                        @foreach ($errors->get('abstract') as $error)
+                           {{ $error }}
+                        @endforeach
+                     </div>
+
                   </div>
 
                   <div class="form-group">
+
                      <label for="references">Referências</label>
+
                      <input 
-                        type="text" 
+                        type="url" 
                         name="references" 
-                        class="form-control" 
+                        class="form-control {{ $errors->has('references') ? 'is-invalid' : '' }}" 
                         id="references"
-                        required
                      >
+
+                     <div class="invalid-feedback">
+                        @foreach ($errors->get('references') as $error)
+                           {{ $error }}
+                        @endforeach
+                     </div>
+
                   </div>
                </div>
 
@@ -69,14 +99,22 @@
                   <div class="form-row">
 
                      <div class="form-group">
+
                         <label for="archive">Arquivo do Projeto</label>
+
                         <input 
                            type="file" 
                            name="archive" 
-                           class="form-control-file" 
+                           class="form-control-file {{ $errors->has('archive') ? 'is-invalid' : '' }}" 
                            id="archive"
-                           required
                         >
+
+                        <div class="invalid-feedback">
+                           @foreach ($errors->get('archive') as $error)
+                              {{ $error }}
+                           @endforeach
+                        </div>
+
                      </div>
 
                   </div>
@@ -84,12 +122,13 @@
                   <div class="form-row">
 
                      <div class="form-group col-md-6">
+
                         <label for="institutes">Instituto</label>
+
                         <select 
-                           class="form-control" 
+                           class="form-control {{ $errors->has('institutes') ? 'is-invalid' : '' }}" 
                            name="institutes" 
                            id="institutes"
-                           required
                         >
                            <option value="">
                               Selecione
@@ -101,15 +140,23 @@
                               </option>
                            @endforeach
                         </select>
+
+                        <div class="invalid-feedback">
+                           @foreach ($errors->get('institutes') as $error)
+                              {{ $error }}
+                           @endforeach
+                        </div>
+
                      </div>
 
                      <div class="form-group col-md-6">
+
                         <label for="specialities">Especialidades</label>
+
                         <select 
-                           class="form-control" 
+                           class="form-control {{ $errors->has('specialities') ? 'is-invalid' : '' }}" 
                            name="specialities" 
                            id="specialities"
-                           required
                         >
                            <option value="">
                               Selecione
@@ -119,21 +166,30 @@
                               <option value="{{ $specialities->id }}">{{ $specialities->name }}</option>
                            @endforeach
                         </select>
+
+                        <div class="invalid-feedback">
+                           @foreach ($errors->get('specialities') as $error)
+                              {{ $error }}
+                           @endforeach
+                        </div>
+
                      </div>
 
                   </div>
 
                   <div class="form-row">
+
                      <div class="form-group col-md-6">
+
                         <label for="big_areas">Grande Área</label>
+
                         <select 
-                           class="form-control" 
+                           class="form-control {{ $errors->has('big_areas') ? 'is-invalid' : '' }}" 
                            onchange="changeAreas(this)"
                            data-url="{{ url('/project/findAreas') }}" 
                            data-token="{{ csrf_token() }}" 
                            name="big_areas"
                            id="big_areas" 
-                           required
                         >
                            <option value="">Selecione</option>
 
@@ -144,18 +200,26 @@
                            @endforeach
 
                         </select>
+
+                        <div class="invalid-feedback">
+                           @foreach ($errors->get('big_areas') as $error)
+                              {{ $error }}
+                           @endforeach
+                        </div>
+
                      </div>
 
                      <div class="form-group col-md-6">
+
                         <label for="areas">Área</label>
+
                         <select 
-                           class="form-control" 
+                           class="form-control {{ $errors->has('areas') ? 'is-invalid' : '' }}" 
                            onchange="changeSubAreas(this)"
                            data-url="{{ url('/project/findSubAreas') }}" 
                            data-token="{{ csrf_token() }}" 
                            name="areas"
                            id="areas" 
-                           required
                            disabled
                         >
 
@@ -164,24 +228,39 @@
                            </option>
 
                         </select>
+
+                        <div class="invalid-feedback">
+                           @foreach ($errors->get('areas') as $error)
+                              {{ $error }}
+                           @endforeach
+                        </div>
+
                      </div>
 
                   </div>
 
                   <div class="form-row">
+
                      <div class="form-group col-md-12">
+
                         <label for="sub_areas">Sub Área</label>
+
                         <select 
-                           class="form-control" 
+                           class="form-control {{ $errors->has('sub_areas') ? 'is-invalid' : '' }}" 
                            name="sub_areas" 
-                           id="sub_areas"
-                           required 
+                           id="sub_areas" 
                            disabled
                         >
                            <option value="">
                               Selecione
                            </option>
                         </select>
+
+                        <div class="invalid-feedback">
+                           @foreach ($errors->get('sub_areas') as $error)
+                              {{ $error }}
+                           @endforeach
+                        </div>
                      </div>
                   </div>
 

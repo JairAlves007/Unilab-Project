@@ -1,4 +1,4 @@
-<div class="container-fluid rodape">
+<div class="container-fluid footer rodape">
 
     <footer class="container">
         <div class="row">

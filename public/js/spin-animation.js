@@ -1,5 +1,5 @@
 const menu_item = document.querySelectorAll('.menu-click');
-const icon_rotate = document.querySelectorAll('.menu-click .icon-rotate');
+const icon_rotate = document.querySelectorAll('.menu-click a .icon-rotate');
 
 for(let i = 0; i < menu_item.length; i++){
    menu_item[i].onclick = () => {

@@ -1,9 +1,10 @@
 * {
     font-family: bold;
 }
-html,
+
+html, 
 body {
-    height: 100%;
+    max-height: 100%;
 }
 
 .form {
@@ -170,6 +171,7 @@ button a {
 
     #menu-navbar-welcome .dropdown-item {
         color: #141313 !important;
+        text-align: left !important;
     }
 }
 
@@ -337,14 +339,14 @@ button a {
 
 /* Footer */
 
-/* .rodape {
+.rodape {
     background-color: #444444;
     color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: auto 0;
-} */
+    margin-bottom: 0;
+}
 
 .icon {
     width: 15px;
