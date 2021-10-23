@@ -86,10 +86,13 @@ class UserController extends Controller
    {
       $request->validated();
 
-      $data = $request->except('niveis');
-
-      if($data['password']) {
+      if($request->password) {
+         
+         $data = $request->except('niveis');
          $data['password'] = Hash::make($data['password']);
+
+      } else {
+         $data = $request->except(['niveis', 'password']);
       }
 
       User::findOrFail($request->id)

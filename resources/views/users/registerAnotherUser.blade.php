@@ -71,7 +71,7 @@
                </div>
 
                <p>
-                  <span class="text-danger">*</span>Campo obrigatório
+                  <span class="text-danger">*</span> Campo obrigatório
                </p>
 
                @if ($errors->has('niveis'))

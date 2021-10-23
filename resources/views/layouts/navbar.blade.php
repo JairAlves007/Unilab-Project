@@ -25,7 +25,7 @@
                </a>
 
                <a class="dropdown-item" href="/profile/edit/{{ $user->id }}">
-                  <i class="fas fa-edit"></i>>
+                  <i class="fas fa-edit"></i>
                   Editar Perfil
                </a>
 
