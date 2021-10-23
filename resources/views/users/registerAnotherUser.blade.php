@@ -85,10 +85,21 @@
                      <div class="form-check">
 
                         <input class="form-check-input {{ $errors->has('niveis') ? 'is-invalid' : '' }}"
+                           type="checkbox" name="niveis[]" value="gestor" id="checkGestor">
+                        <label class="form-check-label" for="checkGestor">
+                           Gestor
+                        </label>
+                        
+                     </div>
+
+                     <div class="form-check">
+
+                        <input class="form-check-input {{ $errors->has('niveis') ? 'is-invalid' : '' }}"
                            type="checkbox" name="niveis[]" value="bolsista" id="checkBolsista">
                         <label class="form-check-label" for="checkBolsista">
                            Bolsista/Voluntário
                         </label>
+
                      </div>
 
                      <div class="form-check">
