@@ -2,7 +2,7 @@
     font-family: bold;
 }
 
-html, 
+html,
 body {
     max-height: 100%;
 }
@@ -81,13 +81,6 @@ body {
     margin-bottom: 10px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-}
-
-.rodape {
-    background-color: #343a40;
-    color: #fff;
-    margin-bottom: 0;
-    padding: 3%;
 }
 
 ul li a {
@@ -340,17 +333,20 @@ button a {
 /* Footer */
 
 .rodape {
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 40%;
     background-color: #444444;
     color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 0;
 }
 
 .icon {
     width: 15px;
     margin: 0 auto 4px 0;
+
+
 }
 
 .footer-icons {
@@ -362,10 +358,13 @@ button a {
     display: flex;
     justify-content: center;
     align-items: center;
+    float:right ;
 }
 
 .titulo-rodape {
+    margin: auto 0;
     text-align: initial;
+    float: left;
 }
 
 /* FormAttachProject */
@@ -381,4 +380,21 @@ button a {
 .button-search{
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .rodape{
+        height: 120px;
+        gap: 0;
+    }
+
+    .footer-icons{
+        margin-bottom: 10%;
+    }
+
+    .titulo-rodape{
+        margin-top: 10px;
+        text-align: center;
+    }
 }

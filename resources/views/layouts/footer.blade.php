@@ -1,12 +1,12 @@
-<div class="container-fluid footer rodape">
+<div class="container-fluid ">
 
-    <footer class="container">
-        <div class="row">
-            <div class="col-12 col-md-10 ">
+    {{-- <footer class="container"> --}}
+        <div class="rodape row">
+            <div class="">
                 <p class="titulo-rodape">&copy;Unilab | contato@unilab.com.br</p>
                 <!-- <p>CEP 62790-000 - Redenção/CE</p> -->
             </div>
-            <div class="col-12 col-md-2 row">
+            <div class="">
                 <div class="footer-icons">
                     <a href="#">
                         <img class="icon" src="/icons/instagram.svg" alt="">
@@ -32,6 +32,6 @@
                 </div>
             </div>
         </div>
-</footer>
+{{-- </footer> --}}
 
 </div>
