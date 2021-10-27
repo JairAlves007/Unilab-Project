@@ -18,6 +18,9 @@ Route::group(['middleware' => ['role:super-admin|orientador']], function () {
       ->middleware('auth')
       ->name('projects.attach-project');
 
+   Route::post('/project/create', [ProjectsController::class, 'findSubAreas'])
+      ->middleware('auth');
+
    Route::post('/project/findAreas', [ProjectsController::class, 'findAreas'])
       ->middleware('auth');
 

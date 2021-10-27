@@ -24,7 +24,7 @@ class WorkPlansController extends Controller
      */
     public function create()
     {
-        //
+        return view('work_plans.createWorkPlans');
     }
 
     /**

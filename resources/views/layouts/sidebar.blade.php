@@ -59,7 +59,6 @@
                         </li>
                     @endcan
 
-
                 </ul>
 
             </li>
@@ -85,6 +84,7 @@
                             </a>
                         </li>
                     @endcan
+
                     @can('create-edict')
                         <li class="{{ Request::route()->getName() === 'edicts.create' ? 'active' : '' }}">
                             <a href="{{ route('edicts.create') }}" class="li-submenu">
@@ -93,6 +93,7 @@
                             </a>
                         </li>
                     @endcan
+
                     @can('edit-edict')
                         <li class="{{ Request::route()->getName() === 'edicts.edit' ? 'active' : '' }}">
                             <a href="{{ route('edicts.edit') }}"  class="li-submenu">
@@ -176,8 +177,8 @@
 
                 <ul id="submenu7" class="list-unstyled collapse">
                     <li>
-                        <a href="/dashboard"><i class="fas fa-users"></i>
-                            Voluntários
+                        <a href="{{ route('works_plans.create') }}"><i class="fas fa-users"></i>
+                            Criar Plano de Trabalho
                         </a>
                     </li>
 
