@@ -25,7 +25,7 @@
 
                     @can('view-user')
                         <li class="{{ Request::route()->getName() === 'users.view' ? 'active' : '' }}">
-                            <a href="{{ route('users.view') }}">
+                            <a href="{{ route('users.view') }}" class="li-submenu">
                                 <i class="fas fa-users"></i>
                                 Ver Usuários
                             </a>
@@ -34,7 +34,7 @@
 
                     @can('create-user')
                         <li class="{{ Request::route()->getName() === 'users.create' ? 'active' : '' }}">
-                            <a href="{{ route('users.create') }}">
+                            <a href="{{ route('users.create') }}" class="li-submenu">
                                 <i class="fa fa-user-plus" aria-hidden="true"></i>
                                 Inserir Usuários
                             </a>
@@ -43,7 +43,7 @@
 
                     @can('edit-user')
                         <li class="{{ Request::route()->getName() === 'users.edit' ? 'active' : '' }}">
-                            <a href="{{ route('users.edit') }}">
+                            <a href="{{ route('users.edit') }}" class="li-submenu">
                                 <i class="fas fa-user-edit"></i>
                                 Editar Usuários
                             </a>
@@ -52,7 +52,7 @@
 
                     @can('delete-user')
                         <li class="{{ Request::route()->getName() === 'users.delete' ? 'active' : '' }}">
-                            <a href="{{ route('users.delete') }}">
+                            <a href="{{ route('users.delete') }}" class="li-submenu">
                                 <i class="fas fa-user-alt-slash"></i>
                                 Deletar Usuários
                             </a>
@@ -79,7 +79,7 @@
                 <ul id="submenu2" class="list-unstyled collapse">
                     @can('view-edict')
                         <li class="{{ Request::route()->getName() === 'edicts.showAll' ? 'active' : '' }}">
-                            <a href="{{ route('edicts.showAll') }}">
+                            <a href="{{ route('edicts.showAll') }}" class="li-submenu">
                                 <i class="fas fa-copy"></i>
                                 Ver Editais
                             </a>
@@ -87,7 +87,7 @@
                     @endcan
                     @can('create-edict')
                         <li class="{{ Request::route()->getName() === 'edicts.create' ? 'active' : '' }}">
-                            <a href="{{ route('edicts.create') }}">
+                            <a href="{{ route('edicts.create') }}" class="li-submenu">
                                 <i class="fas fa-file-medical"></i>
                                 Inserir Edital
                             </a>
@@ -95,7 +95,7 @@
                     @endcan
                     @can('edit-edict')
                         <li class="{{ Request::route()->getName() === 'edicts.edit' ? 'active' : '' }}">
-                            <a href="{{ route('edicts.edit') }}">
+                            <a href="{{ route('edicts.edit') }}"  class="li-submenu">
                                 <i class="fas fa-file-signature"></i>
                                 Atualizar Edital
                             </a>
@@ -104,7 +104,7 @@
 
                     @can('attach-project')
                         <li class="{{ Request::route()->getName() === 'edicts.projects' ? 'active' : '' }}">
-                            <a href="{{ route('edicts.projects') }}">
+                            <a href="{{ route('edicts.projects') }}" class="li-submenu">
                                 <i class="fas fa-file-import"></i>
                                 Anexar Projetos
                             </a>
@@ -113,7 +113,7 @@
 
                     @can('delete-edict')
                         <li class="{{ Request::route()->getName() === 'edicts.delete' ? 'active' : '' }}">
-                            <a href="{{ route('edicts.delete') }}">
+                            <a href="{{ route('edicts.delete') }}" class="li-submenu">
                                 <i class="fas fa-file-excel"></i>
                                 Deletar Edital
                             </a>
