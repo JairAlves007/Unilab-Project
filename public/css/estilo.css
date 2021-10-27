@@ -5,6 +5,7 @@
 html,
 body {
     max-height: 100%;
+    height:100%;
 }
 
 .form {
@@ -333,13 +334,16 @@ button a {
 /* Footer */
 
 .rodape {
-    height: 60px;
+    height: 100px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     gap: 40%;
     background-color: #444444;
     color: #fff;
+    position:absolute;
+    bottom:-80;
+    width:100%;
 }
 
 .icon {

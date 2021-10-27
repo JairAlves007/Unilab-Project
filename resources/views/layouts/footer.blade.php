@@ -1,4 +1,4 @@
-<div class="container-fluid ">
+<div class="container-fluid">
 
     {{-- <footer class="container"> --}}
         <div class="rodape row">

@@ -39,7 +39,7 @@
         <div class="edicts-description">
             <h4>Descrição</h4>
             <p>{{ $edict->description }}</p>
-            <p>Autor: {{ $user->name }}</p>
+            <p>Autor: Nâo está funcionando</p>
         </div>
     </div>
 

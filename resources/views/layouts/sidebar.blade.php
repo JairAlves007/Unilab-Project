@@ -1,202 +1,199 @@
 <nav class="sidebar">
-   <ul class="list-unstyled">
+    <ul class="list-unstyled">
 
-      <li class="{{ Request::route()->getName() === 'dashboard' ? 'active' : '' }}">
-         <a href="/dashboard">
-            <i class="fa fa-folder-open" aria-hidden="true"></i>
-            Dashboard
-         </a>
-      </li>
-
-      @if ($user->hasRole(['super-admin', 'gestor']))
-         <li class="menu-click">
-
-            <a href="#submenu1" data-toggle="collapse" class="collapsed">
-               <i class="fas fa-user"></i>
-
-               Usuário
-
-               <div class="icon-rotate icon-space">
-                  <i class="fas fa-angle-down"></i>
-               </div>
+        <li class="{{ Request::route()->getName() === 'dashboard' ? 'active' : '' }}">
+            <a href="/dashboard">
+                <i class="fa fa-folder-open" aria-hidden="true"></i>
+                Dashboard
             </a>
+        </li>
 
-            <ul id="submenu1" class="list-unstyled collapse">
+        @if ($user->hasRole(['super-admin', 'gestor']))
+            <li class="menu-click">
 
-               @can('view-user')
-                  <li class="{{ Request::route()->getName() === 'users.view' ? 'active' : '' }}">
-                     <a href="{{ route('users.view') }}">
-                        <i class="fas fa-users"></i>
-                        Ver Usuários
-                     </a>
-                  </li>
-               @endcan
+                <a href="#submenu1" data-toggle="collapse" class="collapsed">
+                    <i class="fas fa-user"></i>
 
-               @can('create-user')
-                  <li class="{{ Request::route()->getName() === 'users.create' ? 'active' : '' }}">
-                     <a href="{{ route('users.create') }}">
-                        <i class="fa fa-user-plus" aria-hidden="true"></i>
-                        Inserir Usuários
-                     </a>
-                  </li>
-               @endcan
+                    Usuário
 
-               @can('edit-user')
-                  <li class="{{ Request::route()->getName() === 'users.edit' ? 'active' : '' }}">
-                     <a href="{{ route('users.edit') }}">
-                        <i class="fas fa-user-edit"></i>
-                        Editar Usuários
-                     </a>
-                  </li>
-               @endcan
+                    <div class="icon-rotate icon-space">
+                        <i class="fas fa-angle-down"></i>
+                    </div>
+                </a>
 
-               @can('delete-user')
-                  <li class="{{ Request::route()->getName() === 'users.delete' ? 'active' : '' }}">
-                     <a href="{{ route('users.delete') }}">
-                        <i class="fas fa-user-alt-slash"></i>
-                        Deletar Usuários
-                     </a>
-                  </li>
-               @endcan
+                <ul id="submenu1" class="list-unstyled collapse">
 
+                    @can('view-user')
+                        <li class="{{ Request::route()->getName() === 'users.view' ? 'active' : '' }}">
+                            <a href="{{ route('users.view') }}">
+                                <i class="fas fa-users"></i>
+                                Ver Usuários
+                            </a>
+                        </li>
+                    @endcan
 
-            </ul>
+                    @can('create-user')
+                        <li class="{{ Request::route()->getName() === 'users.create' ? 'active' : '' }}">
+                            <a href="{{ route('users.create') }}">
+                                <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                Inserir Usuários
+                            </a>
+                        </li>
+                    @endcan
 
-         </li>
-      @endif
+                    @can('edit-user')
+                        <li class="{{ Request::route()->getName() === 'users.edit' ? 'active' : '' }}">
+                            <a href="{{ route('users.edit') }}">
+                                <i class="fas fa-user-edit"></i>
+                                Editar Usuários
+                            </a>
+                        </li>
+                    @endcan
 
-      @if ($user->hasRole(['super-admin', 'orientador']))
-
-         <li class="menu-click">
-            <a href="#submenu2" data-toggle="collapse" class="collapsed">
-               <i class="fas fa-file-invoice"></i>
-               Editais
-               <div class="icon-rotate icon-space">
-                  <i class="fas fa-angle-down"></i>
-               </div>
-            </a>
-
-            <ul id="submenu2" class="list-unstyled collapse">
-               @can('edit-edict')
-                  <li class="{{ Request::route()->getName() === 'edicts.edit' ? 'active' : '' }}">
-                     <a href="{{ route('edicts.edit') }}">
-                        <i class="fas fa-file-signature"></i>
-                        Atualizar Edital
-                     </a>
-                  </li>
-               @endcan
-
-               @can('delete-edict')
-                  <li class="{{ Request::route()->getName() === 'edicts.delete' ? 'active' : '' }}">
-                     <a href="{{ route('edicts.delete') }}">
-                        <i class="fas fa-file-excel"></i>
-                        Deletar Edital
-                     </a>
-                  </li>
-               @endcan
-
-               @can('view-edict')
-                  <li class="{{ Request::route()->getName() === 'edicts.showAll' ? 'active' : '' }}">
-                     <a href="{{ route('edicts.showAll') }}">
-                        <i class="fas fa-copy"></i>
-                        Ver Editais
-                     </a>
-                  </li>
-               @endcan
-
-               @can('create-edict')
-                  <li class="{{ Request::route()->getName() === 'edicts.create' ? 'active' : '' }}">
-                     <a href="{{ route('edicts.create') }}">
-                        <i class="fas fa-file-medical"></i>
-                        Inserir Edital
-                     </a>
-                  </li>
-               @endcan
-
-               @can('attach-project')
-                  <li class="{{ Request::route()->getName() === 'edicts.projects' ? 'active' : '' }}">
-                     <a href="{{ route('edicts.projects') }}">
-                        <i class="fas fa-file-import"></i>
-                        Anexar Projetos
-                     </a>
-                  </li>
-               @endcan
-
-            </ul>
-
-         </li>
-
-         <li class="menu-click">
-            <a href="#submenu3" data-toggle="collapse" class="collapsed">
-               <i class="fas fa-user"></i>
-
-               Relatórios
-
-               <div class="icon-rotate icon-space">
-                  <i class="fas fa-angle-down"></i>
-               </div>
-            </a>
-
-            <ul id="submenu3" class="list-unstyled collapse">
-               <li>
-                  <a href="/dashboard">
-                     <i class="fas fa-users"></i>
-                     Frequência
-                  </a>
-               </li>
-
-               <li>
-                  <a href="/dashboard">
-                     <i class="fas fa-users"></i>
-                     Relatório de Pesquisa
-                  </a>
-               </li>
-
-               <li>
-                  <a href="/dashboard">
-                     <i class="fas fa-users"></i>
-                     Relatório Final
-                  </a>
-               </li>
-
-            </ul>
-         </li>
-
-      @endif
+                    @can('delete-user')
+                        <li class="{{ Request::route()->getName() === 'users.delete' ? 'active' : '' }}">
+                            <a href="{{ route('users.delete') }}">
+                                <i class="fas fa-user-alt-slash"></i>
+                                Deletar Usuários
+                            </a>
+                        </li>
+                    @endcan
 
 
-      @if ($user->hasRole(['super-admin', 'membro']))
-         <li class="menu-click">
-            <a href="#submenu7" data-toggle="collapse" class="collapsed">
-               <i class="fas fa-user"></i>
+                </ul>
 
-               Projetos
+            </li>
+        @endif
 
-               <div class="icon-rotate icon-space">
-                  <i class="fas fa-angle-down"></i>
-               </div>
-            </a>
+        @if ($user->hasRole(['super-admin', 'orientador']))
 
-            <ul id="submenu7" class="list-unstyled collapse">
-               <li>
-                  <a href="/dashboard"><i class="fas fa-users"></i>
-                     Voluntários
-                  </a>
-               </li>
+            <li class="menu-click">
+                <a href="#submenu2" data-toggle="collapse" class="collapsed">
+                    <i class="fas fa-file-invoice"></i>
+                    Editais
+                    <div class="icon-rotate icon-space">
+                        <i class="fas fa-angle-down"></i>
+                    </div>
+                </a>
 
-               @can('rate-project')
-                  <li>
-                     <a href="/dashboard">
-                        <i class="fas fa-users"></i>
-                        Avaliar
-                     </a>
-                  </li>
-               @endcan
+                <ul id="submenu2" class="list-unstyled collapse">
+                    @can('view-edict')
+                        <li class="{{ Request::route()->getName() === 'edicts.showAll' ? 'active' : '' }}">
+                            <a href="{{ route('edicts.showAll') }}">
+                                <i class="fas fa-copy"></i>
+                                Ver Editais
+                            </a>
+                        </li>
+                    @endcan
+                    @can('create-edict')
+                        <li class="{{ Request::route()->getName() === 'edicts.create' ? 'active' : '' }}">
+                            <a href="{{ route('edicts.create') }}">
+                                <i class="fas fa-file-medical"></i>
+                                Inserir Edital
+                            </a>
+                        </li>
+                    @endcan
+                    @can('edit-edict')
+                        <li class="{{ Request::route()->getName() === 'edicts.edit' ? 'active' : '' }}">
+                            <a href="{{ route('edicts.edit') }}">
+                                <i class="fas fa-file-signature"></i>
+                                Atualizar Edital
+                            </a>
+                        </li>
+                    @endcan
 
-            </ul>
+                    @can('attach-project')
+                        <li class="{{ Request::route()->getName() === 'edicts.projects' ? 'active' : '' }}">
+                            <a href="{{ route('edicts.projects') }}">
+                                <i class="fas fa-file-import"></i>
+                                Anexar Projetos
+                            </a>
+                        </li>
+                    @endcan
 
-         </li>
-      @endif
+                    @can('delete-edict')
+                        <li class="{{ Request::route()->getName() === 'edicts.delete' ? 'active' : '' }}">
+                            <a href="{{ route('edicts.delete') }}">
+                                <i class="fas fa-file-excel"></i>
+                                Deletar Edital
+                            </a>
+                        </li>
+                    @endcan
+                </ul>
 
-   </ul>
+            </li>
+
+            <li class="menu-click">
+                <a href="#submenu3" data-toggle="collapse" class="collapsed">
+                    <i class="fas fa-user"></i>
+
+                    Relatórios
+
+                    <div class="icon-rotate icon-space">
+                        <i class="fas fa-angle-down"></i>
+                    </div>
+                </a>
+
+                <ul id="submenu3" class="list-unstyled collapse">
+                    <li>
+                        <a href="/dashboard">
+                            <i class="fas fa-users"></i>
+                            Frequência
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/dashboard">
+                            <i class="fas fa-users"></i>
+                            Relatório de Pesquisa
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/dashboard">
+                            <i class="fas fa-users"></i>
+                            Relatório Final
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+
+        @endif
+
+
+        @if ($user->hasRole(['super-admin', 'membro']))
+            <li class="menu-click">
+                <a href="#submenu7" data-toggle="collapse" class="collapsed">
+                    <i class="fas fa-user"></i>
+
+                    Projetos
+
+                    <div class="icon-rotate icon-space">
+                        <i class="fas fa-angle-down"></i>
+                    </div>
+                </a>
+
+                <ul id="submenu7" class="list-unstyled collapse">
+                    <li>
+                        <a href="/dashboard"><i class="fas fa-users"></i>
+                            Voluntários
+                        </a>
+                    </li>
+
+                    @can('rate-project')
+                        <li>
+                            <a href="/dashboard">
+                                <i class="fas fa-users"></i>
+                                Avaliar
+                            </a>
+                        </li>
+                    @endcan
+
+                </ul>
+
+            </li>
+        @endif
+
+    </ul>
 </nav>
