@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class WorkPlans extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'title',
+        'content',
+        'abstract',
+        'references'
+    ];
 }

@@ -19,6 +19,7 @@ class CreateWorkPlansTable extends Migration
             $table->text('abstract');
             $table->text('content');
             $table->text('references');
+            $table->timestamps();
         });
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FormWorkPlansValidationRequest;
 use App\Models\WorkPlans;
 use Illuminate\Http\Request;
 
@@ -33,9 +34,15 @@ class WorkPlansController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FormWorkPlansValidationRequest $request)
     {
-        //
+        $request->validated();
+
+        $data = $request->except(['_token']);
+
+        WorkPlans::create($data);
+
+        return redirect()->route('works_plans.create');
     }
 
     /**

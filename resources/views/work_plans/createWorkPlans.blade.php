@@ -14,7 +14,7 @@
 
          <h1>Crie Um Plano De Trabalho</h1>
 
-         <form action="nothing" method="POST" enctype="multipart/form-data">
+         <form action="{{ route('works_plans.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <div id="form-area">
