@@ -19,6 +19,8 @@ class CreateWorkPlansTable extends Migration
             $table->text('abstract');
             $table->text('content');
             $table->text('references');
+            $table->json('bolsistas');
+            $table->timestamps();
         });
     }
 

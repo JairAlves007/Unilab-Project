@@ -5,7 +5,15 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
+<<<<<<< HEAD
         'reference' => 'c097b89a8123beb1f52c843f01505fa7e225b951',
+=======
+<<<<<<< HEAD
+        'reference' => '5627913e5ff5452751761b47f93b17731c599cd9',
+=======
+        'reference' => '4272dafb3a2ab7dfb5287e5e290bc82f4906d20f',
+>>>>>>> refs/remotes/origin/main
+>>>>>>> refs/remotes/origin/main
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -454,7 +462,15 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
+<<<<<<< HEAD
             'reference' => 'c097b89a8123beb1f52c843f01505fa7e225b951',
+=======
+<<<<<<< HEAD
+            'reference' => '5627913e5ff5452751761b47f93b17731c599cd9',
+=======
+            'reference' => '4272dafb3a2ab7dfb5287e5e290bc82f4906d20f',
+>>>>>>> refs/remotes/origin/main
+>>>>>>> refs/remotes/origin/main
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(

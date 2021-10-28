@@ -19,7 +19,7 @@
 
             @include('layouts.sidebar')
 
-            <div class="content p-1">
+            <div class="content p-1" id="content-p-1">
 
     @endif
 
@@ -51,7 +51,7 @@
 
     <div id="documents-container">
         <div class="table-responsive">
-            <table class="table table-striped table-hover table-bordered">
+            <table class="table table-striped table-hover table-bordered" id="table-responsive">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
@@ -75,7 +75,7 @@
                         </tr>
 
                     @empty
-                        <tr>
+                        <tr class="table-responsive-tr">
                             <th scope="row"></th>
                             <td>Nenhum projeto relacionado</td>
                             <td></td>
