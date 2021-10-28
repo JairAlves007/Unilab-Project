@@ -139,7 +139,7 @@
                   <input 
                      type="hidden"  
                      name="bolsistas[]" 
-                     value='{id: ${bolsista_id}, name: ${bolsista_name}}'
+                     value='${bolsista_name}'
                   >
                `);
 
