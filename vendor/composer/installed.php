@@ -5,7 +5,11 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
+<<<<<<< HEAD
+        'reference' => '5627913e5ff5452751761b47f93b17731c599cd9',
+=======
         'reference' => '4272dafb3a2ab7dfb5287e5e290bc82f4906d20f',
+>>>>>>> refs/remotes/origin/main
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -122,12 +126,12 @@
             'dev_requirement' => true,
         ),
         'facade/ignition' => array(
-            'pretty_version' => '2.15.0',
-            'version' => '2.15.0.0',
+            'pretty_version' => '2.16.0',
+            'version' => '2.16.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../facade/ignition',
             'aliases' => array(),
-            'reference' => '3ee6e94815462bcf09bca0efc1c9069685df8da3',
+            'reference' => '23400e6cc565c9dcae2c53704b4de1c4870c0697',
             'dev_requirement' => true,
         ),
         'facade/ignition-contracts' => array(
@@ -454,7 +458,11 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
+<<<<<<< HEAD
+            'reference' => '5627913e5ff5452751761b47f93b17731c599cd9',
+=======
             'reference' => '4272dafb3a2ab7dfb5287e5e290bc82f4906d20f',
+>>>>>>> refs/remotes/origin/main
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(
@@ -1065,12 +1073,12 @@
             'dev_requirement' => true,
         ),
         'spatie/laravel-permission' => array(
-            'pretty_version' => '4.4.1',
-            'version' => '4.4.1.0',
+            'pretty_version' => '4.4.3',
+            'version' => '4.4.3.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../spatie/laravel-permission',
             'aliases' => array(),
-            'reference' => '3c9d7ae7683081ee90a4e2297f4e58aff3492a1e',
+            'reference' => '779797a47689d0bc1666e26f566cca44603e56fa',
             'dev_requirement' => false,
         ),
         'swiftmailer/swiftmailer' => array(

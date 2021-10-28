@@ -760,17 +760,17 @@
         },
         {
             "name": "facade/ignition",
-            "version": "2.15.0",
-            "version_normalized": "2.15.0.0",
+            "version": "2.16.0",
+            "version_normalized": "2.16.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facade/ignition.git",
-                "reference": "3ee6e94815462bcf09bca0efc1c9069685df8da3"
+                "reference": "23400e6cc565c9dcae2c53704b4de1c4870c0697"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facade/ignition/zipball/3ee6e94815462bcf09bca0efc1c9069685df8da3",
-                "reference": "3ee6e94815462bcf09bca0efc1c9069685df8da3",
+                "url": "https://api.github.com/repos/facade/ignition/zipball/23400e6cc565c9dcae2c53704b4de1c4870c0697",
+                "reference": "23400e6cc565c9dcae2c53704b4de1c4870c0697",
                 "shasum": ""
             },
             "require": {
@@ -794,7 +794,7 @@
             "suggest": {
                 "laravel/telescope": "^3.1"
             },
-            "time": "2021-10-11T15:24:06+00:00",
+            "time": "2021-10-28T11:47:23+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -6174,17 +6174,17 @@
         },
         {
             "name": "spatie/laravel-permission",
-            "version": "4.4.1",
-            "version_normalized": "4.4.1.0",
+            "version": "4.4.3",
+            "version_normalized": "4.4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-permission.git",
-                "reference": "3c9d7ae7683081ee90a4e2297f4e58aff3492a1e"
+                "reference": "779797a47689d0bc1666e26f566cca44603e56fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/3c9d7ae7683081ee90a4e2297f4e58aff3492a1e",
-                "reference": "3c9d7ae7683081ee90a4e2297f4e58aff3492a1e",
+                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/779797a47689d0bc1666e26f566cca44603e56fa",
+                "reference": "779797a47689d0bc1666e26f566cca44603e56fa",
                 "shasum": ""
             },
             "require": {
@@ -6199,7 +6199,7 @@
                 "phpunit/phpunit": "^8.0|^9.0",
                 "predis/predis": "^1.1"
             },
-            "time": "2021-09-01T17:40:58+00:00",
+            "time": "2021-10-28T07:33:49+00:00",
             "type": "library",
             "extra": {
                 "laravel": {
@@ -6243,7 +6243,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-permission/issues",
-                "source": "https://github.com/spatie/laravel-permission/tree/4.4.1"
+                "source": "https://github.com/spatie/laravel-permission/tree/4.4.3"
             },
             "funding": [
                 {

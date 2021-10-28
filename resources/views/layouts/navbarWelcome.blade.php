@@ -1,4 +1,23 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-blue">
+<<<<<<< HEAD
+    <img class="rounded-circle" src="/imagem/unilabsimbolo.png" width="30" height="30">
+    <a class="navbar-brand" href="/">UNILAB</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse dark" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('edicts.showAll') }}">Editais <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Projetos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Sobre</a>
+            </li>
+=======
    <a class="navbar-brand d-flex align-items-center" href="/">
       <img class="rounded-circle mr-3" src="/imagem/unilabsimbolo.png" width="30" height="30">
       UNILAB
@@ -22,6 +41,7 @@
          </li>
 
          <li class="nav-item" id="menu">
+>>>>>>> refs/remotes/origin/main
             @if (!$user)
                <a class="nav-link dropdown-toggle dropdown-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false">

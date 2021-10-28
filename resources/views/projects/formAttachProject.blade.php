@@ -224,7 +224,10 @@
                </div>
             </div>
 
-            <button type="submit" class="btn btn-primary">Anexar</button>
+         </div>
+
+
+            <button type="submit" class="btn btn-primary" id="btnFiltra">Anexar</button>
          </form>
       </div>
 

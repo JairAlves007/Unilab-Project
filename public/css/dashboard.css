@@ -35,8 +35,6 @@ body {
 @media (max-width: 768px) {
     .sidebar {
         margin-left: -250px;
-        position: absolute;
-        z-index: 4;
     }
     .sidebar.toggled {
         margin-left: 0px;
