@@ -10,8 +10,6 @@
       @include('layouts.sidebar')
 
       <div class="form-create">
-         
-         {{-- @include('errors.cardMessage') --}}
 
          <h1>Anexe Um Projeto</h1>
 
@@ -22,12 +20,8 @@
                <div class="form-content">
                   <div class="form-group">
                      <label for="title">Título</label>
-                     <input 
-                        type="text" 
-                        name="title" 
-                        class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}" 
-                        id="title" 
-                     >
+                     <input type="text" name="title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}"
+                        id="title">
 
                      <div class="invalid-feedback">
                         @foreach ($errors->get('title') as $error)
@@ -41,12 +35,8 @@
 
                      <label for="content">Descrição Completa</label>
 
-                     <textarea 
-                        class="form-control {{ $errors->has('content') ? 'is-invalid' : '' }}" 
-                        name="content" 
-                        id="content" 
-                        rows="3" 
-                     ></textarea>
+                     <textarea class="form-control {{ $errors->has('content') ? 'is-invalid' : '' }}" name="content"
+                        id="content" rows="3"></textarea>
 
                      <div class="invalid-feedback">
                         @foreach ($errors->get('content') as $error)
@@ -60,12 +50,8 @@
 
                      <label for="abstract">Descrição Resumida</label>
 
-                     <textarea 
-                        class="form-control {{ $errors->has('abstract') ? 'is-invalid' : '' }}" 
-                        name="abstract" 
-                        id="abstract" 
-                        rows="2"
-                     ></textarea>
+                     <textarea class="form-control {{ $errors->has('abstract') ? 'is-invalid' : '' }}" name="abstract"
+                        id="abstract" rows="2"></textarea>
 
                      <div class="invalid-feedback">
                         @foreach ($errors->get('abstract') as $error)
@@ -79,12 +65,8 @@
 
                      <label for="references">Referências</label>
 
-                     <input 
-                        type="url" 
-                        name="references" 
-                        class="form-control {{ $errors->has('references') ? 'is-invalid' : '' }}" 
-                        id="references"
-                     >
+                     <input type="url" name="references"
+                        class="form-control {{ $errors->has('references') ? 'is-invalid' : '' }}" id="references">
 
                      <div class="invalid-feedback">
                         @foreach ($errors->get('references') as $error)
@@ -102,12 +84,8 @@
 
                         <label for="archive">Arquivo do Projeto</label>
 
-                        <input 
-                           type="file" 
-                           name="archive" 
-                           class="form-control-file {{ $errors->has('archive') ? 'is-invalid' : '' }}" 
-                           id="archive"
-                        >
+                        <input type="file" name="archive"
+                           class="form-control-file {{ $errors->has('archive') ? 'is-invalid' : '' }}" id="archive">
 
                         <div class="invalid-feedback">
                            @foreach ($errors->get('archive') as $error)
@@ -125,11 +103,8 @@
 
                         <label for="institutes">Instituto</label>
 
-                        <select 
-                           class="form-control {{ $errors->has('institutes') ? 'is-invalid' : '' }}" 
-                           name="institutes" 
-                           id="institutes"
-                        >
+                        <select class="form-control {{ $errors->has('institutes') ? 'is-invalid' : '' }}"
+                           name="institutes" id="institutes">
                            <option value="">
                               Selecione
                            </option>
@@ -153,11 +128,8 @@
 
                         <label for="specialities">Especialidades</label>
 
-                        <select 
-                           class="form-control {{ $errors->has('specialities') ? 'is-invalid' : '' }}" 
-                           name="specialities" 
-                           id="specialities"
-                        >
+                        <select class="form-control {{ $errors->has('specialities') ? 'is-invalid' : '' }}"
+                           name="specialities" id="specialities">
                            <option value="">
                               Selecione
                            </option>
@@ -183,14 +155,9 @@
 
                         <label for="big_areas">Grande Área</label>
 
-                        <select 
-                           class="form-control {{ $errors->has('big_areas') ? 'is-invalid' : '' }}" 
-                           onchange="changeAreas(this)"
-                           data-url="{{ url('/project/findAreas') }}" 
-                           data-token="{{ csrf_token() }}" 
-                           name="big_areas"
-                           id="big_areas" 
-                        >
+                        <select class="form-control {{ $errors->has('big_areas') ? 'is-invalid' : '' }}"
+                           onchange="changeAreas(this)" data-url="{{ url('/project/findAreas') }}"
+                           data-token="{{ csrf_token() }}" name="big_areas" id="big_areas">
                            <option value="">Selecione</option>
 
                            @foreach ($big_areas as $area)
@@ -213,15 +180,9 @@
 
                         <label for="areas">Área</label>
 
-                        <select 
-                           class="form-control {{ $errors->has('areas') ? 'is-invalid' : '' }}" 
-                           onchange="changeSubAreas(this)"
-                           data-url="{{ url('/project/findSubAreas') }}" 
-                           data-token="{{ csrf_token() }}" 
-                           name="areas"
-                           id="areas" 
-                           disabled
-                        >
+                        <select class="form-control {{ $errors->has('areas') ? 'is-invalid' : '' }}"
+                           onchange="changeSubAreas(this)" data-url="{{ url('/project/findSubAreas') }}"
+                           data-token="{{ csrf_token() }}" name="areas" id="areas" disabled>
 
                            <option value="">
                               Selecione
@@ -245,12 +206,8 @@
 
                         <label for="sub_areas">Sub Área</label>
 
-                        <select 
-                           class="form-control {{ $errors->has('sub_areas') ? 'is-invalid' : '' }}" 
-                           name="sub_areas" 
-                           id="sub_areas" 
-                           disabled
-                        >
+                        <select class="form-control {{ $errors->has('sub_areas') ? 'is-invalid' : '' }}"
+                           name="sub_areas" id="sub_areas" disabled>
                            <option value="">
                               Selecione
                            </option>
@@ -273,82 +230,82 @@
 
    </div>
 
-   @section('script')
-      <script>
-         function changeAreas(response) {
-            $.ajax({
-               url: $(response).data('url'),
-               type: 'post',
-               data: {
-                  _method: 'post',
-                  _token: $(response).data('token'),
-                  big_areas_id: response.value
-               },
-               
-               success: function(res) {
-                  $("#areas").empty();
+@section('script')
+   <script>
+      function changeAreas(response) {
+         $.ajax({
+            url: $(response).data('url'),
+            type: 'post',
+            data: {
+               _method: 'post',
+               _token: $(response).data('token'),
+               big_areas_id: response.value
+            },
 
-                  $("#sub_areas").empty();
+            success: function(res) {
+               $("#areas").empty();
 
-                  $("#areas").removeAttr('disabled');
-                  
-                  $("#sub_areas").prop('disabled', 'true');
+               $("#sub_areas").empty();
 
+               $("#areas").removeAttr('disabled');
+
+               $("#sub_areas").prop('disabled', 'true');
+
+               $('#areas').append($('<option>', {
+                  value: "",
+                  text: "Selecione"
+               }));
+
+               $('#sub_areas').append($('<option>', {
+                  value: "",
+                  text: "Selecione"
+               }));
+
+               $.each(res, function(index, value) {
                   $('#areas').append($('<option>', {
-                     value: "",
-                     text: "Selecione"
+                     value: value['id'],
+                     text: value['name']
                   }));
+               });
+            },
+            error: function() {
+               alert('error');
+            },
+         });
+      }
 
+      function changeSubAreas(response) {
+         $.ajax({
+            url: $(response).data('url'),
+            type: 'post',
+            data: {
+               _method: 'post',
+               _token: $(response).data('token'),
+               sub_areas_id: response.value
+            },
+            success: function(res) {
+               $("#sub_areas").empty();
+
+               $("#sub_areas").removeAttr('disabled');
+
+               $('#sub_areas').append($('<option>', {
+                  value: "",
+                  text: "Selecione"
+               }));
+
+               $.each(res, function(index, value) {
                   $('#sub_areas').append($('<option>', {
-                     value: "",
-                     text: "Selecione"
+                     value: value['id'],
+                     text: value['name']
                   }));
+               });
+            },
+            error: function() {
+               alert('error');
+            },
+         });
+      }
+   </script>
+@endsection
 
-                  $.each(res, function(index, value) {
-                     $('#areas').append($('<option>', {
-                        value: value['id'],
-                        text: value['name']
-                     }));
-                  });
-               },
-               error: function() {
-                  alert('error');
-               },
-            });
-         }
-
-         function changeSubAreas(response) {
-            $.ajax({
-               url: $(response).data('url'),
-               type: 'post',
-               data: {
-                  _method: 'post',
-                  _token: $(response).data('token'),
-                  sub_areas_id: response.value
-               },
-               success: function(res) {
-                  $("#sub_areas").empty();
-
-                  $("#sub_areas").removeAttr('disabled');
-
-                  $('#sub_areas').append($('<option>', {
-                     value: "",
-                     text: "Selecione"
-                  }));
-
-                  $.each(res, function(index, value) {
-                     $('#sub_areas').append($('<option>', {
-                        value: value['id'],
-                        text: value['name']
-                     }));
-                  });
-               },
-               error: function() {
-                  alert('error');
-               },
-            });
-         }
-      </script>
-   @endsection
-   
 @endsection

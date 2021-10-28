@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FormWorkPlansValidationRequest;
+use App\Models\User;
 use App\Models\WorkPlans;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,11 @@ class WorkPlansController extends Controller
      */
     public function create()
     {
-        return view('work_plans.createWorkPlans');
+        $users = User::all();
+
+        return view('work_plans.createWorkPlans', [
+            'users' => $users
+        ]);
     }
 
     /**
@@ -38,9 +43,18 @@ class WorkPlansController extends Controller
     {
         $request->validated();
 
+        $work_plans = new WorkPlans;
+        
         $data = $request->except(['_token']);
+        
+        $work_plans->title = $data['title'];
+        $work_plans->abstract = $data['abstract'];
+        $work_plans->content = $data['content'];
+        $work_plans->references = $data['references'];
 
-        WorkPlans::create($data);
+        $work_plans->bolsistas = $data['bolsistas'];
+
+        $work_plans->save();
 
         return redirect()->route('works_plans.create');
     }
