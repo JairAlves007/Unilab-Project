@@ -54,8 +54,8 @@
     </button>
     <div class="collapse navbar-collapse dark" id="navbarNav">
         <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link dark" href="#">Editais <span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('edicts.showAll') }}">Editais <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Projetos</a>
