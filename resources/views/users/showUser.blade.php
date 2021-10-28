@@ -15,7 +15,7 @@
          <div class="list-group-item">
             <div class="d-flex">
                <div class="mr-auto p-2">
-                  <h2 class="display-4 titulo">Usuário {{ $user_checking->name }}</h2>
+                  <p class="titulo"><i class="fas fa-user m-2"></i> <b>Usuário:</b> {{ $user_checking->name }}<p>
                </div>
 
                @role('gestor')
@@ -61,20 +61,19 @@
             </div>
 
             <hr>
-            <hr>
 
             <dl class="row">
-               <dt class="col-sm-3">ID</dt>
-               <dd class="col-sm-9">{{ $user_checking->id }}</dd>
+               <dt class="col-sm-3 text-left"><i class="fas fa-angle-right"></i> ID <hr></dt>
+               <dd class="col-sm-9 text-left">{{ $user_checking->id }} <hr></dd>
 
-               <dt class="col-sm-3">Nome</dt>
-               <dd class="col-sm-9">{{ $user_checking->name }}</dd>
+               <dt class="col-sm-3 text-left"><i class="fas fa-angle-right"></i> Nome <hr></dt>
+               <dd class="col-sm-9 text-left">{{ $user_checking->name }} <hr></dd>
 
-               <dt class="col-sm-3">Email</dt>
-               <dd class="col-sm-9">{{ $user_checking->email }}</dd>
+               <dt class="col-sm-3 text-left"><i class="fas fa-angle-right"></i> E-mail <hr></dt>
+               <dd class="col-sm-9 text-left">{{ $user_checking->email }} <hr></dd>
 
-               <dt class="col-sm-3">Níveis No Sistema</dt>
-               <dd class="col-sm-9" style="text-transform: capitalize;">
+               <dt class="col-sm-3 text-left"><i class="fas fa-angle-right"></i> Nível no sistema <hr></dt>
+               <dd class="col-sm-9 text-left" style="text-transform: capitalize;">
                   @for($i = 0; $i < count($user_roles); $i++)
                      @if($i < count($user_roles) - 1)
                         {{ $user_roles[$i]->name }},
@@ -82,10 +81,11 @@
                         {{ $user_roles[$i]->name }}
                      @endif
                   @endfor
+                  <hr>
                </dd>
 
-               <dt class="col-sm-3 text-truncate">Data do Cadastro</dt>
-               <dd class="col-sm-9">{{ $user_checking->created_at }}</dd>
+               <dt class="col-sm-3 text-truncate text-left"><i class="fas fa-angle-right"></i> Data do cadastro <hr></dt>
+               <dd class="col-sm-9 text-left">{{ $user_checking->created_at }} <hr></dd>
             </dl>
          </div>
       </div>

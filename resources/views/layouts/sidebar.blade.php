@@ -106,7 +106,7 @@
                     @can('attach-project')
                         <li class="{{ Request::route()->getName() === 'edicts.projects' ? 'active' : '' }}">
                             <a href="{{ route('edicts.projects') }}" class="li-submenu">
-                                <i class="fas fa-file-import"></i>
+                                <i class="fas fa-file-upload"></i>
                                 Anexar Projetos
                             </a>
                         </li>

@@ -99,8 +99,10 @@
 
     @endif
 
-    @if (Request::route()->getName() === 'edicts.showHome')
-        @include('layouts.footer')
-    @endif
+    <div class="other-rodape">
+        @if (Request::route()->getName() === 'edicts.showHome')
+            @include('layouts.footer')
+        @endif
+    </div>
 
 @endsection
