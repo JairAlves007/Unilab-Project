@@ -626,6 +626,7 @@ class ComposerStaticInitedf5ec90f8b977e13f21174974f7d780
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Http\\Requests\\FormAttachProjectValidation' => __DIR__ . '/../..' . '/app/Http/Requests/FormAttachProjectValidation.php',
         'App\\Http\\Requests\\FormCreateEdictRequest' => __DIR__ . '/../..' . '/app/Http/Requests/FormCreateEdictRequest.php',
         'App\\Http\\Requests\\FormProfileValidationRequest' => __DIR__ . '/../..' . '/app/Http/Requests/FormProfileValidationRequest.php',
         'App\\Http\\Requests\\FormValidationRequest' => __DIR__ . '/../..' . '/app/Http/Requests/FormValidationRequest.php',

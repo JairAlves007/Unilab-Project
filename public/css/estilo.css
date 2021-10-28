@@ -1,9 +1,11 @@
 * {
     font-family: bold;
 }
+
 html,
 body {
-    height: 100%;
+    max-height: 100%;
+    height:100%;
 }
 
 .form {
@@ -82,13 +84,6 @@ body {
     border-top-right-radius: 0;
 }
 
-.rodape {
-    background-color: #343a40;
-    color: #fff;
-    margin-bottom: 0;
-    padding: 3%;
-}
-
 ul li a {
     color: rgb(247, 240, 240) !important;
     font-size: 20px;
@@ -136,8 +131,42 @@ button a {
     margin: 1%;
 }
 
-#menu {
-    margin-left: 600px;
+#menu-navbar-welcome {
+    border: none;
+    background-color: #343A40;
+}
+
+#menu-navbar-welcome .dropdown-item {
+    text-align: center;
+    color: #ecedee !important;
+}
+
+.dropdown-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#menu-navbar-welcome .dropdown-item:hover {
+    background-color: transparent !important;
+    color: #aa1010 !important;
+}
+
+@media (min-width: 992px) {
+    #menu {
+        position: absolute;
+        right: 7%;
+    }
+
+    #menu-navbar-welcome {
+        background-color: #F8F9FA;
+    }
+
+    #menu-navbar-welcome .dropdown-item {
+        color: #141313 !important;
+        text-align: left !important;
+    }
 }
 
 .rounded-circle {
@@ -218,7 +247,7 @@ button a {
 .sidebar [data-toggle="collapse"] {
     position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     gap: 3%;
 }
@@ -231,6 +260,9 @@ button a {
 }
 .sidebar [aria-expanded="true"] {
     background-color: #19222d;
+}
+.li-submenu{
+    text-align: left;
 }
 
 .icon-rotate {
@@ -304,33 +336,42 @@ button a {
 
 /* Footer */
 
-/* .rodape {
+.rodape {
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 40%;
     background-color: #444444;
     color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto 0;
-} */
+    position:absolute;
+    bottom:-80;
+    width:100%;
+}
 
 .icon {
     width: 15px;
     margin: 0 auto 4px 0;
+
+
 }
 
-.border {
+.footer-icons {
     width: 28px;
     height: 28px;
     margin-left: 8px;
-    background: #fff;
+    background: #ffff;
     border-radius: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    float:right ;
 }
 
 .titulo-rodape {
+    margin: auto 0;
     text-align: initial;
+    float: left;
 }
 
 /* FormAttachProject */
@@ -341,4 +382,26 @@ button a {
 #form-group-md {
     left: 0;
     bottom: 70px;
+}
+
+.button-search{
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .rodape{
+        height: 120px;
+        gap: 0;
+    }
+
+    .footer-icons{
+        margin-bottom: 10%;
+    }
+
+    .titulo-rodape{
+        margin-top: 10px;
+        text-align: center;
+    }
 }

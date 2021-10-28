@@ -4,8 +4,6 @@
 
 @section('content')
 
-   @include('errors.cardMessage')
-
    <div
       style="display: flex; gap: 40px; flex-direction: column; justify-content: center; align-items: center; width: 100%; height: 500px;">
 
@@ -17,14 +15,25 @@
 
             <div class="form-group">
                <x-jet-label for="email" value="{{ __('Email') }}" />
-               <x-jet-input id="email" class="form-control" type="email" name="email" :value="old('email')" required
-                  autofocus />
+               <x-jet-input id="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" type="email"
+                  name="email" :value="old('email')" autofocus />
+
+               <div class="invalid-feedback">
+                  @foreach ($errors->get('email') as $error)
+                     {{ $error }}
+                  @endforeach
+               </div>
             </div>
 
             <div class="form-group">
                <x-jet-label for="password" value="{{ __('Senha') }}" />
-               <x-jet-input id="password" class="form-control" type="password" name="password" required
-                  autocomplete="current-password" />
+               <x-jet-input id="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"
+                  type="password" name="password" autocomplete="current-password" />
+               <div class="invalid-feedback">
+                  @foreach ($errors->get('password') as $error)
+                     {{ $error }}
+                  @endforeach
+               </div>
             </div>
 
             <div class="form-group">
@@ -35,11 +44,14 @@
             </div>
 
             <div class="form-group">
-               <button type="submit" class="btn btn-primary">Login</button>
+               <button type="submit" class="btn btn-primary">
+                  <i class="fas fa-sign-in-alt mr-1"></i>
+                  Login
+               </button>
 
                @if (Route::has('password.request'))
                   <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                     {{ __('Esqueceu Sua Senha?') }}
+                     {{ __('Esqueceu sua senha?') }}
                   </a>
                @endif
             </div>

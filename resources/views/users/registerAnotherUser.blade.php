@@ -17,74 +17,111 @@
 
             <br>
 
-            @include('errors.cardMessage')
-
             <form method="POST" action="{{ route('users.store') }}">
                @csrf
 
                <div class="form-row">
                   <div class="form-group col-md-6">
                      <x-jet-label for="name" value="{{ __('Nome') }}" />
-                     <x-jet-input id="name" class="form-control" type="text" name="name" :value="old('name')" autofocus
-                        autocomplete="name" />
+                     <x-jet-input id="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"
+                        type="text" name="name" :value="old('name')" autofocus autocomplete="name" />
+
+                     <div class="invalid-feedback">
+                        @foreach ($errors->get('name') as $error)
+                           {{ $error }}
+                        @endforeach
+                     </div>
                   </div>
 
                   <div class="form-group col-md-6">
                      <x-jet-label for="email" value="{{ __('Email') }}" />
-                     <x-jet-input id="email" class="form-control" type="email" name="email" :value="old('email')" />
+                     <x-jet-input id="email" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"
+                        type="email" name="email" :value="old('email')" />
+                     <div class="invalid-feedback">
+                        @foreach ($errors->get('email') as $error)
+                           {{ $error }}
+                        @endforeach
+                     </div>
                   </div>
                </div>
 
                <div class="form-row">
                   <div class="form-group col-md-6">
                      <x-jet-label for="password" value="{{ __('Senha') }}" />
-                     <x-jet-input id="password" class="form-control" type="password" name="password"
-                        autocomplete="new-password" />
+                     <x-jet-input id="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"
+                        type="password" name="password" autocomplete="new-password" />
+                     <div class="invalid-feedback">
+                        @foreach ($errors->get('password') as $error)
+                           {{ $error }}
+                        @endforeach
+                     </div>
                   </div>
 
                   <div class="form-group col-md-6">
                      <x-jet-label for="password_confirmation" value="{{ __('Confirmar Senha') }}" />
-                     <x-jet-input id="password_confirmation" class="form-control" type="password"
-                        name="password_confirmation" autocomplete="new-password" />
+                     <x-jet-input id="password_confirmation"
+                        class="form-control {{ $errors->has('password_confirmation') ? 'is-invalid' : '' }}"
+                        type="password" name="password_confirmation" autocomplete="new-password" />
+                     <div class="invalid-feedback">
+                        @foreach ($errors->get('password_confirmation') as $error)
+                           {{ $error }}
+                        @endforeach
+                     </div>
                   </div>
                </div>
 
                <p>
-                  <span class="text-danger">*</span>Campo obrigatório
+                  <span class="text-danger">*</span> Campo obrigatório
                </p>
+
+               @if ($errors->has('niveis'))
+                  <p class="text-danger">Marque Um Nível De Acesso</p>
+               @endif
 
                <div class="form-row">
 
                   <div class="form-group col-md-12">
 
-                     {{-- <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="niveis[]" value="gestor" id="checkGestor">
-                                <label class="form-check-label" for="checkGestor">
-                                    Gestor
-                                </label>
-                            </div> --}}
-
                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="niveis[]" value="bolsista"
-                           id="checkBolsista">
-                        <label class="form-check-label" for="checkBolsista">
-                           Bolsista/Voluntário
+
+                        <input class="form-check-input {{ $errors->has('niveis') ? 'is-invalid' : '' }}"
+                           type="checkbox" name="niveis[]" value="gestor" id="checkGestor">
+                        <label class="form-check-label" for="checkGestor">
+                           Gestor
                         </label>
+                        
                      </div>
 
                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="niveis[]" value="orientador"
-                           id="checkOrientador">
+
+                        <input class="form-check-input {{ $errors->has('niveis') ? 'is-invalid' : '' }}"
+                           type="checkbox" name="niveis[]" value="bolsista" id="checkBolsista">
+                        <label class="form-check-label" for="checkBolsista">
+                           Bolsista/Voluntário
+                        </label>
+
+                     </div>
+
+                     <div class="form-check">
+                        <input class="form-check-input {{ $errors->has('niveis') ? 'is-invalid' : '' }}"
+                           type="checkbox" name="niveis[]" value="orientador" id="checkOrientador">
                         <label class="form-check-label" for="checkOrientador">
                            Orientador/Coordenador
                         </label>
                      </div>
 
                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="niveis[]" value="membro" id="checkMembro">
+                        <input class="form-check-input {{ $errors->has('niveis') ? 'is-invalid' : '' }}"
+                           type="checkbox" name="niveis[]" value="membro" id="checkMembro">
                         <label class="form-check-label" for="checkMembro">
                            Membro da Comissão(CAPP)
                         </label>
+                     </div>
+
+                     <div class="invalid-feedback">
+                        @foreach ($errors->get('niveis') as $error)
+                           {{ $error }}
+                        @endforeach
                      </div>
 
                   </div>

@@ -14,13 +14,18 @@ class FormValidationRequest extends FormRequest
 
     public function rules()
     {
-        return [
+        $rules = [
             'name' => ['required', 'string'],
             'email' => ['required', 'email'],
-            'password' => ['required', 'min:8'],
-            'password_confirmation' => ['required', 'same:password'],
             'niveis' => ['array', 'required']
         ];
+
+        if($this->isMethod('post')) {
+            $rules['password'] = ['required', 'min:8'];
+            $rules['password_confirmation'] = ['required', 'same:password'];
+        }
+
+        return $rules;
     }
 
     public function messages() {

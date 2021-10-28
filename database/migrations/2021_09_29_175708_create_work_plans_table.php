@@ -19,8 +19,7 @@ class CreateWorkPlansTable extends Migration
             $table->text('abstract');
             $table->text('content');
             $table->text('references');
-            $table->foreignId('projects_id')->constrained('projects')->onUpdate('cascade')->onDelete('cascade');
-
+            $table->timestamps();
         });
     }
 

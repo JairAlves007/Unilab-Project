@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FormAttachProjectValidation;
 use App\Models\Areas;
 use App\Models\BigAreas;
 use App\Models\Edicts;
@@ -50,8 +51,10 @@ class ProjectsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($id, Request $request)
+    public function store($id, FormAttachProjectValidation $request)
     {
+        $request->validated();
+        
         $project = new Projects;
 
         $project->title = $request->title;
@@ -67,7 +70,7 @@ class ProjectsController extends Controller
         $project->areas_id = $request->areas;
         $project->sub_areas_id = $request->sub_areas;
 
-        if ($request->file('archive')->isValid() && $request->hasFile('archive')) {
+        if ($request->hasFile('archive') && $request->file('archive')->isValid()) {
 
             $name = uniqid(date('HisYmd'));
             $extension = $request->archive->extension();

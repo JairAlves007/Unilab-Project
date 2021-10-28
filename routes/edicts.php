@@ -15,6 +15,7 @@ Route::group(['middleware' => ['role:super-admin|orientador']], function () {
         ->name('edicts.create');
 
     Route::post('/edict/store', [EdictsController::class, 'store'])
+        ->name('edicts.store')
         ->middleware('auth');
 
     Route::get('/edict/attachProjects', [EdictsController::class, 'showAll'])
