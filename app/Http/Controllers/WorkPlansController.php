@@ -44,9 +44,9 @@ class WorkPlansController extends Controller
         $request->validated();
 
         $work_plans = new WorkPlans;
-        
+
         $data = $request->except(['_token']);
-        
+
         $work_plans->title = $data['title'];
         $work_plans->abstract = $data['abstract'];
         $work_plans->content = $data['content'];
@@ -65,9 +65,12 @@ class WorkPlansController extends Controller
      * @param  \App\Models\WorkPlans  $workPlans
      * @return \Illuminate\Http\Response
      */
-    public function show(WorkPlans $workPlans)
+    public function show()
     {
         //
+        $work_plans = WorkPlans::all();
+
+        return view('work_plans.approvedWorkPlans', [ 'work_plans' => $work_plans]);
     }
 
     /**

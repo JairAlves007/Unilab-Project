@@ -5,15 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-<<<<<<< HEAD
-        'reference' => 'c097b89a8123beb1f52c843f01505fa7e225b951',
-=======
-<<<<<<< HEAD
-        'reference' => '5627913e5ff5452751761b47f93b17731c599cd9',
-=======
-        'reference' => '4272dafb3a2ab7dfb5287e5e290bc82f4906d20f',
->>>>>>> refs/remotes/origin/main
->>>>>>> refs/remotes/origin/main
+        'reference' => '31ca1edab9b55d273a77583ada085d2d78a085fd',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -462,15 +454,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-<<<<<<< HEAD
-            'reference' => 'c097b89a8123beb1f52c843f01505fa7e225b951',
-=======
-<<<<<<< HEAD
-            'reference' => '5627913e5ff5452751761b47f93b17731c599cd9',
-=======
-            'reference' => '4272dafb3a2ab7dfb5287e5e290bc82f4906d20f',
->>>>>>> refs/remotes/origin/main
->>>>>>> refs/remotes/origin/main
+            'reference' => '31ca1edab9b55d273a77583ada085d2d78a085fd',
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(
@@ -864,12 +848,12 @@
             ),
         ),
         'psr/log' => array(
-            'pretty_version' => '2.0.0',
-            'version' => '2.0.0.0',
+            'pretty_version' => '1.1.4',
+            'version' => '1.1.4.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../psr/log',
             'aliases' => array(),
-            'reference' => 'ef29f6d262798707a9edd554e2b82517ef3a9376',
+            'reference' => 'd49695b909c3b7628b6289db5479a1c204601f11',
             'dev_requirement' => false,
         ),
         'psr/log-implementation' => array(

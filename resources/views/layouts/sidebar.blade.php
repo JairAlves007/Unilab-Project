@@ -184,9 +184,9 @@
 
                     @can('rate-project')
                         <li>
-                            <a href="/dashboard">
+                            <a href="{{ route('works_plans.approved') }}">
                                 <i class="fas fa-users"></i>
-                                Avaliar
+                            Candidatos
                             </a>
                         </li>
                     @endcan
