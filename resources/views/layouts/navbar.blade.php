@@ -19,12 +19,12 @@
                   Voltar Para Home
                </a>
 
-               <a class="dropdown-item" href="/profile/show/{{ $user->id }}">
+               <a class="dropdown-item" href="{{ route('profile_system.show', $user) }}">
                   <i class="fas fa-eye"></i>
                   Visualizar Perfil
                </a>
 
-               <a class="dropdown-item" href="/profile/edit/{{ $user->id }}">
+               <a class="dropdown-item" href="{{ route('profile_system.edit', $user) }}">
                   <i class="fas fa-edit"></i>
                   Editar Perfil
                </a>
