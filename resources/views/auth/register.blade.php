@@ -4,10 +4,17 @@
 
 @section('content')
 
-   <form class="form-signin" method="POST" action="{{ route('register') }}">
+   <form class="form-signin" id="form-registration" method="POST" action="{{ route('users.register') }}">
       @csrf
 
       <div class="container-fluid">
+
+         @if ($errors->has('abstract_bolsista') || $errors->has('abstract_orientador'))
+            @foreach ($errors->all() as $error)
+               <p class="text-danger">{{ $error }}</p>
+            @endforeach
+         @endif
+
          <div class="row">
             <div class="col-md-12 d-flex justify-content-center align-items-center">
                <img class="rounded-circle" src="/imagem/unilabsimbolo.png">
@@ -90,8 +97,9 @@
                Membro da Comissão(CAPP)
             </label>
          </div>
+
          <div class="d-flex justify-content-center align-items-center mt-1">
-            <button type="submit" class="btn btn-md btn-primary">
+            <button type="submit" id="btn-modal" class="btn btn-md btn-primary">
                <i class="fas fa-user-plus"></i>
                Cadastrar
             </button>
@@ -101,6 +109,7 @@
             </a>
          </div>
       </div>
+
    </form>
 
 @endsection

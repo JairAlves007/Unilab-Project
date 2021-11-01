@@ -64,7 +64,7 @@
 
             <form method="POST" 
                @if ($user_checking->id == $user->id)
-                  action="{{ route('profile.update', $user_checking) }}"
+                  action="{{ route('profile_system.update', $user_checking) }}"
                @else
                   action="{{ route('users.update', $user_checking) }}"
                @endif

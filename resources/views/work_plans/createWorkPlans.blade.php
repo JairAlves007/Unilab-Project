@@ -18,63 +18,72 @@
             @csrf
 
             <div id="form-area">
+
                <div class="form-content">
-                  <div class="form-group">
-                     <label for="title">Título</label>
-                     <input type="text" name="title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}"
-                        id="title">
+                  <div class="form-row">
+                     <div class="form-group col-md-12">
+                        <label for="title">Título</label>
 
-                     <div class="invalid-feedback">
-                        @foreach ($errors->get('title') as $error)
-                           {{ $error }}
-                        @endforeach
+                        <input type="text" name="title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}"
+                           id="title">
+   
+                        <div class="invalid-feedback">
+                           @foreach ($errors->get('title') as $error)
+                              {{ $error }}
+                           @endforeach
+                        </div>
+   
+                     </div>
+                  </div>
+
+                  <div class="form-row">
+                     <div class="form-group col-md-6">
+
+                        <label for="content">Descrição Completa</label>
+   
+                        <textarea class="form-control {{ $errors->has('content') ? 'is-invalid' : '' }}" name="content"
+                           id="content" rows="3"></textarea>
+   
+                        <div class="invalid-feedback">
+                           @foreach ($errors->get('content') as $error)
+                              {{ $error }}
+                           @endforeach
+                        </div>
+   
+                     </div>
+
+                     <div class="form-group col-md-6">
+
+                        <label for="abstract">Descrição Resumida</label>
+   
+                        <textarea class="form-control {{ $errors->has('abstract') ? 'is-invalid' : '' }}" name="abstract"
+                           id="abstract" rows="3"></textarea>
+   
+                        <div class="invalid-feedback">
+                           @foreach ($errors->get('abstract') as $error)
+                              {{ $error }}
+                           @endforeach
+                        </div>
+   
                      </div>
 
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-row">
+                     <div class="form-group col-md-12">
 
-                     <label for="content">Descrição Completa</label>
-
-                     <textarea class="form-control {{ $errors->has('content') ? 'is-invalid' : '' }}" name="content"
-                        id="content" rows="3"></textarea>
-
-                     <div class="invalid-feedback">
-                        @foreach ($errors->get('content') as $error)
-                           {{ $error }}
-                        @endforeach
+                        <label for="references">Referências</label>
+   
+                        <input type="url" name="references"
+                           class="form-control {{ $errors->has('references') ? 'is-invalid' : '' }}" id="references">
+   
+                        <div class="invalid-feedback">
+                           @foreach ($errors->get('references') as $error)
+                              {{ $error }}
+                           @endforeach
+                        </div>
+   
                      </div>
-
-                  </div>
-
-                  <div class="form-group">
-
-                     <label for="abstract">Descrição Resumida</label>
-
-                     <textarea class="form-control {{ $errors->has('abstract') ? 'is-invalid' : '' }}" name="abstract"
-                        id="abstract" rows="2"></textarea>
-
-                     <div class="invalid-feedback">
-                        @foreach ($errors->get('abstract') as $error)
-                           {{ $error }}
-                        @endforeach
-                     </div>
-
-                  </div>
-
-                  <div class="form-group">
-
-                     <label for="references">Referências</label>
-
-                     <input type="url" name="references"
-                        class="form-control {{ $errors->has('references') ? 'is-invalid' : '' }}" id="references">
-
-                     <div class="invalid-feedback">
-                        @foreach ($errors->get('references') as $error)
-                           {{ $error }}
-                        @endforeach
-                     </div>
-
                   </div>
 
                   <div class="form-row">

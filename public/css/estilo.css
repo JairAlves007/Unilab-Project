@@ -212,9 +212,8 @@ button a {
     background-color: #222c3c;
     min-width: 250px;
     max-width: 250px;
-    min-height: calc(100vh - 56px);
     transition: all 0.3s;
-    height: 100%;
+    height: 100vh;
 }
 .sidebar ul li a {
     display: block;
