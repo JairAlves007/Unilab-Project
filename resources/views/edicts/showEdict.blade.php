@@ -43,7 +43,11 @@
 
          @if (Request::route()->getName() === 'edicts.showDashboard')
             <button type="button" id="btn-modal-rate" class="btn btn-primary btn-sm">
-               Avaliar
+               @if ($rate)
+                  Alterar Sua Avaliação
+               @else
+                  Avaliar
+               @endif
             </button>
          @endif
 

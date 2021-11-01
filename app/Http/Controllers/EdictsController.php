@@ -113,9 +113,12 @@ class EdictsController extends Controller
         $edict = Edicts::find($id);
         $projects_attachs = $edict->projects;
 
+        $rate_current = RateEdict::where('avaliator', auth()->user()->id)->where('edict_id', $id)->first();
+
         return view("edicts.showEdict", [
-            "edict" => $edict,
-            'projects_attachs' => $projects_attachs
+            'edict' => $edict,
+            'projects_attachs' => $projects_attachs,
+            'rate' => $rate_current
         ]);
     }
 
@@ -203,8 +206,6 @@ class EdictsController extends Controller
         $data = $request->all();
         
         $rate_current = RateEdict::where('avaliator', auth()->user()->id)->where('edict_id', $data['id'])->first();
-
-        // dd(count($rate_current));
 
         if(!$rate_current) {
             RateEdict::create([

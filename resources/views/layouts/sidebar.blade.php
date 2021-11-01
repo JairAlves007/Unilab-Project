@@ -127,15 +127,6 @@
                      </li>
                   @endcan
 
-                  @can('rate-project')
-                        <li class="{{ Request::route()->getName() === 'edicts.rate' ? 'active' : '' }}">
-                            <a href="{{ route('edicts.rate') }}"  class="li-submenu">
-                                <i class="fas fa-users"></i>
-                                Avaliar Edital
-                            </a>
-                        </li>
-                    @endcan
-
                   @can('delete-edict')
                      <li class="{{ Request::route()->getName() === 'edicts.delete' ? 'active' : '' }}">
                         <a href="{{ route('edicts.delete') }}" class="li-submenu">
