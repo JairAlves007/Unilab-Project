@@ -18,7 +18,8 @@ class UsersTableSeeder extends Seeder
         User::create([
             'name' => 'Administrador',
             'email' => 'admin@gmail.com',
-            'password' => Hash::make('123456789')
+            'password' => Hash::make('123456789'),
+            'can_access' => 1
         ])->syncRoles('super-admin');
     }
 }

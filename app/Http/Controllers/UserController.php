@@ -4,12 +4,72 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FormValidationRequest;
+use App\Models\Students;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+
+   public function form_registration(){
+
+      if(auth()->user()->can_access == 0) {
+         return view('users.formRegistration');
+      } else {
+         return redirect()->route('dashboard');
+      }
+
+   }
+
+   public function registration(Request $request) {
+      $data = $request->all();
+
+      Students::create([
+         'registrations' => $data['registrations'],
+         'users_id' => auth()->user()->id
+      ]);
+
+      User::where('id', auth()->user()->id)->update([
+         'can_access' => 1
+      ]);
+
+      return redirect()->route('dashboard');
+   }
+
+   public function register(FormValidationRequest $request) {
+      $request->validated();
+
+      $data = $request->all();
+
+      $checking_user_email = User::where('email', $data['email'])->get();
+
+      if(count($checking_user_email) == 0) {
+         if(
+            in_array('bolsista', $data['niveis']) || 
+            in_array('orientador', $data['niveis'])
+         ) {
+         
+            $can_access = 0;
+   
+         } else {
+   
+            $can_access = 1;
+   
+         }
+   
+         User::create([
+   
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+            'can_access' => $can_access
+   
+         ])->syncRoles($data['niveis']);
+      }
+      
+      return redirect()->route('dashboard');
+   }
 
    public function create()
    {
@@ -42,7 +102,6 @@ class UserController extends Controller
          return redirect()
             ->route('users.create')
             ->withErrors('Esse E-Mail Já Existe! Tente Outro E-Mail Válido');
-
       }
    }
 
@@ -86,11 +145,10 @@ class UserController extends Controller
    {
       $request->validated();
 
-      if($request->password) {
-         
+      if ($request->password) {
+
          $data = $request->except('niveis');
          $data['password'] = Hash::make($data['password']);
-
       } else {
          $data = $request->except(['niveis', 'password']);
       }

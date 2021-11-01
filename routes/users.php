@@ -41,3 +41,23 @@ Route::group(['middleware' => ['role:super-admin|gestor']], function () {
       ->name('users.store')
       ->middleware('auth');
 });
+
+Route::group(['middleware' => ['role:super-admin|bolsista|orientador']], function () {
+
+   Route::get('/user/registration', [UserController::class, 'form_registration'])
+      ->name('users.form-registration')
+      ->middleware('auth');
+
+   Route::post('/user/registration/store', [UserController::class, 'registration'])
+      ->name('users.registration-store')
+      ->middleware('auth');
+});
+
+Route::post('user/form-registration', [UserController::class, 'register'])
+   ->name('users.register');
+
+// Route::post('user/register', [UserController::class, 'secondForm'])
+//    ->name('users.anotherForm');
+
+// Route::post('user/registerRole', [UserController::class, 'register'])
+//    ->name('users.register');

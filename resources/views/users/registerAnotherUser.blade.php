@@ -84,18 +84,18 @@
 
                      <div class="form-check">
 
-                        <input class="form-check-input {{ $errors->has('niveis') ? 'is-invalid' : '' }}"
-                           type="checkbox" name="niveis[]" value="gestor" id="checkGestor">
+                        <input class="form-check-input {{ $errors->has('niveis') ? 'is-invalid' : '' }}" type="checkbox"
+                           name="niveis[]" value="gestor" id="checkGestor">
                         <label class="form-check-label" for="checkGestor">
                            Gestor
                         </label>
-                        
+
                      </div>
 
                      <div class="form-check">
 
-                        <input class="form-check-input {{ $errors->has('niveis') ? 'is-invalid' : '' }}"
-                           type="checkbox" name="niveis[]" value="bolsista" id="checkBolsista">
+                        <input class="form-check-input {{ $errors->has('niveis') ? 'is-invalid' : '' }}" type="checkbox"
+                           name="niveis[]" value="bolsista" id="checkBolsista">
                         <label class="form-check-label" for="checkBolsista">
                            Bolsista/Voluntário
                         </label>
@@ -103,16 +103,16 @@
                      </div>
 
                      <div class="form-check">
-                        <input class="form-check-input {{ $errors->has('niveis') ? 'is-invalid' : '' }}"
-                           type="checkbox" name="niveis[]" value="orientador" id="checkOrientador">
+                        <input class="form-check-input {{ $errors->has('niveis') ? 'is-invalid' : '' }}" type="checkbox"
+                           name="niveis[]" value="orientador" id="checkOrientador">
                         <label class="form-check-label" for="checkOrientador">
                            Orientador/Coordenador
                         </label>
                      </div>
 
                      <div class="form-check">
-                        <input class="form-check-input {{ $errors->has('niveis') ? 'is-invalid' : '' }}"
-                           type="checkbox" name="niveis[]" value="membro" id="checkMembro">
+                        <input class="form-check-input {{ $errors->has('niveis') ? 'is-invalid' : '' }}" type="checkbox"
+                           name="niveis[]" value="membro" id="checkMembro">
                         <label class="form-check-label" for="checkMembro">
                            Membro da Comissão(CAPP)
                         </label>
@@ -126,23 +126,6 @@
 
                   </div>
                </div>
-
-               @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                  <div class="mt-4">
-                     <x-jet-label for="terms">
-                        <div class="flex items-center">
-                           <x-jet-checkbox name="terms" id="terms" />
-
-                           <div class="ml-2">
-                              {!! __('I agree to the :terms_of_service and :privacy_policy', [
-    'terms_of_service' => '<a target="_blank" href="' . route('terms.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">' . __('Terms of Service') . '</a>',
-    'privacy_policy' => '<a target="_blank" href="' . route('policy.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">' . __('Privacy Policy') . '</a>',
-]) !!}
-                           </div>
-                        </div>
-                     </x-jet-label>
-                  </div>
-               @endif
 
                <div class="flex items-center justify-end mt-4">
                   <button type="submit" class="btn btn-lg btn-primary">Cadastrar</button>
