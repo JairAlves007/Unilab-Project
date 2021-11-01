@@ -40,6 +40,12 @@
             <h4>Descrição</h4>
             <p>{{ $edict->description }}</p>
             <p>Autor: Nâo está funcionando</p>
+
+            <input type="radio">
+            <input type="radio">
+            <input type="radio">
+            <input type="radio">
+            <input type="radio">
         </div>
     </div>
 

@@ -55,3 +55,5 @@ Route::get('/edict/show/{id}', [EdictsController::class, 'show'])
     ->name('edicts.showHome');
 
 Route::any('/search', [EdictsController::class, 'search']);
+
+Route::get('/edicts/rate', [EdictsController::class, 'showAll'])->name('edicts.rate');

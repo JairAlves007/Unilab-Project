@@ -197,8 +197,10 @@ class EdictsController extends Controller
 
     }
 
-    // public function showAttachProject()
-    // {
-    //     //
-    // }
+    public function showRate()
+    {
+        //
+        return redirect()->route('edicts.rate');
+
+    }
 }
