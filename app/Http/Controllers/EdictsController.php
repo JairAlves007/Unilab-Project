@@ -10,6 +10,7 @@ use App\Models\Edicts;
 use App\Models\Institutes;
 use App\Models\MinTitulations;
 use App\Models\Projects;
+use App\Models\RateEdict;
 use App\Models\Specialities;
 use App\Models\SubAreas;
 use Illuminate\Http\Request;
@@ -197,10 +198,27 @@ class EdictsController extends Controller
 
     }
 
-    public function showRate()
+    public function rate(Request $request)
     {
-        //
-        return redirect()->route('edicts.rate');
+        $data = $request->all();
+        
+        $rate_current = RateEdict::where('avaliator', auth()->user()->id)->where('edict_id', $data['id'])->first();
+
+        // dd(count($rate_current));
+
+        if(!$rate_current) {
+            RateEdict::create([
+                'rate' => $data['rate'],
+                'edict_id' => $data['id'],
+                'avaliator' => auth()->user()->id
+            ]);
+        } else {
+            $rate_current->rate = $data['rate'];
+
+            $rate_current->save();
+        }
+
+        return redirect()->back();
 
     }
 }

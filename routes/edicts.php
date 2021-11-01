@@ -49,11 +49,13 @@ Route::group(['middleware' => ['role:super-admin|orientador']], function () {
     Route::get('/edict/{id}/show/', [EdictsController::class, 'show'])
         ->middleware('auth')
         ->name('edicts.showDashboard');
+
+    Route::post('/edict/rate/', [EdictsController::class, 'rate'])
+        ->name('edicts.rate')
+        ->middleware('auth');
 });
 
 Route::get('/edict/show/{id}', [EdictsController::class, 'show'])
     ->name('edicts.showHome');
 
 Route::any('/search', [EdictsController::class, 'search']);
-
-Route::get('/edicts/rate', [EdictsController::class, 'showAll'])->name('edicts.rate');

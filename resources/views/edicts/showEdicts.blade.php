@@ -71,19 +71,18 @@
                                        <a href="{{ route('edicts.destroy', $edict) }}" class="btn btn-outline-danger btn-sm"
                                           onclick="return confirm('Você Deseja Excluir Este Edital?');">
 
-                                            Apagar
+                                          Apagar
 
                                        </a>
                                     @break
 
                                     @case('edicts.rate')
 
-                                        <a href="" class="btn btn-outline-primary btn-sm"
-                                            onclick="return confirm('Você Deseja Excluir Este Edital?');">
+                                       <button type="button" id="btn-modal-rate" class="btn btn-outline-primary btn-sm">
 
-                                            Avaliar
+                                          Avaliar
 
-                                        </a>
+                                       </button>
                                     @break
 
 

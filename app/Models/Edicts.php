@@ -51,4 +51,5 @@ class Edicts extends Model
     {
         return $this->hasOne(MinTitulations::class, 'id', 'min_titulations_id');
     }
+
 }
