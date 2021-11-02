@@ -111,7 +111,7 @@
 
                         <datalist id="list-bolsistas">
                            @foreach ($students_users as $user)
-                              <option value="{{ $user->name }}">{{ $user->registrations }}</option>
+                              <option value="{{ $user->name }}">{{ $user->registration }}</option>
                            @endforeach
                         </datalist>
 
