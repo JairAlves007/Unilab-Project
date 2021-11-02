@@ -1,5 +1,5 @@
 @extends('layouts.main')
-{{-- @dd($students_users); --}}
+
 @section('title', 'Crie Um Plano De Trabalho')
 
 @section('content')
@@ -16,7 +16,7 @@
 
          <form action="{{ route('works_plans.store', $project) }}" method="POST" enctype="multipart/form-data">
             @csrf
-
+            
             <div id="form-area">
 
                <div class="form-content">

@@ -15,6 +15,14 @@ class Projects extends Model
         return $this->hasOne(Edicts::class, 'id', 'edicts_id');
     }
 
+    public function ownerProject() {
+        return $this->hasOne(User::class, 'id');
+    }
+
+    public function workPlan() {
+        return $this->hasOne(WorkPlans::class, 'project_id', 'id');
+    }
+
     public function big_area() {
         return $this->hasOne(BigAreas::class, 'id', 'big_areas_id');
     }

@@ -10,7 +10,9 @@ use App\Models\Institutes;
 use App\Models\Projects;
 use App\Models\Specialities;
 use App\Models\SubAreas;
+use App\Models\Teachers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProjectsController extends Controller
 {
@@ -36,12 +38,14 @@ class ProjectsController extends Controller
         $institutes = Institutes::all();
         $specialities = Specialities::all();
         $big_areas = BigAreas::all();
+        $teachers_users = DB::table('users')->join('teachers', 'users.id', 'teachers.users_id')->get();
 
         return view('projects.formAttachProject', [
             'edict' => $edict,
             'institutes' => $institutes,
             'specialities' => $specialities,
             'big_areas' => $big_areas,
+            'teachers_users' => $teachers_users
         ]);
     }
 
@@ -63,7 +67,7 @@ class ProjectsController extends Controller
         $project->abstract = $request->abstract;
         $project->references = $request->references;
         $project->edicts_id = $id;
-        $project->teachers_id = auth()->user()->id;
+        $project->teachers_id = $request->teachers;
         $project->institutes_id = $request->institutes;
         $project->specialities_id = $request->specialities;
         $project->big_areas_id = $request->big_areas;

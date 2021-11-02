@@ -39,7 +39,7 @@
       <div class="edicts-description">
          <h4>Descrição</h4>
          <p>{{ $edict->description }}</p>
-         <p>Autor: Nâo está funcionando</p>
+         <p>Autor: {{ $edict->ownerEdict->name }}</p>
 
          @if (Request::route()->getName() === 'edicts.showDashboard')
             <button type="button" id="btn-modal-rate" class="btn btn-primary btn-sm">
@@ -70,7 +70,7 @@
                   <th scope="col">Grande Área</th>
                   <th scope="col">Área</th>
                   <th scope="col">Sub-Área</th>
-                  <th scope="col">Ações</th>
+                  <th scope="col">Plano De Trabalho</th>
                </tr>
             </thead>
 
@@ -82,7 +82,7 @@
                      <td>{{ $project->big_area->name }}</td>
                      <td>{{ $project->area->name }}</td>
                      <td>{{ $project->sub_area->name }}</td>
-                     <td>Aleatorio</td>
+                     <td>{{ $project->workPlan->title }}</td>
                   </tr>
 
                @empty

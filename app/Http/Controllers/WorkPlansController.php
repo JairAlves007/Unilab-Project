@@ -63,7 +63,7 @@ class WorkPlansController extends Controller
 
         $work_plans->save();
 
-        return redirect()->route('works_plans.create');
+        return redirect()->back();
     }
 
     /**

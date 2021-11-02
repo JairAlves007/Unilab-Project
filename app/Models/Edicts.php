@@ -38,6 +38,10 @@ class Edicts extends Model
         'deleted_at'
     ];
 
+    public function ownerEdict() {
+        return $this->hasOne(User::class, 'id');
+    }
+
     public function projects() {
         return $this->hasMany(Projects::class, 'edicts_id', 'id');
     }

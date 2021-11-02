@@ -18,7 +18,7 @@ class CreateTeachersTable extends Migration
             $table->string('registration');
             $table->foreignId('institutes_id')->constrained('institutes')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('users_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
-
+            $table->timestamps();
         });
     }
 

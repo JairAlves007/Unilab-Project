@@ -80,6 +80,7 @@ class EdictsController extends Controller
         $edict->rate_finish = $request->rate_finish;
         $edict->execution_start = $request->execution_start;
         $edict->execution_finish = $request->execution_finish;
+        $edict->users_id = auth()->user()->id;
         $edict->min_titulations_id = $request->min_titulations_id;
         $edict->categories_id = $request->categories_id;
 

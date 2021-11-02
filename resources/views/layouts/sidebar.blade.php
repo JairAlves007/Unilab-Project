@@ -4,13 +4,45 @@
       @if ($user->can_access == 0)
 
          <li class="menu-click">
+            
+            <a href="#submenu1" data-toggle="collapse" class="collapsed">
 
-            <li>
-               <a href="{{ route('users.form-registration') }}">
-                  <i class="fas fa-users"></i>
-                  Cadastre Sua Matrícula
-               </a>
-            </li>
+               <i class="fas fa-users"></i>
+
+               Cadastre Sua Matrícula
+
+               <div class="icon-rotate icon-space">
+                  <i class="fas fa-angle-down"></i>
+               </div>
+
+            </a>
+            
+            <ul id="submenu1" class="list-unstyled collapse">
+
+               @if ($user->hasRole('bolsista'))
+                  <li>
+
+                     <a href="{{ route('users.registration.bolsista') }}" class="li-submenu">
+                        <i class="fas fa-users"></i>
+                        Bolsista
+                     </a>
+
+                  </li>
+               @endif
+
+               @if ($user->hasRole('orientador'))
+                  <li>
+
+                     <a href="{{ route('users.registration.orientador') }}" class="li-submenu">
+                        <i class="fas fa-users"></i>
+                        Orientador
+                     </a>
+                     
+                  </li>
+
+               @endif
+
+            </ul>
 
          </li>
 
@@ -26,7 +58,7 @@
          @if ($user->hasRole(['super-admin', 'gestor']))
             <li class="menu-click">
 
-               <a href="#submenu1" data-toggle="collapse" class="collapsed">
+               <a href="#submenu2" data-toggle="collapse" class="collapsed">
                   <i class="fas fa-user"></i>
 
                   Usuário
@@ -36,7 +68,7 @@
                   </div>
                </a>
 
-               <ul id="submenu1" class="list-unstyled collapse">
+               <ul id="submenu2" class="list-unstyled collapse">
 
                   @can('view-user')
                      <li class="{{ Request::route()->getName() === 'users.view' ? 'active' : '' }}">
@@ -82,7 +114,7 @@
          @if ($user->hasRole(['super-admin', 'orientador']))
 
             <li class="menu-click">
-               <a href="#submenu2" data-toggle="collapse" class="collapsed">
+               <a href="#submenu3" data-toggle="collapse" class="collapsed">
                   <i class="fas fa-file-invoice"></i>
                   Editais
                   <div class="icon-rotate icon-space">
@@ -90,7 +122,7 @@
                   </div>
                </a>
 
-               <ul id="submenu2" class="list-unstyled collapse">
+               <ul id="submenu3" class="list-unstyled collapse">
                   @can('view-edict')
                      <li class="{{ Request::route()->getName() === 'edicts.showAll' ? 'active' : '' }}">
                         <a href="{{ route('edicts.showAll') }}" class="li-submenu">
@@ -143,7 +175,7 @@
 
          @if ($user->hasRole(['super-admin', 'membro']))
             <li class="menu-click">
-               <a href="#submenu7" data-toggle="collapse" class="collapsed">
+               <a href="#submenu4" data-toggle="collapse" class="collapsed">
                   <i class="fas fa-user"></i>
 
                   Projetos
@@ -153,7 +185,7 @@
                   </div>
                </a>
 
-               <ul id="submenu7" class="list-unstyled collapse">
+               <ul id="submenu4" class="list-unstyled collapse">
                   <li>
                      <a href="{{ route('projects.showAll') }}"><i class="fas fa-users"></i>
                         Adicionar Plano De Trabalho

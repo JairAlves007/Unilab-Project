@@ -28,6 +28,7 @@
                         <th>Título</th>
                         <th class="d-none d-sm-table-cell">Código</th>
                         <th class="d-none d-lg-table-cell">Edital Anexado</th>
+                        <th class="d-none d-lg-table-cell">Dono Do Projeto</th>
                         <th class="text-center">Ações</th>
                      </tr>
                   </thead>
@@ -39,6 +40,7 @@
                            <td>{{ $project->title }}</td>
                            <td class="d-none d-sm-table-cell">{{ $project->code }}</td>
                            <td class="d-none d-lg-table-cell">{{ $project->edict->title }}</td>
+                           <td class="d-none d-lg-table-cell">{{ $project->ownerProject->name }}</td>
                            <td class="text-center">
                               <span class="d-none d-md-block">
 

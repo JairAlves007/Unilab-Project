@@ -219,8 +219,33 @@
                            @endforeach
                         </div>
                      </div>
+
                   </div>
 
+                  <div class="form-row">
+                     <div class="form-group col-md-12">
+
+                        <label for="orientador">Orientador do Projeto</label>
+
+                        <select class="form-control {{ $errors->has('teachers') ? 'is-invalid' : '' }}"
+                           name="teachers" id="orientador">
+                           <option value="">Selecione</option>
+
+                           @foreach ($teachers_users as $teacher)
+                              <option value="{{ $teacher->id }}">
+                                 {{ $teacher->name }} - {{ $teacher->registration }}
+                              </option>
+                           @endforeach
+                        </select>
+
+                        <div class="invalid-feedback">
+                           @foreach ($errors->get('teachers') as $error)
+                              {{ $error }}
+                           @endforeach
+                        </div>
+                     </div>
+                  </div>
+                  
                </div>
             </div>
 

@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FormValidationRequest;
+use App\Models\Institutes;
 use App\Models\Students;
+use App\Models\Teachers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Route;
 
 class UserController extends Controller
 {
@@ -15,9 +18,26 @@ class UserController extends Controller
    public function form_registration(){
 
       if(auth()->user()->can_access == 0) {
-         return view('users.formRegistration');
+         
+         if(Route::currentRouteName() === 'users.registration.orientador') {
+            
+            $institutes = Institutes::all();
+
+            return view('users.formRegistration', [
+               'institutes' => $institutes
+            ]);
+            
+         } else {
+
+            return view('users.formRegistration');
+
+         }
+
+
       } else {
+
          return redirect()->route('dashboard');
+
       }
 
    }
@@ -25,16 +45,29 @@ class UserController extends Controller
    public function registration(Request $request) {
       $data = $request->all();
 
-      Students::create([
-         'registrations' => $data['registrations'],
-         'users_id' => auth()->user()->id
-      ]);
+      if(isset($data['institutes_id'])) {
+
+         Teachers::create([
+            'registration' => $data['registration'],
+            'institutes_id' => $data['institutes_id'],
+            'users_id' => auth()->user()->id
+         ]);
+
+      } else {
+
+         Students::create([
+            'registration' => $data['registration'],
+            'users_id' => auth()->user()->id
+         ]);
+
+      }
 
       User::where('id', auth()->user()->id)->update([
          'can_access' => 1
       ]);
 
       return redirect()->route('dashboard');
+
    }
 
    public function create()
@@ -53,16 +86,23 @@ class UserController extends Controller
 
       if(count($checking_user_email) == 0) {
          if(
-            in_array('bolsista', $data['niveis']) || 
+            in_array('bolsista', $data['niveis']) &&
             in_array('orientador', $data['niveis'])
          ) {
-         
+            
+            return redirect()->back();
+   
+         } else if(
+            in_array('bolsista', $data['niveis']) ||
+            in_array('orientador', $data['niveis'])
+         ) {
+   
             $can_access = 0;
    
          } else {
-   
+
             $can_access = 1;
-   
+
          }
    
          User::create([

@@ -28,6 +28,12 @@ class CreateEdictsTable extends Migration
             $table->date('execution_finish');
 
             $table->timestamps();
+            
+            $table
+                ->foreignId('users_id')
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
 
             $table
                 ->foreignId('min_titulations_id')
