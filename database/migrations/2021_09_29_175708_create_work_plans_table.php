@@ -20,6 +20,7 @@ class CreateWorkPlansTable extends Migration
             $table->text('content');
             $table->text('references');
             $table->json('bolsistas');
+            $table->foreignId('project_id')->constrained('projects')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

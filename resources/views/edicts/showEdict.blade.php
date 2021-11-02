@@ -30,7 +30,7 @@
          <p>{{ $edict->categories->name }}</p>
          <p> {{ date('d-m-Y', strtotime($edict->submission_start)) }} até
             {{ date('d-m-Y', strtotime($edict->submission_finish)) }}</p>
-         <a href="{{ $edict->archive }}" class="btn btn-primary" id="event-submit" onclick="event.preventDefault();
+         <a href="/storage/{{ $edict->archive }}" class="btn btn-primary" id="event-submit" onclick="event.preventDefault();
                                                              this.closest('form').submit();">
             Baixar PDF
          </a>

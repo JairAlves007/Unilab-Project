@@ -155,8 +155,8 @@
 
                <ul id="submenu7" class="list-unstyled collapse">
                   <li>
-                     <a href="{{ route('works_plans.create') }}"><i class="fas fa-users"></i>
-                        Criar Plano de Trabalho
+                     <a href="{{ route('projects.showAll') }}"><i class="fas fa-users"></i>
+                        Adicionar Plano De Trabalho
                      </a>
                   </li>
 

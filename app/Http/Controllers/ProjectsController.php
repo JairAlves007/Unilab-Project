@@ -97,6 +97,14 @@ class ProjectsController extends Controller
         //
     }
 
+    public function showAll(){
+        $projects = Projects::all();
+
+        return view('projects.showProjects', [
+            'projects' => $projects
+        ]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

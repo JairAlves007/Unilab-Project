@@ -53,11 +53,5 @@ Route::group(['middleware' => ['role:super-admin|bolsista|orientador']], functio
       ->middleware('auth');
 });
 
-Route::post('user/form-registration', [UserController::class, 'register'])
+Route::post('user/form-registration', [UserController::class, 'store'])
    ->name('users.register');
-
-// Route::post('user/register', [UserController::class, 'secondForm'])
-//    ->name('users.anotherForm');
-
-// Route::post('user/registerRole', [UserController::class, 'register'])
-//    ->name('users.register');

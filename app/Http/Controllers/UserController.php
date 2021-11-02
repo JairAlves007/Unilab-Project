@@ -37,7 +37,14 @@ class UserController extends Controller
       return redirect()->route('dashboard');
    }
 
-   public function register(FormValidationRequest $request) {
+   public function create()
+   {
+      return view('users.registerAnotherUser');
+   }
+
+   public function store(FormValidationRequest $request)
+   {
+
       $request->validated();
 
       $data = $request->all();
@@ -69,40 +76,6 @@ class UserController extends Controller
       }
       
       return redirect()->route('dashboard');
-   }
-
-   public function create()
-   {
-      return view('users.registerAnotherUser');
-   }
-
-   public function store(FormValidationRequest $request)
-   {
-      $request->validated();
-
-      $data = $request->all();
-
-      $checking_user_email = User::where('email', $data['email'])->get();
-
-      if (count($checking_user_email) == 0) {
-
-         User::create([
-
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-
-         ])->syncRoles($data['niveis']);
-
-         return redirect()
-            ->route('users.view')
-            ->with('msg', 'Usuário Criado Com Sucesso!');
-      } else {
-
-         return redirect()
-            ->route('users.create')
-            ->withErrors('Esse E-Mail Já Existe! Tente Outro E-Mail Válido');
-      }
    }
 
    public function show($id)

@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FormWorkPlansValidationRequest;
+use App\Models\Projects;
+use App\Models\Students;
 use App\Models\User;
 use App\Models\WorkPlans;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class WorkPlansController extends Controller
 {
@@ -24,12 +27,16 @@ class WorkPlansController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
+        $project = Projects::findOrFail($id);
         $users = User::all();
+        $students_users = DB::table('users')->join('students', 'users.id', 'students.users_id')->get();
 
         return view('work_plans.createWorkPlans', [
-            'users' => $users
+            'project' => $project,
+            'users' => $users,
+            'students_users' => $students_users
         ]);
     }
 
@@ -39,7 +46,7 @@ class WorkPlansController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(FormWorkPlansValidationRequest $request)
+    public function store($id, FormWorkPlansValidationRequest $request)
     {
         $request->validated();
 
@@ -51,8 +58,8 @@ class WorkPlansController extends Controller
         $work_plans->abstract = $data['abstract'];
         $work_plans->content = $data['content'];
         $work_plans->references = $data['references'];
-
         $work_plans->bolsistas = $data['bolsistas'];
+        $work_plans->project_id = $id;
 
         $work_plans->save();
 
@@ -67,7 +74,6 @@ class WorkPlansController extends Controller
      */
     public function show()
     {
-        //
         $work_plans = WorkPlans::all();
 
         return view('work_plans.approvedWorkPlans', [ 'work_plans' => $work_plans]);

@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['role:super-admin|orientador']], function () {
 
-   Route::get('/work-plans/create', [WorkPlansController::class, 'create'])
+   Route::get('/work-plans/{id}/create', [WorkPlansController::class, 'create'])
       ->middleware('auth')
       ->name('works_plans.create');
 
@@ -19,7 +19,7 @@ Route::group(['middleware' => ['role:super-admin|orientador']], function () {
       ->middleware('auth')
       ->name('works_plans.store');
 
-      Route::get('/work-plans/approved', [WorkPlansController::class, 'show'])
+   Route::get('/work-plans/approved', [WorkPlansController::class, 'show'])
       ->middleware('auth')
       ->name('works_plans.approved');
 });

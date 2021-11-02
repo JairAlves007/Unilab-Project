@@ -29,7 +29,6 @@ class CreateProjectsTable extends Migration
             $table->foreignId('big_areas_id')->constrained('big_areas')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('areas_id')->constrained('areas')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('sub_areas_id')->constrained('sub_areas')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('work_plans_id')->constrained('work_plans')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

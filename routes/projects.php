@@ -18,6 +18,10 @@ Route::group(['middleware' => ['role:super-admin|orientador']], function () {
       ->middleware('auth')
       ->name('projects.attach-project');
 
+   Route::get('/projects/showAll', [ProjectsController::class, 'showAll'])
+      ->middleware('auth')
+      ->name('projects.showAll');
+
    Route::post('/project/create', [ProjectsController::class, 'findSubAreas'])
       ->middleware('auth');
 
