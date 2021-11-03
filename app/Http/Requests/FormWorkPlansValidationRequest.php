@@ -28,7 +28,7 @@ class FormWorkPlansValidationRequest extends FormRequest
             'content' => ['required'],
             'abstract' => ['required'],
             'references' => ['required', 'url'],
-            'bolsistas' => ['required', 'array']
+            'bolsistas' => ['required']
         ];
     }
 

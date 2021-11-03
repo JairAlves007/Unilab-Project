@@ -88,18 +88,22 @@
 
                   <div class="form-row">
 
-                     <div class="form-group col-md-9">
+                     <div class="form-group col-md-12">
 
                         <label for="bolsistas">Cadastre Bolsistas</label>
+                        
+                        <select class="form-control {{ $errors->has('bolsistas') ? 'is-invalid' : '' }}"
+                           id="bolsistas">
 
-                        <input list="list-bolsistas"
-                           class="form-control {{ $errors->has('bolsistas') ? 'is-invalid' : '' }}" id="bolsistas">
+                           <option value="" id="option-checked">
+                              Selecione
+                           </option>
 
-                        <datalist id="list-bolsistas">
                            @foreach ($students_users as $user)
-                              <option data-id="{{ $user->id }}" value="{{ $user->name }}">{{ $user->registration }}</option>
+                              <option value="{{ $user->id }}" label="{{ $user->name }} - {{ $user->registration }}">
                            @endforeach
-                        </datalist>
+
+                        </select>
 
                         <div class="invalid-feedback">
                            @foreach ($errors->get('bolsistas') as $error)
@@ -109,9 +113,6 @@
 
                      </div>
 
-                     <div class="form-group col-md-3 d-flex justify-content-center" style="align-items: flex-end;">
-                        <button type="button" class="btn btn-primary" id="btn-add-bolsista">Adicionar</button>
-                     </div>
                   </div>
 
                   <div id="res-bolsistas">
@@ -129,28 +130,30 @@
 
 @section('script')
    <script>
-      $('#btn-add-bolsista').click(() => {
 
-         var bolsista_name = $('#bolsistas').val();
-         var bolsista_id = $('#list-bolsistas').find('option:checked').val();
-         alert(bolsista_id);
-         // if (bolsista_name) {
-         //    $('#res-bolsistas').append(`<p>${bolsista_name}</p>`);
+      $('#bolsistas').on('change', () => {
+         
+         var bolsista_id = $('#bolsistas').find('option:selected').val();
+         var bolsista_name_registration = $('#bolsistas').find('option:selected').attr('label');
+         
+         $('#res-bolsistas').append(`<p>${bolsista_name_registration}</p>`);
 
-         //    $('#res-bolsistas')
-         //       .append(`
-         //             <input 
-         //                type="hidden"  
-         //                name="bolsistas[]" 
-         //                value='${bolsista_name}'
-         //             >
-         //          `);
+         $('#res-bolsistas')
+            .append(`
 
-         //    $('#bolsistas').val('');
+               <input
+                  type="hidden"
+                  name="bolsistas"
+                  value="${bolsista_id}"
+               />
 
-         // }
+            `);
+
+         $('#bolsistas').find('option:selected').remove();
+         $('#option-checked').prop('selected', 'true');
 
       });
+
    </script>
 @endsection
 

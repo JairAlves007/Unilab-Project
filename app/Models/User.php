@@ -69,8 +69,8 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function students() {
-        return $this->hasOne(Students::class, 'id');
+    public function student() {
+        return $this->hasOne(Students::class, 'users_id', 'id');
     }
 
     public function projectAsParticipant() {

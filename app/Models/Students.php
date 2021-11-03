@@ -14,10 +14,6 @@ class Students extends Model
         'users_id'
     ];
 
-    protected $casts = [
-        'registrations' => 'array'
-    ];
-
     public function users() {
         return $this->belongsTo(User::class, 'id', 'id');
     }
