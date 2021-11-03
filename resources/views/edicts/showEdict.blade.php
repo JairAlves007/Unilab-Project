@@ -31,7 +31,7 @@
          <p> {{ date('d-m-Y', strtotime($edict->submission_start)) }} até
             {{ date('d-m-Y', strtotime($edict->submission_finish)) }}</p>
          <a href="/storage/{{ $edict->archive }}" class="btn btn-primary" id="event-submit" onclick="event.preventDefault();
-                                                             this.closest('form').submit();">
+                                                                this.closest('form').submit();">
             Baixar PDF
          </a>
       </div>
@@ -71,7 +71,7 @@
                   <th scope="col">Área</th>
                   <th scope="col">Sub-Área</th>
                   <th scope="col">Plano De Trabalho</th>
-                  
+
                   @if ($user)
                      <th scope="col">
                         Ações
@@ -89,14 +89,29 @@
                      <td>{{ $project->big_area->name }}</td>
                      <td>{{ $project->area->name }}</td>
                      <td>{{ $project->sub_area->name }}</td>
-                     <td>{{ $project->workPlan->title }}</td>
 
-                     @if($user)
-                        <td>
-                           <a href="{{ route('projects.join', $project) }}" class="btn btn-outline-primary">
-                              Candidatar
-                           </a>
-                        </td>
+                     @if ($project->workPlan)
+
+                        <td>{{ $project->workPlan->title }}</td>
+
+                     @else
+
+                        <td>Nenhum Plano De Trabalho</td>
+
+                     @endif
+
+                     @if ($user)
+                        @if($project->workPlan)
+                           <td>
+                              <a href="{{ route('projects.join', $project) }}" class="btn btn-outline-primary">
+                                 Candidatar
+                              </a>
+                           </td>
+                        @else
+                           <td>
+                              Cadastre Um Plano De Trabalho Para Se Candidatar
+                           </td>
+                        @endif
                      @endif
                   </tr>
 
@@ -142,10 +157,10 @@
                      @csrf
 
                      <input type="hidden" name="id" value="{{ $edict->id }}">
-                     
+
                      <div class="form-row">
                         <div class="form-group col-md-12">
-                           
+
                            <input type="radio" name="rate" value="1" id="rate1" class="form-check-input">
                            <label class="form-check-label" for="rate1">
                               1
@@ -155,7 +170,7 @@
 
                      <div class="form-row">
                         <div class="form-group col-md-12">
-                           
+
                            <input type="radio" name="rate" value="2" id="rate2" class="form-check-input">
                            <label class="form-check-label" for="rate2">
                               2
@@ -165,7 +180,7 @@
 
                      <div class="form-row">
                         <div class="form-group col-md-12">
-                           
+
                            <input type="radio" name="rate" value="3" id="rate3" class="form-check-input">
                            <label class="form-check-label" for="rate3">
                               3
@@ -175,7 +190,7 @@
 
                      <div class="form-row">
                         <div class="form-group col-md-12">
-                           
+
                            <input type="radio" name="rate" value="4" id="rate4" class="form-check-input">
                            <label class="form-check-label" for="rate4">
                               4

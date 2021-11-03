@@ -90,20 +90,6 @@
 
                      <div class="form-group col-md-9">
 
-                        {{-- <label for="bolsistas">Cadastre Bolsistas</label>
-                        
-                        <select class="form-control {{ $errors->has('bolsistas') ? 'is-invalid' : '' }}"
-                           onchange="setBolsistas(this)" id="bolsistas">
-
-                           <option value="" id="option-checked">
-                              Selecione
-                           </option>
-
-                           @foreach ($students_users as $user)
-                              <option value="{{ $user->name }}">{{ $user->registrations }}</option>
-                           @endforeach
-
-                        </select> --}}
                         <label for="bolsistas">Cadastre Bolsistas</label>
 
                         <input list="list-bolsistas"
@@ -111,7 +97,7 @@
 
                         <datalist id="list-bolsistas">
                            @foreach ($students_users as $user)
-                              <option value="{{ $user->name }}">{{ $user->registration }}</option>
+                              <option data-id="{{ $user->id }}" value="{{ $user->name }}">{{ $user->registration }}</option>
                            @endforeach
                         </datalist>
 
@@ -146,22 +132,23 @@
       $('#btn-add-bolsista').click(() => {
 
          var bolsista_name = $('#bolsistas').val();
+         var bolsista_id = $('#list-bolsistas').find('option:checked').val();
+         alert(bolsista_id);
+         // if (bolsista_name) {
+         //    $('#res-bolsistas').append(`<p>${bolsista_name}</p>`);
 
-         if (bolsista_name) {
-            $('#res-bolsistas').append(`<p>${bolsista_name}</p>`);
+         //    $('#res-bolsistas')
+         //       .append(`
+         //             <input 
+         //                type="hidden"  
+         //                name="bolsistas[]" 
+         //                value='${bolsista_name}'
+         //             >
+         //          `);
 
-            $('#res-bolsistas')
-               .append(`
-                     <input 
-                        type="hidden"  
-                        name="bolsistas[]" 
-                        value='${bolsista_name}'
-                     >
-                  `);
+         //    $('#bolsistas').val('');
 
-            $('#bolsistas').val('');
-
-         }
+         // }
 
       });
    </script>

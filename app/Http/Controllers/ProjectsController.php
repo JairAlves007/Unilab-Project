@@ -154,4 +154,12 @@ class ProjectsController extends Controller
         $areas = SubAreas::all();
         return $areas->where('areas_id', $request['sub_areas_id']);
     }
+
+    public function join($id) {
+        $user = auth()->user();
+
+        $user->projectAsParticipant()->attach($id);
+
+        return redirect()->back();
+    }
 }
