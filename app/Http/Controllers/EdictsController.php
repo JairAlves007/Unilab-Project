@@ -15,6 +15,7 @@ use App\Models\Specialities;
 use App\Models\SubAreas;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Route;
 
 class EdictsController extends Controller
 {
@@ -40,6 +41,7 @@ class EdictsController extends Controller
     public function index()
     {
         $edicts = Edicts::paginate(6);
+
         return view('welcome', ['edicts' => $edicts]);
     }
 
@@ -91,7 +93,6 @@ class EdictsController extends Controller
 
             $nameFile = "{$name}.{$extension}";
             $edict->archive = $request->archive->storeAs('edicts', $nameFile, 'public');
-
         }
 
         $edict->save();
@@ -99,7 +100,6 @@ class EdictsController extends Controller
         return redirect()
             ->route('edicts.showAll')
             ->with('msg', 'Edital Criado Com Sucesso!');
-
     }
 
     /**
@@ -114,13 +114,17 @@ class EdictsController extends Controller
         $edict = Edicts::find($id);
         $projects_attachs = $edict->projects;
 
-        $rate_current = RateEdict::where('avaliator', auth()->user()->id)->where('edict_id', $id)->first();
-
-        return view("edicts.showEdict", [
+        $variables = [
             'edict' => $edict,
             'projects_attachs' => $projects_attachs,
-            'rate' => $rate_current
-        ]);
+        ];
+
+        if (Route::currentRouteName() === 'edicts.showDashboard') {
+            $rate_current = RateEdict::where('avaliator', auth()->user()->id)->where('edict_id', $id)->first();
+            $variables['rate'] = $rate_current;
+        }
+
+        return view("edicts.showEdict", $variables);
     }
 
     public function showAll()
@@ -131,7 +135,6 @@ class EdictsController extends Controller
         return view("edicts.showEdicts", [
             'edicts' => $edicts
         ]);
-
     }
 
     /**
@@ -174,7 +177,6 @@ class EdictsController extends Controller
 
             $nameFile = "{$name}.{$extension}";
             $data['archive'] = $request->archive->storeAs('edicts', $nameFile, 'public');
-
         }
 
         $edict->update($data);
@@ -199,16 +201,15 @@ class EdictsController extends Controller
         return redirect()
             ->route('edicts.delete')
             ->with('msg', "O Edital {$edictTitle} Foi Excluído Com Sucesso!");
-
     }
 
     public function rate(Request $request)
     {
         $data = $request->all();
-        
+
         $rate_current = RateEdict::where('avaliator', auth()->user()->id)->where('edict_id', $data['id'])->first();
 
-        if(!$rate_current) {
+        if (!$rate_current) {
             RateEdict::create([
                 'rate' => $data['rate'],
                 'edict_id' => $data['id'],
@@ -221,6 +222,5 @@ class EdictsController extends Controller
         }
 
         return redirect()->back();
-
     }
 }
