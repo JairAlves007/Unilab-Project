@@ -101,7 +101,7 @@
                      @endif
 
                      @if ($user)
-                        @if($project->workPlan && $user->student && $user->student->id === $user->id)
+                        @if($project->workPlan && $user->student && $user->student->users_id === $user->id)
                            <td>
                               <a href="{{ route('projects.join', $project) }}" class="btn btn-outline-primary">
                                  Candidatar
@@ -113,7 +113,7 @@
                            </td>
                         @endif
                      @endif
-                     {{-- @dd($project->workPlan) --}}
+                     
                   </tr>
 
                @empty
