@@ -72,4 +72,8 @@ class User extends Authenticatable
     public function students() {
         return $this->hasOne(Students::class, 'id');
     }
+
+    public function projectAsParticipant() {
+        return $this->belongsToMany(Projects::class);
+    }
 }

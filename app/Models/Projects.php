@@ -11,27 +11,38 @@ class Projects extends Model
 
     protected $table = "projects";
 
-    public function edict() {
+    public function edict()
+    {
         return $this->hasOne(Edicts::class, 'id', 'edicts_id');
     }
 
-    public function ownerProject() {
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
+    public function ownerProject()
+    {
         return $this->hasOne(User::class, 'id');
     }
 
-    public function workPlan() {
+    public function workPlan()
+    {
         return $this->hasOne(WorkPlans::class, 'project_id', 'id');
     }
 
-    public function big_area() {
+    public function big_area()
+    {
         return $this->hasOne(BigAreas::class, 'id', 'big_areas_id');
     }
 
-    public function area() {
+    public function area()
+    {
         return $this->hasOne(Areas::class, 'id', 'areas_id');
     }
 
-    public function sub_area() {
+    public function sub_area()
+    {
         return $this->hasOne(SubAreas::class, 'id', 'sub_areas_id');
     }
 }

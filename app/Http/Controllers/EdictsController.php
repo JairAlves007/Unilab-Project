@@ -135,6 +135,7 @@ class EdictsController extends Controller
         return view("edicts.showEdicts", [
             'edicts' => $edicts
         ]);
+        
     }
 
     /**

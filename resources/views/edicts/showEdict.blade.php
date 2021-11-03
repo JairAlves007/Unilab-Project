@@ -71,6 +71,13 @@
                   <th scope="col">Área</th>
                   <th scope="col">Sub-Área</th>
                   <th scope="col">Plano De Trabalho</th>
+                  
+                  @if ($user)
+                     <th scope="col">
+                        Ações
+                     </th>
+                  @endif
+
                </tr>
             </thead>
 
@@ -83,16 +90,29 @@
                      <td>{{ $project->area->name }}</td>
                      <td>{{ $project->sub_area->name }}</td>
                      <td>{{ $project->workPlan->title }}</td>
+
+                     @if($user)
+                        <td>
+                           <a href="{{ route('projects.join', $project) }}" class="btn btn-outline-primary">
+                              Candidatar
+                           </a>
+                        </td>
+                     @endif
                   </tr>
 
                @empty
                   <tr class="table-responsive-tr">
                      <th scope="row"></th>
-                     <td>Nenhum projeto relacionado</td>
+                     <td>Nenhum Projeto Anexado</td>
                      <td></td>
                      <td></td>
                      <td></td>
                      <td></td>
+
+                     @if ($user)
+                        <td></td>
+                     @endif
+
                   </tr>
 
                @endforelse
