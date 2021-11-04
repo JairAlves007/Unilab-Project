@@ -11,6 +11,15 @@ class Projects extends Model
 
     protected $table = "projects";
 
+    protected $fillable = [
+        'title',
+        'archive',
+        'content',
+        'abstract',
+        'references',
+        'participant_id'
+    ];
+
     public function edict()
     {
         return $this->hasOne(Edicts::class, 'id', 'edicts_id');
