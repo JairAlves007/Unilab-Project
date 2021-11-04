@@ -31,7 +31,7 @@
          <p> {{ date('d-m-Y', strtotime($edict->submission_start)) }} até
             {{ date('d-m-Y', strtotime($edict->submission_finish)) }}</p>
          <a href="/storage/{{ $edict->archive }}" class="btn btn-primary" id="event-submit" onclick="event.preventDefault();
-                                                                               this.closest('form').submit();">
+                                                                                        this.closest('form').submit();">
             Baixar PDF
          </a>
       </div>
@@ -59,9 +59,10 @@
    <h1 class="title-bold">
       Projetos Relacionados
    </h1>
-   {{-- @dd($user->projectAsParticipant) --}}
+   {{-- @dd($user->participant) --}}
+   {{-- @dd(count($user->projectAsParticipant)) --}}
 
-    <div class="table-width-controller">
+   <div class="table-width-controller">
       <div class="table table-responsive">
          <table class="table table-striped table-hover table-bordered" id="table-responsive">
             <thead>
@@ -103,19 +104,29 @@
                      @if ($user)
                         {{-- && $user->student && $user->student->users_id === $user->id --}}
                         @if ($project->workPlan)
-                           <td>
-                              <form action="{{ route('projects.join', $project) }}" method="POST">
-                                 @csrf
+                           @if (count($user->projectAsParticipant) == 0 && $user->student && $user->student->users_id === $user->id)
 
-                                 <a href="{{ route('projects.join', $project) }}" class="btn btn-outline-primary"
-                                    onclick="
-                                             event.preventDefault();
-                                             this.closest('form').submit();
-                                         ">
-                                    Candidatar
-                                 </a>
-                              </form>
-                           </td>
+                              <td>
+                                 <form action="{{ route('projects.join', $project) }}" method="POST">
+                                    @csrf
+
+                                    <a href="{{ route('projects.join', $project) }}" class="btn btn-outline-primary"
+                                       onclick="
+                                          event.preventDefault();
+                                          this.closest('form').submit();
+                                       ">
+                                       Candidatar
+                                    </a>
+                                 </form>
+                              </td>
+
+                           @else
+
+                              <td>
+                                 Você Já Está Participando
+                              </td>
+
+                           @endif
                         @else
                            <td>
                               Cadastre Um Plano De Trabalho Para Se Candidatar
@@ -229,9 +240,13 @@
 
    @endif
 
-   @if (Request::route()->getName() === 'edicts.showHome')
-      @include('layouts.footer')
-   @endif
+   <div class="other-rodape">
+
+      @if (Request::route()->getName() === 'edicts.showHome')
+         @include('layouts.footer')
+      @endif
+
+   </div>
 
    @if (Request::route()->getName() === 'edicts.showDashboard')
       @section('script')

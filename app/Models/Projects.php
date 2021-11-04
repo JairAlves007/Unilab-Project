@@ -30,6 +30,10 @@ class Projects extends Model
         return $this->belongsToMany(User::class);
     }
 
+    // public function userParticipant() {
+    //     return $this->belongsToMany();
+    // }
+
     public function ownerProject()
     {
         return $this->hasOne(User::class, 'id');

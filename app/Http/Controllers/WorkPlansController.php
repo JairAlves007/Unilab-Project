@@ -31,7 +31,10 @@ class WorkPlansController extends Controller
     {
         $project = Projects::findOrFail($id);
         $users = User::all();
-        $students_users = DB::table('users')->join('students', 'users.id', 'students.users_id')->get();
+        $students_users = DB::table('students')->join('projects_user', 'projects_user.users_id', '<>', 'students.users_id')->get();
+        // $countProject = count(DB::table('projects_user')->get());
+        
+        dd($students_users->count());
 
         return view('work_plans.createWorkPlans', [
             'project' => $project,

@@ -158,13 +158,13 @@ class ProjectsController extends Controller
     public function join($id) {
         $user = auth()->user();
 
-        // $user->projectAsParticipant()->attach($id);
+        $user->projectAsParticipant()->attach($id);
 
-        $project = Projects::findOrFail($id);
+        // $project = Projects::findOrFail($id);
 
-        $project->update([
-            'participant_id'
-        ]);
+        // $project->update([
+        //     'participant_id' => $user->id
+        // ]);
 
         return redirect()->back();
     }
