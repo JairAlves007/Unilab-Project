@@ -18,61 +18,58 @@
             @csrf
 
             <div id="form-area">
-               
                <div class="form-content">
 
                   <div class="form-group">
-                     <div class="respon">
 
                      <label for="title">Titulo do Edital</label>
 
-                     <input type="text" name="title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}" id="title"
-                        placeholder="Insira o Titulo Aqui...">
+                     <input type="text" name="title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}"
+                        id="title" placeholder="Insira o Titulo Aqui...">
 
                      <div class="invalid-feedback">
                         @foreach ($errors->get('title') as $error)
                            {{ $error }}
                         @endforeach
-                     </div> 
-                  </div>
+                     </div>
 
                   </div>
 
                   <div class="form-group">
-                     <div class="respon1">
+
                      <label for="archive">Arquivo do Edital</label>
 
-                     <input type="file" name="archive" class="form-control-file {{ $errors->has('archive') ? 'is-invalid' : '' }}" id="archive">
+                     <input type="file" name="archive"
+                        class="form-control-file {{ $errors->has('archive') ? 'is-invalid' : '' }}" id="archive">
 
                      <div class="invalid-feedback">
                         @foreach ($errors->get('archive') as $error)
                            {{ $error }}
                         @endforeach
                      </div>
-                     </div>
+
                   </div>
 
                   <div class="form-group">
-                     <div class="respon2">
+
                      <label for="description">Descrição do Edital</label>
 
-                     <textarea class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" name="description" id="description" rows="5"
-                        placeholder="Insira a Descrição Aqui..."></textarea>
+                     <textarea class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}"
+                        name="description" id="description" rows="5" placeholder="Insira a Descrição Aqui..."></textarea>
 
                      <div class="invalid-feedback">
                         @foreach ($errors->get('description') as $error)
                            {{ $error }}
                         @endforeach
                      </div>
-                  </div>
+
                   </div>
                </div>
-            
 
                <div class="form-content">
 
                   <div class="form-row">
-                  <div class="respon3">
+
                      <div class="form-group col-md-6">
 
                         <label for="submission_start">Início da Submissão</label>
@@ -85,13 +82,11 @@
                               {{ $error }}
                            @endforeach
                         </div>
-                     
-                     </div>
-               
+
                      </div>
 
                      <div class="form-group col-md-6">
-                        <div class="respon4">
+
                         <label for="submission_finish">Término da Submissão</label>
 
                         <input type="date" name="submission_finish" id="submission_finish"
@@ -102,17 +97,18 @@
                               {{ $error }}
                            @endforeach
                         </div>
-                        <div>
+
                      </div>
-                  
+                  </div>
 
                   <div class="form-row">
-                     <div class="respon5">
+
                      <div class="form-group col-md-6">
 
                         <label for="rate_start">Início da Avaliação</label>
 
-                        <input type="date" name="rate_start" id="rate_start" class="form-control {{ $errors->has('rate_start') ? 'is-invalid' : '' }}">
+                        <input type="date" name="rate_start" id="rate_start"
+                           class="form-control {{ $errors->has('rate_start') ? 'is-invalid' : '' }}">
 
                         <div class="invalid-feedback">
                            @foreach ($errors->get('rate_start') as $error)
@@ -134,7 +130,7 @@
                               {{ $error }}
                            @endforeach
                         </div>
-                        
+
                      </div>
                   </div>
 
@@ -177,8 +173,8 @@
 
                         <label for="min_titulation">Titulação Mínima</label>
 
-                        <select class="form-control {{ $errors->has('min_titulations') ? 'is-invalid' : '' }}" name="min_titulations_id"
-                           id="min_titulation">
+                        <select class="form-control {{ $errors->has('min_titulations') ? 'is-invalid' : '' }}"
+                           name="min_titulations_id" id="min_titulation">
 
                            <option value="">Selecione</option>
 
@@ -199,7 +195,8 @@
 
                         <label for="category">Categoria</label>
 
-                        <select class="form-control {{ $errors->has('categories_id') ? 'is-invalid' : '' }}" name="categories_id" id="category">
+                        <select class="form-control {{ $errors->has('categories_id') ? 'is-invalid' : '' }}"
+                           name="categories_id" id="category">
 
                            <option value="">Selecione</option>
 
@@ -213,13 +210,13 @@
                               {{ $error }}
                            @endforeach
                         </div>
-                     </div>
+
                      </div>
                   </div>
+
                </div>
-               
             </div>
-            
+
             <button type="submit" class="btn btn-success">Criar Edital</button>
          </form>
       </div>

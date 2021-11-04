@@ -30,7 +30,8 @@ Route::group(['middleware' => ['role:super-admin|orientador']], function () {
 
    Route::post('/project/findSubAreas', [ProjectsController::class, 'findSubAreas'])
       ->middleware('auth');
-
+});
+Route::group(['middleware' => ['role:bolsista']], function () {
    Route::post('/project/{id}/join', [ProjectsController::class, 'join'])
       ->name('projects.join')
       ->middleware('auth');

@@ -30,8 +30,9 @@
          <p>{{ $edict->categories->name }}</p>
          <p> {{ date('d-m-Y', strtotime($edict->submission_start)) }} até
             {{ date('d-m-Y', strtotime($edict->submission_finish)) }}</p>
-         <a href="/storage/{{ $edict->archive }}" class="btn btn-primary" id="event-submit" onclick="event.preventDefault();
-                                                                                        this.closest('form').submit();">
+         <a href="/storage/{{ $edict->archive }}" class="btn btn-primary" id="event-submit"
+            onclick="event.preventDefault();
+                                                                                           this.closest('form').submit();">
             Baixar PDF
          </a>
       </div>
@@ -59,7 +60,7 @@
    <h1 class="title-bold">
       Projetos Relacionados
    </h1>
-   {{-- @dd($user->participant) --}}
+   {{-- @dd($user->projectAsParticipant) --}}
    {{-- @dd(count($user->projectAsParticipant)) --}}
 
    <div class="table-width-controller">
@@ -74,7 +75,7 @@
                   <th scope="col">Sub-Área</th>
                   <th scope="col">Plano De Trabalho</th>
 
-                  @if ($user)
+                  @if ($user && $user->student)
                      <th scope="col">
                         Ações
                      </th>
@@ -101,35 +102,22 @@
                         <td>Nenhum Plano De Trabalho</td>
 
                      @endif
+
                      @if ($user)
                         {{-- && $user->student && $user->student->users_id === $user->id --}}
-                        @if ($project->workPlan)
-                           @if (count($user->projectAsParticipant) == 0 && $user->student && $user->student->users_id === $user->id)
+                        @if($user->projectAsParticipant)
+                           <td>
+                              <form action="{{ route('projects.join', $project) }}" method="POST">
+                                 @csrf
 
-                              <td>
-                                 <form action="{{ route('projects.join', $project) }}" method="POST">
-                                    @csrf
-
-                                    <a href="{{ route('projects.join', $project) }}" class="btn btn-outline-primary"
-                                       onclick="
+                                 <a href="{{ route('projects.join', $project) }}" class="btn btn-outline-primary"
+                                    onclick="
                                           event.preventDefault();
                                           this.closest('form').submit();
                                        ">
-                                       Candidatar
-                                    </a>
-                                 </form>
-                              </td>
-
-                           @else
-
-                              <td>
-                                 Você Já Está Participando
-                              </td>
-
-                           @endif
-                        @else
-                           <td>
-                              Cadastre Um Plano De Trabalho Para Se Candidatar
+                                    Candidatar
+                                 </a>
+                              </form>
                            </td>
                         @endif
                      @endif
@@ -145,7 +133,7 @@
                      <td></td>
                      <td></td>
 
-                     @if ($user)
+                     @if ($user && $user->student)
                         <td></td>
                      @endif
 

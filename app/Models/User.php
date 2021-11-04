@@ -74,11 +74,11 @@ class User extends Authenticatable
         return $this->hasOne(Students::class, 'users_id', 'id');
     }
 
-    public function participant() {
-        return $this->hasOne(Projects::class, 'participant_id');
-    }
-
-    // public function projectAsParticipant() {
-    //     return $this->belongsToMany(Projects::class, 'projects_user', 'projects_id', 'users_id');
+    // public function participant() {
+    //     return $this->hasOne(Projects::class, 'participant_id');
     // }
+
+    public function projectAsParticipant() {
+        return $this->belongsToMany(Projects::class, 'projects_user', 'projects_id', 'users_id');
+    }
 }
