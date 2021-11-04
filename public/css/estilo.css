@@ -23,7 +23,6 @@ body {
 .navbar {
     background-color: #343a40;
 }
-
 .login {
     display: flex;
     -ms-flex-align: center;
@@ -411,4 +410,8 @@ button a {
         margin-top: 10px;
         text-align: center;
     }
+}
+
+.table-width-controller{
+    margin: auto 2% auto;
 }

@@ -61,8 +61,8 @@
    </h1>
    {{-- @dd($user->projectAsParticipant) --}}
 
-   <div id="documents-container">
-      <div class="table-responsive">
+    <div {{--id="documents-container"--}} class="table-width-controller">
+      <div class="table table-responsive">
          <table class="table table-striped table-hover table-bordered" id="table-responsive">
             <thead>
                <tr>
