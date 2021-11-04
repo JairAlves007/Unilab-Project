@@ -5,7 +5,7 @@
 html,
 body {
     min-height: 100%;
-    height:100%;
+    height: 100%;
 }
 
 .form {
@@ -132,7 +132,7 @@ button a {
 
 #menu-navbar-welcome {
     border: none;
-    background-color: #343A40;
+    background-color: #343a40;
 }
 
 #menu-navbar-welcome .dropdown-item {
@@ -159,7 +159,7 @@ button a {
     }
 
     #menu-navbar-welcome {
-        background-color: #F8F9FA;
+        background-color: #f8f9fa;
     }
 
     #menu-navbar-welcome .dropdown-item {
@@ -260,7 +260,7 @@ button a {
 .sidebar [aria-expanded="true"] {
     background-color: #19222d;
 }
-.li-submenu{
+.li-submenu {
     text-align: left;
 }
 
@@ -343,9 +343,9 @@ button a {
     gap: 40%;
     background-color: #444444;
     color: #fff;
-    position:absolute;
+    position: absolute;
     bottom: -80;
-    width:100%;
+    width: 100%;
 }
 
 .other-rodape {
@@ -358,8 +358,6 @@ button a {
 .icon {
     width: 15px;
     margin: 0 auto 4px 0;
-
-
 }
 
 .footer-icons {
@@ -371,7 +369,7 @@ button a {
     display: flex;
     justify-content: center;
     align-items: center;
-    float:right ;
+    float: right;
 }
 
 .titulo-rodape {
@@ -390,28 +388,27 @@ button a {
     bottom: 70px;
 }
 
-.button-search{
+.button-search {
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
 }
 
-
 @media only screen and (max-width: 600px) {
-    .rodape{
+    .rodape {
         height: 120px;
         gap: 0;
     }
 
-    .footer-icons{
+    .footer-icons {
         margin-bottom: 10%;
     }
 
-    .titulo-rodape{
+    .titulo-rodape {
         margin-top: 10px;
         text-align: center;
     }
 }
 
-.table-width-controller{
+.table-width-controller {
     margin: auto 2% auto;
 }
