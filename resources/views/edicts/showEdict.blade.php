@@ -60,8 +60,8 @@
       Projetos Relacionados
    </h1>
 
-   <div id="documents-container">
-      <div class="table-responsive">
+    <div {{--id="documents-container"--}} class="table-width-controller">
+      <div class="table table-responsive">
          <table class="table table-striped table-hover table-bordered" id="table-responsive">
             <thead>
                <tr>
@@ -113,7 +113,7 @@
                            </td>
                         @endif
                      @endif
-                     
+
                   </tr>
 
                @empty
@@ -220,11 +220,9 @@
 
    @endif
 
-   <div class="other-rodape">
       @if (Request::route()->getName() === 'edicts.showHome')
          @include('layouts.footer')
       @endif
-   </div>
 
    @if (Request::route()->getName() === 'edicts.showDashboard')
       @section('script')
