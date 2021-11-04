@@ -14,7 +14,7 @@ class StatusesProjectsController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**

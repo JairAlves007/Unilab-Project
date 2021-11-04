@@ -129,13 +129,11 @@ class EdictsController extends Controller
 
     public function showAll()
     {
-
         $edicts = Edicts::all();
-
         return view("edicts.showEdicts", [
-            'edicts' => $edicts
+            'edicts' => $edicts,
+
         ]);
-        
     }
 
     /**
