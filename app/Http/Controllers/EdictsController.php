@@ -141,7 +141,6 @@ class EdictsController extends Controller
             'edicts' => $edicts,
         ]);
 
-
     }
 
     /**

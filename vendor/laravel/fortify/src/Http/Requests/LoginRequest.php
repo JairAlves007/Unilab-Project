@@ -24,22 +24,9 @@ class LoginRequest extends FormRequest
      */
     public function rules()
     {
-        // Fortify::username() => 'required|string',
-        // 'password' => 'required|string',
         return [
-            'email' => ['required', 'string'],
-            'password' => ['required', 'string', 'min:8']
-        ];
-    }
-
-    public function messages()
-    {
-        return [
-            'email.required' => 'Por Favor, Digite Seu E-Mail!',
-            'email.string' => 'O E-Mail Tem Que Ser Letras!',
-            'password.required' => 'Por Favor, Digite Sua Senha!',
-            'password.string' => 'A Senha Tem Que Ser Letras!',
-            'password.min' => 'A Senha Tem Que Conter No Mínimo 8 Caracteres!'
+            Fortify::username() => 'required|string',
+            'password' => 'required|string',
         ];
     }
 }
