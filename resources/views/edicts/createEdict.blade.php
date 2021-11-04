@@ -18,11 +18,9 @@
             @csrf
 
             <div id="form-area">
-               
                <div class="form-content">
 
                   <div class="form-group">
-                     <div class="respon">
 
                      <label for="title">Titulo do Edital</label>
 
@@ -33,13 +31,12 @@
                         @foreach ($errors->get('title') as $error)
                            {{ $error }}
                         @endforeach
-                     </div> 
-                  </div>
+                     </div>
 
                   </div>
 
                   <div class="form-group">
-                     <div class="respon1">
+
                      <label for="archive">Arquivo do Edital</label>
 
                      <input type="file" name="archive" class="form-control-file {{ $errors->has('archive') ? 'is-invalid' : '' }}" id="archive">
@@ -49,11 +46,11 @@
                            {{ $error }}
                         @endforeach
                      </div>
-                     </div>
+
                   </div>
 
                   <div class="form-group">
-                     <div class="respon2">
+
                      <label for="description">Descrição do Edital</label>
 
                      <textarea class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" name="description" id="description" rows="5"
@@ -64,15 +61,14 @@
                            {{ $error }}
                         @endforeach
                      </div>
-                  </div>
+
                   </div>
                </div>
-            
 
                <div class="form-content">
 
                   <div class="form-row">
-                  <div class="respon3">
+
                      <div class="form-group col-md-6">
 
                         <label for="submission_start">Início da Submissão</label>
@@ -85,13 +81,11 @@
                               {{ $error }}
                            @endforeach
                         </div>
-                     
-                     </div>
-               
+
                      </div>
 
                      <div class="form-group col-md-6">
-                        <div class="respon4">
+
                         <label for="submission_finish">Término da Submissão</label>
 
                         <input type="date" name="submission_finish" id="submission_finish"
@@ -102,12 +96,12 @@
                               {{ $error }}
                            @endforeach
                         </div>
-                        <div>
+
                      </div>
-                  
+                  </div>
 
                   <div class="form-row">
-                     <div class="respon5">
+
                      <div class="form-group col-md-6">
 
                         <label for="rate_start">Início da Avaliação</label>
@@ -134,7 +128,7 @@
                               {{ $error }}
                            @endforeach
                         </div>
-                        
+
                      </div>
                   </div>
 
@@ -213,13 +207,13 @@
                               {{ $error }}
                            @endforeach
                         </div>
-                     </div>
+
                      </div>
                   </div>
+
                </div>
-               
             </div>
-            
+
             <button type="submit" class="btn btn-success">Criar Edital</button>
          </form>
       </div>
