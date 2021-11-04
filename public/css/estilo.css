@@ -213,6 +213,8 @@ button a {
     max-width: 250px;
     transition: all 0.3s;
     height: 100vh;
+    position: fixed;
+    z-index: 1;
 }
 .sidebar ul li a {
     display: block;
