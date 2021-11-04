@@ -4,6 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Edicts;
 use App\Models\MinTitulations;
+<<<<<<< Updated upstream
+=======
+use App\Models\Projects;
+use App\Models\RateEdict;
+use App\Models\Specialities;
+use App\Models\SubAreas;
+>>>>>>> Stashed changes
 use Illuminate\Http\Request;
 
 class EdictsController extends Controller
@@ -44,7 +51,44 @@ class EdictsController extends Controller
      */
     public function store(Request $request)
     {
+<<<<<<< Updated upstream
         //
+=======
+        $request->validated();
+
+        $edict = new Edicts;
+
+        $edict->edict_year = substr($request->submission_start, 0, 4);
+        $edict->title = $request->title;
+        $edict->code = md5(strtotime('now'));
+        $edict->description = $request->description;
+        $edict->submission_start = $request->submission_start;
+        $edict->submission_finish = $request->submission_finish;
+        $edict->rate_start = $request->rate_start;
+        $edict->rate_finish = $request->rate_finish;
+        $edict->execution_start = $request->execution_start;
+        $edict->execution_finish = $request->execution_finish;
+        $edict->users_id = auth()->user()->id;
+        $edict->min_titulations_id = $request->min_titulations_id;
+        $edict->categories_id = $request->categories_id;
+
+        if ($request->file('archive')->isValid() && $request->hasFile('archive')) {
+
+            $name = uniqid(date('HisYmd'));
+            $extension = $request->archive->extension();
+
+            $nameFile = "{$name}.{$extension}";
+            $edict->archive = $request->archive->storeAs('edicts', $nameFile, 'public');
+
+        }
+
+        $edict->save();
+
+        return redirect()
+            ->route('edicts.showAll')
+            ->with('msg', 'Edital Criado Com Sucesso!');
+
+>>>>>>> Stashed changes
     }
 
     /**
@@ -62,10 +106,21 @@ class EdictsController extends Controller
 
         $edict = Edicts::find($id);
 
+<<<<<<< Updated upstream
         // if($edict) {
         //     echo "<h1>Código: {$edict->code}</h1>";
         //     echo "<p>Descrição: {$edict->description}</p>";
         // }
+=======
+        $rate_current = RateEdict::where('avaliator', auth()->user()->id)->where('edict_id', $id)->first();
+
+        return view("edicts.showEdict", [
+            'edict' => $edict,
+            'projects_attachs' => $projects_attachs,
+            'rate' => $rate_current
+        ]);
+    }
+>>>>>>> Stashed changes
 
         // $categories = $edict->categories()->get();
 
@@ -113,4 +168,29 @@ class EdictsController extends Controller
     {
         //
     }
+<<<<<<< Updated upstream
+=======
+
+    public function rate(Request $request)
+    {
+        $data = $request->all();
+        
+        $rate_current = RateEdict::where('avaliator', auth()->user()->id)->where('edict_id', $data['id'])->first();
+
+        if(!$rate_current) {
+            RateEdict::create([
+                'rate' => $data['rate'],
+                'edict_id' => $data['id'],
+                'avaliator' => auth()->user()->id
+            ]);
+        } else {
+            $rate_current->rate = $data['rate'];
+
+            $rate_current->save();
+        }
+
+        return redirect()->back();
+
+    }
+>>>>>>> Stashed changes
 }
