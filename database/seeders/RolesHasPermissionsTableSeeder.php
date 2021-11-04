@@ -39,6 +39,7 @@ class RolesHasPermissionsTableSeeder extends Seeder
             ], // Orientador
 
             [
+                6,
                 9,
                 10
             ] // Membro

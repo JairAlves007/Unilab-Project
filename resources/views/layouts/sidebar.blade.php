@@ -111,7 +111,7 @@
         </li>
         @endif
 
-        @if ($user->hasRole(['super-admin', 'orientador']))
+        @if ($user->hasRole(['super-admin', 'orientador', 'membro']))
 
         <li class="menu-click">
             <a href="#submenu3" data-toggle="collapse" class="collapsed">
