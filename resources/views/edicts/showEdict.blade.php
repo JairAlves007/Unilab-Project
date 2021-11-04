@@ -32,7 +32,7 @@
             {{ date('d-m-Y', strtotime($edict->submission_finish)) }}</p>
          <a href="/storage/{{ $edict->archive }}" class="btn btn-primary" id="event-submit"
             onclick="event.preventDefault();
-                                                                                           this.closest('form').submit();">
+                                                                                              this.closest('form').submit();">
             Baixar PDF
          </a>
       </div>
@@ -105,16 +105,16 @@
 
                      @if ($user)
                         {{-- && $user->student && $user->student->users_id === $user->id --}}
-                        @if($user->projectAsParticipant)
+                        @if ($user->projectAsParticipant)
                            <td>
                               <form action="{{ route('projects.join', $project) }}" method="POST">
                                  @csrf
 
                                  <a href="{{ route('projects.join', $project) }}" class="btn btn-outline-primary"
                                     onclick="
-                                          event.preventDefault();
-                                          this.closest('form').submit();
-                                       ">
+                                             event.preventDefault();
+                                             this.closest('form').submit();
+                                          ">
                                     Candidatar
                                  </a>
                               </form>
@@ -168,6 +168,7 @@
                      <input type="hidden" name="id" value="{{ $edict->id }}">
 
                      <div class="form-row">
+
                         <div class="form-group col-md-12">
 
                            <input type="radio" name="rate" value="1" id="rate1" class="form-check-input">
@@ -235,6 +236,7 @@
       @endif
 
    </div>
+
 
    @if (Request::route()->getName() === 'edicts.showDashboard')
       @section('script')
