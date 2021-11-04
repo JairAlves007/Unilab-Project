@@ -74,6 +74,6 @@ class User extends Authenticatable
     }
 
     public function projectAsParticipant() {
-        return $this->belongsToMany(Projects::class);
+        return $this->belongsToMany(Projects::class, 'projects_user', 'projects_id', 'users_id');
     }
 }

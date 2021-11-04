@@ -31,7 +31,7 @@
          <p> {{ date('d-m-Y', strtotime($edict->submission_start)) }} até
             {{ date('d-m-Y', strtotime($edict->submission_finish)) }}</p>
          <a href="/storage/{{ $edict->archive }}" class="btn btn-primary" id="event-submit" onclick="event.preventDefault();
-                                                                this.closest('form').submit();">
+                                                                               this.closest('form').submit();">
             Baixar PDF
          </a>
       </div>
@@ -59,6 +59,7 @@
    <h1 class="title-bold">
       Projetos Relacionados
    </h1>
+   {{-- @dd($user->projectAsParticipant) --}}
 
    <div id="documents-container">
       <div class="table-responsive">
@@ -99,13 +100,21 @@
                         <td>Nenhum Plano De Trabalho</td>
 
                      @endif
-
                      @if ($user)
-                        @if($project->workPlan && $user->student && $user->student->users_id === $user->id)
+                        {{-- && $user->student && $user->student->users_id === $user->id --}}
+                        @if ($project->workPlan)
                            <td>
-                              <a href="{{ route('projects.join', $project) }}" class="btn btn-outline-primary">
-                                 Candidatar
-                              </a>
+                              <form action="{{ route('projects.join', $project) }}" method="POST">
+                                 @csrf
+
+                                 <a href="{{ route('projects.join', $project) }}" class="btn btn-outline-primary"
+                                    onclick="
+                                             event.preventDefault();
+                                             this.closest('form').submit();
+                                         ">
+                                    Candidatar
+                                 </a>
+                              </form>
                            </td>
                         @else
                            <td>
@@ -113,7 +122,7 @@
                            </td>
                         @endif
                      @endif
-                     
+
                   </tr>
 
                @empty
@@ -220,11 +229,9 @@
 
    @endif
 
-   <div class="other-rodape">
-      @if (Request::route()->getName() === 'edicts.showHome')
-         @include('layouts.footer')
-      @endif
-   </div>
+   @if (Request::route()->getName() === 'edicts.showHome')
+      @include('layouts.footer')
+   @endif
 
    @if (Request::route()->getName() === 'edicts.showDashboard')
       @section('script')

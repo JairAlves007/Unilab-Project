@@ -58,7 +58,7 @@ class ProjectsController extends Controller
     public function store($id, FormAttachProjectValidation $request)
     {
         $request->validated();
-        
+
         $project = new Projects;
 
         $project->title = $request->title;

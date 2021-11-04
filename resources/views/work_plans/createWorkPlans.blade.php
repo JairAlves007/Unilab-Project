@@ -16,7 +16,7 @@
 
          <form action="{{ route('works_plans.store', $project) }}" method="POST" enctype="multipart/form-data">
             @csrf
-            
+
             <div id="form-area">
 
                <div class="form-content">
@@ -91,7 +91,7 @@
                      <div class="form-group col-md-12">
 
                         <label for="bolsistas">Cadastre Bolsistas</label>
-                        
+
                         <select class="form-control {{ $errors->has('bolsistas') ? 'is-invalid' : '' }}"
                            id="bolsistas">
 
@@ -132,10 +132,10 @@
    <script>
 
       $('#bolsistas').on('change', () => {
-         
+
          var bolsista_id = $('#bolsistas').find('option:selected').val();
          var bolsista_name_registration = $('#bolsistas').find('option:selected').attr('label');
-         
+
          $('#res-bolsistas').append(`<p>${bolsista_name_registration}</p>`);
 
          $('#res-bolsistas')
@@ -143,8 +143,8 @@
 
                <input
                   type="hidden"
-                  name="bolsistas"
-                  value="${bolsista_id}"
+                  name="bolsistas[]"
+                  value='${bolsista_id}'
                />
 
             `);
