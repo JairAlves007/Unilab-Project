@@ -30,18 +30,23 @@ class WorkPlansController extends Controller
     public function create($id)
     {
         $project = Projects::findOrFail($id);
-        $users = User::all();
-        $students_users = DB::table('users')->join('students', 'users.id', 'students.users_id')->get();
-        // $a = DB::table('students');
-        // dd($project->userParticipant);
 
-        // $users = User::all();
-        $user_project = $project->participant_id;
+        $users = User::all();
+
+        $candidates = DB::table('users')
+            ->join('projects_user', 'users.id', 'projects_user.user_id')
+            ->join('students', 'users.id', 'students.users_id')
+            ->where('projects_user.participating', 1)
+            ->where('projects_user.project_id', $id)
+            ->get();
+
+
+        // dd($candidates);
 
         return view('work_plans.createWorkPlans', [
             'project' => $project,
             'users' => $users,
-            'students_users' => $students_users
+            'candidates' => $candidates
         ]);
 
 

@@ -98,11 +98,11 @@
                               Selecione
                            </option>
 
-                           @foreach ($students_users as $user)
-                              @if ($project->participant_id === null)
-                                 <option value="{{ $user->users_id }}"
-                                    label="{{ $user->registration }} - {{ $user->name }}">
-                              @endif
+                           @foreach ($candidates as $candidate)
+                              {{-- @if ($project->participant_id === null) --}}
+                                 <option value="{{ $candidate->users_id }}"
+                                    label="{{ $candidate->registration }} - {{ $candidate->name }}">
+                              {{-- @endif --}}
 
                            @endforeach
 
