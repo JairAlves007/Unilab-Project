@@ -1,7 +1,15 @@
-<form action="{{ route('users.registration-store') }}" method="POST">
+@extends('layouts.main')
+
+@include('layouts.navbar')
+
+@include('layouts.sidebar')
+
+<form  action="{{ route('users.registration-store') }}" method="POST">
+   <div class="registration mx-auto apply-scholarship form-group">
    @csrf
 
-   <input type="text" name="registration" placeholder="Matrícula">
+   <h1 class="">Cadastrar Matrícula</h1>
+   <input class="form-control" type="text" name="registration" placeholder="Matrícula">
 
    @if(Request::route()->getName() === 'users.registration.orientador')
 
@@ -18,6 +26,6 @@
       </select>
 
    @endif
-
-   <button type="submit">Enviar</button>
+</div>
+   <button class="btn btn-primary registration-submit" type="submit">Enviar</button>
 </form>
