@@ -17,4 +17,6 @@ class Students extends Model
     public function users() {
         return $this->belongsTo(User::class, 'id', 'id');
     }
+
+
 }

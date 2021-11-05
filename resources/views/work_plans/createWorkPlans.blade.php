@@ -11,7 +11,7 @@
       @include('layouts.sidebar')
 
       <div class="form-create">
-        
+
          <h1>Crie Um Plano De Trabalho</h1>
 
          <form action="{{ route('works_plans.store', $project) }}" method="POST" enctype="multipart/form-data">
@@ -98,10 +98,10 @@
                               Selecione
                            </option>
 
-                           @foreach ($users as $user)
-                              @if ($user->student && count($user->projectAsParticipant) === 0)
-                                 <option value="{{ $user->id }}"
-                                    label="{{ $user->name }} - {{ $user->student->registration }}">
+                           @foreach ($students_users as $user)
+                              @if ($user->id && $project->participant_id === null)
+                                 <option value="{{ $user->users_id }}"
+                                    label="{{ $user->registration }} - {{ $user->name }}">
                               @endif
 
                            @endforeach

@@ -70,7 +70,7 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function student() {
+    public function students() {
         return $this->hasOne(Students::class, 'users_id', 'id');
     }
 

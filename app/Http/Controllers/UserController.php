@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FormValidationRequest;
 use App\Models\Institutes;
+use App\Models\Projects;
 use App\Models\Students;
 use App\Models\Teachers;
 use App\Models\User;
@@ -18,15 +19,15 @@ class UserController extends Controller
    public function form_registration(){
 
       if(auth()->user()->can_access == 0) {
-         
+
          if(Route::currentRouteName() === 'users.registration.orientador') {
-            
+
             $institutes = Institutes::all();
 
             return view('users.formRegistration', [
                'institutes' => $institutes
             ]);
-            
+
          } else {
 
             return view('users.formRegistration');
@@ -60,6 +61,7 @@ class UserController extends Controller
             'users_id' => auth()->user()->id
          ]);
 
+
       }
 
       User::where('id', auth()->user()->id)->update([
@@ -89,32 +91,32 @@ class UserController extends Controller
             in_array('bolsista', $data['niveis']) &&
             in_array('orientador', $data['niveis'])
          ) {
-            
+
             return redirect()->back();
-   
+
          } else if(
             in_array('bolsista', $data['niveis']) ||
             in_array('orientador', $data['niveis'])
          ) {
-   
+
             $can_access = 0;
-   
+
          } else {
 
             $can_access = 1;
 
          }
-   
+
          User::create([
-   
+
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'can_access' => $can_access
-   
+
          ])->syncRoles($data['niveis']);
       }
-      
+
       return redirect()->route('dashboard');
    }
 
