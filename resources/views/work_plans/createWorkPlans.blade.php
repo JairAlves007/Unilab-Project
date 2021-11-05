@@ -99,7 +99,7 @@
                            </option>
 
                            @foreach ($students_users as $user)
-                              @if ($user->id && $project->participant_id === null)
+                              @if ($project->participant_id === null)
                                  <option value="{{ $user->users_id }}"
                                     label="{{ $user->registration }} - {{ $user->name }}">
                               @endif
