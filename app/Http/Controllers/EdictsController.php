@@ -15,6 +15,7 @@ use App\Models\Specialities;
 use App\Models\SubAreas;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 class EdictsController extends Controller
@@ -117,11 +118,13 @@ class EdictsController extends Controller
         $today = Carbon::now();
         $periodo = Carbon::parse($today)->gte($edict->rate_start) && Carbon::parse($today)->lte($edict->rate_finish);
 
-
+        $participating = DB::table('projects_user')->where('user_id', auth()->user()->id)->first();
+        // dd($participating);
         $variables = [
             'edict' => $edict,
             'projects_attachs' => $projects_attachs,
-            'periodo' => $periodo
+            'periodo' => $periodo,
+            'participating' => $participating
         ];
 
         if (Route::currentRouteName() === 'edicts.showDashboard') {

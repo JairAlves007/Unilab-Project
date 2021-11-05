@@ -31,9 +31,17 @@ Route::group(['middleware' => ['role:super-admin|orientador']], function () {
    Route::post('/project/findSubAreas', [ProjectsController::class, 'findSubAreas'])
       ->middleware('auth');
 
+   Route::get('/projects/showCandidates', [ProjectsController::class, 'showCandidates'])
+      ->name('projects.showCandidates')
+      ->middleware('auth');
+
    Route::get('/project/{id}/candidates', [ProjectsController::class, 'candidates'])
       ->name('projects.candidates')
       ->middleware('auth');
+
+   Route::get('/project/{user_id}/approved', [ProjectsController::class, 'approve'])
+      ->middleware('auth')
+      ->name('projects.approved');
 });
 
 Route::group(['middleware' => ['role:super-admin|bolsista']], function () {

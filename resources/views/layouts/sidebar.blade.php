@@ -195,7 +195,7 @@
 
                 @can('rate-project')
                 <li>
-                    <a href="{{ route('works_plans.approved') }}" class="li-submenu">
+                    <a href="{{ route('projects.showCandidates') }}" class="li-submenu">
                         <i class="fas fa-user-friends"></i>
                         Candidatos
                     </a>

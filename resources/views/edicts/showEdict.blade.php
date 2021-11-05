@@ -32,7 +32,7 @@
             {{ date('d-m-Y', strtotime($edict->submission_finish)) }}</p>
          <a href="/storage/{{ $edict->archive }}" class="btn btn-primary" id="event-submit"
             onclick="event.preventDefault();
-                                                                                                    this.closest('form').submit();">
+                                                                                                                   this.closest('form').submit();">
             Baixar PDF
          </a>
       </div>
@@ -60,7 +60,7 @@
    <h1 class="title-bold">
       Projetos Relacionados
    </h1>
-   
+   {{-- @dd($participating->where('projects_user', $project->id)) --}}
    <div class="table-width-controller">
       <div class="table table-responsive">
          <table class="table table-striped table-hover table-bordered" id="table-responsive">
@@ -71,35 +71,67 @@
                   <th scope="col">Grande Área</th>
                   <th scope="col">Área</th>
                   <th scope="col">Sub-Área</th>
-                  <th scope="col">Ações</th>
+
+                  @if ($user && $user->hasRole('bolsista'))
+                     <th scope="col">Ações</th>
+                  @endif
+
                </tr>
             </thead>
 
             <tbody>
                @forelse($projects_attachs as $project)
+                  {{-- @dd($participating->project_id === $project->id) --}}
+                  {{-- @dd($project->projectsAsParticipant) --}}
+                  {{-- @dd($user->projectsAsParticipant) --}}
                   <tr>
-
                      <th scope="row">{{ $project->id }}</th>
                      <td>{{ $project->title }}</td>
                      <td>{{ $project->big_area->name }}</td>
                      <td>{{ $project->area->name }}</td>
                      <td>{{ $project->sub_area->name }}</td>
-                     <td>
-                        <form action="{{ route('projects.join', $project) }}" method="POST">
-                           @csrf
-                           
-                           <a href="{{ route('projects.join', $project) }}" class="btn btn-outline-primary"
-                              onclick="
-                                 event.preventDefault();
-                                 this.closest('form').submit();
-                              "
-                           >
 
-                              Candidatar
+                     @if ($user && $user->hasRole('bolsista'))
+                        @if (count($project->projectsAsParticipant) > 0)
+                           @if ($participating->participating && $participating->project_id === $project->id)
 
-                           </a>
-                        </form>
-                     </td>
+                              <td>
+                                 Aprovado
+                              </td>
+
+                           @else
+
+                              <td>
+                                 Aguardando Aprovação...
+                              </td>
+
+                           @endif
+                        @elseif(count($project->projectsAsParticipant) === 0)
+                           @if (count($user->projectsAsParticipant) !== 0)
+                              <td>
+                                 Você Não Pode Mais Se Candidatar
+                              </td>
+                           @else
+
+                              <td>
+                                 <form action="{{ route('projects.join', $project) }}" method="POST">
+                                    @csrf
+
+                                    <a href="{{ route('projects.join', $project) }}" class="btn btn-outline-primary"
+                                       onclick="
+                                             event.preventDefault();
+                                             this.closest('form').submit();
+                                          ">
+
+                                       Candidatar
+
+                                    </a>
+                                 </form>
+                              </td>
+                           @endif
+                        @endif
+                     @endif
+
                   </tr>
 
                @empty
@@ -109,7 +141,13 @@
                      <td></td>
                      <td></td>
                      <td></td>
-                     <td></td>
+
+                     @if ($user && $user->hasRole('bolsista'))
+
+                        <td></td>
+
+                     @endif
+
                   </tr>
 
                @endforelse

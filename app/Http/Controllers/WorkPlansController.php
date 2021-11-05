@@ -92,9 +92,7 @@ class WorkPlansController extends Controller
      */
     public function show()
     {
-        $projects = Projects::all();
 
-        return view('work_plans.approvedWorkPlans', [ 'projects' => $projects]);
     }
 
     /**

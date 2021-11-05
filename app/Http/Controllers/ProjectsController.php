@@ -8,6 +8,7 @@ use App\Models\BigAreas;
 use App\Models\Edicts;
 use App\Models\Institutes;
 use App\Models\Projects;
+use App\Models\ProjectsUser;
 use App\Models\Specialities;
 use App\Models\SubAreas;
 use App\Models\Teachers;
@@ -155,6 +156,13 @@ class ProjectsController extends Controller
         return $areas->where('areas_id', $request['sub_areas_id']);
     }
 
+    public function showCandidates() {
+        $projects = Projects::all();
+
+        return view('projects.showProjectCandidates', [
+            'projects' => $projects
+        ]);
+    }
 
     public function join($id) {
 
@@ -174,10 +182,23 @@ class ProjectsController extends Controller
             ->join('projects_user', 'users.id', 'projects_user.user_id')
             ->join('students', 'users.id', 'students.users_id')
             ->where('projects_user.participating', 0)
+            ->where('projects_user.project_id', $id)
             ->get();
 
         return view('projects.candidates', [
             'candidates' => $candidates
         ]);
+    }
+
+    public function approve($user_id) {
+
+        $candidate = DB::table('projects_user')->where('user_id', $user_id);
+
+        $candidate->update([
+            'participating' => 1
+        ]);
+
+        return redirect()->back();
+
     }
 }

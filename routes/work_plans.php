@@ -18,8 +18,4 @@ Route::group(['middleware' => ['role:super-admin|orientador']], function () {
    Route::post('/work-plans/store/{id}', [WorkPlansController::class, 'store'])
       ->middleware('auth')
       ->name('works_plans.store');
-
-   Route::get('/work-plans/approved', [WorkPlansController::class, 'show'])
-      ->middleware('auth')
-      ->name('works_plans.approved');
 });
