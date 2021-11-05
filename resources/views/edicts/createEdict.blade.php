@@ -16,17 +16,17 @@
 
          <form action="{{ route('edicts.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
-
+            
             <div id="form-area">
                <div class="form-content">
-
-                  <div class="form-group">
-
+                  
+                  <div class="form-group1">
+                     
                      <label for="title">Titulo do Edital</label>
 
                      <input type="text" name="title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}" id="title"
                         placeholder="Insira o Titulo Aqui...">
-
+                    
                      <div class="invalid-feedback">
                         @foreach ($errors->get('title') as $error)
                            {{ $error }}

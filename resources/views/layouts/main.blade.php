@@ -12,7 +12,7 @@
    <link rel="stylesheet" href="/css/dashboard.css">
    <link rel="stylesheet" href="/css/signin.css">
    <link rel="stylesheet" href="/css/edicts.css">
-   <link rel="stylesheet" href="/css/responsive.css">
+   
 </head>
 
 <body class="text-center">

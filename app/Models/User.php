@@ -11,6 +11,7 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use SebastianBergmann\CodeCoverage\Report\Xml\Project;
 
 class User extends Authenticatable
 {
@@ -73,7 +74,11 @@ class User extends Authenticatable
         return $this->hasOne(Students::class, 'users_id', 'id');
     }
 
-    public function projectAsParticipant() {
-        return $this->belongsToMany(Projects::class);
+    public function participant() {
+        return $this->hasOne(Projects::class, 'participant_id');
     }
+
+    // public function projectAsParticipant() {
+    //     return $this->belongsToMany(Projects::class, 'projects_user', 'projects_id', 'users_id');
+    // }
 }

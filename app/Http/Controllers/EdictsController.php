@@ -114,9 +114,14 @@ class EdictsController extends Controller
         $edict = Edicts::find($id);
         $projects_attachs = $edict->projects;
 
+        $today = Carbon::now();
+        $periodo = Carbon::parse($today)->gte($edict->rate_start) && Carbon::parse($today)->lte($edict->rate_finish);
+
+
         $variables = [
             'edict' => $edict,
             'projects_attachs' => $projects_attachs,
+            'periodo' => $periodo
         ];
 
         if (Route::currentRouteName() === 'edicts.showDashboard') {
@@ -125,17 +130,17 @@ class EdictsController extends Controller
         }
 
         return view("edicts.showEdict", $variables);
+
+
     }
 
     public function showAll()
     {
-
         $edicts = Edicts::all();
-
         return view("edicts.showEdicts", [
-            'edicts' => $edicts
+            'edicts' => $edicts,
         ]);
-        
+
     }
 
     /**

@@ -58,7 +58,7 @@ class ProjectsController extends Controller
     public function store($id, FormAttachProjectValidation $request)
     {
         $request->validated();
-        
+
         $project = new Projects;
 
         $project->title = $request->title;
@@ -158,7 +158,13 @@ class ProjectsController extends Controller
     public function join($id) {
         $user = auth()->user();
 
-        $user->projectAsParticipant()->attach($id);
+        // $user->projectAsParticipant()->attach($id);
+
+        $project = Projects::findOrFail($id);
+
+        $project->update([
+            'participant_id'
+        ]);
 
         return redirect()->back();
     }

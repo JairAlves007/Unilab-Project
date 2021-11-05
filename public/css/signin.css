@@ -43,3 +43,10 @@ body {
 .check {
     margin-bottom: 0;
 }
+
+@media screen and (max-width: 700px) {
+    #form-area {
+        display: flex;
+        flex-direction: column;
+    }
+}
