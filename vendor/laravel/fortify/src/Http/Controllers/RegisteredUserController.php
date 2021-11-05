@@ -2,7 +2,6 @@
 
 namespace Laravel\Fortify\Http\Controllers;
 
-use App\Http\Requests\FormValidationRequest;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Http\Request;
@@ -49,11 +48,9 @@ class RegisteredUserController extends Controller
      * @param  \Laravel\Fortify\Contracts\CreatesNewUsers  $creator
      * @return \Laravel\Fortify\Contracts\RegisterResponse
      */
-    public function store(FormValidationRequest $request,
+    public function store(Request $request,
                           CreatesNewUsers $creator): RegisterResponse
     {
-        $request->validated();
-        
         event(new Registered($user = $creator->create($request->all())));
 
         $this->guard->login($user);

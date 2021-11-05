@@ -57,8 +57,7 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request)
     {
         return $this->loginPipeline($request)->then(function ($request) {
-            // return app(LoginResponse::class);
-            return redirect('/dashboard');
+            return app(LoginResponse::class);
         });
     }
 

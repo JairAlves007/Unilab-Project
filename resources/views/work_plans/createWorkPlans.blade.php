@@ -92,15 +92,18 @@
 
                         <label for="bolsistas">Cadastre Bolsistas</label>
 
-                        <select class="form-control {{ $errors->has('bolsistas') ? 'is-invalid' : '' }}"
-                           id="bolsistas">
+                        <select class="form-control {{ $errors->has('bolsistas') ? 'is-invalid' : '' }}" id="bolsistas">
 
                            <option value="" id="option-checked">
                               Selecione
                            </option>
 
                            @foreach ($students_users as $user)
-                              <option value="{{ $user->id }}" label="{{ $user->name }} - {{ $user->registration }}">
+                              @if ($project->participant_id === null)
+                                 <option value="{{ $user->users_id }}"
+                                    label="{{ $user->registration }} - {{ $user->name }}">
+                              @endif
+
                            @endforeach
 
                         </select>
@@ -130,7 +133,6 @@
 
 @section('script')
    <script>
-
       $('#bolsistas').on('change', () => {
 
          var bolsista_id = $('#bolsistas').find('option:selected').val();
@@ -153,7 +155,6 @@
          $('#option-checked').prop('selected', 'true');
 
       });
-
    </script>
 @endsection
 

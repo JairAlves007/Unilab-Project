@@ -1,4 +1,4 @@
-<nav class="sidebar">
+<nav class="sidebar toggled">
     <ul class="list-unstyled">
 
         @if ($user->can_access == 0)

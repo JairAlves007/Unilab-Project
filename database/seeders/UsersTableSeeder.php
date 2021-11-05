@@ -21,5 +21,19 @@ class UsersTableSeeder extends Seeder
             'password' => Hash::make('123456789'),
             'can_access' => 1
         ])->syncRoles('super-admin');
+
+        User::create([
+            'name' => 'Orientador',
+            'email' => 'orientador@gmail.com',
+            'password' => Hash::make('123456789'),
+            'can_access' => 1
+        ])->syncRoles('orientador');
+
+        User::create([
+            'name' => 'Bolsista',
+            'email' => 'bolsista@gmail.com',
+            'password' => Hash::make('123456789'),
+            'can_access' => 1
+        ])->syncRoles('bolsista');
     }
 }

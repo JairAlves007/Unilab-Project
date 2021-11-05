@@ -32,12 +32,19 @@ class WorkPlansController extends Controller
         $project = Projects::findOrFail($id);
         $users = User::all();
         $students_users = DB::table('users')->join('students', 'users.id', 'students.users_id')->get();
+        // $a = DB::table('students');
+        // dd($project->userParticipant);
+
+        // $users = User::all();
+        $user_project = $project->participant_id;
 
         return view('work_plans.createWorkPlans', [
             'project' => $project,
             'users' => $users,
             'students_users' => $students_users
         ]);
+
+
     }
 
     /**
@@ -52,7 +59,11 @@ class WorkPlansController extends Controller
 
         $work_plans = new WorkPlans;
 
+
+
         $data = $request->except(['_token']);
+
+
 
         $work_plans->title = $data['title'];
         $work_plans->abstract = $data['abstract'];
@@ -60,6 +71,13 @@ class WorkPlansController extends Controller
         $work_plans->references = $data['references'];
         $work_plans->bolsistas = $data['bolsistas'];
         $work_plans->project_id = $id;
+
+        if(isset($id)){
+
+            Projects::where('participant_id', null)->update([
+            'participant_id' => $data['bolsistas'][0]]);
+
+        }
 
         $work_plans->save();
 

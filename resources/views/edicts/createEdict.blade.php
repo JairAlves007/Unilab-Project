@@ -19,6 +19,7 @@
             
             <div id="form-area">
                <div class="form-content">
+<<<<<<< HEAD
                   
                   <div class="form-group1">
                      
@@ -27,6 +28,16 @@
                      <input type="text" name="title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}" id="title"
                         placeholder="Insira o Titulo Aqui...">
                     
+=======
+
+                  <div class="form-group">
+
+                     <label for="title">Titulo do Edital</label>
+
+                     <input type="text" name="title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}"
+                        id="title" placeholder="Insira o Titulo Aqui...">
+
+>>>>>>> 39f6d052f5565d4f9090fa19f4998a1f49e9d949
                      <div class="invalid-feedback">
                         @foreach ($errors->get('title') as $error)
                            {{ $error }}
@@ -39,7 +50,8 @@
 
                      <label for="archive">Arquivo do Edital</label>
 
-                     <input type="file" name="archive" class="form-control-file {{ $errors->has('archive') ? 'is-invalid' : '' }}" id="archive">
+                     <input type="file" name="archive"
+                        class="form-control-file {{ $errors->has('archive') ? 'is-invalid' : '' }}" id="archive">
 
                      <div class="invalid-feedback">
                         @foreach ($errors->get('archive') as $error)
@@ -53,8 +65,8 @@
 
                      <label for="description">Descrição do Edital</label>
 
-                     <textarea class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" name="description" id="description" rows="5"
-                        placeholder="Insira a Descrição Aqui..."></textarea>
+                     <textarea class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}"
+                        name="description" id="description" rows="5" placeholder="Insira a Descrição Aqui..."></textarea>
 
                      <div class="invalid-feedback">
                         @foreach ($errors->get('description') as $error)
@@ -106,7 +118,8 @@
 
                         <label for="rate_start">Início da Avaliação</label>
 
-                        <input type="date" name="rate_start" id="rate_start" class="form-control {{ $errors->has('rate_start') ? 'is-invalid' : '' }}">
+                        <input type="date" name="rate_start" id="rate_start"
+                           class="form-control {{ $errors->has('rate_start') ? 'is-invalid' : '' }}">
 
                         <div class="invalid-feedback">
                            @foreach ($errors->get('rate_start') as $error)
@@ -171,8 +184,8 @@
 
                         <label for="min_titulation">Titulação Mínima</label>
 
-                        <select class="form-control {{ $errors->has('min_titulations') ? 'is-invalid' : '' }}" name="min_titulations_id"
-                           id="min_titulation">
+                        <select class="form-control {{ $errors->has('min_titulations') ? 'is-invalid' : '' }}"
+                           name="min_titulations_id" id="min_titulation">
 
                            <option value="">Selecione</option>
 
@@ -193,7 +206,8 @@
 
                         <label for="category">Categoria</label>
 
-                        <select class="form-control {{ $errors->has('categories_id') ? 'is-invalid' : '' }}" name="categories_id" id="category">
+                        <select class="form-control {{ $errors->has('categories_id') ? 'is-invalid' : '' }}"
+                           name="categories_id" id="category">
 
                            <option value="">Selecione</option>
 
