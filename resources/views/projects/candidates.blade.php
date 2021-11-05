@@ -31,16 +31,16 @@
                   </thead>
 
                   <tbody>
-                     @foreach ($projects as $project)
+                     @foreach ($candidates as $candidate)
 
                         <tr>
-                           <th>{{ $project->id }}</th>
-                           <td>{{ $project->title }}</td>
+                           <th>{{ $candidate->registration }}</th>
+                           <td>{{ $candidate->name }}</td>
                            <td class="text-center">
-                              <a href="{{ route('projects.candidates', $project) }}" class="btn btn-outline-danger btn-sm">
-                                 Ver Candidatos
+                              <a href="{{ $candidate->user_id }}" class="btn btn-outline-danger btn-sm">
+                                 Aprovar
                               </a>
-                            </td>
+                           </td>
                         </tr>
 
                      @endforeach

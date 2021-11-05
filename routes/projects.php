@@ -22,13 +22,17 @@ Route::group(['middleware' => ['role:super-admin|orientador']], function () {
       ->middleware('auth')
       ->name('projects.showAll');
 
-   Route::post('/project/create', [ProjectsController::class, 'findSubAreas'])
-      ->middleware('auth');
+   // Route::post('/project/create', [ProjectsController::class, 'findSubAreas'])
+   //    ->middleware('auth');
 
    Route::post('/project/findAreas', [ProjectsController::class, 'findAreas'])
       ->middleware('auth');
 
    Route::post('/project/findSubAreas', [ProjectsController::class, 'findSubAreas'])
+      ->middleware('auth');
+
+   Route::get('/project/{id}/candidates', [ProjectsController::class, 'candidates'])
+      ->name('projects.candidates')
       ->middleware('auth');
 });
 

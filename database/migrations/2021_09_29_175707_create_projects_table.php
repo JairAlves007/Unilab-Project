@@ -22,7 +22,6 @@ class CreateProjectsTable extends Migration
             $table->text('abstract');
             $table->text('references');
             $table->timestamps();
-            $table->foreignId('participant_id')->nullable()->constrained('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('edicts_id')->constrained('edicts')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('institutes_id')->constrained('institutes')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('teachers_id')->constrained('teachers')->onUpdate('cascade')->onDelete('cascade');

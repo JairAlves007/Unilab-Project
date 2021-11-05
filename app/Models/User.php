@@ -70,15 +70,12 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function students() {
+    public function student() {
         return $this->hasOne(Students::class, 'users_id', 'id');
     }
 
-    // public function participant() {
-    //     return $this->hasOne(Projects::class, 'participant_id');
-    // }
-
-    public function projectAsParticipant() {
-        return $this->belongsToMany(Projects::class, 'projects_user', 'projects_id', 'users_id');
+    public function projectsAsParticipant() {
+        return $this->belongsToMany(Projects::class, 'projects_user', 'user_id', 'project_id');
     }
+
 }

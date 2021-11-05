@@ -19,7 +19,6 @@
             
             <div id="form-area">
                <div class="form-content">
-<<<<<<< HEAD
                   
                   <div class="form-group1">
                      
@@ -28,16 +27,6 @@
                      <input type="text" name="title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}" id="title"
                         placeholder="Insira o Titulo Aqui...">
                     
-=======
-
-                  <div class="form-group">
-
-                     <label for="title">Titulo do Edital</label>
-
-                     <input type="text" name="title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}"
-                        id="title" placeholder="Insira o Titulo Aqui...">
-
->>>>>>> 39f6d052f5565d4f9090fa19f4998a1f49e9d949
                      <div class="invalid-feedback">
                         @foreach ($errors->get('title') as $error)
                            {{ $error }}

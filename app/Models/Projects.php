@@ -30,10 +30,6 @@ class Projects extends Model
         return $this->belongsToMany(User::class);
     }
 
-    public function userParticipant() {
-        return $this->belongsToMany(User::class, 'projects_user', 'projects_id', 'users_id');
-    }
-
     public function ownerProject()
     {
         return $this->hasOne(User::class, 'id');
@@ -57,5 +53,9 @@ class Projects extends Model
     public function sub_area()
     {
         return $this->hasOne(SubAreas::class, 'id', 'sub_areas_id');
+    }
+
+    public function projectsAsParticipant() {
+        return $this->belongsToMany(User::class, 'projects_user', 'project_id', 'user_id');
     }
 }

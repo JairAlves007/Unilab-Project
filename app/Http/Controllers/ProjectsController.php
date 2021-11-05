@@ -155,17 +155,29 @@ class ProjectsController extends Controller
         return $areas->where('areas_id', $request['sub_areas_id']);
     }
 
+
     public function join($id) {
+
         $user = auth()->user();
 
-        $user->projectAsParticipant()->attach($id);
+        $project = Projects::findOrFail($id);
 
-        // $project = Projects::findOrFail($id);
-
-        // $project->update([
-        //     'participant_id' => $user->id
-        // ]);
+        $project->projectsAsParticipant()->attach($user->id);
 
         return redirect()->back();
+
+    }
+
+    public function candidates($id) {
+
+        $candidates = DB::table('users')
+            ->join('projects_user', 'users.id', 'projects_user.user_id')
+            ->join('students', 'users.id', 'students.users_id')
+            ->where('projects_user.participating', 0)
+            ->get();
+
+        return view('projects.candidates', [
+            'candidates' => $candidates
+        ]);
     }
 }
