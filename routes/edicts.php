@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/category/{id}', [CategoriesController::class, 'show']);
 
 
-Route::group(['middleware' => ['role:super-admin|orientador|membro']], function () {
+Route::group(['middleware' => ['role:super-admin|orientador|membro|bolsista']], function () {
 
     Route::get('/edict/create', [EdictsController::class, 'create'])
         ->middleware('auth')

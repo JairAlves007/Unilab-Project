@@ -28,6 +28,7 @@ class RolesHasPermissionsTableSeeder extends Seeder
             ], // Gestor
 
             [
+                6,
                 11,
                 12
             ], // Bolsista
