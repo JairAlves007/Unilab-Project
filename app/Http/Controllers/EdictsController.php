@@ -118,14 +118,16 @@ class EdictsController extends Controller
         $today = Carbon::now();
         $periodo = Carbon::parse($today)->gte($edict->rate_start) && Carbon::parse($today)->lte($edict->rate_finish);
 
-        $participating = DB::table('projects_user')->where('user_id', auth()->user()->id)->first();
-        // dd($participating);
         $variables = [
             'edict' => $edict,
             'projects_attachs' => $projects_attachs,
-            'periodo' => $periodo,
-            'participating' => $participating
+            'periodo' => $periodo
         ];
+
+        if(auth()->check()) {
+            $participants = DB::table('projects_user')->where('user_id', auth()->user()->id)->get();
+            $variables['participants'] = $participants;
+        }
 
         if (Route::currentRouteName() === 'edicts.showDashboard') {
             $rate_current = RateEdict::where('avaliator', auth()->user()->id)->where('edict_id', $id)->first();
@@ -133,7 +135,6 @@ class EdictsController extends Controller
         }
 
         return view("edicts.showEdict", $variables);
-
 
     }
 

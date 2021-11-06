@@ -37,7 +37,7 @@
                            <th>{{ $candidate->registration }}</th>
                            <td>{{ $candidate->name }}</td>
                            <td class="text-center">
-                              <a href="{{ route('projects.approved', $candidate->user_id) }}" class="btn btn-outline-danger btn-sm">
+                              <a href="{{ route('projects.approved', $project_id) }}" class="btn btn-outline-danger btn-sm">
                                  Aprovar
                               </a>
                            </td>

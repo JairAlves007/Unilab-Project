@@ -164,15 +164,23 @@ class ProjectsController extends Controller
         ]);
     }
 
-    public function join($id) {
+    public function join($edict_id, $id) {
 
         $user = auth()->user();
 
         $project = Projects::findOrFail($id);
 
-        $project->projectsAsParticipant()->attach($user->id);
+        // $project->projectsAsParticipant()->attach($user->id);
+
+        ProjectsUser::create([
+            'edict_id' => $edict_id,
+            'project_id' => $id,
+            'user_id' => $user->id
+        ]);
 
         return redirect()->back();
+
+        // dd($edict_id, $id);
 
     }
 
@@ -185,14 +193,17 @@ class ProjectsController extends Controller
             ->where('projects_user.project_id', $id)
             ->get();
 
+            // dd($candidates);
+
         return view('projects.candidates', [
-            'candidates' => $candidates
+            'candidates' => $candidates,
+            'project_id' => $id
         ]);
     }
 
-    public function approve($user_id) {
+    public function approve($project_id) {
 
-        $candidate = DB::table('projects_user')->where('user_id', $user_id);
+        $candidate = DB::table('projects_user')->where('project_id', $project_id);
 
         $candidate->update([
             'participating' => 1

@@ -32,7 +32,7 @@
             {{ date('d-m-Y', strtotime($edict->submission_finish)) }}</p>
          <a href="/storage/{{ $edict->archive }}" class="btn btn-primary" id="event-submit"
             onclick="event.preventDefault();
-                                                                                                                   this.closest('form').submit();">
+                                                                                                                                                       this.closest('form').submit();">
             Baixar PDF
          </a>
       </div>
@@ -60,7 +60,7 @@
    <h1 class="title-bold">
       Projetos Relacionados
    </h1>
-   {{-- @dd($participating->where('projects_user', $project->id)) --}}
+   
    <div class="table-width-controller">
       <div class="table table-responsive">
          <table class="table table-striped table-hover table-bordered" id="table-responsive">
@@ -81,9 +81,7 @@
 
             <tbody>
                @forelse($projects_attachs as $project)
-                  {{-- @dd($participating->project_id === $project->id) --}}
-                  {{-- @dd($project->projectsAsParticipant) --}}
-                  {{-- @dd($user->projectsAsParticipant) --}}
+
                   <tr>
                      <th scope="row">{{ $project->id }}</th>
                      <td>{{ $project->title }}</td>
@@ -93,35 +91,60 @@
 
                      @if ($user && $user->hasRole('bolsista'))
                         @if (count($project->projectsAsParticipant) > 0)
-                           @if ($participating->participating && $participating->project_id === $project->id)
+                           @for ($i = 0; $i < count($participants); $i++)
+                              @if ($participants[$i]->edict_id === $edict->id && $participants[$i]->project_id === $project->id)
+                                 @if ($participants[$i]->participating)
 
-                              <td>
-                                 Aprovado
-                              </td>
+                                    <td>
+                                       Aprovado
+                                    </td>
 
-                           @else
+                                 @else
 
-                              <td>
-                                 Aguardando Aprovação...
-                              </td>
+                                    <td>
+                                       Aguardando Aprovação...
+                                    </td>
 
-                           @endif
+                                 @endif
+
+
+                              @endif
+                           @endfor
                         @elseif(count($project->projectsAsParticipant) === 0)
-                           @if (count($user->projectsAsParticipant) !== 0)
-                              <td>
-                                 Você Não Pode Mais Se Candidatar
-                              </td>
-                           @else
+                           @if (isset($user->projectsAsParticipant->first()->edicts_id))
+                              @if ($user->projectsAsParticipant->first()->edicts_id === $edict->id)
+                                 <td>
+                                    Você Não Pode Mais Se Candidatar
+                                 </td>
+                              @else
+                                 <td>
+                                    <form action="{{ route('projects.join', [$edict->id, $project->id]) }}"
+                                       method="POST">
+                                       @csrf
 
-                              <td>
-                                 <form action="{{ route('projects.join', $project) }}" method="POST">
-                                    @csrf
-
-                                    <a href="{{ route('projects.join', $project) }}" class="btn btn-outline-primary"
-                                       onclick="
+                                       <a href="{{ route('projects.join', [$edict->id, $project->id]) }}"
+                                          class="btn btn-outline-primary" 
+                                          onclick="
                                              event.preventDefault();
                                              this.closest('form').submit();
                                           ">
+
+                                          Candidatar
+
+                                       </a>
+                                    </form>
+                                 </td>
+                              @endif
+                           @else
+                              <td>
+                                 <form action="{{ route('projects.join', [$edict->id, $project->id]) }}" method="POST">
+                                    @csrf
+
+                                    <a href="{{ route('projects.join', [$edict->id, $project->id]) }}"
+                                       class="btn btn-outline-primary" onclick="
+                                                      event.preventDefault();
+                                                      this.closest('form').submit();
+                                                   ">
 
                                        Candidatar
 
@@ -129,6 +152,7 @@
                                  </form>
                               </td>
                            @endif
+
                         @endif
                      @endif
 
@@ -240,13 +264,13 @@
 
    @endif
 
-   <div class="other-rodape">
+   {{-- <div class="other-rodape"> --}}
 
-      @if (Request::route()->getName() === 'edicts.showHome')
-         @include('layouts.footer')
-      @endif
+   @if (Request::route()->getName() === 'edicts.showHome')
+      @include('layouts.footer')
+   @endif
 
-   </div>
+   {{-- </div> --}}
 
 
    @if (Request::route()->getName() === 'edicts.showDashboard')

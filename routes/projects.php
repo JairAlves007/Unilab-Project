@@ -39,13 +39,13 @@ Route::group(['middleware' => ['role:super-admin|orientador']], function () {
       ->name('projects.candidates')
       ->middleware('auth');
 
-   Route::get('/project/{user_id}/approved', [ProjectsController::class, 'approve'])
+   Route::get('/project/{project_id}/approved', [ProjectsController::class, 'approve'])
       ->middleware('auth')
       ->name('projects.approved');
 });
 
 Route::group(['middleware' => ['role:super-admin|bolsista']], function () {
-   Route::post('/project/{id}/join', [ProjectsController::class, 'join'])
+   Route::post('/project/{edict_id}/join/{project_id}', [ProjectsController::class, 'join'])
       ->name('projects.join')
       ->middleware('auth');
 });
