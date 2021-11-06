@@ -31,8 +31,7 @@
          <p> {{ date('d-m-Y', strtotime($edict->submission_start)) }} até
             {{ date('d-m-Y', strtotime($edict->submission_finish)) }}</p>
          <a href="/storage/{{ $edict->archive }}" class="btn btn-primary" id="event-submit"
-            onclick="event.preventDefault();
-                                                                                                                                                       this.closest('form').submit();">
+            onclick="event.preventDefault(); this.closest('form').submit();">
             Baixar PDF
          </a>
       </div>
@@ -72,7 +71,7 @@
                   <th scope="col">Área</th>
                   <th scope="col">Sub-Área</th>
 
-                  @if ($user && $user->hasRole('bolsista'))
+                  @if ($user && $user->hasRole('bolsista') && $user->can_access)
                      <th scope="col">Ações</th>
                   @endif
 
@@ -89,7 +88,7 @@
                      <td>{{ $project->area->name }}</td>
                      <td>{{ $project->sub_area->name }}</td>
 
-                     @if ($user && $user->hasRole('bolsista'))
+                     @if ($user && $user->hasRole('bolsista') && $user->can_access)
                         @if (count($project->projectsAsParticipant) > 0)
                            @for ($i = 0; $i < count($participants); $i++)
                               @if ($participants[$i]->edict_id === $edict->id && $participants[$i]->project_id === $project->id)
@@ -166,7 +165,7 @@
                      <td></td>
                      <td></td>
 
-                     @if ($user && $user->hasRole('bolsista'))
+                     @if ($user && $user->hasRole('bolsista') && $user->can_access)
 
                         <td></td>
 

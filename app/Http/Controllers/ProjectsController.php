@@ -104,9 +104,13 @@ class ProjectsController extends Controller
 
     public function showAll(){
         $projects = Projects::all();
+        $ownerProject = DB::table('users')
+            ->join('teachers', 'teachers.users_id', 'users.id')
+            ->first();
 
         return view('projects.showProjects', [
-            'projects' => $projects
+            'projects' => $projects,
+            'ownerProject' => $ownerProject
         ]);
     }
 

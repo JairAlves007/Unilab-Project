@@ -78,4 +78,8 @@ class User extends Authenticatable
         return $this->belongsToMany(Projects::class, 'projects_user', 'user_id', 'project_id');
     }
 
+    public function ownerProject() {
+        return $this->hasOne(Projects::class, 'teachers_id', 'id');
+    }
+
 }
