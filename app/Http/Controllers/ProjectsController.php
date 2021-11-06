@@ -179,7 +179,8 @@ class ProjectsController extends Controller
         ProjectsUser::create([
             'edict_id' => $edict_id,
             'project_id' => $id,
-            'user_id' => $user->id
+            'user_id' => $user->id,
+            // 'candidated' => 1
         ]);
 
         return redirect()->back();

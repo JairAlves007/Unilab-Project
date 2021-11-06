@@ -14,9 +14,10 @@ class CreateProjectsUserTable extends Migration
     public function up()
     {
         Schema::create('projects_user', function (Blueprint $table) {
-            $table->foreignId('project_id')->constrained('projects')->onDelete('cascade');
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('project_id')->constrained('projects')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('edict_id')->constrained('edicts')->onDelete('cascade')->onUpdate('cascade');
+            $table->boolean('participating')->default(0);
             $table->timestamps();
         });
     }

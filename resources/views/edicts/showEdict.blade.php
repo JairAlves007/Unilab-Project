@@ -59,7 +59,7 @@
    <h1 class="title-bold">
       Projetos Relacionados
    </h1>
-   
+
    <div class="table-width-controller">
       <div class="table table-responsive">
          <table class="table table-striped table-hover table-bordered" id="table-responsive">
@@ -89,69 +89,62 @@
                      <td>{{ $project->sub_area->name }}</td>
 
                      @if ($user && $user->hasRole('bolsista') && $user->can_access)
-                        @if (count($project->projectsAsParticipant) > 0)
+
+                        @if (count($participants) > 0)
+
                            @for ($i = 0; $i < count($participants); $i++)
-                              @if ($participants[$i]->edict_id === $edict->id && $participants[$i]->project_id === $project->id)
-                                 @if ($participants[$i]->participating)
 
-                                    <td>
-                                       Aprovado
-                                    </td>
+                              @if ($participants[$i]->user_id === $user->id)
 
-                                 @else
+                                 @if ($participants[$i]->edict_id === $edict->id)
 
-                                    <td>
-                                       Aguardando Aprovação...
-                                    </td>
+                                    @if ($participants[$i]->project_id === $project->id)
+
+                                       @if ($participants[$i]->participating)
+
+                                          <td>
+                                             Aprovado!
+                                          </td>
+
+                                       @else
+
+                                          <td>
+                                             Aguardando Aprovação...
+                                          </td>
+
+                                       @endif
+
+                                    @else
+
+                                       <td>
+                                          Você Não Pode Mais Se Candidatar
+                                       </td>
+
+                                    @endif
 
                                  @endif
 
-
                               @endif
+
                            @endfor
-                        @elseif(count($project->projectsAsParticipant) === 0)
-                           @if (isset($user->projectsAsParticipant->first()->edicts_id))
-                              @if ($user->projectsAsParticipant->first()->edicts_id === $edict->id)
-                                 <td>
-                                    Você Não Pode Mais Se Candidatar
-                                 </td>
-                              @else
-                                 <td>
-                                    <form action="{{ route('projects.join', [$edict->id, $project->id]) }}"
-                                       method="POST">
-                                       @csrf
 
-                                       <a href="{{ route('projects.join', [$edict->id, $project->id]) }}"
-                                          class="btn btn-outline-primary" 
-                                          onclick="
-                                             event.preventDefault();
-                                             this.closest('form').submit();
-                                          ">
+                        @else
+                           <td>
+                              <form action="{{ route('projects.join', [$edict->id, $project->id]) }}" method="POST">
+                                 @csrf
 
-                                          Candidatar
+                                 <a href="{{ route('projects.join', [$edict->id, $project->id]) }}"
+                                    class="btn btn-outline-primary" 
+                                    onclick="
+                                       event.preventDefault();
+                                       this.closest('form').submit();
+                                    ">
 
-                                       </a>
-                                    </form>
-                                 </td>
-                              @endif
-                           @else
-                              <td>
-                                 <form action="{{ route('projects.join', [$edict->id, $project->id]) }}" method="POST">
-                                    @csrf
+                                    Candidatar
 
-                                    <a href="{{ route('projects.join', [$edict->id, $project->id]) }}"
-                                       class="btn btn-outline-primary" onclick="
-                                                      event.preventDefault();
-                                                      this.closest('form').submit();
-                                                   ">
-
-                                       Candidatar
-
-                                    </a>
-                                 </form>
-                              </td>
-                           @endif
-
+                                 </a>
+                              </form>
+                           </td>
                         @endif
                      @endif
 
@@ -263,14 +256,10 @@
 
    @endif
 
-   {{-- <div class="other-rodape"> --}}
 
    @if (Request::route()->getName() === 'edicts.showHome')
       @include('layouts.footer')
    @endif
-
-   {{-- </div> --}}
-
 
    @if (Request::route()->getName() === 'edicts.showDashboard')
       @section('script')

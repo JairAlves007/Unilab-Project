@@ -26,6 +26,7 @@
                      <tr>
                         <th>Matrícula</th>
                         <th>Nome</th>
+                        <th>Edital Anexado</th>
                         <th class="text-center">Ações</th>
                      </tr>
                   </thead>
@@ -36,8 +37,9 @@
                         <tr>
                            <th>{{ $project->id }}</th>
                            <td>{{ $project->title }}</td>
+                           <td>{{ $project->edict->title }}</td>
                            <td class="text-center">
-                              <a href="{{ route('projects.candidates', $project) }}" class="btn btn-outline-danger btn-sm">
+                              <a href="{{ route('projects.candidates', $project) }}" class="btn btn-outline-primary btn-sm">
                                  Ver Candidatos
                               </a>
                             </td>

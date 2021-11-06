@@ -14,7 +14,8 @@ class ProjectsUser extends Model
     protected $fillable = [
         'edict_id',
         'project_id',
-        'user_id'
+        'user_id',
+        // 'candidated'
     ];
 
     public $timestamps = false;
