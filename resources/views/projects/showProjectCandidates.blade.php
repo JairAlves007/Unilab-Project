@@ -37,7 +37,7 @@
                         <tr>
                            <th>{{ $project->id }}</th>
                            <td>{{ $project->title }}</td>
-                           <td>{{ $project->edict->title }}</td>
+                           <td>{{ $project->edict->edict_title }}</td>
                            <td class="text-center">
                               <a href="{{ route('projects.candidates', $project) }}" class="btn btn-outline-primary btn-sm">
                                  Ver Candidatos

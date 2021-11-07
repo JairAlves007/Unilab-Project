@@ -24,7 +24,7 @@
                      
                      <label for="title">Titulo do Edital</label>
 
-                     <input type="text" name="title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}" id="title"
+                     <input type="text" name="edict_title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}" id="title"
                         placeholder="Insira o Titulo Aqui...">
                     
                      <div class="invalid-feedback">

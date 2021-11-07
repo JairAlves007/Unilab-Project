@@ -34,19 +34,33 @@
                   </thead>
 
                   <tbody>
+
                      @foreach ($projects as $project)
                         <tr>
                            <th>{{ $project->id }}</th>
                            <td>{{ $project->title }}</td>
                            <td class="d-none d-sm-table-cell">{{ $project->code }}</td>
-                           <td class="d-none d-lg-table-cell">{{ $project->edict->title }}</td>
-                           <td class="d-none d-lg-table-cell">{{ $ownerProject->name }} - {{ $ownerProject->registration }}</td>
+                           <td class="d-none d-lg-table-cell">
+
+                              {{ isset($project->edict->edict_title) ? $project->edict->edict_title : $project->edict_title }}
+
+                           </td>
+                           <td class="d-none d-lg-table-cell">{{ $ownerProject->name }} -
+                              {{ $ownerProject->registration }}</td>
                            <td class="text-center">
                               <span class="d-none d-md-block">
 
-                                 <a href="{{ route('works_plans.create', $project) }}" class="btn btn-outline-success btn-sm">
-                                    Adicionar Plano de Trabalho
-                                 </a>
+                                 @if (Request::route()->getName() === 'projects.showAll')
+                                    <a href="{{ route('works_plans.create', $project->id) }}"
+                                       class="btn btn-outline-success btn-sm">
+                                       Adicionar Plano de Trabalho
+                                    </a>
+                                 @elseif(Request::route()->getName() === 'projects.participating')
+                                    <a href="{{ route('works_plans.showWorkPlansThatProject', $project->id) }}"
+                                       class="btn btn-outline-primary btn-sm">
+                                       Ver Planos de Trabalho
+                                    </a>
+                                 @endif
 
                               </span>
 
@@ -58,15 +72,23 @@
 
                                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="acoesListar">
 
-                                    <a href="{{ route('works_plans.create', $project) }}" class="dropdown-item">
-                                       Adicionar Plano De Trabalho
-                                    </a>
+                                    @if (Request::route()->getName() === 'projects.showAll')
+                                       <a href="{{ route('works_plans.create', $project->id) }}" class="dropdown-item">
+                                          Adicionar Plano de Trabalho
+                                       </a>
+                                    @elseif(Request::route()->getName() === 'projects.participating')
+                                       <a href="{{ route('works_plans.showWorkPlansThatProject', $project->id) }}"
+                                          class="dropdown-item">
+                                          Ver Planos de Trabalho
+                                       </a>
+                                    @endif
 
                                  </div>
                               </div>
                            </td>
                         </tr>
                      @endforeach
+
                   </tbody>
                </table>
 

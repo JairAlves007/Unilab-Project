@@ -14,6 +14,7 @@ use App\Models\SubAreas;
 use App\Models\Teachers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Route;
 
 class ProjectsController extends Controller
 {
@@ -102,16 +103,37 @@ class ProjectsController extends Controller
         //
     }
 
-    public function showAll(){
-        $projects = Projects::all();
+    public function showAll()
+    {
         $ownerProject = DB::table('users')
             ->join('teachers', 'teachers.users_id', 'users.id')
             ->first();
 
-        return view('projects.showProjects', [
-            'projects' => $projects,
+        $variables = [
             'ownerProject' => $ownerProject
-        ]);
+        ];
+
+        if (Route::currentRouteName() === 'projects.participating') {
+
+            $user = auth()->user();
+
+            $projects_participating = DB::table('projects_user')
+            ->join('projects', 'projects_user.project_id', 'projects.id')
+            ->join('edicts', 'projects_user.edict_id', 'edicts.id')
+            ->where('projects_user.participating', 1)
+            ->get();
+            
+            $variables['projects'] = $projects_participating;
+
+        } else if (Route::currentRouteName() === 'projects.showAll') {
+
+            $projects = Projects::all();
+
+            $variables['projects'] = $projects;
+        }
+
+
+        return view('projects.showProjects', $variables);
     }
 
     /**
@@ -160,7 +182,8 @@ class ProjectsController extends Controller
         return $areas->where('areas_id', $request['sub_areas_id']);
     }
 
-    public function showCandidates() {
+    public function showCandidates()
+    {
         $projects = Projects::all();
 
         return view('projects.showProjectCandidates', [
@@ -168,7 +191,8 @@ class ProjectsController extends Controller
         ]);
     }
 
-    public function join($edict_id, $id) {
+    public function join($edict_id, $id)
+    {
 
         $user = auth()->user();
 
@@ -189,7 +213,8 @@ class ProjectsController extends Controller
 
     }
 
-    public function candidates($id) {
+    public function candidates($id)
+    {
 
         $candidates = DB::table('users')
             ->join('projects_user', 'users.id', 'projects_user.user_id')
@@ -198,7 +223,7 @@ class ProjectsController extends Controller
             ->where('projects_user.project_id', $id)
             ->get();
 
-            // dd($candidates);
+        // dd($candidates);
 
         return view('projects.candidates', [
             'candidates' => $candidates,
@@ -206,7 +231,8 @@ class ProjectsController extends Controller
         ]);
     }
 
-    public function approve($project_id) {
+    public function approve($project_id)
+    {
 
         $candidate = DB::table('projects_user')->where('project_id', $project_id);
 
@@ -215,6 +241,5 @@ class ProjectsController extends Controller
         ]);
 
         return redirect()->back();
-
     }
 }

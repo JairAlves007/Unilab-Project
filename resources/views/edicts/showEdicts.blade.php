@@ -38,7 +38,7 @@
 
                         <tr>
                            <th>{{ $edict->id }}</th>
-                           <td>{{ $edict->title }}</td>
+                           <td>{{ $edict->edict_title }}</td>
                            <td class="d-none d-sm-table-cell">{{ $edict->code }}</td>
                            <td class="d-none d-lg-table-cell">{{ $edict->edict_year }}</td>
                            <td class="d-none d-lg-table-cell">{{ count($edict->projects) }}</td>

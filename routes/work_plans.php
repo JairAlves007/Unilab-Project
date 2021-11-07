@@ -19,3 +19,18 @@ Route::group(['middleware' => ['role:super-admin|orientador']], function () {
       ->middleware('auth')
       ->name('works_plans.store');
 });
+
+Route::group(['middleware' => ['role:super-admin|bolsista']], function () {
+
+   Route::get('/project/{id}/work-plans', [WorkPlansController::class, 'showWorkPlansThatProject'])
+      ->middleware('auth')
+      ->name('works_plans.showWorkPlansThatProject');
+
+   Route::get('/work_plans/showAll', [WorkPlansController::class, 'showAll'])
+      ->middleware('auth')
+      ->name('work_plans.showAll');
+
+   // Route::get('/work_plans/{work_plans_id}/{projects_id}/createBolsistas', [WorkPlansController::class, 'form_bolsistas'])
+   //    ->middleware('auth')
+   //    ->name('work_plans.insertBolsistas');
+});

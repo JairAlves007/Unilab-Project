@@ -25,7 +25,7 @@
 
    <div id="edicts-container">
       <div class="edicts-content">
-         <h2>{{ $edict->title }}</h2>
+         <h2>{{ $edict->edict_title }}</h2>
          <p>{{ $edict->titulations->titulation }}</p>
          <p>{{ $edict->categories->name }}</p>
          <p> {{ date('d-m-Y', strtotime($edict->submission_start)) }} até
@@ -41,7 +41,7 @@
          <p>{{ $edict->description }}</p>
          <p>Autor: {{ $edict->ownerEdict->name }}</p>
 
-         @if (Request::route()->getName() === 'edicts.showDashboard')
+         @if (Request::route()->getName() === 'edicts.showDashboard' && $user->can('rate-edict'))
             <button type="button" id="btn-modal-rate" class="btn btn-primary btn-sm">
                @if ($rate)
                   Alterar Sua Avaliação

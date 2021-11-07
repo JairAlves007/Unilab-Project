@@ -32,7 +32,7 @@ class EdictsController extends Controller
         $search = $request->search;
 
         $edicts = Edicts::where([
-            ['title', 'like', "%{$request->search}%"]
+            ['edict_title', 'like', "%{$request->search}%"]
         ])->paginate(6);
 
         return view('welcome', ["filters" => $filters, "edicts" => $edicts, "search" => $search]);
@@ -74,7 +74,7 @@ class EdictsController extends Controller
         $edict = new Edicts;
 
         $edict->edict_year = substr($request->submission_start, 0, 4);
-        $edict->title = $request->title;
+        $edict->edict_title = $request->edict_title;
         $edict->code = md5(strtotime('now'));
         $edict->description = $request->description;
         $edict->submission_start = $request->submission_start;

@@ -15,7 +15,7 @@ class Edicts extends Model
     protected $table = "edicts";
 
     protected $fillable = [
-        'title',
+        'edict_title',
         'archive',
         'description',
         'min_titulations_id',

@@ -15,7 +15,6 @@ class ProjectsUser extends Model
         'edict_id',
         'project_id',
         'user_id',
-        // 'candidated'
     ];
 
     public $timestamps = false;

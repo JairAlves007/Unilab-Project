@@ -23,5 +23,8 @@ class WorkPlans extends Model
         'bolsistas'
     ];
 
+    public function project() {
+        return $this->hasOne(Projects::class, 'id', 'project_id');
+    }
 
 }

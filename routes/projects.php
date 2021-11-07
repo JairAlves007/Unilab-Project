@@ -48,4 +48,8 @@ Route::group(['middleware' => ['role:super-admin|bolsista']], function () {
    Route::post('/project/{edict_id}/join/{project_id}', [ProjectsController::class, 'join'])
       ->name('projects.join')
       ->middleware('auth');
+
+   Route::get('/projects/participating', [ProjectsController::class, 'showAll'])
+      ->name('projects.participating')
+      ->middleware('auth');
 });

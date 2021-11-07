@@ -99,10 +99,10 @@
                            </option>
 
                            @foreach ($candidates as $candidate)
-                              {{-- @if ($project->participant_id === null) --}}
+                              @if (!$candidate->at_work_plan)
                                  <option value="{{ $candidate->users_id }}"
                                     label="{{ $candidate->registration }} - {{ $candidate->name }}">
-                              {{-- @endif --}}
+                              @endif
 
                            @endforeach
 

@@ -35,9 +35,9 @@ class Projects extends Model
         return $this->hasOne(Teachers::class, 'id', 'teachers_id');
     }
 
-    public function workPlan()
+    public function workPlans()
     {
-        return $this->hasOne(WorkPlans::class, 'project_id', 'id');
+        return $this->hasMany(WorkPlans::class, 'project_id', 'id');
     }
 
     public function big_area()

@@ -25,7 +25,7 @@ class FormCreateEdictRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'title' => ['required'],
+            'edict_title' => ['required'],
             'description' => ['required'],
             'archive' => ['file', 'mimes:pdf, docx, doc, odt'],
             'min_titulations_id' => ['required'],
@@ -47,7 +47,7 @@ class FormCreateEdictRequest extends FormRequest
 
     public function messages() {
         return [
-            'title.required' => 'Por Favor, Digite O Título Do Edital',
+            'edict_title.required' => 'Por Favor, Digite O Título Do Edital',
             'description.required' => 'Por Favor, Digite Uma Descrição Para O Edital',
             'archive.required' => 'Por Favor, Anexe Um Arquivo',
             'archive.file' => 'Por Favor, Anexe Um Arquivo',
