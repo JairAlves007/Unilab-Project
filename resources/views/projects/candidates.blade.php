@@ -14,7 +14,7 @@
          <div class="list-group-item">
             <div class="d-flex">
                <div class="mr-auto p-2">
-                  <h2 class="display-4 titulo">Editais</h2>
+                  <h2 class="display-4 titulo">Candidatos</h2>
                </div>
             </div>
 

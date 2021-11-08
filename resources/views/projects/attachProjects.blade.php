@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'pirulito.debug')
+@section('title', 'Anexe Projetos')
 
 @section('content')
    @include('layouts.navbar')
