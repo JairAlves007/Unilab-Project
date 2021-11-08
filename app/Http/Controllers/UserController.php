@@ -10,58 +10,67 @@ use App\Models\Students;
 use App\Models\Teachers;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 
 class UserController extends Controller
 {
 
-   public function form_registration(){
+   public function form_registration()
+   {
 
-      if(auth()->user()->can_access == 0) {
+      if (auth()->user()->can_access == 0) {
 
-         if(Route::currentRouteName() === 'users.registration.orientador') {
+         if (Route::currentRouteName() === 'users.registration.orientador') {
 
             $institutes = Institutes::all();
 
             return view('users.formRegistration', [
                'institutes' => $institutes
             ]);
-
          } else {
 
             return view('users.formRegistration');
-
          }
-
-
       } else {
 
          return redirect()->route('dashboard');
-
       }
-
    }
 
-   public function registration(Request $request) {
+   public function registration(Request $request)
+   {
       $data = $request->all();
 
-      if(isset($data['institutes_id'])) {
+      if (isset($data['institutes_id'])) {
 
-         Teachers::create([
-            'registration' => $data['registration'],
-            'institutes_id' => $data['institutes_id'],
-            'users_id' => auth()->user()->id
-         ]);
+         $check_if_registration_exists = Teachers::where('registration', $data['registration']);
 
+         if ($check_if_registration_exists) {
+
+            return redirect()->back()->withErrors('registration_orientador', 'Essa Matrícula Já Existe, Cadastre Outra!');
+         } else {
+            Teachers::create([
+               'registration' => $data['registration'],
+               'institutes_id' => $data['institutes_id'],
+               'users_id' => auth()->user()->id
+            ]);
+         }
       } else {
 
-         Students::create([
-            'registration' => $data['registration'],
-            'users_id' => auth()->user()->id
-         ]);
+         $check_if_registration_exists = Students::where('registration', $data['registration']);
 
+         if ($check_if_registration_exists) {
 
+            return redirect()->back()->withErrors('registration_bolsista', 'Essa Matrícula Já Existe, Cadastre Outra!');
+         } else {
+
+            Students::create([
+               'registration' => $data['registration'],
+               'users_id' => auth()->user()->id
+            ]);
+         }
       }
 
       User::where('id', auth()->user()->id)->update([
@@ -69,7 +78,6 @@ class UserController extends Controller
       ]);
 
       return redirect()->route('dashboard');
-
    }
 
    public function create()
@@ -86,25 +94,22 @@ class UserController extends Controller
 
       $checking_user_email = User::where('email', $data['email'])->get();
 
-      if(count($checking_user_email) == 0) {
-         if(
+      if (count($checking_user_email) == 0) {
+         if (
             in_array('bolsista', $data['niveis']) &&
             in_array('orientador', $data['niveis'])
          ) {
 
-            return redirect()->back();
-
-         } else if(
+            return redirect()->back()->withErrors('bolsista_and_orientador', 'Você Não Pode Ser Bolsista E Orientador Ao Mesmo Tempo');
+         } else if (
             in_array('bolsista', $data['niveis']) ||
             in_array('orientador', $data['niveis'])
          ) {
 
             $can_access = 0;
-
          } else {
 
             $can_access = 1;
-
          }
 
          User::create([
@@ -180,6 +185,26 @@ class UserController extends Controller
    public function destroy($id)
    {
       $username = User::findOrFail($id)->name;
+
+      // dd(User::findOrFail($id)->hasRole('bolsista'));
+
+      // dd(User::findOrFail($id)->projectsAsParticipant);
+      $checking_if_user_is_participating_a_project = DB::table('projects_user')
+         ->where('projects_user.user_id', $id)
+         ->where('participating', 1)
+         ->get();
+
+      $checking_if_user_is_owner_project = Teachers::where('users_id', $id)->get();
+
+      if(count($checking_if_user_is_participating_a_project) > 0) {
+
+         return redirect()->back()->withErrors('participating_a_project', 'Esse Usuário Está Em Um Projeto, Desvincule Ele Do Projeto E Depois O Exclua');
+   
+      } else if (count($checking_if_user_is_owner_project) > 0) {
+
+         return redirect()->back()->withErrors('owner_project', 'Esse Usuário É Dono DE Um Projeto, Desvincule Ele Do Projeto E Depois O Exclua');
+      
+      }
 
       User::findOrFail($id)->delete();
 
