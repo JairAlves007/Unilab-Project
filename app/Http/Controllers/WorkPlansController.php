@@ -6,7 +6,6 @@ use App\Http\Requests\FormWorkPlansValidationRequest;
 use App\Models\Projects;
 use App\Models\Students;
 use App\Models\User;
-use App\Models\UsersWorkPlan;
 use App\Models\WorkPlans;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -40,7 +39,6 @@ class WorkPlansController extends Controller
          ->where('projects_user.participating', 1)
          ->where('projects_user.project_id', $id)
          ->get();
-
 
       // dd($candidates);
 
@@ -100,16 +98,8 @@ class WorkPlansController extends Controller
    {
       $work_plans_attachs = Projects::findOrFail($id)->workPlans;
 
-      // $candidates = DB::table('users')
-      //    ->join('projects_user', 'users.id', 'projects_user.user_id')
-      //    ->join('students', 'users.id', 'students.users_id')
-      //    ->where('projects_user.participating', 1)
-      //    ->where('projects_user.project_id', $id)
-      //    ->get();
-
       return view('work_plans.showWorkPlans', [
          'work_plans_attachs' => $work_plans_attachs,
-         // 'candidates' => $candidates
       ]);
    }
 

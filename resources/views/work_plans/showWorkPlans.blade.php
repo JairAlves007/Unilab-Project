@@ -18,8 +18,6 @@
       
             </div>
          </div>
-      @else
-         <p>você não foi anexado a nenum plano de trabalho desse projeto</p>
       @endif
 
    @empty

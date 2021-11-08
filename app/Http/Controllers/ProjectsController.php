@@ -118,11 +118,12 @@ class ProjectsController extends Controller
             $user = auth()->user();
 
             $projects_participating = DB::table('projects_user')
-            ->join('projects', 'projects_user.project_id', 'projects.id')
-            ->join('edicts', 'projects_user.edict_id', 'edicts.id')
-            ->where('projects_user.participating', 1)
-            ->get();
-            
+                ->join('projects', 'projects_user.project_id', 'projects.id')
+                ->join('edicts', 'projects_user.edict_id', 'edicts.id')
+                ->where('projects_user.participating', 1)
+                ->where('projects_user.user_id', auth()->user()->id)
+                ->get();
+
             $variables['projects'] = $projects_participating;
 
         } else if (Route::currentRouteName() === 'projects.showAll') {
@@ -198,18 +199,13 @@ class ProjectsController extends Controller
 
         $project = Projects::findOrFail($id);
 
-        // $project->projectsAsParticipant()->attach($user->id);
-
         ProjectsUser::create([
             'edict_id' => $edict_id,
             'project_id' => $id,
-            'user_id' => $user->id,
-            // 'candidated' => 1
+            'user_id' => $user->id
         ]);
 
         return redirect()->back();
-
-        // dd($edict_id, $id);
 
     }
 
@@ -223,18 +219,15 @@ class ProjectsController extends Controller
             ->where('projects_user.project_id', $id)
             ->get();
 
-        // dd($candidates);
-
         return view('projects.candidates', [
-            'candidates' => $candidates,
-            'project_id' => $id
+            'candidates' => $candidates
         ]);
     }
 
-    public function approve($project_id)
+    public function approve($user_id)
     {
 
-        $candidate = DB::table('projects_user')->where('project_id', $project_id);
+        $candidate = DB::table('projects_user')->where('user_id', $user_id);
 
         $candidate->update([
             'participating' => 1

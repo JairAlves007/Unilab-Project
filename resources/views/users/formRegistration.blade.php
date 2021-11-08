@@ -1,31 +1,57 @@
 @extends('layouts.main')
 
-@include('layouts.navbar')
+@section('title', 'Cadastre Sua Matrícula')
 
-@include('layouts.sidebar')
+@section('content')
 
-<form  action="{{ route('users.registration-store') }}" method="POST">
-   <div class="registration mx-auto apply-scholarship form-group">
-   @csrf
+   @include('layouts.navbar')
 
-   <h1 class="">Cadastrar Matrícula</h1>
-   <input class="form-control" type="text" name="registration" placeholder="Matrícula">
+   <div class="d-flex">
 
-   @if(Request::route()->getName() === 'users.registration.orientador')
+      @include('layouts.sidebar')
 
-      <select name="institutes_id" id="institutes">
+      <div class="content p-1">
+         <div class="list-group-item">
+            <h1 class="">Cadastrar Matrícula</h1>
 
-         <option value="">Selecione</option>
+            <form action="{{ route('users.registration-store') }}" method="POST">
+               @csrf
 
-         @if(isset($institutes))
-            @foreach ($institutes as $institute)
-               <option value="{{ $institute->id }}">{{ $institute->name }}</option>
-            @endforeach
-         @endif
+               <div class="form-row">
 
-      </select>
+                  <div class="form-group col-md-6 mx-auto">
+                     <input class="form-control" type="text" name="registration" placeholder="Cadastre Sua Matrícula">
+                  </div>
 
-   @endif
-</div>
-   <button class="btn btn-primary registration-submit" type="submit">Enviar</button>
-</form>
+               </div>
+
+               @if (Request::route()->getName() === 'users.registration.orientador')
+                  <div class="form-row">
+                     
+                     <div class="form-group col-md-6 mx-auto">
+                        <select name="institutes_id" id="institutes">
+      
+                           <option value="">Selecione</option>
+      
+                           @if (isset($institutes))
+                              @foreach ($institutes as $institute)
+                                 <option value="{{ $institute->id }}">{{ $institute->name }}</option>
+                              @endforeach
+                           @endif
+      
+                        </select>
+                     </div>
+                  
+                  </div>
+
+               @endif
+
+               {{--  --}}
+               <button class="btn btn-primary registration-submit" type="submit">Enviar</button>
+            </form>
+
+         </div>
+      </div>
+   </div>
+
+@endsection

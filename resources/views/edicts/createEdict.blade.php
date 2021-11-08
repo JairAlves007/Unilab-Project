@@ -20,7 +20,7 @@
             <div id="form-area">
                <div class="form-content">
                   
-                  <div class="form-group1">
+                  <div class="form-group">
                      
                      <label for="title">Titulo do Edital</label>
 
