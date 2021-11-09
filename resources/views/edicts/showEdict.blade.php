@@ -96,33 +96,31 @@
 
                               @if ($participants[$i]->user_id === $user->id)
 
-                                 @if ($participants[$i]->edict_id === $edict->id)
 
-                                    @if ($participants[$i]->project_id === $project->id)
+                                 @if ($participants[$i]->project_id === $project->id)
 
-                                       @if ($participants[$i]->participating)
+                                    @if ($participants[$i]->participating)
 
-                                          <td>
-                                             Aprovado!
-                                          </td>
-
-                                       @else
-
-                                          <td>
-                                             Aguardando Aprovação...
-                                          </td>
-
-                                       @endif
+                                       <td>
+                                          Aprovado!
+                                       </td>
 
                                     @else
 
                                        <td>
-                                          Você Não Pode Mais Se Candidatar
+                                          Aguardando Aprovação...
                                        </td>
 
                                     @endif
 
+                                 @else
+
+                                    <td>
+                                       Você Não Pode Mais Se Candidatar
+                                    </td>
+
                                  @endif
+
 
                               @endif
 
@@ -134,11 +132,10 @@
                                  @csrf
 
                                  <a href="{{ route('projects.join', [$edict->id, $project->id]) }}"
-                                    class="btn btn-outline-primary" 
-                                    onclick="
-                                       event.preventDefault();
-                                       this.closest('form').submit();
-                                    ">
+                                    class="btn btn-outline-primary" onclick="
+                                          event.preventDefault();
+                                          this.closest('form').submit();
+                                       ">
 
                                     Candidatar
 

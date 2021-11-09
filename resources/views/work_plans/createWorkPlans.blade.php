@@ -97,7 +97,7 @@
                            <option value="" id="option-checked">
                               Selecione
                            </option>
-
+                           
                            @foreach ($candidates as $candidate)
                               @if (!$candidate->at_work_plan)
                                  <option value="{{ $candidate->users_id }}"

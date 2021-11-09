@@ -125,7 +125,9 @@ class EdictsController extends Controller
         ];
 
         if(auth()->check()) {
-            $participants = DB::table('projects_user')->where('user_id', auth()->user()->id)->where('edict_id', $id)->get();
+            // $participants = DB::table('projects_user')->where('user_id', auth()->user()->id)->where('edict_id', $id)->get();
+            $participants = DB::table('projects_user')->where('user_id', auth()->user()->id)->get();
+            
             $variables['participants'] = $participants;
         }
 

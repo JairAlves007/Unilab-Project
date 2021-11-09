@@ -24,10 +24,10 @@
                 <table class="table table-striped table-hover table-bordered">
                     <thead>
                         <tr>
-                            <th>Id</th>
-                            <th>Título</th>
-                            <th>Codígo</th>
+                            <th>ID</th>
+                            <th>Título Do Projeto</th>
                             <th>Edital Anexado</th>
+                            <th>Codígo</th>
                             <th class="text-center">Ações</th>
                         </tr>
                     </thead>
@@ -38,8 +38,8 @@
                         <tr>
                             <td>{{ $project->id }}</td>
                             <td>{{ $project->title }}</td>
-                            <td>{{ $project->code }}</td>
                             <td>{{ $project->edict->edict_title }}</td>
+                            <td>{{ $project->code }}</td>
                             <td class="text-center">
                                 <a href="{{ route('projects.candidates', $project) }}"
                                     class="btn btn-outline-primary btn-sm">

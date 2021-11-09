@@ -193,38 +193,32 @@
                </a>
 
                <ul id="submenu4" class="list-unstyled collapse">
-                   @can('create-work_plans')
-                  <li>
-                     <a href="{{ route('projects.showAll') }}" class="li-submenu">
-                        <i class="fas fa-tasks"></i>
-                        Adicionar Plano De Trabalho
-                     </a>
-                  </li>
-                  @endcan
-                  {{-- <li>
-                     <a href="{{ route('work_plans.showAll') }}" class="li-submenu">
-                        <i class="fas fa-tasks"></i>
-                        Inserir Bolsistas Ao Plano De Trabalho
-                     </a>
-                  </li> --}}
+                  {{-- @can('create-work_plans') --}}
+                     <li>
+                        <a href="{{ route('projects.showAll') }}" class="li-submenu">
+                           <i class="fas fa-tasks"></i>
+                           Adicionar Plano De Trabalho
+                        </a>
+                     </li>
+                  {{-- @endcan --}}
 
-                  @can('rate-project')
+                  {{-- @can('view-candidates') --}}
                      <li>
                         <a href="{{ route('projects.showCandidates') }}" class="li-submenu">
                            <i class="fas fa-user-friends"></i>
                            Candidatos
                         </a>
                      </li>
-                  @endcan
+                  {{-- @endcan --}}
 
-                  @can('view-work_plans-approved')
+                  {{-- @can('view-work_plans-approved') --}}
                      <li>
                         <a href="{{ route('projects.participating') }}" class="li-submenu">
                            <i class="fas fa-user-friends"></i>
                            Projetos Que Fui Aprovado
                         </a>
                      </li>
-                  @endcan
+                  {{-- @endcan --}}
 
                </ul>
 
