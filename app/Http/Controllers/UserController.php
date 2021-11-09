@@ -51,6 +51,7 @@ class UserController extends Controller
 
             return redirect()->back()->with('registration', 'Essa Matrícula Já Existe, Cadastre Outra!');
          } else {
+
             Teachers::create([
                'registration' => $data['registration'],
                'institutes_id' => $data['institutes_id'],
@@ -100,7 +101,8 @@ class UserController extends Controller
             in_array('orientador', $data['niveis'])
          ) {
 
-            return redirect()->back()->with('registration', 'Você Não Pode Ser Bolsista E Orientador Ao Mesmo Tempo');
+            return redirect()->back()->with('bolsista_and_orientador', 'Você Não Pode Ser Bolsista E Orientador Ao Mesmo Tempo');
+         
          } else if (
             in_array('bolsista', $data['niveis']) ||
             in_array('orientador', $data['niveis'])
@@ -186,9 +188,6 @@ class UserController extends Controller
    {
       $username = User::findOrFail($id)->name;
 
-      // dd(User::findOrFail($id)->hasRole('bolsista'));
-
-      // dd(User::findOrFail($id)->projectsAsParticipant);
       $checking_if_user_is_participating_a_project = DB::table('projects_user')
          ->where('projects_user.user_id', $id)
          ->where('participating', 1)
@@ -196,14 +195,13 @@ class UserController extends Controller
 
       $checking_if_user_is_owner_project = Teachers::where('users_id', $id)->get();
 
-      if(count($checking_if_user_is_participating_a_project) > 0) {
+      if (count($checking_if_user_is_participating_a_project) > 0) {
 
-         return redirect()->back()->withErrors('participating_a_project', 'Esse Usuário Está Em Um Projeto, Desvincule Ele Do Projeto E Depois O Exclua');
-
+         return redirect()->back()->with('error_alert', 'Esse Usuário Está Em Um Projeto, Desvincule Ele Do Projeto E Depois O Exclua');
+      
       } else if (count($checking_if_user_is_owner_project) > 0) {
 
-         return redirect()->back()->withErrors('owner_project', 'Esse Usuário É Dono DE Um Projeto, Desvincule Ele Do Projeto E Depois O Exclua');
-
+         return redirect()->back()->with('error_alert', 'Esse Usuário É Dono De Um Projeto, Desvincule Ele Do Projeto E Depois O Exclua');
       }
 
       User::findOrFail($id)->delete();

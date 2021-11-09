@@ -74,34 +74,45 @@
          <p>Função No Sistema</p>
 
          @if ($errors->has('niveis'))
+
             <p class="text-danger">Marque Um Nível De Acesso</p>
+            
+         @endif
+
+         @if (session('bolsista_and_orientador'))
+
+            <p class="text-danger">{{ session('bolsista_and_orientador') }}</p>
+
          @endif
 
          <div class="form-check">
-            <input class="form-check-input {{ $errors->has('niveis') ? 'is-invalid' : '' }}" type="checkbox"
-               name="niveis[]" value="bolsista" id="checkBolsista">
+            <input
+               class="form-check-input {{ $errors->has('niveis') || session('bolsista_and_orientador') ? 'is-invalid' : '' }}"
+               type="checkbox" name="niveis[]" value="bolsista" id="checkBolsista">
             <label class="form-check-label" for="checkBolsista">
                Bolsista/Voluntário
             </label>
          </div>
 
          <div class="form-check">
-            <input class="form-check-input {{ $errors->has('niveis') ? 'is-invalid' : '' }}" type="checkbox"
-               name="niveis[]" value="orientador" id="checkOrientador">
+            <input
+               class="form-check-input {{ $errors->has('niveis') || session('bolsista_and_orientador') ? 'is-invalid' : '' }}"
+               type="checkbox" name="niveis[]" value="orientador" id="checkOrientador">
             <label class="form-check-label" for="checkOrientador">
                Orientador/Coordenador
             </label>
          </div>
 
          <div class="form-check">
-            <input class="form-check-input {{ $errors->has('niveis') ? 'is-invalid' : '' }}" type="checkbox"
-               name="niveis[]" value="membro" id="checkMembro">
+            <input
+               class="form-check-input {{ $errors->has('niveis') || session('bolsista_and_orientador') ? 'is-invalid' : '' }}"
+               type="checkbox" name="niveis[]" value="membro" id="checkMembro">
             <label class="form-check-label" for="checkMembro">
                Membro da Comissão(CAPP)
             </label>
          </div>
 
-         <div class="d-flex justify-content-center align-items-center mt-1">
+         <div class="d-flex justify-content-center align-items-center mt-3">
             <button type="submit" id="btn-modal" class="btn btn-md btn-primary">
                <i class="fas fa-user-plus"></i>
                Cadastrar

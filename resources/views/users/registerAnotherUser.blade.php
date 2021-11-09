@@ -78,13 +78,19 @@
                   <p class="text-danger">Marque Um Nível De Acesso</p>
                @endif
 
+               @if (session('bolsista_and_orientador'))
+
+                  <p class="text-danger">{{ session('bolsista_and_orientador') }}</p>
+
+               @endif
+
                <div class="form-row">
 
                   <div class="form-group col-md-12">
 
                      <div class="form-check">
 
-                        <input class="form-check-input {{ $errors->has('niveis') ? 'is-invalid' : '' }}" type="checkbox"
+                        <input class="form-check-input {{ $errors->has('niveis') || session('bolsista_and_orientador') ? 'is-invalid' : '' }}" type="checkbox"
                            name="niveis[]" value="gestor" id="checkGestor">
                         <label class="form-check-label" for="checkGestor">
                            Gestor
@@ -94,7 +100,7 @@
 
                      <div class="form-check">
 
-                        <input class="form-check-input {{ $errors->has('niveis') ? 'is-invalid' : '' }}" type="checkbox"
+                        <input class="form-check-input {{ $errors->has('niveis') || session('bolsista_and_orientador') ? 'is-invalid' : '' }}" type="checkbox"
                            name="niveis[]" value="bolsista" id="checkBolsista">
                         <label class="form-check-label" for="checkBolsista">
                            Bolsista/Voluntário
@@ -103,7 +109,7 @@
                      </div>
 
                      <div class="form-check">
-                        <input class="form-check-input {{ $errors->has('niveis') ? 'is-invalid' : '' }}" type="checkbox"
+                        <input class="form-check-input {{ $errors->has('niveis') || session('bolsista_and_orientador') ? 'is-invalid' : '' }}" type="checkbox"
                            name="niveis[]" value="orientador" id="checkOrientador">
                         <label class="form-check-label" for="checkOrientador">
                            Orientador/Coordenador
@@ -111,7 +117,7 @@
                      </div>
 
                      <div class="form-check">
-                        <input class="form-check-input {{ $errors->has('niveis') ? 'is-invalid' : '' }}" type="checkbox"
+                        <input class="form-check-input {{ $errors->has('niveis') || session('bolsista_and_orientador') ? 'is-invalid' : '' }}" type="checkbox"
                            name="niveis[]" value="membro" id="checkMembro">
                         <label class="form-check-label" for="checkMembro">
                            Membro da Comissão(CAPP)
