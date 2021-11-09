@@ -212,8 +212,9 @@ button a {
     min-width: 250px;
     max-width: 250px;
     transition: all 0.3s;
-    height: 100vh;
-    position: fixed;
+    max-height: 100%;
+    height: 100%;
+    position: absolute;
     z-index: 1;
 }
 .sidebar ul li a {
@@ -267,7 +268,7 @@ button a {
 }
 
 .icon-rotate {
-    transition: all 0.2s;
+    transition: all 0.1s;
 }
 
 .spin {
