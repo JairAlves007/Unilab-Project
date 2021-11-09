@@ -40,8 +40,6 @@ class WorkPlansController extends Controller
             ->where('projects_user.project_id', $id)
             ->get();
 
-        // dd($candidates);
-
         return view('work_plans.createWorkPlans', [
             'project' => $project,
             'users' => $users,
@@ -97,20 +95,23 @@ class WorkPlansController extends Controller
     public function showWorkPlansThatProject($id)
     {
         $work_plans_attachs = Projects::findOrFail($id)->workPlans;
+        $bolsistas_name = [];
 
-        $user_work_plans = User::where('id', auth()->user()->id)->get();
+        foreach($work_plans_attachs->first()->bolsistas as $user_id){
+            $user = DB::table('users')->select('name')->where('users.id', $user_id)->first();
 
+            array_push($bolsistas_name, $user);
+        }
+        
         if (count($work_plans_attachs) === 0) {
             return redirect()->back();
         }
-        // $user_work_plans = User
 
         return view('work_plans.showWorkPlans', [
             'work_plans_attachs' => $work_plans_attachs,
-            'user_work_plans' => $user_work_plans
+            'bolsistas_participants' => $bolsistas_name
         ]);
 
-        // dd($user_work_plans);
     }
 
     public function showAll()

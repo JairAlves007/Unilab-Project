@@ -45,11 +45,12 @@ class UserController extends Controller
 
       if (isset($data['institutes_id'])) {
 
-         $check_if_registration_exists = Teachers::where('registration', $data['registration']);
+         $check_if_registration_exists = Teachers::where('registration', $data['registration'])->get();
 
-         if ($check_if_registration_exists) {
+         if (count($check_if_registration_exists) > 0) {
 
-            return redirect()->back()->with('registration', 'Essa Matrícula Já Existe, Cadastre Outra!');
+            return redirect()->back()->with('error_alert', 'Essa Matrícula Já Existe, Cadastre Outra!');
+
          } else {
 
             Teachers::create([
@@ -60,11 +61,12 @@ class UserController extends Controller
          }
       } else {
 
-         $check_if_registration_exists = Students::where('registration', $data['registration']);
+         $check_if_registration_exists = Students::where('registration', $data['registration'])->get();
 
-         if ($check_if_registration_exists) {
+         if (count($check_if_registration_exists) > 0) {
 
-            return redirect()->back()->with('registration', 'Essa Matrícula Já Existe, Cadastre Outra!');
+            return redirect()->back()->with('error_alert', 'Essa Matrícula Já Existe, Cadastre Outra!');
+
          } else {
 
             Students::create([

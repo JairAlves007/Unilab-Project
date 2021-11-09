@@ -61,7 +61,7 @@
                                        Adicionar Plano de Trabalho
                                     </a>
                                  @elseif(Request::route()->getName() === 'projects.participating')
-                                    <a href="{{ route('works_plans.showWorkPlansThatProject', $project->id) }}"
+                                    <a href="{{ route('works_plans.showWorkPlansThatProject', $project->project_id) }}"
                                        class="btn btn-outline-primary btn-sm">
                                        Ver Planos de Trabalho
                                     </a>
