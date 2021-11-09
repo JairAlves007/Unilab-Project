@@ -1,59 +1,62 @@
 @extends('layouts.main')
 
-@section('title', 'Veja Todos Os Editais')
+@section('title', 'Veja Os Candidatos Dos Projetos')
 
 @section('content')
 
-   @include('layouts.navbar')
+@include('layouts.navbar')
 
-   <div class="d-flex">
+<div class="d-flex">
 
-      @include('layouts.sidebar')
+    @include('layouts.sidebar')
 
-      <div class="content p-1">
-         <div class="list-group-item">
+    <div class="content p-1">
+        <div class="list-group-item">
             <div class="d-flex">
-               <div class="mr-auto p-2">
-                  <h2 class="display-4 titulo">Projetos</h2>
-               </div>
+                <div class="mr-auto p-2">
+                    <h2 class="display-4 titulo">Candidatos Aos Projetos</h2>
+                </div>
             </div>
 
             @include('hintMessages')
 
             <div class="table-responsive">
-               <table class="table table-striped table-hover table-bordered">
-                  <thead>
-                     <tr>
-                        <th>Matrícula</th>
-                        <th>Nome</th>
-                        <th>Edital Anexado</th>
-                        <th class="text-center">Ações</th>
-                     </tr>
-                  </thead>
+                <table class="table table-striped table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Título</th>
+                            <th>Codígo</th>
+                            <th>Edital Anexado</th>
+                            <th class="text-center">Ações</th>
+                        </tr>
+                    </thead>
 
-                  <tbody>
-                     @foreach ($projects as $project)
+                    <tbody>
+                        @foreach ($projects as $project)
 
                         <tr>
-                           <th>{{ $project->id }}</th>
-                           <td>{{ $project->title }}</td>
-                           <td>{{ $project->edict->edict_title }}</td>
-                           <td class="text-center">
-                              <a href="{{ route('projects.candidates', $project) }}" class="btn btn-outline-primary btn-sm">
-                                 Ver Candidatos
-                              </a>
+                            <td>{{ $project->id }}</td>
+                            <td>{{ $project->title }}</td>
+                            <td>{{ $project->code }}</td>
+                            <td>{{ $project->edict->edict_title }}</td>
+                            <td class="text-center">
+                                <a href="{{ route('projects.candidates', $project) }}"
+                                    class="btn btn-outline-primary btn-sm">
+                                    Ver Candidatos
+                                </a>
                             </td>
                         </tr>
 
-                     @endforeach
-                  </tbody>
-               </table>
+                        @endforeach
+                    </tbody>
+                </table>
 
             </div>
-         </div>
+        </div>
 
-      </div>
+    </div>
 
-   </div>
+</div>
 
 @endsection

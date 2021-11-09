@@ -190,6 +190,8 @@ class ProjectsController extends Controller
         return view('projects.showProjectCandidates', [
             'projects' => $projects
         ]);
+
+
     }
 
     public function join($edict_id, $id)
@@ -222,6 +224,8 @@ class ProjectsController extends Controller
         return view('projects.candidates', [
             'candidates' => $candidates
         ]);
+
+        // dd($candidates);
     }
 
     public function approve($user_id)

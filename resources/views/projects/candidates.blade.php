@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Veja Todos Os Editais')
+@section('title', 'Veja A Lista de Candidatos')
 
 @section('content')
 
@@ -24,8 +24,9 @@
                <table class="table table-striped table-hover table-bordered">
                   <thead>
                      <tr>
-                        <th>Matrícula</th>
+                        <th>ID</th>
                         <th>Nome</th>
+                        <th>E-mail</th>
                         <th class="text-center">Ações</th>
                      </tr>
                   </thead>
@@ -34,8 +35,9 @@
                      @foreach ($candidates as $candidate)
 
                         <tr>
-                           <th>{{ $candidate->registration }}</th>
+                           <th>{{ $candidate->user_id }}</th>
                            <td>{{ $candidate->name }}</td>
+                           <td>{{ $candidate->email}}</td>
                            <td class="text-center">
                               <a href="{{ route('projects.approved', $candidate->user_id) }}" class="btn btn-outline-success btn-sm">
                                  Aprovar

@@ -49,7 +49,7 @@ class UserController extends Controller
 
          if ($check_if_registration_exists) {
 
-            return redirect()->back()->withErrors('registration_orientador', 'Essa Matrícula Já Existe, Cadastre Outra!');
+            return redirect()->back()->with('registration', 'Essa Matrícula Já Existe, Cadastre Outra!');
          } else {
             Teachers::create([
                'registration' => $data['registration'],
@@ -63,7 +63,7 @@ class UserController extends Controller
 
          if ($check_if_registration_exists) {
 
-            return redirect()->back()->withErrors('registration_bolsista', 'Essa Matrícula Já Existe, Cadastre Outra!');
+            return redirect()->back()->with('registration', 'Essa Matrícula Já Existe, Cadastre Outra!');
          } else {
 
             Students::create([
@@ -100,7 +100,7 @@ class UserController extends Controller
             in_array('orientador', $data['niveis'])
          ) {
 
-            return redirect()->back()->withErrors('bolsista_and_orientador', 'Você Não Pode Ser Bolsista E Orientador Ao Mesmo Tempo');
+            return redirect()->back()->with('registration', 'Você Não Pode Ser Bolsista E Orientador Ao Mesmo Tempo');
          } else if (
             in_array('bolsista', $data['niveis']) ||
             in_array('orientador', $data['niveis'])
@@ -199,11 +199,11 @@ class UserController extends Controller
       if(count($checking_if_user_is_participating_a_project) > 0) {
 
          return redirect()->back()->withErrors('participating_a_project', 'Esse Usuário Está Em Um Projeto, Desvincule Ele Do Projeto E Depois O Exclua');
-   
+
       } else if (count($checking_if_user_is_owner_project) > 0) {
 
          return redirect()->back()->withErrors('owner_project', 'Esse Usuário É Dono DE Um Projeto, Desvincule Ele Do Projeto E Depois O Exclua');
-      
+
       }
 
       User::findOrFail($id)->delete();

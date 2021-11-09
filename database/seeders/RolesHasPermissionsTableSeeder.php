@@ -24,25 +24,29 @@ class RolesHasPermissionsTableSeeder extends Seeder
                 2,
                 3,
                 4,
-                10
+                10,
+                15
             ], // Gestor
 
             [
                 6,
                 11,
-                12
+                12,
+                16
             ], // Bolsista
 
             [
                 5,
                 12,
-                14
+                14,
+                15
             ], // Orientador
 
             [
                 6,
                 9,
-                10
+                10,
+
             ] // Membro
         ];
 

@@ -22,6 +22,9 @@
             </div>
          </div>
 
+
+         @include('hintMessages')
+
          <div class="form-group">
             <x-jet-label for="name" value="{{ __('Nome') }}" />
             <x-jet-input id="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text"
