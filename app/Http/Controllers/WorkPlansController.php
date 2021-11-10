@@ -97,21 +97,20 @@ class WorkPlansController extends Controller
         $work_plans_attachs = Projects::findOrFail($id)->workPlans;
         $bolsistas_name = [];
 
-        foreach($work_plans_attachs->first()->bolsistas as $user_id){
-            $user = DB::table('users')->select('name')->where('users.id', $user_id)->first();
-
-            array_push($bolsistas_name, $user);
-        }
-        
         if (count($work_plans_attachs) === 0) {
             return redirect()->back();
+        } else {
+            foreach ($work_plans_attachs->first()->bolsistas as $user_id) {
+                $user = DB::table('users')->select('name')->where('users.id', $user_id)->first();
+
+                array_push($bolsistas_name, $user);
+            }
         }
 
         return view('work_plans.showWorkPlans', [
             'work_plans_attachs' => $work_plans_attachs,
             'bolsistas_participants' => $bolsistas_name
         ]);
-
     }
 
     public function showAll()

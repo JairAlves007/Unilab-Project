@@ -79,7 +79,7 @@ class User extends Authenticatable
     }
 
     public function ownerProject() {
-        return $this->hasOne(Projects::class, 'teachers_id', 'id');
+        return $this->hasOne(Projects::class, 'id', 'teachers_id');
     }
 
 }

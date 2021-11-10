@@ -180,7 +180,7 @@
 
          @endif
 
-         @if ($user->hasRole(['super-admin', 'membro', 'bolsista']))
+         @if ($user->hasRole(['super-admin', 'orientador', 'bolsista']))
             <li class="menu-click">
                <a href="#submenu4" data-toggle="collapse" class="collapsed">
                   <i class="fas fa-project-diagram"></i>

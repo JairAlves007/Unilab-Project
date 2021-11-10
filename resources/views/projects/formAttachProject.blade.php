@@ -222,7 +222,7 @@
 
                   </div>
 
-                  <div class="form-row">
+                  {{-- <div class="form-row">
                      <div class="form-group col-md-12">
 
                         <label for="orientador">Orientador do Projeto</label>
@@ -244,7 +244,7 @@
                            @endforeach
                         </div>
                      </div>
-                  </div>
+                  </div> --}}
                   
                </div>
             </div>

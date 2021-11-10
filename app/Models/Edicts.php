@@ -39,7 +39,7 @@ class Edicts extends Model
     ];
 
     public function ownerEdict() {
-        return $this->hasOne(User::class, 'id');
+        return $this->hasOne(User::class, 'id', 'users_id');
     }
 
     public function projects() {

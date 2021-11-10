@@ -32,7 +32,7 @@
                   <div class="form-row">
 
                      <div class="form-group col-md-6 mx-auto">
-                        <select name="institutes_id" id="institutes">
+                        <select class="form-control" name="institutes_id" id="institutes">
 
                            <option value="">Selecione</option>
 

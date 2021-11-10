@@ -35,93 +35,40 @@
 
                   <tbody>
                      @foreach ($edicts as $edict)
-
-                        <tr>
-                           <th>{{ $edict->id }}</th>
-                           <td>{{ $edict->edict_title }}</td>
-                           <td class="d-none d-sm-table-cell">{{ $edict->code }}</td>
-                           <td class="d-none d-lg-table-cell">{{ $edict->edict_year }}</td>
-                           <td class="d-none d-lg-table-cell">{{ count($edict->projects) }}</td>
-                           <td class="text-center">
-                              <span class="d-none d-md-block">
-
-                                 @switch(Request::route()->getName())
-                                    @case('edicts.showAll')
-                                       <a href="{{ route('edicts.showDashboard', $edict) }}"
-                                          class="btn btn-outline-success btn-sm">
-                                          Visualizar
-                                       </a>
-                                    @break
-
-                                    @case('edicts.projects')
-                                       <a href="{{ route('projects.form-attach-project', $edict) }}"
-                                          class="btn btn-outline-primary btn-sm">
-                                          Anexar Projetos
-                                       </a>
-                                    @break
-
-                                    @case('edicts.edit')
-                                       <a href="{{ route('edicts.formUpdate', $edict) }}"
-                                          class="btn btn-outline-warning btn-sm">
-                                          Editar
-                                       </a>
-                                    @break
-
-                                    @case('edicts.delete')
-                                       <a href="{{ route('edicts.destroy', $edict) }}" class="btn btn-outline-danger btn-sm"
-                                          onclick="return confirm('Você Deseja Excluir Este Edital?');">
-
-                                          Apagar
-
-                                       </a>
-                                    @break
-
-                                    @case('edicts.rate')
-
-                                       <button type="button" id="btn-modal-rate" class="btn btn-outline-primary btn-sm">
-
-                                          Avaliar
-
-                                       </button>
-                                    @break
-
-
-                                 @endswitch
-
-                              </span>
-                              <div class="dropdown d-block d-md-none">
-                                 <button class="btn btn-primary dropdown-toggle btn-sm" type="button" id="acoesListar"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Ações
-                                 </button>
-                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="acoesListar">
+                        @if($user->hasRole('bolsista') || $user->id === $edict->users_id)
+                           <tr>
+                              <th>{{ $edict->id }}</th>
+                              <td>{{ $edict->edict_title }}</td>
+                              <td class="d-none d-sm-table-cell">{{ $edict->code }}</td>
+                              <td class="d-none d-lg-table-cell">{{ $edict->edict_year }}</td>
+                              <td class="d-none d-lg-table-cell">{{ count($edict->projects) }}</td>
+                              <td class="text-center">
+                                 <span class="d-none d-md-block">
 
                                     @switch(Request::route()->getName())
                                        @case('edicts.showAll')
-                                          <a href="{{ route('edicts.showDashboard', $edict) }}" class="dropdown-item">
-
+                                          <a href="{{ route('edicts.showDashboard', $edict) }}"
+                                             class="btn btn-outline-success btn-sm">
                                              Visualizar
-
                                           </a>
                                        @break
 
                                        @case('edicts.projects')
                                           <a href="{{ route('projects.form-attach-project', $edict) }}"
-                                             class="dropdown-item">
-
+                                             class="btn btn-outline-primary btn-sm">
                                              Anexar Projetos
-
                                           </a>
                                        @break
 
                                        @case('edicts.edit')
-                                          <a href="{{ route('edicts.formUpdate', $edict) }}" class="dropdown-item">
+                                          <a href="{{ route('edicts.formUpdate', $edict) }}"
+                                             class="btn btn-outline-warning btn-sm">
                                              Editar
                                           </a>
                                        @break
 
                                        @case('edicts.delete')
-                                          <a href="{{ route('edicts.destroy', $edict) }}" class="dropdown-item"
+                                          <a href="{{ route('edicts.destroy', $edict) }}" class="btn btn-outline-danger btn-sm"
                                              onclick="return confirm('Você Deseja Excluir Este Edital?');">
 
                                              Apagar
@@ -129,13 +76,67 @@
                                           </a>
                                        @break
 
+                                       @case('edicts.rate')
+
+                                          <button type="button" id="btn-modal-rate" class="btn btn-outline-primary btn-sm">
+
+                                             Avaliar
+
+                                          </button>
+                                       @break
+
 
                                     @endswitch
 
+                                 </span>
+                                 <div class="dropdown d-block d-md-none">
+                                    <button class="btn btn-primary dropdown-toggle btn-sm" type="button" id="acoesListar"
+                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                       Ações
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="acoesListar">
+
+                                       @switch(Request::route()->getName())
+                                          @case('edicts.showAll')
+                                             <a href="{{ route('edicts.showDashboard', $edict) }}" class="dropdown-item">
+
+                                                Visualizar
+
+                                             </a>
+                                          @break
+
+                                          @case('edicts.projects')
+                                             <a href="{{ route('projects.form-attach-project', $edict) }}"
+                                                class="dropdown-item">
+
+                                                Anexar Projetos
+
+                                             </a>
+                                          @break
+
+                                          @case('edicts.edit')
+                                             <a href="{{ route('edicts.formUpdate', $edict) }}" class="dropdown-item">
+                                                Editar
+                                             </a>
+                                          @break
+
+                                          @case('edicts.delete')
+                                             <a href="{{ route('edicts.destroy', $edict) }}" class="dropdown-item"
+                                                onclick="return confirm('Você Deseja Excluir Este Edital?');">
+
+                                                Apagar
+
+                                             </a>
+                                          @break
+
+
+                                       @endswitch
+
+                                    </div>
                                  </div>
-                              </div>
-                           </td>
-                        </tr>
+                              </td>
+                           </tr>
+                        @endif
 
                      @endforeach
                   </tbody>

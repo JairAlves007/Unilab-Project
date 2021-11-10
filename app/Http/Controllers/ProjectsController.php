@@ -69,7 +69,7 @@ class ProjectsController extends Controller
         $project->abstract = $request->abstract;
         $project->references = $request->references;
         $project->edicts_id = $id;
-        $project->teachers_id = $request->teachers;
+        $project->teachers_id = auth()->user()->id;
         $project->institutes_id = $request->institutes;
         $project->specialities_id = $request->specialities;
         $project->big_areas_id = $request->big_areas;
@@ -107,7 +107,8 @@ class ProjectsController extends Controller
     {
         $ownerProject = DB::table('users')
             ->join('teachers', 'teachers.users_id', 'users.id')
-            ->first();
+            ->join('projects', 'projects.teachers_id', 'teachers.users_id')
+            ->get();
 
         $variables = [
             'ownerProject' => $ownerProject

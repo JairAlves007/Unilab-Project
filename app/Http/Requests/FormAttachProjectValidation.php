@@ -33,7 +33,7 @@ class FormAttachProjectValidation extends FormRequest
             'big_areas' => ['required'],
             'areas' => ['required'],
             'sub_areas' => ['required'],
-            'teachers' => ['required'],
+            // 'teachers' => ['required'],
             'archive' => ['required', 'file', 'mimes:pdf, docx, doc, odt']
         ];
     }
@@ -51,7 +51,7 @@ class FormAttachProjectValidation extends FormRequest
             'big_areas.required' => 'Marque Uma Grande Área Ao Projeto',
             'areas.required' => 'Marque Uma Área Ao Projeto',
             'sub_areas.required' => 'Marque Uma Sub Área Ao Projeto',
-            'teachers.required' => 'Diga Quem É O Orientador Do Projeto',
+            // 'teachers.required' => 'Diga Quem É O Orientador Do Projeto',
             'archive.required' => 'Anexe O Arquivo Do Projeto',
             'archive.mimes' => 'Aceitamos Somente Arquivos Em Formato PDF, DOCX, DOC e ODT',
         ];

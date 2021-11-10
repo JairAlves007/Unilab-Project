@@ -24,7 +24,7 @@ class CreateProjectsTable extends Migration
             $table->timestamps();
             $table->foreignId('edicts_id')->constrained('edicts')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('institutes_id')->constrained('institutes')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('teachers_id')->constrained('teachers')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('teachers_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('specialities_id')->constrained('specialities')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('big_areas_id')->constrained('big_areas')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('areas_id')->constrained('areas')->onUpdate('cascade')->onDelete('cascade');

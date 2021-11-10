@@ -32,7 +32,7 @@ class Projects extends Model
 
     public function ownerProject()
     {
-        return $this->hasOne(Teachers::class, 'id', 'teachers_id');
+        return $this->hasOne(User::class, 'id', 'teachers_id');
     }
 
     public function workPlans()

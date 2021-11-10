@@ -47,7 +47,6 @@ class RolesHasPermissionsTableSeeder extends Seeder
                 6,
                 9,
                 10,
-
             ] // Membro
         ];
 
