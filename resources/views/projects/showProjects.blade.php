@@ -39,7 +39,7 @@
 
                   <tbody>
 
-                     @foreach ($projects as $key => $project)
+                     @foreach ($projects as $project)
 
                         @if ($user->hasRole('bolsista') || $project->teachers_id === $user->id)
                            
