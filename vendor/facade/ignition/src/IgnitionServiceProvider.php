@@ -27,6 +27,7 @@ use Facade\Ignition\Logger\FlareHandler;
 use Facade\Ignition\LogRecorder\LogRecorder;
 use Facade\Ignition\Middleware\AddDumps;
 use Facade\Ignition\Middleware\AddEnvironmentInformation;
+use Facade\Ignition\Middleware\AddExceptionInformation;
 use Facade\Ignition\Middleware\AddGitInformation;
 use Facade\Ignition\Middleware\AddJobInformation;
 use Facade\Ignition\Middleware\AddLogs;
@@ -49,6 +50,8 @@ use Facade\Ignition\SolutionProviders\MissingPackageSolutionProvider;
 use Facade\Ignition\SolutionProviders\RunningLaravelDuskInProductionProvider;
 use Facade\Ignition\SolutionProviders\SolutionProviderRepository;
 use Facade\Ignition\SolutionProviders\TableNotFoundSolutionProvider;
+use Facade\Ignition\SolutionProviders\UndefinedLivewireMethodSolutionProvider;
+use Facade\Ignition\SolutionProviders\UndefinedLivewirePropertySolutionProvider;
 use Facade\Ignition\SolutionProviders\UndefinedPropertySolutionProvider;
 use Facade\Ignition\SolutionProviders\UndefinedVariableSolutionProvider;
 use Facade\Ignition\SolutionProviders\UnknownValidationSolutionProvider;
@@ -392,6 +395,7 @@ class IgnitionServiceProvider extends ServiceProvider
         $middlewares = [
             SetNotifierName::class,
             AddEnvironmentInformation::class,
+            AddExceptionInformation::class,
         ];
 
         if (config('flare.reporting.report_logs')) {
@@ -443,6 +447,8 @@ class IgnitionServiceProvider extends ServiceProvider
             RunningLaravelDuskInProductionProvider::class,
             MissingColumnSolutionProvider::class,
             UnknownValidationSolutionProvider::class,
+            UndefinedLivewireMethodSolutionProvider::class,
+            UndefinedLivewirePropertySolutionProvider::class,
             UndefinedPropertySolutionProvider::class,
             MissingMixManifestSolutionProvider::class,
             MissingLivewireComponentSolutionProvider::class,

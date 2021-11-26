@@ -35,7 +35,7 @@
                   </a>
                   <a class="dropdown-item" href="/login">
                      <i class="fas fa-sign-in-alt mr-2"></i>
-                     Login
+                     Entrar
                   </a>
                </div>
             @else

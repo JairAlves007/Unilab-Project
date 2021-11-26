@@ -1,6 +1,18 @@
 # Changelog
 
-All notable changes to `ignition` will be documented in this fil
+All notable changes to `ignition` will be documented in this file
+
+## 2.17.1 - 2021-11-25
+
+- streamline Livewire solutions
+
+## 2.17.0 - 2021-11-24
+
+- improve recording of Livewire data
+
+## 2.16.1 - 2021-11-16
+
+- allow sending of unbinded sql queries to Flare
 
 ## 2.16.0 - 2021-10-28
 

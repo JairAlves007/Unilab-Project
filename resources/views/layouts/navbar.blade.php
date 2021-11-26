@@ -8,15 +8,18 @@
    <div class="collapse navbar-collapse">
       <ul class="navbar-nav ml-auto">
          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle menu-header" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown">
+            <a class="nav-link menu-header" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown">
 
-               <span class="d-none d-sm-inline">{{ $user->name }}</span>
+               <span class="d-none d-sm-inline dropdown-toggle">
+                   <i class="fas fa-user-circle m-1"></i>
+                   {{ $user->name }}
+                </span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
 
                <a class="dropdown-item" href="/">
                   <i class="fas fa-home"></i>
-                  Voltar Para Home
+                  Início
                </a>
 
                <a class="dropdown-item" href="{{ route('profile_system.show', $user) }}">

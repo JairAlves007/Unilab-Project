@@ -214,7 +214,7 @@
                   @can('view-work_plans-approved')
                      <li>
                         <a href="{{ route('projects.participating') }}" class="li-submenu">
-                           <i class="fas fa-user-friends"></i>
+                            <i class="fas fa-check"></i>
                            Projetos Que Fui Aprovado
                         </a>
                      </li>

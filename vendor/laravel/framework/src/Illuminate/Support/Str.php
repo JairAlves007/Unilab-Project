@@ -521,7 +521,7 @@ class Str
      * Get the plural form of an English word.
      *
      * @param  string  $value
-     * @param  int  $count
+     * @param  int|array|\Countable  $count
      * @return string
      */
     public static function plural($value, $count = 2)
@@ -533,7 +533,7 @@ class Str
      * Pluralize the last word of an English, studly caps case string.
      *
      * @param  string  $value
-     * @param  int  $count
+     * @param  int|array|\Countable  $count
      * @return string
      */
     public static function pluralStudly($value, $count = 2)
