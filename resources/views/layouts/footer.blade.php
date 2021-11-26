@@ -8,28 +8,23 @@
             </div>
             <div class="">
                 <div class="footer-icons">
-                    <a href="#">
+                    <a href="https://www.instagram.com/unilab.oficial/?hl=pt-br">
                         <img class="icon" src="/icons/instagram.svg" alt="">
                     </a>
                 </div>
 
                 <div class="footer-icons">
-                    <a href="#">
+                    <a href="https://pt-br.facebook.com/unilaboficial/">
                         <img class="icon" src="/icons/facebook.svg" alt="">
                     </a>
                 </div>
 
                 <div class="footer-icons">
-                    <a href="#">
-                        <img class="icon" src="/icons/skype.svg" alt="">
+                    <a href="https://twitter.com/unilabbrasil">
+                        <img class="icon" src="/icons/twitter.svg" alt="">
                     </a>
                 </div>
 
-                <div class="footer-icons">
-                    <a href="#">
-                        <img class="icon" src="/icons/whatsapp.svg" alt="">
-                    </a>
-                </div>
             </div>
         </div>
 {{-- </footer> --}}
