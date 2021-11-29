@@ -8,9 +8,9 @@
    <div class="collapse navbar-collapse">
       <ul class="navbar-nav ml-auto">
          <li class="nav-item dropdown">
-            <a class="nav-link menu-header" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown">
+            <a class="nav-link dropdown-toggle menu-header" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown">
 
-               <span class="d-none d-sm-inline dropdown-toggle">
+               <span class="d-none d-sm-inline">
                    <i class="fas fa-user-circle m-1"></i>
                    {{ $user->name }}
                 </span>
