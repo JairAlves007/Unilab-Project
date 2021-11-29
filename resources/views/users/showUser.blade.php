@@ -15,7 +15,7 @@
             <div class="list-group-item">
                 <div class="d-flex">
                     <div class="mr-auto p-2">
-                        <p class="titulo"><i class="fas fa-user m-2"></i> <b>Usuário:</b> {{ $user_checking->name }}</p>
+                        <p class="titulo"><i class="fas fa-user-circle m-2"></i> <b>Usuário:</b> {{ $user_checking->name }}</p>
                     </div>
 
                     @role('gestor')

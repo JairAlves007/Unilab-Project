@@ -15,7 +15,7 @@
                         @csrf
                         <div class="input-group">
                             <input type="search" name="search" placeholder="Busque um Edital" class="form-control form-control-lg border-right-0">
-                            <button class="btn-lg btn-danger border border-danger border-lef-0 button-search" type="submit">
+                            <button class="btn-lg btn-danger border border-danger border-left-0 button-search" type="submit">
                                 <i class="fa fa-fw fa-search"></i>
                                 Buscar
                             </button>

@@ -90,6 +90,7 @@ class WorkPlansController extends Controller
      */
     public function show()
     {
+
     }
 
     public function showWorkPlansThatProject($id)

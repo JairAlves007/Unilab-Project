@@ -13,7 +13,7 @@
       <div class="content p-1">
          <div class="list-group-item">
 
-            <h1>Cadastre Um Usuário</h1>
+            <h1>Cadastrar Usuário</h1>
 
             <br>
 
@@ -34,7 +34,7 @@
                   </div>
 
                   <div class="form-group col-md-6">
-                     <x-jet-label for="email" value="{{ __('Email') }}" />
+                     <x-jet-label for="email" value="{{ __('E-mail') }}" />
                      <x-jet-input id="email" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"
                         type="email" name="email" :value="old('email')" />
                      <div class="invalid-feedback">
