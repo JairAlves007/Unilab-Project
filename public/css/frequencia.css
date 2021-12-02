@@ -27,24 +27,31 @@ h1 {
     margin-bottom: -45px;
     background-color: cornflowerblue;
     width: 67%;
-    font: 20px bold;
+   font-family: 16px bold;
  }
  .freguency-button{
     background: #007bff;
+    margin-left: 16.6%;
     font: 16px bold;
     border-radius: 8px;
-    margin-left: 46%;
     padding: 6px 12px;
     color: #ffff;
+    width: 67%;
  }
  .input-field{
-     font: 16px sans-serif;
+     font: 16px bold;
      background: #fff;
-     margin-left: 16.5rem;
-     
+     margin-left: 16.5rem;   
  }
 
  /* Freguência do bolsista */
+.row-indigo-dg{
+    background-color: cornflowerblue;
+    font: 20px bold;
+    width: 67%;
+    margin-left: 16.6%;
+
+}
 
  #sel_projeto {
     background: #fff;
@@ -52,9 +59,11 @@ h1 {
  }
 
  .sect {
-    border: 1px solid #ccc;
+    border: 1px solid black;
     padding: 0.2rem;
     background-color: #fff;
+    width: 67%;
+    margin-bottom: 13px;
  }
  
 
