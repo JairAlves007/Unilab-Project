@@ -15,19 +15,20 @@ declare(strict_types=1);
 
 namespace League\CommonMark\Extension\Table;
 
-use League\CommonMark\Environment\EnvironmentBuilderInterface;
+use League\CommonMark\ConfigurableEnvironmentInterface;
 use League\CommonMark\Extension\ExtensionInterface;
 
 final class TableExtension implements ExtensionInterface
 {
-    public function register(EnvironmentBuilderInterface $environment): void
+    public function register(ConfigurableEnvironmentInterface $environment): void
     {
         $environment
-            ->addBlockStartParser(new TableStartParser())
+            ->addBlockParser(new TableParser())
 
-            ->addRenderer(Table::class, new TableRenderer())
-            ->addRenderer(TableSection::class, new TableSectionRenderer())
-            ->addRenderer(TableRow::class, new TableRowRenderer())
-            ->addRenderer(TableCell::class, new TableCellRenderer());
+            ->addBlockRenderer(Table::class, new TableRenderer())
+            ->addBlockRenderer(TableSection::class, new TableSectionRenderer())
+            ->addBlockRenderer(TableRow::class, new TableRowRenderer())
+            ->addBlockRenderer(TableCell::class, new TableCellRenderer())
+        ;
     }
 }

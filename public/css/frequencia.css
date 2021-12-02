@@ -1,0 +1,61 @@
+body{
+    background-color:white;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+    font-family: bold;  
+    text-align: center;
+}
+  .freguency{
+    width: 720px;
+    padding: 20px;
+    margin: 30px auto;
+    display: flex;    
+    justify-content: space-around;
+    border: black;
+  }
+  .descrition{
+      width: 20rem;
+  }
+ .row-indigo{
+    margin-left: 16.6%;
+    margin-bottom: -45px;
+    background-color: cornflowerblue;
+    width: 67%;
+    font: 20px bold;
+ }
+ .freguency-button{
+    background: #007bff;
+    font: 16px bold;
+    border-radius: 8px;
+    margin-left: 46%;
+    padding: 6px 12px;
+    color: #ffff;
+ }
+ .input-field{
+     font: 16px sans-serif;
+     background: #fff;
+     margin-left: 16.5rem;
+     
+ }
+
+ /* Freguência do bolsista */
+
+ #sel_projeto {
+    background: #fff;
+    font: 16px sans-serif ;
+ }
+
+ .sect {
+    border: 1px solid #ccc;
+    padding: 0.2rem;
+    background-color: #fff;
+ }
+ 
+
+  
