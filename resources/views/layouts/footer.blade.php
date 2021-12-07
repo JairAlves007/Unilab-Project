@@ -1,32 +1,38 @@
-<div class="container-fluid">
+<div class="container-fluid p-0">
+  {{-- Footer --}}
+  <footer class="bg-dark text-center text-white">
+    {{-- Grid container --}}
+    <div class="container p-4">
+      {{-- Section: Social media --}}
+      <section class="mb-4">
+        {{-- Facebook --}}
+        <a class="btn btn-outline-light btn-floating m-1 " href="https://pt-br.facebook.com/unilaboficial/"
+          role="button"><i class="fab fa-facebook-f"></i></a>
 
-    {{-- <footer class="container"> --}}
-        <div class="rodape row">
-            <div class="">
-                <p class="titulo-rodape">&copy;Unilab | contato@unilab.com.br</p>
-                <!-- <p>CEP 62790-000 - Redenção/CE</p> -->
-            </div>
-            <div class="">
-                <div class="footer-icons">
-                    <a href="https://www.instagram.com/unilab.oficial/?hl=pt-br">
-                        <img class="icon" src="/icons/instagram.svg" alt="">
-                    </a>
-                </div>
+        {{-- Twitter --}}
+        <a class="btn btn-outline-light btn-floating m-1 " href="https://twitter.com/unilabbrasil" role="button"><i
+            class="fab fa-twitter"></i></a>
+        {{-- Instagram --}}
+        <a class="btn btn-outline-light btn-floating m-1 " href="https://www.instagram.com/unilab.oficial/?hl=pt-br"
+          role="button"><i class="fab fa-instagram"></i></a>
+      </section>
+      {{-- Section: Social media --}}
 
-                <div class="footer-icons">
-                    <a href="https://pt-br.facebook.com/unilaboficial/">
-                        <img class="icon" src="/icons/facebook.svg" alt="">
-                    </a>
-                </div>
+      {{-- Section: Text --}}
+      <section class="mb-4">
+        <p>contato@unilab.com.br</p>
+      </section>
+      {{-- Section: Text --}}
+    </div>
+    {{-- Grid container --}}
 
-                <div class="footer-icons">
-                    <a href="https://twitter.com/unilabbrasil">
-                        <img class="icon" src="/icons/twitter.svg" alt="">
-                    </a>
-                </div>
-
-            </div>
-        </div>
-{{-- </footer> --}}
+    {{-- Copyright --}}
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+      © 2020 Copyright: Universidade da Integração Internacional da Lusofonia
+      Afro-Brasileira (UNILAB)
+    </div>
+    {{-- Copyright --}}
+  </footer>
+  {{-- Footer --}}
 
 </div>
