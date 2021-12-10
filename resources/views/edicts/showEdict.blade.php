@@ -24,34 +24,52 @@
     @endif
 
     <div id="edicts-container">
-      <div class="edicts-content">
-        <h2>{{ $edict->edict_title }}</h2>
-        <p>{{ $edict->titulations->titulation }}</p>
-        <p>{{ $edict->categories->name }}</p>
-        <p> {{ date('d-m-Y', strtotime($edict->submission_start)) }} até
-          {{ date('d-m-Y', strtotime($edict->submission_finish)) }}</p>
-        <a href="/storage/{{ $edict->archive }}" class="btn btn-primary" id="event-submit"
-          onclick="event.preventDefault(); this.closest('form').submit();">
-          Baixar PDF
-        </a>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h2>{{ $edict->edict_title }}</h2>
+          </div>
+          <div class="col">
+            <h4>Descrição</h4>
+          </div>
+        </div>
+        <div class="row text-left">
+          <div class="col">
+            <div class="edicts-content">
+              <p>{{ $edict->titulations->titulation }}</p>
+              <p>{{ $edict->categories->name }}</p>
+              <p> {{ date('d-m-Y', strtotime($edict->submission_start)) }} até
+                {{ date('d-m-Y', strtotime($edict->submission_finish)) }}</p>
+            </div>
+          </div>
+          <div class="col">
+            <div class="edicts-description">
+              <p>{{ $edict->description }}</p>
+              <p>Autor: {{ $edict->ownerEdict->name }}</p>
+
+              @if (Request::route()->getName() === 'edicts.showDashboard' && $user->can('rate-edict'))
+              <button type="button" id="btn-modal-rate" class="btn btn-primary btn-sm">
+                @if ($rate)
+                Alterar Sua Avaliação
+                @else
+                Avaliar
+                @endif
+              </button>
+              @endif
+
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <a href="/storage/{{ $edict->archive }}" class="btn btn-primary" id="event-submit"
+              onclick="event.preventDefault(); this.closest('form').submit();">
+              Baixar PDF
+            </a>
+          </div>
+        </div>
       </div>
 
-      <div class="edicts-description">
-        <h4>Descrição</h4>
-        <p>{{ $edict->description }}</p>
-        <p>Autor: {{ $edict->ownerEdict->name }}</p>
-
-        @if (Request::route()->getName() === 'edicts.showDashboard' && $user->can('rate-edict'))
-        <button type="button" id="btn-modal-rate" class="btn btn-primary btn-sm">
-          @if ($rate)
-          Alterar Sua Avaliação
-          @else
-          Avaliar
-          @endif
-        </button>
-        @endif
-
-      </div>
     </div>
 
     {{-- <iframe src="{{ url("/storage/{$edict->archive}") }}" frameborder="0"></iframe> --}}
