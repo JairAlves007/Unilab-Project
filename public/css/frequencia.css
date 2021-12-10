@@ -1,70 +1,49 @@
-body{
-    background-color:white;
-    font-size: 16px;
-    font-family: Arial, Helvetica, sans-serif;
+*{
+  overflow-x: hidden !important;
+}
+h1{
+  text-align: center;
+}
+.geral{
+  text-align: center;
 
 }
-
-h1 {
-    font-size: 2em;
-    margin: 0.67em 0;
-    font-family: bold;  
-    text-align: center;
+.form-select{
+  display: flex ;
+  width: 50%;
+  margin-left: 25%;
 }
-  .freguency{
-    width: 720px;
-    padding: 20px;
-    margin: 30px auto;
-    display: flex;    
-    justify-content: space-around;
-    border: black;
-  }
-  .descrition{
-      width: 20rem;
-  }
- .row-indigo{
-    margin-left: 16.6%;
-    margin-bottom: -45px;
-    background-color: cornflowerblue;
-    width: 67%;
-   font-family: 16px bold;
- }
- .freguency-button{
-    background: #007bff;
-    margin-left: 16.6%;
-    font: 16px bold;
-    border-radius: 8px;
-    padding: 6px 12px;
-    color: #ffff;
-    width: 67%;
- }
- .input-field{
-     font: 16px bold;
-     background: #fff;
-     margin-left: 16.5rem;   
- }
-
- /* Freguência do bolsista */
-.row-indigo-dg{
-    background-color: cornflowerblue;
-    font: 20px bold;
-    width: 67%;
-    margin-left: 16.6%;
-
+.label-alingment{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding: 0;
 }
-
- #sel_projeto {
-    background: #fff;
-    font: 16px sans-serif ;
- }
-
- .sect {
-    border: 1px solid black;
-    padding: 0.2rem;
-    background-color: #fff;
-    width: 67%;
-    margin-bottom: 13px;
- }
- 
-
+.indigo{
+  background-color: cornflowerblue;
+  width: 50%;
+  text-align: center;
   
+}
+.table{
+  margin-left:10%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width:100%;
+  padding: 0pt;
+
+}
+.btn-indigo{
+  background-color: cornflowerblue;
+  text-align: center;
+  border-radius: 10pt;
+  padding: 2px;
+  width: 35%;
+}
+
+@media screen and (min-width:640px) {
+  .table{
+    display: flex;
+    flex-direction: column;
+  }
+  
+}
