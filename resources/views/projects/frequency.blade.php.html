@@ -35,6 +35,14 @@
         height: 60px;
         max-height: 60px;
       }
+      .col{
+        margin: 0;
+        padding: 3px;
+
+      }
+      @media screen and (min-width:640px) {
+        
+      }
     </style>
   </head>
   <body>
@@ -110,12 +118,12 @@
               </select>
             </div>
             <!-- /Select -->
-            <!-- Date -->
+            <!-- text -->
             <div class="input-group mb-3 col-md-9 mx-auto">
               <div class="input-group-prepend">
                 <label class="input-group-text" for="inputGroupSelect01">
                   Mês de Referência:
-                </label>
+                </label>  
               </div>
               <input
                 class="form-control"
@@ -124,7 +132,7 @@
                 id=""
               />
             </div>
-            <!-- /Date -->
+            <!-- /text -->
           </div>
           <!-- /Select groupS -->
 
@@ -143,12 +151,13 @@
             <!-- /Row group 1 -->
           </div>
           <!-- /Containers 1 -->
+         
           <div class="col-md-12">
             <div class="container">
               <div class="row">
                 <div class="col">
-                  <b>Dia</b>
-                </div>
+                  <b>Dia</b> 
+                </div>          
                 <div class="col">
                   <b>Hora de Início</b>
                 </div>
@@ -159,13 +168,15 @@
                   <b>Total de horas</b>
                 </div>
                 <div class="col">
-                  <b>Descrição da atividade (Max. 60 caracteres)</b>
+                <b>Descrição da atividade (Max. 40 caracteres)</b>               
                 </div>
               </div>
+            
+            
               <div class="row">
                 <div class="col">
                   <input
-                    type="date"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -173,7 +184,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -181,7 +192,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -189,7 +200,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -197,7 +208,7 @@
                 </div>
                 <div class="col">
                   <textarea
-                    maxlength="60"
+                    maxlength="40"
                     class="form-control form-week-input"
                     name=""
                     id=""
@@ -209,7 +220,7 @@
               <div class="row">
                 <div class="col">
                   <input
-                    type="date"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -217,7 +228,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -225,7 +236,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -233,7 +244,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -241,7 +252,7 @@
                 </div>
                 <div class="col">
                   <textarea
-                    maxlength="60"
+                    maxlength="40"
                     class="form-control form-week-input"
                     name=""
                     id=""
@@ -253,7 +264,7 @@
               <div class="row">
                 <div class="col">
                   <input
-                    type="date"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -261,7 +272,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -269,7 +280,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -277,7 +288,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -285,7 +296,51 @@
                 </div>
                 <div class="col">
                   <textarea
-                    maxlength="60"
+                    maxlength="40"
+                    class="form-control my-1 form-week-input"
+                    name=""
+                    id=""
+                    cols="25"
+                    rows="10"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    class="form-control my-1 form-week-input"
+                  />
+                </div>
+                <div class="col">
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    class="form-control my-1 form-week-input"
+                  />
+                </div>
+                <div class="col">
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    class="form-control my-1 form-week-input"
+                  />
+                </div>
+                <div class="col">
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    class="form-control my-1 form-week-input"
+                  />
+                </div>
+                <div class="col">
+                  <textarea
+                    maxlength="40"
                     class="form-control form-week-input"
                     name=""
                     id=""
@@ -297,7 +352,7 @@
               <div class="row">
                 <div class="col">
                   <input
-                    type="date"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -305,7 +360,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -313,7 +368,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -321,7 +376,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -329,7 +384,7 @@
                 </div>
                 <div class="col">
                   <textarea
-                    maxlength="60"
+                    maxlength="40"
                     class="form-control form-week-input"
                     name=""
                     id=""
@@ -341,7 +396,7 @@
               <div class="row">
                 <div class="col">
                   <input
-                    type="date"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -349,7 +404,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -357,7 +412,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -365,7 +420,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -373,7 +428,7 @@
                 </div>
                 <div class="col">
                   <textarea
-                    maxlength="60"
+                    maxlength="40"
                     class="form-control form-week-input"
                     name=""
                     id=""
@@ -385,7 +440,7 @@
               <div class="row">
                 <div class="col">
                   <input
-                    type="date"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -393,7 +448,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -401,7 +456,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -409,7 +464,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -417,51 +472,7 @@
                 </div>
                 <div class="col">
                   <textarea
-                    maxlength="60"
-                    class="form-control form-week-input"
-                    name=""
-                    id=""
-                    cols="30"
-                    rows="10"
-                  ></textarea>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col">
-                  <input
-                    type="date"
-                    name=""
-                    id=""
-                    class="form-control my-1 form-week-input"
-                  />
-                </div>
-                <div class="col">
-                  <input
-                    type="time"
-                    name=""
-                    id=""
-                    class="form-control my-1 form-week-input"
-                  />
-                </div>
-                <div class="col">
-                  <input
-                    type="time"
-                    name=""
-                    id=""
-                    class="form-control my-1 form-week-input"
-                  />
-                </div>
-                <div class="col">
-                  <input
-                    type="time"
-                    name=""
-                    id=""
-                    class="form-control my-1 form-week-input"
-                  />
-                </div>
-                <div class="col">
-                  <textarea
-                    maxlength="60"
+                    maxlength="40"
                     class="form-control form-week-input"
                     name=""
                     id=""
@@ -505,13 +516,13 @@
                   <b>Total de horas</b>
                 </div>
                 <div class="col">
-                  <b>Descrição da atividade (Max. 60 caracteres)</b>
+                  <b>Descrição da atividade (Max. 40 caracteres)</b>
                 </div>
               </div>
               <div class="row">
                 <div class="col">
                   <input
-                    type="date"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -519,7 +530,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -527,7 +538,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -535,7 +546,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -543,7 +554,7 @@
                 </div>
                 <div class="col">
                   <textarea
-                    maxlength="60"
+                    maxlength="40"
                     class="form-control form-week-input"
                     name=""
                     id=""
@@ -555,7 +566,7 @@
               <div class="row">
                 <div class="col">
                   <input
-                    type="date"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -563,7 +574,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -571,7 +582,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -579,7 +590,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -587,7 +598,7 @@
                 </div>
                 <div class="col">
                   <textarea
-                    maxlength="60"
+                    maxlength="40"
                     class="form-control form-week-input"
                     name=""
                     id=""
@@ -599,7 +610,7 @@
               <div class="row">
                 <div class="col">
                   <input
-                    type="date"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -607,7 +618,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -615,7 +626,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -623,7 +634,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -631,7 +642,7 @@
                 </div>
                 <div class="col">
                   <textarea
-                    maxlength="60"
+                    maxlength="40"
                     class="form-control form-week-input"
                     name=""
                     id=""
@@ -643,7 +654,7 @@
               <div class="row">
                 <div class="col">
                   <input
-                    type="date"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -651,7 +662,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -659,7 +670,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -667,7 +678,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -675,7 +686,7 @@
                 </div>
                 <div class="col">
                   <textarea
-                    maxlength="60"
+                    maxlength="40"
                     class="form-control form-week-input"
                     name=""
                     id=""
@@ -687,7 +698,7 @@
               <div class="row">
                 <div class="col">
                   <input
-                    type="date"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -695,7 +706,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -703,7 +714,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -711,7 +722,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -719,7 +730,7 @@
                 </div>
                 <div class="col">
                   <textarea
-                    maxlength="60"
+                    maxlength="40"
                     class="form-control form-week-input"
                     name=""
                     id=""
@@ -731,7 +742,7 @@
               <div class="row">
                 <div class="col">
                   <input
-                    type="date"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -739,7 +750,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -747,7 +758,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -755,7 +766,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -763,7 +774,7 @@
                 </div>
                 <div class="col">
                   <textarea
-                    maxlength="60"
+                    maxlength="40"
                     class="form-control form-week-input"
                     name=""
                     id=""
@@ -775,7 +786,7 @@
               <div class="row">
                 <div class="col">
                   <input
-                    type="date"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -783,7 +794,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -791,7 +802,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -799,7 +810,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -807,7 +818,7 @@
                 </div>
                 <div class="col">
                   <textarea
-                    maxlength="60"
+                    maxlength="40"
                     class="form-control form-week-input"
                     name=""
                     id=""
@@ -851,13 +862,13 @@
                   <b>Total de horas</b>
                 </div>
                 <div class="col">
-                  <b>Descrição da atividade (Max. 60 caracteres)</b>
+                  <b>Descrição da atividade (Max. 40 caracteres)</b>
                 </div>
               </div>
               <div class="row">
                 <div class="col">
                   <input
-                    type="date"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -865,7 +876,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -873,7 +884,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -881,7 +892,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -889,7 +900,7 @@
                 </div>
                 <div class="col">
                   <textarea
-                    maxlength="60"
+                    maxlength="40"
                     class="form-control form-week-input"
                     name=""
                     id=""
@@ -901,7 +912,7 @@
               <div class="row">
                 <div class="col">
                   <input
-                    type="date"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -909,7 +920,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -917,7 +928,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -925,7 +936,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -933,7 +944,7 @@
                 </div>
                 <div class="col">
                   <textarea
-                    maxlength="60"
+                    maxlength="40"
                     class="form-control form-week-input"
                     name=""
                     id=""
@@ -945,7 +956,7 @@
               <div class="row">
                 <div class="col">
                   <input
-                    type="date"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -953,7 +964,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -961,7 +972,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -969,7 +980,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -977,7 +988,7 @@
                 </div>
                 <div class="col">
                   <textarea
-                    maxlength="60"
+                    maxlength="40"
                     class="form-control form-week-input"
                     name=""
                     id=""
@@ -989,7 +1000,7 @@
               <div class="row">
                 <div class="col">
                   <input
-                    type="date"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -997,7 +1008,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1005,7 +1016,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1013,7 +1024,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1021,7 +1032,7 @@
                 </div>
                 <div class="col">
                   <textarea
-                    maxlength="60"
+                    maxlength="40"
                     class="form-control form-week-input"
                     name=""
                     id=""
@@ -1033,7 +1044,7 @@
               <div class="row">
                 <div class="col">
                   <input
-                    type="date"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1041,7 +1052,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1049,7 +1060,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1057,7 +1068,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1065,7 +1076,7 @@
                 </div>
                 <div class="col">
                   <textarea
-                    maxlength="60"
+                    maxlength="40"
                     class="form-control form-week-input"
                     name=""
                     id=""
@@ -1077,7 +1088,7 @@
               <div class="row">
                 <div class="col">
                   <input
-                    type="date"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1085,7 +1096,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1093,7 +1104,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1101,7 +1112,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1109,7 +1120,7 @@
                 </div>
                 <div class="col">
                   <textarea
-                    maxlength="60"
+                    maxlength="40"
                     class="form-control form-week-input"
                     name=""
                     id=""
@@ -1121,7 +1132,7 @@
               <div class="row">
                 <div class="col">
                   <input
-                    type="date"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1129,7 +1140,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1137,7 +1148,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1145,7 +1156,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1153,7 +1164,7 @@
                 </div>
                 <div class="col">
                   <textarea
-                    maxlength="60"
+                    maxlength="40"
                     class="form-control form-week-input"
                     name=""
                     id=""
@@ -1197,13 +1208,13 @@
                   <b>Total de horas</b>
                 </div>
                 <div class="col">
-                  <b>Descrição da atividade (Max. 60 caracteres)</b>
+                  <b>Descrição da atividade (Max. 40 caracteres)</b>
                 </div>
               </div>
               <div class="row">
                 <div class="col">
                   <input
-                    type="date"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1211,7 +1222,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1219,7 +1230,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1227,7 +1238,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1235,7 +1246,7 @@
                 </div>
                 <div class="col">
                   <textarea
-                    maxlength="60"
+                    maxlength="40"
                     class="form-control form-week-input"
                     name=""
                     id=""
@@ -1247,7 +1258,7 @@
               <div class="row">
                 <div class="col">
                   <input
-                    type="date"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1255,7 +1266,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1263,7 +1274,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1271,7 +1282,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1279,7 +1290,7 @@
                 </div>
                 <div class="col">
                   <textarea
-                    maxlength="60"
+                    maxlength="40"
                     class="form-control form-week-input"
                     name=""
                     id=""
@@ -1291,7 +1302,7 @@
               <div class="row">
                 <div class="col">
                   <input
-                    type="date"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1299,7 +1310,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1307,7 +1318,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1315,7 +1326,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1323,7 +1334,7 @@
                 </div>
                 <div class="col">
                   <textarea
-                    maxlength="60"
+                    maxlength="40"
                     class="form-control form-week-input"
                     name=""
                     id=""
@@ -1335,7 +1346,7 @@
               <div class="row">
                 <div class="col">
                   <input
-                    type="date"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1343,7 +1354,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1351,7 +1362,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1359,7 +1370,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1367,7 +1378,7 @@
                 </div>
                 <div class="col">
                   <textarea
-                    maxlength="60"
+                    maxlength="40"
                     class="form-control form-week-input"
                     name=""
                     id=""
@@ -1379,7 +1390,7 @@
               <div class="row">
                 <div class="col">
                   <input
-                    type="date"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1387,7 +1398,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1395,7 +1406,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1403,7 +1414,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1411,7 +1422,7 @@
                 </div>
                 <div class="col">
                   <textarea
-                    maxlength="60"
+                    maxlength="40"
                     class="form-control form-week-input"
                     name=""
                     id=""
@@ -1423,7 +1434,7 @@
               <div class="row">
                 <div class="col">
                   <input
-                    type="date"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1431,7 +1442,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1439,7 +1450,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1447,7 +1458,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1455,7 +1466,7 @@
                 </div>
                 <div class="col">
                   <textarea
-                    maxlength="60"
+                    maxlength="40"
                     class="form-control form-week-input"
                     name=""
                     id=""
@@ -1467,7 +1478,7 @@
               <div class="row">
                 <div class="col">
                   <input
-                    type="date"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1475,7 +1486,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1483,7 +1494,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1491,7 +1502,7 @@
                 </div>
                 <div class="col">
                   <input
-                    type="time"
+                    type="text"
                     name=""
                     id=""
                     class="form-control my-1 form-week-input"
@@ -1499,7 +1510,7 @@
                 </div>
                 <div class="col">
                   <textarea
-                    maxlength="60"
+                    maxlength="40"
                     class="form-control form-week-input"
                     name=""
                     id=""
