@@ -220,6 +220,20 @@
                     </a>
                 </li>
                 @endcan
+
+
+            @if($user->hasrole(['bolsista']))
+                <li>
+                    @can('view-work_plans-approved')
+                    <a href="{{ route('projects.frequency') }}" class="li-submenu">
+                        <i class="fas fa-edit"></i>
+                        Ver Frequência
+                    </a>
+
+                    @endcan
+                </li>
+            @endif
+               
                
             </ul>
 

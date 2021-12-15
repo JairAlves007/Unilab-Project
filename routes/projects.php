@@ -44,9 +44,6 @@ Route::group(['middleware' => ['role:super-admin|orientador']], function () {
       ->middleware('auth')
       ->name('projects.approved');
    
-   Route::get('/projects/frequency', [ProjectsController::class, 'frequency'])
-      ->middleware('auth')
-      ->name('projects.frequency');
 });
 
 Route::group(['middleware' => ['role:super-admin|bolsista']], function () {
@@ -59,5 +56,10 @@ Route::group(['middleware' => ['role:super-admin|bolsista']], function () {
       ->middleware('auth');
 
 });
- 
 
+Route::group(['middleware' => ['role:bolsista']], function () {
+Route::get('/projects/frequency', [ProjectsController::class, 'frequency'])
+->middleware('auth')
+->name('projects.frequency');
+ 
+});

@@ -31,7 +31,7 @@ class PermissionsTableSeeder extends Seeder
             'attach-project',
             'create-work_plans',
             'view-work_plans-approved',
-            'view-candidates'
+            'view-candidates',
         ];
 
         foreach($permissions as $permission) {

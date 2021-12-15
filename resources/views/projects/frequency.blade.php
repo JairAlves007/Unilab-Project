@@ -2,6 +2,8 @@
 
 @section('content')
 
+@section('title', 'Frequência')
+
 @include('layouts.navbar')
  
     <!-- Div global -->
