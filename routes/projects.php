@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProjectsController;
+use App\Models\Projects;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/edict/{id}', [EdictsController::class, 'show']);
@@ -42,6 +43,10 @@ Route::group(['middleware' => ['role:super-admin|orientador']], function () {
    Route::get('/project/{project_id}/approved', [ProjectsController::class, 'approve'])
       ->middleware('auth')
       ->name('projects.approved');
+   
+   Route::get('/projects/frequency', [ProjectsController::class, 'frequency'])
+      ->middleware('auth')
+      ->name('projects.frequency');
 });
 
 Route::group(['middleware' => ['role:super-admin|bolsista']], function () {
@@ -52,4 +57,7 @@ Route::group(['middleware' => ['role:super-admin|bolsista']], function () {
    Route::get('/projects/participating', [ProjectsController::class, 'showAll'])
       ->name('projects.participating')
       ->middleware('auth');
+
 });
+ 
+

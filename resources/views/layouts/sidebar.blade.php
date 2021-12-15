@@ -35,6 +35,7 @@
                     </a>
 
                 </li>
+
                 @endif
 
                 @if ($user->hasRole('orientador'))
@@ -219,7 +220,7 @@
                     </a>
                 </li>
                 @endcan
-
+               
             </ul>
 
         </li>

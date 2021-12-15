@@ -7,7 +7,7 @@
 @include('layouts.navbar')
 
 <div class="d-flex">
-
+    
     @include('layouts.sidebar')
 
     <div class="form-create">

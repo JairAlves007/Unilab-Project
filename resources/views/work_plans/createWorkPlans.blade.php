@@ -87,40 +87,6 @@
                   </div>
 
                   <div class="form-row">
-                     <div class="form-group col-md-6">
-                        <label for="inputState">Isntituição</label>
-                        <select id="inputState" class="form-control">
-                           <option selected>Selecione</option>
-                           <option>...</option>
-                        </select>
-                   </div>
-
-                   <div class="form-group col-md-6">
-                     <label for="inputState">Curso</label>
-                     <select id="inputState" class="form-control">
-                       <option selected>Selecione</option>
-                       <option>...</option>
-                     </select>
-                   </div>
-
-                   <div class="form-group col-md-6">
-                     <label for="inputState">Turma</label>
-                     <select id="inputState" class="form-control">
-                       <option selected>Selecione</option>
-                       <option>...</option>
-                     </select>
-                   </div>
-
-                   <div class="form-group col-md-6">
-                     <label for="inputState">Matricula</label>
-                     <select id="inputState" class="form-control">
-                       <option selected>Selecione</option>
-                       <option>...</option>
-                     </select>
-                   </div>
-                  </div>
-
-                  <div class="form-row">
 
                      <div class="form-group col-md-12">
 

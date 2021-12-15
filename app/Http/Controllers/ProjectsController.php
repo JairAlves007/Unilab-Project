@@ -240,4 +240,11 @@ class ProjectsController extends Controller
 
         return redirect()->back();
     }
+
+    public function frequency(){
+    {
+    return view('projects.frequency');
+    
+}
+    }
 }
