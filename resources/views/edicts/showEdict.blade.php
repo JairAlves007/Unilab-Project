@@ -19,53 +19,58 @@
 
   @include('layouts.sidebar')
 
-  <div class="content p-1" id="content-p-1">
+  <div class="content bg-white m-1" id="content-p-1">
 
     @endif
 
-    <div id="edicts-container">
+    <div class="bg-white border rounded" id="edicts-container">
       <div class="container">
         <div class="row">
           <div class="col">
-            <h2>{{ $edict->edict_title }}</h2>
+            <h2 class="display-4 titulo text-left">{{ $edict->edict_title }}</h2>
           </div>
           <div class="col">
-            <h4>Descrição</h4>
+            <h4 class="display-4 titulo text-left">Descrição</h4>
           </div>
         </div>
-        <div class="row text-left">
+        <div class="row text-left small">
           <div class="col">
             <div class="edicts-content">
-              <p>{{ $edict->titulations->titulation }}</p>
-              <p>{{ $edict->categories->name }}</p>
-              <p> {{ date('d-m-Y', strtotime($edict->submission_start)) }} até
-                {{ date('d-m-Y', strtotime($edict->submission_finish)) }}</p>
+              <p>Titulação mínima: <i>{{ $edict->titulations->titulation }}</i></p>
+              <p>Categoria: <i>{{ $edict->categories->name }}</i></p>
+              <p>Duração: <i>{{ date('d-m-Y', strtotime($edict->submission_start)) }}</i> até
+                <i>{{ date('d-m-Y', strtotime($edict->submission_finish)) }}</i>
+              </p>
             </div>
           </div>
           <div class="col">
             <div class="edicts-description">
-              <p>{{ $edict->description }}</p>
-              <p>Autor: {{ $edict->ownerEdict->name }}</p>
-
-              @if (Request::route()->getName() === 'edicts.showDashboard' && $user->can('rate-edict'))
-              <button type="button" id="btn-modal-rate" class="btn btn-primary btn-sm">
-                @if ($rate)
-                Alterar Sua Avaliação
-                @else
-                Avaliar
-                @endif
-              </button>
-              @endif
-
+              <p>Descrição: <i>{{ $edict->description }}</i></p>
+              <p>Autor: <i>{{ $edict->ownerEdict->name }}</i></p>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <a href="/storage/{{ $edict->archive }}" class="btn btn-primary" id="event-submit"
-              onclick="event.preventDefault(); this.closest('form').submit();">
-              Baixar PDF
-            </a>
+            <div class="d-flex justify-content-end">
+              <div class="m-1">
+                <a href="/storage/{{ $edict->archive }}" class="btn btn-primary" id="event-submit"
+                  onclick="event.preventDefault(); this.closest('form').submit();">
+                  Baixar PDF
+                </a>
+              </div>
+              @if (Request::route()->getName() === 'edicts.showDashboard' && $user->can('rate-edict'))
+              <div class="m-1">
+                <button type="button" id="btn-modal-rate" class="btn btn-warning">
+                  @if ($rate)
+                  Alterar Sua Avaliação
+                  @else
+                  Avaliar
+                  @endif
+                </button>
+              </div>
+              @endif
+            </div>
           </div>
         </div>
       </div>
@@ -74,7 +79,7 @@
 
     {{-- <iframe src="{{ url("/storage/{$edict->archive}") }}" frameborder="0"></iframe> --}}
 
-    <h1 class="title-bold">
+    <h1 class="display-4 titulo">
       Projetos Relacionados
     </h1>
 

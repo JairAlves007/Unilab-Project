@@ -3,91 +3,64 @@
 @section('title', 'Esqueci a senha')
 
 @section('content')
-    <nav class="navbar navbar-expand navbar-dark bg-dark">
-        <a class="sidebar-toggle text-light mr-3">
-            <span class="navbar-toggler-icon"></span>
-        </a>
 
-        <a class="navbar-brand" href="#">UNILAB</a>
+<div class="centralizer">
+  <div class="form-type-3 bg-white border rounded">
+    <div class="container">
 
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle menu-header" href="#" id="navbarDropdownMenuLink"
-                        data-toggle="dropdown">
-                        <img class="rounded-circle" src="imagem/unilabsimbolo.png" width="30" height="30"> &nbsp;<span
-                            class="d-none d-sm-inline">Usuário</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria+-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#"><i class="fas fa-user"></i> Perfil</a>
-                        <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Sair</a>
-                    </div>
-                </li>
-            </ul>
+      <div class="row">
+        <div class="col">
+          <img src="/imagem/logo-menor-sem-fundo.png" width="60px" height="60px" alt="Logo">
         </div>
-    </nav>
-    
-    <div class="login borda_redonda">
-        <div class="form" style="display: flex; gap: 20px; flex-direction: column; justify-content: center; align-items: center;">
+      </div>
 
-            <img src="/imagem/logo-menor-sem-fundo.png" width="60" height="60" alt="Logo">
+      <div class="row">
+        <div class="col">
+          <div class="m-2">
+            Digite seu e-mail para receber o link do formulário de alteração. Acesse-o e altere sua senha.
+          </div>
 
-            <div>
-                <div class="mb-4 text-sm text-gray-600">
-                    <p>
-                        Esqueceu sua senha? Sem problemas.
-                    </p>
+          @if (session('status'))
+          <div class="mb-4 font-medium text-sm text-green-600">
+            {{ session('status') }}
+          </div>
+          @endif
 
-                    <p>
-                        Você receberá um link no seu email para alterar sua senha.
-                    </p>
+          <x-jet-validation-errors class="mb-4" />
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col">
+          <form method="POST" action="{{ route('password.email') }}">
+            @csrf
+
+            <div class="form-group">
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <x-jet-label class="mb-0" for="email" value="{{ __('Seu Email') }}" />
+                  </div>
                 </div>
-        
-                @if (session('status'))
-                    <div class="mb-4 font-medium text-sm text-green-600">
-                        {{ session('status') }}
-                    </div>
-                @endif
+                <x-jet-input id="email" class="form-control" type="email" name="email" :value="old('email')" required
+                  autofocus />
+              </div>
 
-                <x-jet-validation-errors class="mb-4" />
+
+
             </div>
 
-            <form method="POST" action="{{ route('password.email') }}">
-                @csrf
-    
-                <div class="form-group">
-                    <x-jet-label for="email" value="{{ __('Seu Email') }}" />
-                    <x-jet-input id="email" class="form-control" type="email" name="email" :value="old('email')" required autofocus />
-                </div>
-    
-                <button type="submit" class="btn btn-danger">Enviar Link</button>
-            </form>
+            <button type="submit" class="btn btn-primary">Enviar Link</button>
+          </form>
         </div>
+      </div>
 
-        <img class="img-fluid login-img d-none d-md-table-cell" src="/imagem/Data_security_02.jpg" alt="">
+
     </div>
-    
-    <div class="jumbotron rodape">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-6">
-                    <h5>Contato</h5>
-                    <p>
-                        (XX)XXXX-XXXX <br>
-                        Redenção<br>
-                        CEP 62790-000 - Redençãod/CE<br>
-                    </p>
-                </div>
-                <div class="col-12 col-md-6">
-                    <h5>Redes Sociais</h5>
-                    <ul>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Twiter</a></li>
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">YouTube</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+  </div>
+
+</div>
+
 @endsection

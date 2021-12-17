@@ -1,0 +1,17 @@
+.timeline-textarea {
+  min-width: 200px;
+}
+
+.timeline-td {
+  width: 100%;
+}
+
+.timeline-th {
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .timeline-btn-top-group {
+    width: 100%;
+  }
+}

@@ -4,10 +4,9 @@
 
 @section('content')
 
-<div
-  style="display: flex; gap: 40px; flex-direction: column; justify-content: center; align-items: center; width: 100%; height: 500px;">
+<div class="centralizer">
 
-  <div class="form-signin bg-white p-3">
+  <div class="form-type-1 form-signin bg-white p-4 border rounded">
     <div class="row">
       <div class="col">
         <img src=" /imagem/logo-menor-sem-fundo.png" alt="Logo" width="60" height="60">
