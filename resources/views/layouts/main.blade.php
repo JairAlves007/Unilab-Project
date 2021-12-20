@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="/css/edicts.css">
   <link rel="stylesheet" href="/css/frequencia.css">
   <link rel="stylesheet" href="/css/timeline.css">
+  <link rel="stylesheet" href="/css/form-types.css">
 
 </head>
 

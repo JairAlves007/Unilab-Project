@@ -11,10 +11,9 @@
   @include('layouts.sidebar')
 
   <div class="form-create bg-white m-1">
-    <div class="container">
+    <div class="form-type-4">
 
-      <h1>Crie Um Edital</h1>
-
+      <h1 class="titulo">Crie Um Edital</h1>
       <form action="{{ route('edicts.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
@@ -22,41 +21,48 @@
           <div class="form-content">
 
             <div class="form-group">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text mb-0" for="title">Titulo do Edital</label>
+                </div>
+                <input type="text" name="edict_title"
+                  class="form-control {{ $errors->has('edict_title') ? 'is-invalid' : '' }}" id="title">
 
-              <label for="title">Titulo do Edital</label>
-
-              <input type="text" name="edict_title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}"
-                id="title" placeholder="Insira o Titulo Aqui...">
-
-              <div class="invalid-feedback">
-                @foreach ($errors->get('title') as $error)
-                {{ $error }}
-                @endforeach
+                <div class="invalid-feedback">
+                  @foreach ($errors->get('edict_title') as $error)
+                  {{ $error }}
+                  @endforeach
+                </div>
               </div>
+
+
+
+
 
             </div>
 
             <div class="form-group">
 
-              <label for="archive">Arquivo do Edital</label>
+              <label class="input-group-text mb-0" for="archive">Arquivo do Edital</label>
 
-              <input type="file" name="archive"
-                class="form-control-file {{ $errors->has('archive') ? 'is-invalid' : '' }}" id="archive">
+              <div class="d-flex justify-content-center flex-row h-100 w-100 border rounded p-3">
+                <input type="file" name="archive" class="{{ $errors->has('archive') ? 'is-invalid' : '' }}"
+                  id="archive">
 
-              <div class="invalid-feedback">
-                @foreach ($errors->get('archive') as $error)
-                {{ $error }}
-                @endforeach
+                <div class="invalid-feedback">
+                  @foreach ($errors->get('archive') as $error)
+                  {{ $error }}
+                  @endforeach
+                </div>
               </div>
-
             </div>
 
             <div class="form-group">
 
-              <label for="description">Descrição do Edital</label>
+              <label class="input-group-text mb-0" for="description">Descrição do Edital</label>
 
               <textarea class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" name="description"
-                id="description" rows="5" placeholder="Insira a Descrição Aqui..."></textarea>
+                id="description" rows="5"></textarea>
 
               <div class="invalid-feedback">
                 @foreach ($errors->get('description') as $error)
@@ -73,7 +79,7 @@
 
               <div class="form-group col-md-6">
 
-                <label for="submission_start">Início da Submissão</label>
+                <label class="input-group-text mb-0" for="submission_start">Início da Submissão</label>
 
                 <input type="date" name="submission_start" id="submission_start"
                   class="form-control {{ $errors->has('submission_start') ? 'is-invalid' : '' }}">
@@ -88,7 +94,7 @@
 
               <div class="form-group col-md-6">
 
-                <label for="submission_finish">Término da Submissão</label>
+                <label class="input-group-text mb-0" for="submission_finish">Término da Submissão</label>
 
                 <input type="date" name="submission_finish" id="submission_finish"
                   class="form-control {{ $errors->has('submission_finish') ? 'is-invalid' : '' }}">
@@ -106,7 +112,7 @@
 
               <div class="form-group col-md-6">
 
-                <label for="rate_start">Início da Avaliação</label>
+                <label class="input-group-text mb-0" for="rate_start">Início da Avaliação</label>
 
                 <input type="date" name="rate_start" id="rate_start"
                   class="form-control {{ $errors->has('rate_start') ? 'is-invalid' : '' }}">
@@ -121,7 +127,7 @@
 
               <div class="form-group col-md-6">
 
-                <label for="rate_finish">Término da Avaliação</label>
+                <label class="input-group-text mb-0" for="rate_finish">Término da Avaliação</label>
 
                 <input type="date" name="rate_finish" id="rate_finish"
                   class="form-control {{ $errors->has('rate_finish') ? 'is-invalid' : '' }}">
@@ -139,7 +145,7 @@
 
               <div class="form-group col-md-6">
 
-                <label for="execution_start">Início da Execução</label>
+                <label class="input-group-text mb-0" for="execution_start">Início da Execução</label>
 
                 <input type="date" name="execution_start" id="execution_start"
                   class="form-control {{ $errors->has('execution_start') ? 'is-invalid' : '' }}">
@@ -154,7 +160,7 @@
 
               <div class="form-group col-md-6">
 
-                <label for="execution_finish">Término da Execução</label>
+                <label class="input-group-text mb-0" for="execution_finish">Término da Execução</label>
 
                 <input type="date" name="execution_finish" id="execution_finish"
                   class="form-control {{ $errors->has('execution_finish') ? 'is-invalid' : '' }}">
@@ -172,9 +178,9 @@
 
               <div class="form-group col-md-6">
 
-                <label for="min_titulation">Titulação Mínima</label>
+                <label class="input-group-text mb-0" for="min_titulation">Titulação Mínima</label>
 
-                <select class="form-control {{ $errors->has('min_titulations') ? 'is-invalid' : '' }}"
+                <select class="form-control {{ $errors->has('min_titulations_id') ? 'is-invalid' : '' }}"
                   name="min_titulations_id" id="min_titulation">
 
                   <option value="">Selecione</option>
@@ -194,7 +200,7 @@
 
               <div class="form-group col-md-6">
 
-                <label for="category">Categoria</label>
+                <label class="input-group-text mb-0" for="category">Categoria</label>
 
                 <select class="form-control {{ $errors->has('categories_id') ? 'is-invalid' : '' }}"
                   name="categories_id" id="category">

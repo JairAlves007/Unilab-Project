@@ -11,18 +11,6 @@
   margin: 30px auto;
 }
 
-.form-create #form-area {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px 0 20px 0;
-  gap: 50px;
-}
-
-#form-area .form-content {
-  width: 40%;
-}
-
 /* Ver Mais */
 
 #edicts-container {
