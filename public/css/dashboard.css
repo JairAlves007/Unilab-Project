@@ -1,49 +1,46 @@
 body {
-    background-color: #eaeef3;
+  background-color: #eaeef3;
 }
 .menu-header {
-    color: #fff !important;
+  color: #fff !important;
 }
 .sidebar {
-    background-color: #222c3c;
-    min-width: 250px;
-    max-width: 250px;
-    min-height: calc(100vh - 80px);
-    transition: all 0.3s;
+  background-color: #222c3c;
+  min-width: 250px;
+  max-width: 250px;
+  min-height: calc(100vh - 80px);
+  transition: all 0.3s;
 }
 
 .sidebar ul li a {
-    display: block;
-    padding: 0.75rem 1rem;
-    color: #c7cace;
-    text-decoration: none;
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #c7cace;
+  text-decoration: none;
 }
 .sidebar ul li a:hover,
 .sidebar ul .active a {
-    color: #ecedee;
-    background-color: #354358;
+  color: #ecedee;
+  background-color: #354358;
 }
 .sidebar ul ul a {
-    padding-left: 2.5rem;
-    background-color: #1e2835;
+  padding-left: 2.5rem;
+  background-color: #1e2835;
 }
 /*Seletor utilizado para ativar o botão ocultar menu em PC*/
 .sidebar.toggled {
-    margin-left: -250px;
+  margin-left: -250px;
 }
 
 @media (max-width: 768px) {
-    .sidebar {
-        margin-left: -250px;
-    }
-    .sidebar.toggled {
-        margin-left: 0px;
-    }
+  .sidebar {
+    margin-left: -250px;
+  }
+  .sidebar.toggled {
+    margin-left: 0px;
+  }
 }
 
 .content {
-    width: 100%;
-}
-.titulo {
-    font-size: 2rem !important;
+  width: 100%;
 }

@@ -1,0 +1,27 @@
+.form-type-1 {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-type-2 {
+  width: 100%;
+  max-width: 400px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-type-3 {
+  width: 100%;
+  max-width: 500px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-type-4 {
+  width: 100%;
+  max-width: 700px;
+  padding: 15px;
+  margin: 0 auto;
+}
