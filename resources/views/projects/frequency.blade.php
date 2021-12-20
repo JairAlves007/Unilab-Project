@@ -28,13 +28,8 @@
                 <label class="input-group-text" for="inputGroupSelect01">
                   Bolsista
                 </label>
+                <input type="text" class="custom-select">
               </div>
-              <select class="custom-select" id="inputGroupSelect01">
-                <option selected>--Escolha um Orientador</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select>
             </div>
             
             <div class="input-group mb-3 col-md-9 mx-auto">

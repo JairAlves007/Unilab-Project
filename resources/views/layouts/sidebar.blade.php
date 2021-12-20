@@ -232,17 +232,7 @@
           </a>
         </li>
         @endcan
-
-        @can('view-work_plans-approved')
-        <li>
-          <a href="{{ route('work_plans.editTimeline') }}" class="li-submenu">
-            <i class="fas fa-edit"></i>
-            Editar Cronograma de Atividades
-          </a>
-        </li>
-        @endcan
-
-
+        
         @if($user->hasrole(['bolsista']))
         <li>
           @can('view-work_plans-approved')

@@ -1,13 +1,13 @@
 @extends('layouts.main')
 
-@section('title', 'Crie seu Edital')
-
 @section('content')
+
+@section('title', 'Cronograma')
 
 @include('layouts.navbar')
 
 @include('layouts.sidebar')
-
+  
 <div class="bg-white m-1 px-2 py-3">
   <div class="container">
     <div class="row">
@@ -49,10 +49,10 @@
                   <th class="timeline-td">Jul/2022</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="table-row">
                 <tr>
                   <td class="d-flex align-items-start timeline-th" style="text-align: center; vertical-align: middle">
-                    <button type="button" class="btn btn-outline-danger mr-2" title="Remover Atividade">
+                    <button id="btn-remove"  type="button" class="btn btn-outline-danger mr-2" title="Remover Atividade">
                       <i class="fas fa-minus-circle"></i>
                     </button>
 
@@ -84,25 +84,14 @@
                     <input class="input-group" type="checkbox" id="" />
                   </td>
                 </tr>
-                <tr>
-                  <td>
-                    <div class="d-flex justify-content-center timeline-td">
-                      <button type="button" class="btn btn-outline-success w-100" title="Adcionar Atividade">
-                        <i class="fas fa-plus-circle"></i>
-                      </button>
-                    </div>
-                  </td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
+                
               </tbody>
             </table>
+            <div class="d-flex justify-content-center timeline-td">
+              <button type="button" id="btn-add" class="btn btn-outline-success w-100" title="Adcionar Atividade" onclick="Criar()">
+                <i class="fas fa-plus-circle"></i>
+              </button>
+            </div>
           </div>
 
           <div class="d-flex justify-content-center m-1">
@@ -123,5 +112,62 @@
     </div>
   </div>
 </div>
+
+@section('script')
+  <script>
+    $(function() {
+      var scntbody = $('#table-row');
+    
+
+    $('#btn-add').click(function(e) {
+      e.preventDefault();
+      $("#table-row").append(`
+        <tr>
+          <td class="d-flex align-items-start timeline-th" style="text-align: center; vertical-align: middle">
+            <button id="btn-remove " type="button" class="btn btn-outline-danger mr-2" title="Remover Atividade" >
+              <i class="fas fa-minus-circle"></i>
+            </button>
+            <textarea class="form-control timeline-textarea" name="" id="" cols="25" rows="1" maxlength="50"
+              placeholder="Máx.50"></textarea>
+          </td>
+          <td class="timeline-td" style="text-align: center; vertical-align: middle">
+            <input class="input-group" type="checkbox" id="" />
+          </td>
+          <td class="timeline-td" style="text-align: center; vertical-align: middle">
+            <input class="input-group" type="checkbox" id="" />
+          </td>
+          <td class="timeline-td" style="text-align: center; vertical-align: middle">
+            <input class="input-group" type="checkbox" id="" />
+          </td>
+          <td class="timeline-td" style="text-align: center; vertical-align: middle">
+            <input class="input-group" type="checkbox" id="" />
+          </td>
+          <td class="timeline-td" style="text-align: center; vertical-align: middle">
+            <input class="input-group" type="checkbox" id="" />
+          </td>
+          <td class="timeline-td" style="text-align: center; vertical-align: middle">
+            <input class="input-group" type="checkbox" id="" />
+          </td>
+          <td class="timeline-td" style="text-align: center; vertical-align: middle">
+            <input class="input-group" type="checkbox" id="" />
+          </td>
+          <td class="timeline-td" style="text-align: center; vertical-align: middle">
+            <input class="input-group" type="checkbox" id="" />
+          </td>
+        </tr>
+      `);
+
+                                                                                    
+    });
+
+    $(document).on('click' , '#btn-remove',function (e){
+      $(this).parents('tbody').remove();
+      return false; 
+    } )
+
+  }); 
+  </script>
+@endsection
+
 
 @endsection

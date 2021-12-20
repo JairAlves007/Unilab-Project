@@ -35,6 +35,7 @@
   </script>
   <script src="/js/dashboard.js"></script>
   <script src="/js/spin-animation.js"></script>
+  <script src="/js/timeline.js"></script>
 
   @yield('script')
 </body>
