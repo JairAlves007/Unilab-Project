@@ -8,13 +8,13 @@
   <link rel="icon" href="/imagem/unilabsimbolo.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
     integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-  <link rel="stylesheet" href="/css/estilo.css">
   <link rel="stylesheet" href="/css/dashboard.css">
   <link rel="stylesheet" href="/css/signin.css">
   <link rel="stylesheet" href="/css/edicts.css">
   <link rel="stylesheet" href="/css/frequencia.css">
   <link rel="stylesheet" href="/css/timeline.css">
   <link rel="stylesheet" href="/css/form-types.css">
+  <link rel="stylesheet" href="/css/estilo.css">
 
 </head>
 

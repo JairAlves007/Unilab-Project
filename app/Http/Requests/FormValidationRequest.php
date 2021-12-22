@@ -6,39 +6,40 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class FormValidationRequest extends FormRequest
 {
-    
-    public function authorize()
-    {
-        return true;
+
+  public function authorize()
+  {
+    return true;
+  }
+
+  public function rules()
+  {
+    $rules = [
+      'name' => ['required', 'string'],
+      'email' => ['required', 'email'],
+      'niveis' => ['array', 'required']
+    ];
+
+    if ($this->isMethod('post')) {
+      $rules['password'] = ['required', 'min:8'];
+      $rules['password_confirmation'] = ['required', 'same:password'];
     }
 
-    public function rules()
-    {
-        $rules = [
-            'name' => ['required', 'string'],
-            'email' => ['required', 'email'],
-            'niveis' => ['array', 'required']
-        ];
+    return $rules;
+  }
 
-        if($this->isMethod('post')) {
-            $rules['password'] = ['required', 'min:8'];
-            $rules['password_confirmation'] = ['required', 'same:password'];
-        }
-
-        return $rules;
-    }
-
-    public function messages() {
-        return [
-            'name.required' => 'Por Favor, Digite O Nome Do Usuário',
-            'name.string' =>  'O Valor Do Campo Tem De Ser Letras',
-            'email.required' => 'Por Favor, Digite O Campo De E-mail',
-            'email.email' => 'Digite Um E-mail Válido',
-            'password.required' => 'Por Favor, Digite A Senha',
-            'password.min' => 'A Senha Tem Que Ter No Mínimo De 8 Caracteres',
-            'password_confirmation.required' => 'Por Favor, Confirme Sua Senha',
-            'password_confirmation.same' => 'Por Favor, Confirme Sua Senha Corretamente',
-            'niveis.required' => 'Por Favor, Marque Um Nível De Acesso',
-        ];
-    }
+  public function messages()
+  {
+    return [
+      'name.required' => 'Por favor, digite o Nome do usuário',
+      'name.string' =>  'O Valor do campo deve ser Letras',
+      'email.required' => 'Por favor, digite o E-mail',
+      'email.email' => 'Digite um E-mail Válido',
+      'password.required' => 'Por favor, digite A Senha',
+      'password.min' => 'A Senha deve ter no mínimo de 8 caracteres',
+      'password_confirmation.required' => 'Por favor, confirme sua Senha',
+      'password_confirmation.same' => 'Por favor, confirme sua Senha Corretamente',
+      'niveis.required' => 'Por favor, marque um Nível de Acesso',
+    ];
+  }
 }

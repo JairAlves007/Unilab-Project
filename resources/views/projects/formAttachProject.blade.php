@@ -9,7 +9,7 @@
 
 <div class="bg-white m-2">
 
-  <h1 class="titulo">Anexe Um Projeto</h1>
+  <h1 class="titulo">Anexe um Projeto</h1>
 
   <form class="form-type-4" action="{{ route('projects.attach-project', $edict) }}" method="POST"
     enctype="multipart/form-data">
@@ -40,7 +40,7 @@
 
         <div class="form-group">
 
-          <label for="content">Descrição Completa</label>
+          <label class="input-group-text" for="content">Descrição Completa</label>
 
           <textarea class="form-control {{ $errors->has('content') ? 'is-invalid' : '' }}" name="content" id="content"
             rows="3"></textarea>
@@ -55,7 +55,7 @@
 
         <div class="form-group">
 
-          <label for="abstract">Descrição Resumida</label>
+          <label class="input-group-text" for="abstract">Descrição Resumida</label>
 
           <textarea class="form-control {{ $errors->has('abstract') ? 'is-invalid' : '' }}" name="abstract"
             id="abstract" rows="2"></textarea>
@@ -70,45 +70,49 @@
 
         <div class="form-group">
 
-          <label for="references">Referências</label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="references">Referências</label>
+            </div>
+            <input type="url" name="references"
+              class="form-control {{ $errors->has('references') ? 'is-invalid' : '' }}" id="references"
+              placeholder="Apenas links">
 
-          <input type="url" name="references" class="form-control {{ $errors->has('references') ? 'is-invalid' : '' }}"
-            id="references">
-
-          <div class="invalid-feedback">
-            @foreach ($errors->get('references') as $error)
-            {{ $error }}
-            @endforeach
+            <div class="invalid-feedback">
+              @foreach ($errors->get('references') as $error)
+              {{ $error }}
+              @endforeach
+            </div>
           </div>
-
         </div>
       </div>
 
       <div class="form-content">
         <div class="form-row">
+          <div class="col">
+            <div class="form-group">
 
-          <div class="form-group">
+              <label class="input-group-text w-100" for="archive">Arquivo do Projeto</label>
 
-            <label for="archive">Arquivo do Projeto</label>
+              <div class="d-flex justify-content-center flex-row h-100 w-100 border rounded p-3">
+                <input type="file" name="archive"
+                  class="form-control-file {{ $errors->has('archive') ? 'is-invalid' : '' }}" id="archive">
 
-            <input type="file" name="archive"
-              class="form-control-file {{ $errors->has('archive') ? 'is-invalid' : '' }}" id="archive">
-
-            <div class="invalid-feedback">
-              @foreach ($errors->get('archive') as $error)
-              {{ $error }}
-              @endforeach
+                <div class="invalid-feedback">
+                  @foreach ($errors->get('archive') as $error)
+                  {{ $error }}
+                  @endforeach
+                </div>
+              </div>
             </div>
-
           </div>
-
         </div>
 
         <div class="form-row">
 
           <div class="form-group col-md-6">
 
-            <label for="institutes">Instituto</label>
+            <label class="input-group-text" for="institutes">Instituto</label>
 
             <select class="form-control {{ $errors->has('institutes') ? 'is-invalid' : '' }}" name="institutes"
               id="institutes">
@@ -133,7 +137,7 @@
 
           <div class="form-group col-md-6">
 
-            <label for="specialities">Especialidades</label>
+            <label class="input-group-text" for="specialities">Especialidades</label>
 
             <select class="form-control {{ $errors->has('specialities') ? 'is-invalid' : '' }}" name="specialities"
               id="specialities">
@@ -160,7 +164,7 @@
 
           <div class="form-group col-md-6">
 
-            <label for="big_areas">Grande Área</label>
+            <label class="input-group-text" for="big_areas">Grande Área</label>
 
             <select class="form-control {{ $errors->has('big_areas') ? 'is-invalid' : '' }}"
               onchange="changeAreas(this)" data-url="{{ url('/project/findAreas') }}" data-token="{{ csrf_token() }}"
@@ -185,7 +189,7 @@
 
           <div class="form-group col-md-6">
 
-            <label for="areas">Área</label>
+            <label class="input-group-text" for="areas">Área</label>
 
             <select class="form-control {{ $errors->has('areas') ? 'is-invalid' : '' }}" onchange="changeSubAreas(this)"
               data-url="{{ url('/project/findSubAreas') }}" data-token="{{ csrf_token() }}" name="areas" id="areas"
@@ -211,7 +215,7 @@
 
           <div class="form-group col-md-12">
 
-            <label for="sub_areas">Sub Área</label>
+            <label class="input-group-text" for="sub_areas">Sub Área</label>
 
             <select class="form-control {{ $errors->has('sub_areas') ? 'is-invalid' : '' }}" name="sub_areas"
               id="sub_areas" disabled>

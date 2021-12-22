@@ -15,7 +15,18 @@ body {
   height: 60px;
   max-height: 60px;
 }
+
+.form-week-textarea {
+  min-height: 60px;
+}
+
 .col {
   margin: 0;
   padding: 3px;
+}
+
+@media (max-width: 360px) {
+  .col-frequency-container {
+    margin: 10px 15% 10px;
+  }
 }

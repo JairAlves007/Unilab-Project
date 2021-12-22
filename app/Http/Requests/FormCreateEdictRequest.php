@@ -61,12 +61,12 @@ class FormCreateEdictRequest extends FormRequest
       'rate_finish.required' => 'Informe uma data do Encerramento de Avaliação',
       'execution_start.required' => 'Informe uma data do Início de Execução',
       'execution_finish.required' => 'Informe uma data do Encerramento de Execução',
-      'submission_start.after' => 'A data de Início do Período de Submissão tem que ser maior que Hoje',
-      'submission_end.after' => 'A data de Término do Período de Submissão tem que ser maior que a de Início',
-      'rate_start.after' => 'A data de Início do Período de Avaliação tem que ser maior que a de Término de Submissão',
-      'rate_end.after' => 'A data de Término do Período de Avaliação tem que ser maior que a de Início',
-      'execution_start.after' => 'A data de Início do Período de Execução tem que ser maior que a de Término de Avaliação',
-      'execution_end.after' => 'A data de Término do Período de Execução tem que ser maior que a de Início',
+      'submission_start.after' => 'A data de Início do Período de Submissão deve ser maior que Hoje',
+      'submission_end.after' => 'A data de término do Período de Submissão deve ser maior que a de Início',
+      'rate_start.after' => 'A data de Início do Período de Avaliação deve ser maior que a de término de Submissão',
+      'rate_end.after' => 'A data de término do Período de Avaliação deve ser maior que a de Início',
+      'execution_start.after' => 'A data de Início do Período de Execução deve ser maior que a de término de Avaliação',
+      'execution_end.after' => 'A data de término do Período de Execução deve ser maior que a de Início',
     ];
   }
 }

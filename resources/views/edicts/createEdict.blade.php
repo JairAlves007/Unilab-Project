@@ -34,27 +34,29 @@
                   @endforeach
                 </div>
               </div>
-
-
-
-
-
             </div>
 
             <div class="form-group">
 
-              <label class="input-group-text mb-0" for="archive">Arquivo do Edital</label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroupFileAddon01">Arquivo do Edital</span>
+                </div>
+                <div class="custom-file">
+                  <input type="file" name="archive"
+                    class="custom-file-input {{ $errors->has('archive') ? 'is-invalid' : '' }}" id="archive"
+                    style="z-index: 2 !important">
+                  <label class="custom-file-label text-left mb-0" for="archive" data-browse="&#128269">Arquivo</label>
 
-              <div class="d-flex justify-content-center flex-row h-100 w-100 border rounded p-3">
-                <input type="file" name="archive" class="{{ $errors->has('archive') ? 'is-invalid' : '' }}"
-                  id="archive">
-
-                <div class="invalid-feedback">
-                  @foreach ($errors->get('archive') as $error)
-                  {{ $error }}
-                  @endforeach
+                  <div class="invalid-feedback">
+                    @foreach ($errors->get('archive') as $error)
+                    {{ $error }}
+                    @endforeach
+                  </div>
                 </div>
               </div>
+
+
             </div>
 
             <div class="form-group">

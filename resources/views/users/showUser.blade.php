@@ -15,7 +15,7 @@
     <div class="list-group-item">
       <div class="d-flex">
         <div class="mr-auto p-2">
-          <p class="titulo"><i class="fas fa-user-circle m-2"></i> <b>Usuário:</b> {{ $user_checking->name }}</p>
+          <p class="titulo"><i class="fas fa-user-circle m-2"></i>Usuário: {{ $user_checking->name }}</p>
         </div>
 
         @role('gestor')
@@ -62,7 +62,7 @@
       <hr color="gray">
 
       <dl class="row">
-        <dt class="col-sm-3 text-left"><i class="fas fa-angle-right"></i> ID
+        <dt class="col-sm-1 text-left"><i class="fas fa-angle-right"></i> ID
           <hr color="gray">
         </dt>
         <dd class="col-sm-9 text-left">{{ $user_checking->id }}

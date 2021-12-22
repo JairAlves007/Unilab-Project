@@ -134,3 +134,17 @@
     width: 50%;
   }
 }
+
+.icon::after {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+.search-icon::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f002";
+}

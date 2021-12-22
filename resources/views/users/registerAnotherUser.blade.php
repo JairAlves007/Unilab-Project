@@ -179,11 +179,6 @@
                   Membro da Comissão (CAPP)
                 </label>
               </div>
-
-
-
-
-
               <div class="invalid-feedback">
                 @foreach ($errors->get('niveis') as $error)
                 {{ $error }}
@@ -195,10 +190,7 @@
                 <p class="text-danger small mb-0">Marque Um Nível De Acesso</p>
               </div>
               @endif
-
             </div>
-
-
           </div>
         </div>
 
