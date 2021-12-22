@@ -46,13 +46,13 @@
                   <input type="file" name="archive"
                     class="custom-file-input {{ $errors->has('archive') ? 'is-invalid' : '' }}" id="archive"
                     style="z-index: 2 !important">
-                  <label class="custom-file-label text-left mb-0" for="archive" data-browse="&#128269">Arquivo</label>
-
-                  <div class="invalid-feedback">
-                    @foreach ($errors->get('archive') as $error)
-                    {{ $error }}
-                    @endforeach
-                  </div>
+                  <label class="custom-file-label text-left mb-0" for="archive" data-browse="&#128269">
+                    <div class="text-danger">
+                      @foreach ($errors->get('archive') as $error)
+                      {{ $error }}
+                      @endforeach
+                    </div>
+                  </label>
                 </div>
               </div>
 
