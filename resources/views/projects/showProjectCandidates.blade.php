@@ -38,7 +38,9 @@
             <tr>
               <td>{{ $project->id }}</td>
               <td>{{ $project->title }}</td>
-              <td>{{ $project->edict->edict_title }}</td>
+              <td>
+                {{-- {{ $project->edict->edict_title }} --}}
+              </td>
               <td>{{ $project->code }}</td>
               <td class="text-center">
                 <a href="{{ route('projects.candidates', $project) }}" class="btn btn-outline-info btn-sm">

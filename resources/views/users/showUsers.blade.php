@@ -20,14 +20,25 @@
 
       @include('hintMessages')
 
+      @if ($user->hasRole(['super-admin', 'gestor']))
+      @can('create-user')
+      <div class="d-flex w-100 justify-content-end
+      mx-0 my-2 {{ Request::route()->getName() === 'users.create' ? 'active' : '' }}">
+        <a href="{{ route('users.create') }}" class="btn btn-outline-success">
+          Inserir Usuários
+        </a>
+      </div>
+      @endcan
+      @endif
+
       <div class="table-responsive">
         <table class="table table-striped table-hover table-bordered">
           <thead>
             <tr>
               <th>ID</th>
               <th>Nome</th>
-              <th class="d-none d-sm-table-cell">E-mail</th>
-              <th class="d-none d-lg-table-cell">Data do Cadastro</th>
+              <th>E-mail</th>
+              <th>Cadastro</th>
               <th class="text-center">Ações</th>
             </tr>
           </thead>
@@ -37,59 +48,27 @@
             <tr>
               <th>{{ $user_checking->id }}</th>
               <td>{{ $user_checking->name }}</td>
-              <td class="d-none d-sm-table-cell">{{ $user_checking->email }}</td>
-              <td class="d-none d-lg-table-cell">{{ $user_checking->created_at }}</td>
+              <td>{{ $user_checking->email }}</td>
+              <td class="text-nowrap">{{ $user_checking->created_at }}</td>
               <td class="text-center">
-                <span class="d-none d-md-block">
-                  @if (Route::currentRouteName() == 'users.view')
-                  <a href="{{ route('users.showUser', $user_checking) }}"
-                    class="btn btn-outline-info btn-sm">Visualizar</a>
-
-                  @elseif(Route::currentRouteName() == 'users.edit')
-
-                  @if ($user_checking->id !== $user->id)
-                  <a href="{{ route('users.editAnUser', $user_checking) }}"
-                    class="btn btn-outline-warning btn-sm">Editar</a>
-                  @else
-                  <a href="{{ route('profile.edit', $user) }}" class="btn btn-outline-warning btn-sm">Editar</a>
-                  @endif
-
-                  @elseif(Route::currentRouteName() == 'users.delete')
-
-                  <a href="{{ route('users.destroy', $user_checking) }}" class="btn btn-outline-danger btn-sm"
-                    onclick="return confirm('Você Realmente Deseja Excluir Este Usuário?');">
-
-                    Apagar
-
-                  </a>
-
-                  @endif
-
-                </span>
-                <div class="dropdown d-block d-md-none">
-                  <button class="btn btn-primary dropdown-toggle btn-sm" type="button" id="acoesListar"
+                <div class="dropdown d-block">
+                  <button class="btn btn-primary dropdown-toggle btn-sm w-100" type="button" id="acoesListar"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Ações
+                    Opções
                   </button>
-                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="acoesListar">
-                    @if (Route::currentRouteName() == 'users.view')
-                    <a href="{{ route('users.showUser', $user_checking) }}" class=" dropdown-item">Visualizar</a>
-
-                    @elseif(Route::currentRouteName() == 'users.edit')
-
+                  <div class="dropdown-menu dropdown-menu-right custom-overflow" aria-labelledby="acoesListar"
+                    style="max-height: 90px;">
+                    <a href="{{ route('users.showUser', $user_checking) }}"
+                      class=" dropdown-item text-info">Visualizar</a>
                     @if ($user_checking->id !== $user->id)
-                    <a href="{{ route('users.editAnUser', $user_checking) }}" class="dropdown-item">Editar</a>
-                    @else
-                    <a href="{{ route('profile.edit', $user) }}" class="dropdown-item">Editar</a>
-                    @endif
-                    @elseif(Route::currentRouteName() == 'users.delete')
-                    <a href="{{ route('users.destroy', $user_checking) }}" class="dropdown-item">Apagar</a>
-                    @endif
+                    <a href="{{ route('users.editAnUser', $user_checking) }}"
+                      class="dropdown-item text-warning">Editar</a>
+                    <a href="{{ route('users.destroy', $user_checking) }}" class="dropdown-item text-danger">Apagar</a>
                   </div>
                 </div>
               </td>
             </tr>
-
+            @endif
             @endforeach
           </tbody>
         </table>
