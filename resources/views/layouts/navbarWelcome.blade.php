@@ -18,7 +18,7 @@
       </li> --}}
 
       <li class="nav-item">
-        <a class="nav-link" href="#">Sobre</a>
+        <a class="nav-link" href="/projects/sobre">SOBRE</a>
       </li>
 
       <li class="nav-item" id="menu">

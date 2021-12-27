@@ -247,4 +247,10 @@ class ProjectsController extends Controller
     
 }
     }
+
+    public function sobre(){
+        {
+            return view('projects.sobre');
+        }
+    }
 }
