@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitedf5ec90f8b977e13f21174974f7d780
+class ComposerStaticInit0304dc8040fca9e3bc70a7b678ce3315
 {
     public static $files = array (
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
@@ -2162,6 +2162,7 @@ class ComposerStaticInitedf5ec90f8b977e13f21174974f7d780
         'Illuminate\\Database\\Eloquent\\Casts\\AsEncryptedArrayObject' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Eloquent/Casts/AsEncryptedArrayObject.php',
         'Illuminate\\Database\\Eloquent\\Casts\\AsEncryptedCollection' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Eloquent/Casts/AsEncryptedCollection.php',
         'Illuminate\\Database\\Eloquent\\Casts\\AsStringable' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Eloquent/Casts/AsStringable.php',
+        'Illuminate\\Database\\Eloquent\\Casts\\Attribute' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Eloquent/Casts/Attribute.php',
         'Illuminate\\Database\\Eloquent\\Collection' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Eloquent/Collection.php',
         'Illuminate\\Database\\Eloquent\\Concerns\\GuardsAttributes' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/GuardsAttributes.php',
         'Illuminate\\Database\\Eloquent\\Concerns\\HasAttributes' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasAttributes.php',
@@ -6063,10 +6064,10 @@ class ComposerStaticInitedf5ec90f8b977e13f21174974f7d780
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitedf5ec90f8b977e13f21174974f7d780::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitedf5ec90f8b977e13f21174974f7d780::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitedf5ec90f8b977e13f21174974f7d780::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitedf5ec90f8b977e13f21174974f7d780::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit0304dc8040fca9e3bc70a7b678ce3315::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit0304dc8040fca9e3bc70a7b678ce3315::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit0304dc8040fca9e3bc70a7b678ce3315::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit0304dc8040fca9e3bc70a7b678ce3315::$classMap;
 
         }, null, ClassLoader::class);
     }

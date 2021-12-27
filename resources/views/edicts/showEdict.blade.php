@@ -55,8 +55,8 @@
             <div class="d-flex justify-content-end">
               <div class="m-1">
                 <a href="/storage/{{ $edict->archive }}" class="btn btn-primary" id="event-submit"
-                  onclick="event.preventDefault(); this.closest('form').submit();">
-                  Baixar PDF
+                 target="_blank">
+                  Ver PDF
                 </a>
               </div>
               @if (Request::route()->getName() === 'edicts.showDashboard' && $user->can('rate-edict'))
@@ -93,6 +93,7 @@
               <th scope="col">Grande Área</th>
               <th scope="col">Área</th>
               <th scope="col">Sub-Área</th>
+              <th scope="col">PDF</th>
 
               @if ($user && $user->hasRole('bolsista') && $user->can_access)
               <th scope="col">Ações</th>
@@ -110,6 +111,12 @@
               <td>{{ $project->big_area->name }}</td>
               <td>{{ $project->area->name }}</td>
               <td>{{ $project->sub_area->name }}</td>
+              <td>
+                <a href="/storage/{{ $project->archive }}" class="btn btn-primary" id="event-submit"
+                  target="_blank">
+                   Ver PDF
+                 </a>
+              </td>
 
               @if ($user && $user->hasRole('bolsista') && $user->can_access)
 
