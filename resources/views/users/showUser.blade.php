@@ -1,5 +1,9 @@
 @extends('layouts.main')
 
+<head>
+  <link rel="icon" href="/imagem/unilabsimbolo.png">
+</head>
+
 @section('title', 'Mostrar Usuário')
 
 @include('layouts.navbar')
@@ -14,8 +18,10 @@
   <div class="content p-1">
     <div class="list-group-item">
       <div class="d-flex">
-        <div class="mr-auto p-2">
-          <p class="titulo"><i class="fas fa-user-circle m-2"></i>Usuário: {{ $user_checking->name }}</p>
+        <div class="mr-auto">
+          <h2 class="titulo">
+            <i class="fas fa-user-circle m-1"></i>Usuário: {{ $user_checking->name }}
+          </h2>
         </div>
 
         @role('gestor')
@@ -59,32 +65,32 @@
         @endrole
       </div>
 
-      <hr color="gray">
+      <hr color="lightgray">
 
       <dl class="row">
-        <dt class="col-sm-1 text-left"><i class="fas fa-angle-right"></i> ID
-          <hr color="gray">
+        <dt class="col-sm-3 text-left"><i class="fas fa-angle-right"></i> ID
+          <hr color="lightgray">
         </dt>
         <dd class="col-sm-9 text-left">{{ $user_checking->id }}
-          <hr color="gray">
+          <hr color="lightgray">
         </dd>
 
         <dt class="col-sm-3 text-left"><i class="fas fa-angle-right"></i> Nome
-          <hr color="gray">
+          <hr color="lightgray">
         </dt>
         <dd class="col-sm-9 text-left">{{ $user_checking->name }}
-          <hr color="gray">
+          <hr color="lightgray">
         </dd>
 
         <dt class="col-sm-3 text-left"><i class="fas fa-angle-right"></i> E-mail
-          <hr color="gray">
+          <hr color="lightgray">
         </dt>
         <dd class="col-sm-9 text-left">{{ $user_checking->email }}
-          <hr color="gray">
+          <hr color="lightgray">
         </dd>
 
         <dt class="col-sm-3 text-left"><i class="fas fa-angle-right"></i> Nível no sistema
-          <hr color="gray">
+          <hr color="lightgray">
         </dt>
         <dd class="col-sm-9 text-left" style="text-transform: capitalize;">
           @for ($i = 0; $i < count($user_roles); $i++) @if ($i < count($user_roles) - 1) {{ $user_roles[$i]->name }},
@@ -92,14 +98,14 @@
             {{ $user_roles[$i]->name }}
             @endif
             @endfor
-            <hr color="gray">
+            <hr color="lightgray">
         </dd>
 
         <dt class="col-sm-3 text-truncate text-left"><i class="fas fa-angle-right"></i> Data do cadastro
-          <hr color="gray">
+          <hr color="lightgray">
         </dt>
         <dd class="col-sm-9 text-left">{{ $user_checking->created_at }}
-          <hr color="gray">
+          <hr color="lightgray">
         </dd>
       </dl>
     </div>

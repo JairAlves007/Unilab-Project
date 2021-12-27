@@ -13,12 +13,13 @@
       </div>
 
       <div class="row mb-3">
-        <div class="col-lg-3 col-sm-6">
-          <div class="card bg-success text-white">
+        @if ($user->hasRole(['super-admin']))
+        <div class="col-md-3">
+          <div class="card m-3 bg-success text-white">
             <div class="card-body">
-              <i class="fas fa-users fa-3x"></i>
+              <i class="fas fa-users fa-3x mb-2"></i>
               <h6 class="card-title">
-                Usuários
+                Usuários Atuais
               </h6>
               <h2 class="lead">
                 {{ $count_users }}
@@ -26,21 +27,37 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-3 col-sm-6">
-          <div class="card bg-danger text-white">
+        <div class="col-md-3">
+          <div class="card m-3 bg-primary text-white">
             <div class="card-body">
-              <i class="fas fa-file fa-3x"></i>
+              <i class="fas fa-copy fa-3x mb-2"></i>
               <h6 class="card-title">
-                Projetos
+                Editais Existentes
               </h6>
-              <h2 class="lead">0</h2>
+              <h2 class="lead">
+                {{ $count_all_edicts }}
+              </h2>
             </div>
           </div>
         </div>
-        <div class="col-lg-3 col-sm-6">
-          <div class="card bg-warning text-white">
+        @endif
+        <div class="col-md-3">
+          <div class="card m-3 bg-danger text-white">
             <div class="card-body">
-              <i class="fas fa-eye fa-3x"></i>
+              <i class="fas fa-file fa-3x mb-2"></i>
+              <h6 class="card-title">
+                Meus Editais
+              </h6>
+              <h2 class="lead">
+                {{ $count_edicts }}
+              </h2>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card m-3 bg-warning text-white">
+            <div class="card-body">
+              <i class="fas fa-eye fa-3x mb-2"></i>
               <h6 class="card-title">
                 Relatórios
               </h6>
@@ -48,10 +65,10 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-3 col-sm-6">
-          <div class="card bg-info text-white">
+        <div class="col-md-3">
+          <div class="card m-3 bg-info text-white">
             <div class="card-body">
-              <i class="fas fa-comments fa-3x"></i>
+              <i class="fas fa-comments fa-3x mb-2"></i>
               <h6 class="card-title">
                 Avaliações
               </h6>

@@ -61,3 +61,6 @@ Route::group(['middleware' => ['role:bolsista']], function () {
       ->middleware('auth')
       ->name('projects.frequency');
 });
+   Route::get('/projects/sobre', [ProjectsController::class, 'sobre'])
+    ->middleware('auth')
+    ->name('projects.sobre');
