@@ -385,22 +385,6 @@ button a {
   border-bottom-left-radius: 0px;
 }
 
-@media only screen and (max-width: 600px) {
-  .rodape {
-    height: 120px;
-    gap: 0;
-  }
-
-  .footer-icons {
-    margin-bottom: 10%;
-  }
-
-  .titulo-rodape {
-    margin-top: 10px;
-    text-align: center;
-  }
-}
-
 .table-width-controller {
   margin: auto 2% auto;
 }

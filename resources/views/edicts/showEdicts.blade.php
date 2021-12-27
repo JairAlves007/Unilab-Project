@@ -48,7 +48,8 @@
 
           <tbody>
             @foreach ($edicts as $edict)
-            @if($user->hasRole('bolsista') || $user->id === $edict->users_id)
+
+            @if($user->hasRole('super-admin', 'orientador', 'membro') || $user->id === $edict->users_id)
             <tr>
               <th>{{ $edict->id }}</th>
               <td>{{ $edict->edict_title }}</td>
@@ -89,6 +90,20 @@
 
                   </div>
                 </div>
+              </td>
+            </tr>
+
+            @elseif($user->hasRole('bolsista') || $user->id === $edict->users_id)
+            <tr>
+              <th>{{ $edict->id }}</th>
+              <td>{{ $edict->edict_title }}</td>
+              <td>{{ $edict->code }}</td>
+              <td>{{ $edict->edict_year }}</td>
+              <td>{{ count($edict->projects) }}</td>
+              <td class="text-center">
+
+                <a href="{{ route('edicts.showDashboard', $edict) }}" class="btn btn-outline-info btn-sm w-100"
+                  role="button" aria-pressed="true">Visualizar</a>
               </td>
             </tr>
             @endif
