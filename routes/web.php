@@ -14,6 +14,9 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
    ->name('dashboard')
    ->middleware('auth');
 
+Route::get('/sobre', [ProjectsController::class, 'sobre'])
+   ->name('sobre');
+
 // Route::get('/edict/{id}', [EdictsController::class, 'show']);
 // Route::get('/titulation/{id}', [MinTitulationsController::class, 'show']);
 // Route::get('/category/{id}', [CategoriesController::class, 'show']);

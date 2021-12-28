@@ -43,10 +43,12 @@
                   <span class="input-group-text" id="inputGroupFileAddon01">Arquivo do Edital</span>
                 </div>
                 <div class="custom-file">
-                  <input type="file" name="archive"
+                  
+                  <input id="input-file" type="file" name="archive"
                     class="custom-file-input {{ $errors->has('archive') ? 'is-invalid' : '' }}" id="archive"
                     style="z-index: 2 !important">
-                  <label class="custom-file-label text-left mb-0" for="archive" data-browse="&#128269">
+                  <label id="file-name" class="custom-file-label text-left mb-0" for="archive" data-browse="&#128269">
+                    Selecione um arquivo...
                     <div class="text-danger">
                       @foreach ($errors->get('archive') as $error)
                       {{ $error }}
@@ -232,5 +234,23 @@
   </div>
 
 </div>
+
+@endsection
+
+@section("script")
+
+ <script>
+
+  $('#input-file').change(()=>{
+    var label = document.getElementById("file-name");
+    var input = document.getElementById("input-file");
+
+    if(input.files.length > 0){
+      label.innerHTML = input.files[0].name;
+    }
+  });
+  
+
+ </script>
 
 @endsection

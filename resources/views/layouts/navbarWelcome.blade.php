@@ -18,7 +18,7 @@
       </li> --}}
 
       <li class="nav-item">
-        <a class="nav-link" href="/projects/sobre">SOBRE</a>
+        <a class="nav-link" href="{{ route('sobre') }}">SOBRE</a>
       </li>
 
       <li class="nav-item" id="menu">

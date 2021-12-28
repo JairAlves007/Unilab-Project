@@ -39,7 +39,7 @@
               <td>{{ $project->id }}</td>
               <td>{{ $project->title }}</td>
               <td>
-                {{-- {{ $project->edict->edict_title }} --}}
+                {{ $project->edict->edict_title }}
               </td>
               <td>{{ $project->code }}</td>
               <td class="text-center">

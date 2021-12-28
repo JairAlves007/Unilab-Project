@@ -75,10 +75,13 @@
         <li class="{{ Request::route()->getName() === 'edicts.showAll' ? 'active' : '' }}">
           <a href="{{ route('edicts.showAll') }}" class="li-submenu">
             <i class="fas fa-copy"></i>
-            Ver Editais
+            Editais
           </a>
         </li>
         @endcan
+
+        
+
     </li>
 
     @endif
@@ -114,16 +117,17 @@
         </li>
         @endcan
 
-        @can('view-work_plans-approved')
+        @role('bolsista')
         <li>
           <a href="{{ route('projects.participating') }}" class="li-submenu">
             <i class="fas fa-check"></i>
             Planos Aprovados
           </a>
         </li>
-        @endcan
+        @endrole
 
-        @can('view-work_plans-approved')
+        
+        @can('view-work_plans-cronogram')
         <li>
           <a href="{{ route('work_plans.createTimeline') }}" class="li-submenu">
             <i class="fas fa-calendar-plus"></i>
@@ -134,10 +138,10 @@
         
         @if($user->hasrole(['bolsista']))
         <li>
-          @can('view-work_plans-approved')
+          @can('view-work_plans-frequency')
           <a href="{{ route('projects.frequency') }}" class="li-submenu">
             <i class="fas fa-edit"></i>
-            Ver Frequência
+            Fazer Frequência
           </a>
 
           @endcan

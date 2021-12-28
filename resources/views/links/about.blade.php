@@ -4,10 +4,10 @@
 
 @section('title', 'Sobre')
 
-@include('layouts.navbar')
+@include('layouts.navbarWelcome')
 
-@include('layouts.sidebar')
-
+@section("content")
+  
 <section class="sessao-conhecimentos">
   <div class="sessao-header">
     <h1>UNILAB</h1>

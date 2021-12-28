@@ -32,6 +32,8 @@ class PermissionsTableSeeder extends Seeder
             'create-work_plans',
             'view-work_plans-approved',
             'view-candidates',
+            'view-work_plans-cronogram',
+            'view-work_plans-frequency'
         ];
 
         foreach($permissions as $permission) {

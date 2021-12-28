@@ -182,6 +182,8 @@
               <td></td>
               <td></td>
               <td></td>
+              <td></td>
+
 
               @if ($user && $user->hasRole('bolsista') && $user->can_access)
 

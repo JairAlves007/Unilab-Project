@@ -32,16 +32,18 @@ class RolesHasPermissionsTableSeeder extends Seeder
                 6,
                 11,
                 12,
-                16
-                
+                19
             ], // Bolsista
 
             [
                 5,
+                6,
+                7,
                 12,
                 14,
                 15,
-                17
+                17,
+                18
             ], // Orientador
 
             [
