@@ -35,6 +35,6 @@ return array(
     '40275907c8566c390185147049ef6e5d' => $vendorDir . '/livewire/livewire/src/helpers.php',
     '6124b4c8570aa390c21fafd04a26c69f' => $vendorDir . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
     'b6b991a57620e2fb6b2f66f03fe9ddc2' => $vendorDir . '/symfony/string/Resources/functions.php',
-    '377b22b161c09ed6e5152de788ca020a' => $vendorDir . '/spatie/laravel-permission/src/helpers.php',
     'ed962a97bd972bc82007176b647d4e36' => $vendorDir . '/facade/ignition/src/helpers.php',
+    '377b22b161c09ed6e5152de788ca020a' => $vendorDir . '/spatie/laravel-permission/src/helpers.php',
 );
