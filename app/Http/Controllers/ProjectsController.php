@@ -88,8 +88,8 @@ class ProjectsController extends Controller
     $project->save();
 
     return redirect()
-      ->route('projects.form-attach-project', $id)
-      ->with('msg', 'O Projeto Foi Criado Com Sucesso!');
+      ->route('edicts.showDashboard', $id)
+      ->with('msg', 'O projeto foi anexado com sucesso!');
   }
 
   /**
@@ -238,14 +238,12 @@ class ProjectsController extends Controller
   }
 
   public function frequency()
-  { {
-      return view('projects.frequency');
-    }
+  {
+    return view('projects.frequency');
   }
 
   public function sobre()
-  { {
-      return view('links.about');
-    }
+  {
+    return view('links.about');
   }
 }

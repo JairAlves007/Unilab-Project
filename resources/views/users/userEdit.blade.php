@@ -82,7 +82,7 @@
                     <x-jet-label class="input-group-text" for="name" value="{{ __('Nome') }}" />
                   </div>
 
-                  <x-jet-input id="name" placeholder="{{ $user_checking->name }}"
+                  <x-jet-input id="name" value="{{ $user_checking->name }}"
                     class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name"
                     autofocus autocomplete="name" />
 
@@ -105,7 +105,7 @@
                   <div class="input-group-prepend">
                     <x-jet-label class="input-group-text mb-0" for="email" value="{{ __('Email') }}" />
                   </div>
-                  <x-jet-input id="email" placeholder="{{ $user_checking->email }}"
+                  <x-jet-input id="email" value="{{ $user_checking->email }}"
                     class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" type="email" name="email" />
                   <div class="invalid-feedback">
                     @foreach ($errors->get('email') as $error)

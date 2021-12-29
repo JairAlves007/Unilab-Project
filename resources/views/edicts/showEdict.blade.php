@@ -19,9 +19,12 @@
 
   @include('layouts.sidebar')
 
+  
   <div class="content bg-white m-1" id="content-p-1">
-
+    
     @endif
+
+    @include('hintMessages')
 
     <div class="bg-white border rounded" id="edicts-container">
       <div class="container">
@@ -54,10 +57,14 @@
           <div class="col">
             <div class="d-flex justify-content-end">
               <div class="m-1">
-                <a href="/storage/{{ $edict->archive }}" class="btn btn-primary" id="event-submit"
-                 target="_blank">
-                  Ver PDF
+
+                <a href={{ $user ? "/storage/{$edict->archive}" : "/login" }}
+                  class="btn btn-info" id="event-submit"
+                  target={{ $user ? "_blank" : "_self" }}
+                >
+                  Visualizar
                 </a>
+
               </div>
               @if (Request::route()->getName() === 'edicts.showDashboard' && $user->can('rate-edict'))
               <div class="m-1">
@@ -112,11 +119,15 @@
               <td>{{ $project->area->name }}</td>
               <td>{{ $project->sub_area->name }}</td>
               <td>
-                <a href="/storage/{{ $project->archive }}" class="btn btn-primary" id="event-submit"
-                  target="_blank">
-                   Ver PDF
-                 </a>
+                <a href=
+                  {{ $user ? "/storage/{$project->archive}" : "/login" }}
+                  class="btn btn-info" id="event-submit"
+                  target={{ $user ? "_blank" : "_self" }}
+                >
+                  Visualizar
+                </a>
               </td>
+
 
               @if ($user && $user->hasRole('bolsista') && $user->can_access)
 
@@ -159,11 +170,11 @@
                   <form action="{{ route('projects.join', [$edict->id, $project->id]) }}" method="POST">
                     @csrf
 
-                    <a href="{{ route('projects.join', [$edict->id, $project->id]) }}" class="btn btn-outline-primary"
+                    <a href="{{ route('projects.join', [$edict->id, $project->id]) }}" class="btn btn-primary"
                       onclick="
-                                          event.preventDefault();
-                                          this.closest('form').submit();
-                                       ">
+                        event.preventDefault();
+                        this.closest('form').submit();
+                      ">
 
                       Candidatar
 
@@ -210,7 +221,8 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Avaliar O Edital "{{ $edict->title }}"</h5>
+        
+        <h5 class="modal-title">Avaliar O Edital "{{ $edict->edict_title }}"</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -275,7 +287,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="submit" form="form-rate" class="btn btn-primary">Avalie</button>
+        <button type="submit" form="form-rate" class="btn btn-info">Avalie</button>
       </div>
     </div>
   </div>

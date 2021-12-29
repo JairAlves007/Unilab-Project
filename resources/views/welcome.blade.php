@@ -40,12 +40,7 @@
       <h6 class="card-subtitle mb-2 text-muted">Submetido:
         {{ date('d-m-Y', strtotime($edict->submission_start)) }}</h6>
       <p class="card-text">{{ $edict->description }}</p>
-      @auth
       <a href="{{ route('edicts.showHome', $edict) }}" class="btn btn-info">Ver Mais</a>
-      @endauth
-      @guest
-      <a href="/login" class="btn btn-info">Ver Mais</a>
-      @endguest
     </div>
   </div>
   @endforeach
