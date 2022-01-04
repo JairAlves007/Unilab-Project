@@ -33,6 +33,10 @@ class EdictsController extends Controller
 
         $edicts = Edicts::where([
             ['edict_title', 'like', "%{$request->search}%"]
+        ])->orWhere([
+            ['description', 'like', "%{$request->search}%"]
+        ])->orWhere([
+            ['submission_start', 'like', "%{$request->search}%"]
         ])->paginate(6);
 
         return view('welcome', ["filters" => $filters, "edicts" => $edicts, "search" => $search]);

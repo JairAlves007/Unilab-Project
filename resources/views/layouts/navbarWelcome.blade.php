@@ -17,9 +17,9 @@
         <a class="nav-link" href="#">Projetos</a>
       </li> --}}
 
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link" href="{{ route('sobre') }}">SOBRE</a>
-      </li>
+      </li> --}}
 
       <li class="nav-item" id="menu">
 
