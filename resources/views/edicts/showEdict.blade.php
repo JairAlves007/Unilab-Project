@@ -39,17 +39,17 @@
         <div class="row text-left small">
           <div class="col">
             <div class="edicts-content">
-              <p>Titulação mínima: <i>{{ $edict->titulations->titulation }}</i></p>
-              <p>Categoria: <i>{{ $edict->categories->name }}</i></p>
-              <p>Duração: <i>{{ date('d-m-Y', strtotime($edict->submission_start)) }}</i> até
-                <i>{{ date('d-m-Y', strtotime($edict->submission_finish)) }}</i>
+              <p>Titulação mínima:{{ $edict->titulations->titulation }}</p>
+              <p>Categoria:{{ $edict->categories->name }}</p>
+              <p>Duração:{{ date('d-m-Y', strtotime($edict->submission_start)) }} até
+              {{ date('d-m-Y', strtotime($edict->submission_finish)) }}
               </p>
             </div>
           </div>
           <div class="col">
             <div class="edicts-description">
-              <p>Descrição: <i>{{ $edict->description }}</i></p>
-              <p>Autor: <i>{{ $edict->ownerEdict->name }}</i></p>
+              <p>Descrição:{!! $edict->description !!}</p>
+              <p>Autor:{{ $edict->ownerEdict->name }}</p>
             </div>
           </div>
         </div>

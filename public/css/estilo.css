@@ -9,7 +9,12 @@ body {
   min-height: 100%;
   height: 100%;
 }
+
 input:focus {
+  z-index: 1 !important;
+}
+
+textarea:focus {
   z-index: 1 !important;
 }
 

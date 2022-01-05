@@ -39,7 +39,7 @@
       <h5 class="card-title">{{ $edict->edict_title }}</h5>
       <h6 class="card-subtitle mb-2 text-muted">Submetido:
         {{ date('d-m-Y', strtotime($edict->submission_start)) }}</h6>
-      <p class="card-text">{{ $edict->description }}</p>
+      <p class="card-text">{!! $edict->description !!}</p>
       <a href="{{ route('edicts.showHome', $edict) }}" class="btn btn-info">Ver Mais</a>
     </div>
   </div>
