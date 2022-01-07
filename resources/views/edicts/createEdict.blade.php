@@ -43,17 +43,19 @@
                   <span class="input-group-text" id="inputGroupFileAddon01">Arquivo do Edital</span>
                 </div>
                 <div class="custom-file">
-                  
+
                   <input id="input-file" type="file" name="archive"
                     class="custom-file-input {{ $errors->has('archive') ? 'is-invalid' : '' }}" id="archive"
                     style="z-index: 2 !important">
                   <label id="file-name" class="custom-file-label text-left mb-0" for="archive" data-browse="&#128269">
-                    Selecione um arquivo...
+
                     <div class="text-danger">
                       @foreach ($errors->get('archive') as $error)
                       {{ $error }}
                       @endforeach
                     </div>
+                    Selecione um arquivo
+
                   </label>
                 </div>
               </div>
@@ -64,7 +66,7 @@
             <div class="form-group">
 
               <label class="input-group-text mb-0" for="description">Descrição do Edital</label>
-              
+
               <textarea class="{{ $errors->has('description') ? 'is-invalid' : '' }}" name="description"
                 id="description" rows="5"></textarea>
 
@@ -228,7 +230,10 @@
           </div>
         </div>
 
-        <button type="submit" class="btn btn-success">Criar Edital</button>
+        <button type="submit" class="btn btn-success">
+          <i class="fas fa-file-medical"></i>
+          Criar Edital
+        </button>
       </form>
     </div>
   </div>
@@ -238,7 +243,7 @@
 @endsection
 
 @section("script")
- <script>
+<script>
   $('#input-file').change(()=>{
     var label = document.getElementById("file-name");
     var input = document.getElementById("input-file");
@@ -247,9 +252,9 @@
       label.innerHTML = input.files[0].name;
     }
   });
- </script>
+</script>
 
- 
+
 <script>
   tinymce.init({
     selector: 'textarea',

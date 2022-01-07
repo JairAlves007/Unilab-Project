@@ -52,7 +52,7 @@ class FormCreateEdictRequest extends FormRequest
       'description.required' => 'Digite uma Descrição',
       'archive.required' => 'Anexe um Arquivo',
       'archive.file' => 'Anexe um Arquivo',
-      'archive.mimes' => 'Apenas arquivos PDF, DOCX, DOC e ODT',
+      'archive.mimes' => 'Apenas PDFs',
       'min_titulations_id.required' => 'Insira a Titulação Mínima',
       'categories_id.required' => 'Insira uma Categoria',
       'submission_start.required' => 'Informe uma data de Início de Submissão',

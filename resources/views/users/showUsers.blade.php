@@ -25,6 +25,7 @@
       <div class="d-flex w-100 justify-content-end
       mx-0 my-2 {{ Request::route()->getName() === 'users.create' ? 'active' : '' }}">
         <a href="{{ route('users.create') }}" class="btn btn-outline-success">
+          <i class="fas fa-user-plus"></i>
           Inserir Usuários
         </a>
       </div>
@@ -58,12 +59,19 @@
                   </button>
                   <div class="dropdown-menu dropdown-menu-right custom-overflow" aria-labelledby="acoesListar"
                     style="max-height: 90px;">
-                    <a href="{{ route('users.showUser', $user_checking) }}"
-                      class=" dropdown-item text-info">Visualizar</a>
+                    <a href="{{ route('users.showUser', $user_checking) }}" class=" dropdown-item text-info">
+                      <i class="fas fa-user"></i>
+                      Visualizar
+                    </a>
                     @if ($user_checking->id !== $user->id)
-                    <a href="{{ route('users.editAnUser', $user_checking) }}"
-                      class="dropdown-item text-warning">Editar</a>
-                    <a href="{{ route('users.destroy', $user_checking) }}" class="dropdown-item text-danger">Apagar</a>
+                    <a href="{{ route('users.editAnUser', $user_checking) }}" class="dropdown-item text-warning">
+                      <i class="fas fa-user-edit"></i>
+                      Editar
+                    </a>
+                    <a href="{{ route('users.destroy', $user_checking) }}" class="dropdown-item text-danger">
+                      <i class="fas fa-user-times"></i>
+                      Apagar
+                    </a>
                   </div>
                 </div>
               </td>

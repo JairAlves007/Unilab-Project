@@ -1,7 +1,7 @@
 <nav class="sidebar toggled">
   <ul class="list-unstyled">
 
-    <li class="{{ Request::route()->getName() === 'dashboard' ? 'active' : '' }}">
+    <li class="text-left {{ Request::route()->getName() === 'dashboard' ? 'active' : '' }}">
       <a href="/dashboard">
         <i class="fa fa-folder-open" aria-hidden="true"></i>
         Dashboard
@@ -57,30 +57,30 @@
     @else
 
     @if ($user->hasRole(['super-admin', 'gestor']))
-      <li class="menu-click">
-        @can('view-user')
-        <li class="{{ Request::route()->getName() === 'users.view' ? 'active' : '' }}">
-          <a href="{{ route('users.view') }}" class="li-submenu">
-            <i class="fas fa-users"></i>
-            Ver Usuários
-          </a>
-        </li>
-        @endcan
-      </li>    
+    <li class="menu-click">
+      @can('view-user')
+    <li class="{{ Request::route()->getName() === 'users.view' ? 'active' : '' }}">
+      <a href="{{ route('users.view') }}" class="li-submenu">
+        <i class="fas fa-users"></i>
+        Ver Usuários
+      </a>
+    </li>
+    @endcan
+    </li>
     @endif
 
     @if ($user->hasRole(['super-admin', 'orientador', 'membro', 'bolsista']))
-      <li class="menu-click">
-        @can('view-edict')
-        <li class="{{ Request::route()->getName() === 'edicts.showAll' ? 'active' : '' }}">
-          <a href="{{ route('edicts.showAll') }}" class="li-submenu">
-            <i class="fas fa-copy"></i>
-            Editais
-          </a>
-        </li>
-        @endcan
+    <li class="menu-click">
+      @can('view-edict')
+    <li class="{{ Request::route()->getName() === 'edicts.showAll' ? 'active' : '' }}">
+      <a href="{{ route('edicts.showAll') }}" class="li-submenu">
+        <i class="fas fa-copy"></i>
+        Editais
+      </a>
+    </li>
+    @endcan
 
-        
+
 
     </li>
 
@@ -88,14 +88,9 @@
 
     @if ($user->hasRole(['super-admin', 'orientador', 'bolsista']))
     <li class="menu-click">
-      <a href="#submenu4" data-toggle="collapse" class="collapsed">
+      <a href="#submenu4" data-toggle="collapse" class="collapsed dropdown-toggle">
         <i class="fas fa-project-diagram"></i>
-
         Projetos
-
-        <div class="icon-rotate icon-space">
-          <i class="fas fa-angle-down"></i>
-        </div>
       </a>
 
       <ul id="submenu4" class="list-unstyled collapse">
@@ -126,7 +121,7 @@
         </li>
         @endrole
 
-        
+
         @can('view-work_plans-cronogram')
         <li>
           <a href="{{ route('work_plans.createTimeline') }}" class="li-submenu">
@@ -135,7 +130,7 @@
           </a>
         </li>
         @endcan
-        
+
         @if($user->hasrole(['bolsista']))
         <li>
           @can('view-work_plans-frequency')

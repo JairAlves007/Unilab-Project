@@ -25,13 +25,12 @@
       <div class="d-flex w-100 justify-content-end
         mx-0 my-2 {{ Request::route()->getName() === 'edicts.create' ? 'active' : '' }}">
         <a href="{{ route('edicts.create') }}" class="btn btn-outline-success">
+          <i class="fas fa-file-medical"></i>
           Inserir Edital
         </a>
       </div>
       @endcan
       @endif
-
-
 
       <div class="table-responsive">
         <table class="table table-striped table-hover table-bordered h-100">
@@ -67,23 +66,28 @@
 
                     <a href="{{ route('edicts.showDashboard', $edict) }}" class="dropdown-item text-info">
 
+                      <i class="fas fa-file-alt"></i>
                       Visualizar
 
                     </a>
 
                     <a href="{{ route('projects.form-attach-project', $edict) }}" class="dropdown-item text-success">
 
+                      <i class="fas fa-file-upload"></i>
                       Anexar Projeto
 
                     </a>
 
                     <a href="{{ route('edicts.formUpdate', $edict) }}" class="dropdown-item text-warning">
+                      <i class="fas fa-file-signature"></i>
                       Editar
+
                     </a>
 
                     <a href="{{ route('edicts.destroy', $edict) }}" class="dropdown-item text-danger"
                       onclick="return confirm('Você Deseja Excluir Este Edital?');">
 
+                      <i class="fas fa-file-excel"></i>
                       Apagar
 
                     </a>

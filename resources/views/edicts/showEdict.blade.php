@@ -19,9 +19,9 @@
 
   @include('layouts.sidebar')
 
-  
+
   <div class="content bg-white m-1" id="content-p-1">
-    
+
     @endif
 
     @include('hintMessages')
@@ -39,17 +39,20 @@
         <div class="row text-left small">
           <div class="col">
             <div class="edicts-content">
-              <p>Titulação mínima:{{ $edict->titulations->titulation }}</p>
-              <p>Categoria:{{ $edict->categories->name }}</p>
-              <p>Duração:{{ date('d-m-Y', strtotime($edict->submission_start)) }} até
+              <p>Titulação Mínima: {{ $edict->titulations->titulation }}</p>
+              <p>Categoria: {{ $edict->categories->name }}</p>
+              <p>Duração: {{ date('d-m-Y', strtotime($edict->submission_start)) }} até
               {{ date('d-m-Y', strtotime($edict->submission_finish)) }}
               </p>
             </div>
           </div>
           <div class="col">
             <div class="edicts-description">
-              <p>Descrição:{!! $edict->description !!}</p>
-              <p>Autor:{{ $edict->ownerEdict->name }}</p>
+              <p>
+                Descrição:
+                {!! $edict->description !!}
+              </p>
+              <p>Autor: {{ $edict->ownerEdict->name }}</p>
             </div>
           </div>
         </div>
@@ -141,13 +144,13 @@
                 @if ($participants[$i]->participating)
 
                 <td>
-                  Aprovado!
+                  Aprovado
                 </td>
 
                 @else
 
                 <td>
-                  Aguardando Aprovação...
+                  Aguardando aprovação
                 </td>
 
                 @endif
@@ -155,7 +158,7 @@
                 @else
 
                 <td>
-                  Você Não Pode Mais Se Candidatar
+                  Você não pode mais se candidatar
                 </td>
 
                 @endif
@@ -221,7 +224,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        
+
         <h5 class="modal-title">Avaliar O Edital "{{ $edict->edict_title }}"</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>

@@ -20,17 +20,29 @@
         <div class="p-2">
           <span class="d-none d-md-block">
             <div class="btn-group" role="group">
-              <a href="/users/view" class="btn btn-outline-info btn-sm">Ver Usuários</a>
+              <a href="/users/view" class="btn btn-outline-info btn-sm">
+                <i class="fas fa-users"></i>
+                Ver Usuários
+              </a>
 
               @if ($user_checking->id === $user->id)
-              <a href="/profile/show/{{ $user_checking->id }}" class="btn btn-outline-primary btn-sm">Visualizar</a>
+              <a href="/profile/show/{{ $user_checking->id }}" class="btn btn-outline-primary btn-sm">
+                <i class="fas fa-user"></i>
+                Visualizar
+              </a>
               @else
-              <a href="/user/show/{{ $user_checking->id }}" class="btn btn-outline-primary btn-sm">Visualizar</a>
+              <a href="/user/show/{{ $user_checking->id }}" class="btn btn-outline-primary btn-sm">
+                <i class="fas fa-user"></i>
+                Visualizar
+              </a>
               @endif
 
               @if ($user_checking->id !== $user->id)
               <a href="apagar.html" class="btn btn-outline-danger btn-sm" data-toggle="modal"
-                data-target="#apagarRegistro">Apagar</a>
+                data-target="#apagarRegistro">
+                <i class="fas fa-user-times"></i>
+                Apagar
+              </a>
               @endif
             </div>
 
@@ -251,7 +263,10 @@
           </div>
           @endif
 
-          <button type="submit" class="btn btn-success">Editar</button>
+          <button type="submit" class="btn btn-success">
+            <i class="fas fa-user-edit"></i>
+            Confirmar
+          </button>
         </div>
       </form>
     </div>

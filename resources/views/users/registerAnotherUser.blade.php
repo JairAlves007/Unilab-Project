@@ -196,7 +196,10 @@
 
         <div class="form-row">
           <div class="col">
-            <button type="submit" class="btn btn-success my-2">Cadastrar</button>
+            <button type="submit" class="btn btn-success my-2">
+              <i class="fas fa-user-plus"></i>
+              Cadastrar
+            </button>
           </div>
         </div>
       </form>
