@@ -37,7 +37,8 @@ class EdictsController extends Controller
             ['description', 'like', "%{$request->search}%"]
         ])->orWhere([
             ['submission_start', 'like', "%{$request->search}%"]
-        ])->paginate(6);
+        ])->paginate(9);
+
 
         return view('welcome', ["filters" => $filters, "edicts" => $edicts, "search" => $search]);
     }
@@ -45,7 +46,7 @@ class EdictsController extends Controller
 
     public function index()
     {
-        $edicts = Edicts::paginate(6);
+        $edicts = Edicts::paginate(9);
 
         return view('welcome', ['edicts' => $edicts]);
     }
@@ -131,7 +132,7 @@ class EdictsController extends Controller
         if(auth()->check()) {
             // $participants = DB::table('projects_user')->where('user_id', auth()->user()->id)->where('edict_id', $id)->get();
             $participants = DB::table('projects_user')->where('user_id', auth()->user()->id)->get();
-            
+
             $variables['participants'] = $participants;
         }
 

@@ -31,40 +31,38 @@
         <div class="row">
           <div class="col">
             <h2 class="display-4 titulo text-left">{{ $edict->edict_title }}</h2>
+
+            <div class="edicts-content text-left small">
+              <p>Titulação Mínima: <i>{{ $edict->titulations->titulation }}</i></p>
+              <p>Categoria: <i>{{ $edict->categories->name }}</i></p>
+              <p>Duração: <i>{{ date('d-m-Y', strtotime($edict->submission_start)) }}</i> até
+                <i>{{ date('d-m-Y', strtotime($edict->submission_finish)) }}</i>
+              </p>
+            </div>
           </div>
+        </div>
+
+        <div class="row">
           <div class="col">
             <h4 class="display-4 titulo text-left">Descrição</h4>
-          </div>
-        </div>
-        <div class="row text-left small">
-          <div class="col">
-            <div class="edicts-content">
-              <p>Titulação Mínima: {{ $edict->titulations->titulation }}</p>
-              <p>Categoria: {{ $edict->categories->name }}</p>
-              <p>Duração: {{ date('d-m-Y', strtotime($edict->submission_start)) }} até
-              {{ date('d-m-Y', strtotime($edict->submission_finish)) }}
-              </p>
-            </div>
-          </div>
-          <div class="col">
+
             <div class="edicts-description">
-              <p>
-                Descrição:
+              <div class="formater-1">
                 {!! $edict->description !!}
-              </p>
-              <p>Autor: {{ $edict->ownerEdict->name }}</p>
+              </div>
+              <p class="text-left small">Autor: <i>{{ $edict->ownerEdict->name }}</i></p>
             </div>
           </div>
         </div>
+
+
         <div class="row">
           <div class="col">
             <div class="d-flex justify-content-end">
               <div class="m-1">
 
-                <a href={{ $user ? "/storage/{$edict->archive}" : "/login" }}
-                  class="btn btn-info" id="event-submit"
-                  target={{ $user ? "_blank" : "_self" }}
-                >
+                <a href={{ $user ? "/storage/{$edict->archive}" : "/login" }} class="btn btn-info" id="event-submit"
+                  target={{ $user ? "_blank" : "_self" }}>
                   Visualizar
                 </a>
 
@@ -122,11 +120,8 @@
               <td>{{ $project->area->name }}</td>
               <td>{{ $project->sub_area->name }}</td>
               <td>
-                <a href=
-                  {{ $user ? "/storage/{$project->archive}" : "/login" }}
-                  class="btn btn-info" id="event-submit"
-                  target={{ $user ? "_blank" : "_self" }}
-                >
+                <a href={{ $user ? "/storage/{$project->archive}" : "/login" }} class="btn btn-info" id="event-submit"
+                  target={{ $user ? "_blank" : "_self" }}>
                   Visualizar
                 </a>
               </td>
@@ -173,8 +168,7 @@
                   <form action="{{ route('projects.join', [$edict->id, $project->id]) }}" method="POST">
                     @csrf
 
-                    <a href="{{ route('projects.join', [$edict->id, $project->id]) }}" class="btn btn-primary"
-                      onclick="
+                    <a href="{{ route('projects.join', [$edict->id, $project->id]) }}" class="btn btn-primary" onclick="
                         event.preventDefault();
                         this.closest('form').submit();
                       ">

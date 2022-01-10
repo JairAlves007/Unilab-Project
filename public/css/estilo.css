@@ -183,6 +183,21 @@ button a {
 }
 
 @media (max-width: 992px) {
+  #search-size-control {
+    height: calc(1.5em + 0.5rem + 2px);
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    border-radius: 0.2rem;
+  }
+
+  #search-btn-control {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    border-radius: 0.2rem;
+  }
+
   #wellcomeDropdown {
     text-align: left;
   }
@@ -362,17 +377,14 @@ button a {
   width: 100%;
 }
 
-.search-bar {
+#search-bar {
   width: 100%;
   display: flex;
-  padding: 3%;
   background-image: url("../imagem/bg-topo.png");
   background-size: cover;
   background-position: center;
   height: 400px;
-  padding: 50px;
   margin-bottom: 50px;
-  text-align: center;
 }
 
 .title {
@@ -453,4 +465,108 @@ button a {
 .custom-overflow::-webkit-scrollbar-thumb {
   background-color: #bebebe;
   border-radius: 20px;
+}
+
+.card-formater p {
+  font-size: medium !important;
+  margin-bottom: 0 !important;
+  word-wrap: break-word;
+}
+
+.card-formater h1 {
+  font-size: medium !important;
+  margin-bottom: 0 !important;
+  word-wrap: break-word;
+}
+
+.card-formater h2 {
+  font-size: medium !important;
+  margin-bottom: 0 !important;
+  word-wrap: break-word;
+}
+
+.card-formater h3 {
+  font-size: medium !important;
+  margin-bottom: 0 !important;
+  word-wrap: break-word;
+}
+
+.card-formater h4 {
+  font-size: medium !important;
+  margin-bottom: 0 !important;
+  word-wrap: break-word;
+}
+
+.card-formater h5 {
+  font-size: medium !important;
+  margin-bottom: 0 !important;
+  word-wrap: break-word;
+}
+
+.card-formater h6 {
+  font-size: medium !important;
+  margin-bottom: 0 !important;
+  word-wrap: break-word;
+}
+
+.card-formater span {
+  font-size: medium !important;
+  margin-bottom: 0 !important;
+  word-wrap: break-word;
+}
+
+.card-formater em {
+  font-size: medium !important;
+  margin-bottom: 0 !important;
+  word-wrap: break-word;
+}
+
+
+.formater-1 p {
+  word-wrap: break-word !important;
+}
+
+.formater-1 h1 {
+  word-wrap: break-word !important;
+}
+
+.formater-1 h2 {
+  word-wrap: break-word !important;
+}
+
+.formater-1 h3 {
+  word-wrap: break-word !important;
+}
+
+.formater-1 h4 {
+  word-wrap: break-word !important;
+}
+
+.formater-1 h5 {
+  word-wrap: break-word !important;
+}
+
+.formater-1 h6 {
+  word-wrap: break-word !important;
+}
+
+.formater-1 span {
+  word-wrap: break-word !important;
+}
+
+.formater-1 em {
+  word-wrap: break-word !important;
+}
+
+
+.btn-footer-hover:hover {
+  color: #aa1010;
+}
+
+.page-item.active > .page-link{
+  background-color: #17a2b8;
+}
+
+.paginate-hover:hover {
+  color: #17a2b8 !important;
 }

@@ -3,7 +3,7 @@
 
     <li class="text-left {{ Request::route()->getName() === 'dashboard' ? 'active' : '' }}">
       <a href="/dashboard">
-        <i class="fa fa-folder-open" aria-hidden="true"></i>
+        <i class="fas fa-cog"></i>
         Dashboard
       </a>
     </li>

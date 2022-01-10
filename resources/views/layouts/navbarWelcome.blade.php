@@ -72,7 +72,7 @@
         </div>
         @else
         <a class="nav-link d-flex justify-content-center align-items-center" href="/dashboard">
-          <i class="fa fa-folder-open mr-2" aria-hidden="true"></i>
+          <i class="fas fa-cog mr-1"></i>
           Dashboard
         </a>
         @endif
