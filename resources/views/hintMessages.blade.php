@@ -14,7 +14,7 @@
 
   {{ session('error_alert') }}
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true"><i class="fas fa-times small text-success"></i></span>
+    <span aria-hidden="true"><i class="fas fa-times small text-danger"></i></span>
   </button>
 </div>
 @endif

@@ -17,199 +17,195 @@ use Illuminate\Support\Facades\Route;
 class UserController extends Controller
 {
 
-   public function form_registration()
-   {
+  public function form_registration()
+  {
 
-      if (auth()->user()->can_access == 0) {
+    if (auth()->user()->can_access == 0) {
 
-         if (Route::currentRouteName() === 'users.registration.orientador') {
+      if (Route::currentRouteName() === 'users.registration.orientador') {
 
-            $institutes = Institutes::all();
+        $institutes = Institutes::all();
 
-            return view('users.formRegistration', [
-               'institutes' => $institutes
-            ]);
-         } else {
-
-            return view('users.formRegistration');
-         }
+        return view('users.formRegistration', [
+          'institutes' => $institutes
+        ]);
       } else {
 
-         return redirect()->route('dashboard');
+        return view('users.formRegistration');
       }
-   }
-
-   public function registration(Request $request)
-   {
-      $data = $request->all();
-
-      if (isset($data['institutes_id'])) {
-
-         $check_if_registration_exists = Teachers::where('registration', $data['registration'])->get();
-
-         if (count($check_if_registration_exists) > 0) {
-
-            return redirect()->back()->with('error_alert', 'Essa Matrícula Já Existe, Cadastre Outra!');
-
-         } else {
-
-            Teachers::create([
-               'registration' => $data['registration'],
-               'institutes_id' => $data['institutes_id'],
-               'users_id' => auth()->user()->id
-            ]);
-         }
-      } else {
-
-         $check_if_registration_exists = Students::where('registration', $data['registration'])->get();
-
-         if (count($check_if_registration_exists) > 0) {
-
-            return redirect()->back()->with('error_alert', 'Essa Matrícula Já Existe, Cadastre Outra!');
-
-         } else {
-
-            Students::create([
-               'registration' => $data['registration'],
-               'users_id' => auth()->user()->id
-            ]);
-         }
-      }
-
-      User::where('id', auth()->user()->id)->update([
-         'can_access' => 1
-      ]);
+    } else {
 
       return redirect()->route('dashboard');
-   }
+    }
+  }
 
-   public function create()
-   {
-      return view('users.registerAnotherUser');
-   }
+  public function registration(Request $request)
+  {
+    $data = $request->all();
 
-   public function store(FormValidationRequest $request)
-   {
+    if (isset($data['institutes_id'])) {
 
-      $request->validated();
+      $check_if_registration_exists = Teachers::where('registration', $data['registration'])->get();
 
-      $data = $request->all();
+      if (count($check_if_registration_exists) > 0) {
 
-      $checking_user_email = User::where('email', $data['email'])->get();
-
-      if (count($checking_user_email) == 0) {
-         if (
-            in_array('bolsista', $data['niveis']) &&
-            in_array('orientador', $data['niveis'])
-         ) {
-
-            return redirect()->back()->with('bolsista_and_orientador', 'Você Não Pode Ser Bolsista E Orientador Ao Mesmo Tempo');
-         
-         } else if (
-            in_array('bolsista', $data['niveis']) ||
-            in_array('orientador', $data['niveis'])
-         ) {
-
-            $can_access = 0;
-         } else {
-
-            $can_access = 1;
-         }
-
-         User::create([
-
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'can_access' => $can_access
-
-         ])->syncRoles($data['niveis']);
-      }
-
-      return redirect()->route('dashboard');
-   }
-
-   public function show($id)
-   {
-      if ($id != auth()->user()->id) {
-
-         $user_checking = User::findOrFail($id);
-
-         $user_roles = User::find($id)->roles;
-
-         return view('users.showUser', [
-            'user_checking' => $user_checking,
-            'user_roles' => $user_roles
-         ]);
+        return redirect()->back()->with('error_alert', 'Matrícula já cadastrada');
       } else {
-         return redirect()->route('dashboard');
+
+        Teachers::create([
+          'registration' => $data['registration'],
+          'institutes_id' => $data['institutes_id'],
+          'users_id' => auth()->user()->id
+        ]);
       }
-   }
+    } else {
 
-   public function showUsers()
-   {
-      $all_users = User::where('id', '<>', auth()->user()->id)->paginate(5);
+      $check_if_registration_exists = Students::where('registration', $data['registration'])->get();
 
-      return view('users.showUsers', ['all_users' => $all_users]);
-   }
+      if (count($check_if_registration_exists) > 0) {
 
-   public function edit($id)
-   {
+        return redirect()->back()->with('error_alert', 'Matrícula já cadastrada');
+      } else {
+
+        Students::create([
+          'registration' => $data['registration'],
+          'users_id' => auth()->user()->id
+        ]);
+      }
+    }
+
+    User::where('id', auth()->user()->id)->update([
+      'can_access' => 1
+    ]);
+
+    return redirect()->route('dashboard');
+  }
+
+  public function create()
+  {
+    return view('users.registerAnotherUser');
+  }
+
+  public function store(FormValidationRequest $request)
+  {
+
+    $request->validated();
+
+    $data = $request->all();
+
+    $checking_user_email = User::where('email', $data['email'])->get();
+
+    if (count($checking_user_email) == 0) {
+      if (
+        in_array('bolsista', $data['niveis']) &&
+        in_array('orientador', $data['niveis'])
+      ) {
+
+        return redirect()->back()->with('bolsista_and_orientador', 'Você não pode ser Bolsista e Orientador ao mesmo tempo');
+      } else if (
+        in_array('bolsista', $data['niveis']) ||
+        in_array('orientador', $data['niveis'])
+      ) {
+
+        $can_access = 0;
+      } else {
+
+        $can_access = 1;
+      }
+
+      User::create([
+
+        'name' => $data['name'],
+        'email' => $data['email'],
+        'password' => Hash::make($data['password']),
+        'can_access' => $can_access
+
+      ])->syncRoles($data['niveis']);
+    }
+
+    return redirect()->route('dashboard');
+  }
+
+  public function show($id)
+  {
+    if ($id != auth()->user()->id) {
+
       $user_checking = User::findOrFail($id);
 
       $user_roles = User::find($id)->roles;
 
-      return view('users.userEdit', [
-         'user_checking' => $user_checking,
-         'user_roles' => $user_roles
+      return view('users.showUser', [
+        'user_checking' => $user_checking,
+        'user_roles' => $user_roles
       ]);
-   }
+    } else {
+      return redirect()->route('dashboard');
+    }
+  }
 
-   public function update(FormValidationRequest $request)
-   {
-      $request->validated();
+  public function showUsers()
+  {
+    $all_users = User::where('id', '<>', auth()->user()->id)->paginate(5);
 
-      if ($request->password) {
+    return view('users.showUsers', ['all_users' => $all_users]);
+  }
 
-         $data = $request->except('niveis');
-         $data['password'] = Hash::make($data['password']);
-      } else {
-         $data = $request->except(['niveis', 'password']);
-      }
+  public function edit($id)
+  {
+    $user_checking = User::findOrFail($id);
 
-      User::findOrFail($request->id)
-         ->syncRoles($request['niveis'])
-         ->update($data);
+    $user_roles = User::find($id)->roles;
 
-      return redirect()
-         ->route('users.edit')
-         ->with('msg', 'Usuário Foi Atualizado Com Sucesso!');
-   }
+    return view('users.userEdit', [
+      'user_checking' => $user_checking,
+      'user_roles' => $user_roles
+    ]);
+  }
 
-   public function destroy($id)
-   {
-      $username = User::findOrFail($id)->name;
+  public function update(FormValidationRequest $request)
+  {
+    $request->validated();
 
-      $checking_if_user_is_participating_a_project = DB::table('projects_user')
-         ->where('projects_user.user_id', $id)
-         ->where('participating', 1)
-         ->get();
+    if ($request->password) {
 
-      $checking_if_user_is_owner_project = Teachers::where('users_id', $id)->get();
+      $data = $request->except('niveis');
+      $data['password'] = Hash::make($data['password']);
+    } else {
+      $data = $request->except(['niveis', 'password']);
+    }
 
-      if (count($checking_if_user_is_participating_a_project) > 0) {
+    User::findOrFail($request->id)
+      ->syncRoles($request['niveis'])
+      ->update($data);
 
-         return redirect()->back()->with('error_alert', 'Esse Usuário Está Em Um Projeto, Desvincule Ele Do Projeto E Depois O Exclua');
-      
-      } else if (count($checking_if_user_is_owner_project) > 0) {
+    return redirect()
+      ->route('users.edit')
+      ->with('msg', 'Usuário foi atualizado com sucesso');
+  }
 
-         return redirect()->back()->with('error_alert', 'Esse Usuário É Dono De Um Projeto, Desvincule Ele Do Projeto E Depois O Exclua');
-      }
+  public function destroy($id)
+  {
+    $username = User::findOrFail($id)->name;
 
-      User::findOrFail($id)->delete();
+    $checking_if_user_is_participating_a_project = DB::table('projects_user')
+      ->where('projects_user.user_id', $id)
+      ->where('participating', 1)
+      ->get();
 
-      return redirect()
-         ->route('users.delete')
-         ->with('msg', "O Usuário {$username} Foi Apagado Com Sucesso!");
-   }
+    $checking_if_user_is_owner_project = Teachers::where('users_id', $id)->get();
+
+    if (count($checking_if_user_is_participating_a_project) > 0) {
+
+      return redirect()->back()->with('error_alert', 'Esse Usuário está participando de um Projeto, desvincule-o antes de excluí-lo');
+    } else if (count($checking_if_user_is_owner_project) > 0) {
+
+      return redirect()->back()->with('error_alert', 'Esse Usuário é dono de um Projeto, desvincule-o antes de excluí-lo');
+    }
+
+    User::findOrFail($id)->delete();
+
+    return redirect()
+      ->route('users.delete')
+      ->with('msg', "Usuário {$username} foi apagado com sucesso");
+  }
 }

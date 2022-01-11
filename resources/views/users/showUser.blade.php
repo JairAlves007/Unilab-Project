@@ -56,7 +56,7 @@
               @endif
 
               @if ($user_checking->id !== $user->id)
-              <a class="dropdown-item" href="apagar.html" data-toggle="modal" data-target="#apagarRegistro">Apagar</a>
+              <a class="dropdown-item" href="apagar.html" onclick="confirm("apagar?")" data-toggle="modal" data-target="#apagarRegistro">Apagar</a>
               @endif
 
             </div>

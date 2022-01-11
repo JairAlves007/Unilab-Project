@@ -70,197 +70,203 @@
 
         <div class="form-group">
 
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <label class="input-group-text" for="references">Referências</label>
-            </div>
-            <input type="url" name="references"
-              class="form-control {{ $errors->has('references') ? 'is-invalid' : '' }}" id="references"
-              placeholder="Apenas links">
 
-            <div class="invalid-feedback">
-              @foreach ($errors->get('references') as $error)
-              {{ $error }}
-              @endforeach
-            </div>
+
+
+
+          <label class="input-group-text" for="references">Referências</label>
+          <textarea name="references" class="form-control {{ $errors->has('references') ? 'is-invalid' : '' }}"
+            id="references" rows="2"></textarea>
+
+          <div class="invalid-feedback">
+            @foreach ($errors->get('references') as $error)
+            {{ $error }}
+            @endforeach
           </div>
         </div>
-      </div>
 
-      <div class="form-content">
-        <div class="form-row">
-          <div class="col">
-            <div class="form-group">
+        <div class="form-content">
+          <div class="form-row">
+            <div class="col">
+              <div class="form-group">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupFileAddon01">Arquivo do Projeto</span>
+                  </div>
+                  <div class="custom-file">
 
-              <label class="input-group-text w-100" for="archive">Arquivo do Projeto</label>
+                    <input id="input-file" type="file" name="archive"
+                      class="custom-file-input {{ $errors->has('archive') ? 'is-invalid' : '' }}" id="archive"
+                      style="z-index: 2 !important">
+                    <label id="file-name" class="custom-file-label text-left mb-0" for="archive" data-browse="&#128269">
 
-              <div class="d-flex justify-content-center flex-row h-100 w-100 border rounded p-3">
-                <input type="file" name="archive"
-                  class="form-control-file {{ $errors->has('archive') ? 'is-invalid' : '' }}" id="archive">
+                      <div class="text-danger">
+                        @foreach ($errors->get('archive') as $error)
+                        {{ $error }}
+                        @endforeach
+                      </div>
+                      Selecione um arquivo
 
-                <div class="invalid-feedback">
-                  @foreach ($errors->get('archive') as $error)
-                  {{ $error }}
-                  @endforeach
+                    </label>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+
+          <div class="form-row">
+
+            <div class="form-group col-md-6">
+
+              <label class="input-group-text" for="institutes">Instituto</label>
+
+              <select class="form-control {{ $errors->has('institutes') ? 'is-invalid' : '' }}" name="institutes"
+                id="institutes">
+                <option value="">
+                  Selecione
+                </option>
+
+                @foreach ($institutes as $institute)
+                <option value="{{ $institute->id }}">
+                  {{ $institute->initials }} - {{ $institute->name }}
+                </option>
+                @endforeach
+              </select>
+
+              <div class="invalid-feedback">
+                @foreach ($errors->get('institutes') as $error)
+                {{ $error }}
+                @endforeach
+              </div>
+
+            </div>
+
+            <div class="form-group col-md-6">
+
+              <label class="input-group-text" for="specialities">Especialidades</label>
+
+              <select class="form-control {{ $errors->has('specialities') ? 'is-invalid' : '' }}" name="specialities"
+                id="specialities">
+                <option value="">
+                  Selecione
+                </option>
+
+                @foreach ($specialities as $specialities)
+                <option value="{{ $specialities->id }}">{{ $specialities->name }}</option>
+                @endforeach
+              </select>
+
+              <div class="invalid-feedback">
+                @foreach ($errors->get('specialities') as $error)
+                {{ $error }}
+                @endforeach
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="form-row">
+
+            <div class="form-group col-md-6">
+
+              <label class="input-group-text" for="big_areas">Grande Área</label>
+
+              <select class="form-control {{ $errors->has('big_areas') ? 'is-invalid' : '' }}"
+                onchange="changeAreas(this)" data-url="{{ url('/project/findAreas') }}" data-token="{{ csrf_token() }}"
+                name="big_areas" id="big_areas">
+                <option value="">Selecione</option>
+
+                @foreach ($big_areas as $area)
+                <option value="{{ $area->id }}">
+                  {{ $area->name }}
+                </option>
+                @endforeach
+
+              </select>
+
+              <div class="invalid-feedback">
+                @foreach ($errors->get('big_areas') as $error)
+                {{ $error }}
+                @endforeach
+              </div>
+
+            </div>
+
+            <div class="form-group col-md-6">
+
+              <label class="input-group-text" for="areas">Área</label>
+
+              <select class="form-control {{ $errors->has('areas') ? 'is-invalid' : '' }}"
+                onchange="changeSubAreas(this)" data-url="{{ url('/project/findSubAreas') }}"
+                data-token="{{ csrf_token() }}" name="areas" id="areas" disabled>
+
+                <option value="">
+                  Selecione
+                </option>
+
+              </select>
+
+              <div class="invalid-feedback">
+                @foreach ($errors->get('areas') as $error)
+                {{ $error }}
+                @endforeach
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="form-row">
+
+            <div class="form-group col-md-12">
+
+              <label class="input-group-text" for="sub_areas">Sub Área</label>
+
+              <select class="form-control {{ $errors->has('sub_areas') ? 'is-invalid' : '' }}" name="sub_areas"
+                id="sub_areas" disabled>
+                <option value="">
+                  Selecione
+                </option>
+              </select>
+
+              <div class="invalid-feedback">
+                @foreach ($errors->get('sub_areas') as $error)
+                {{ $error }}
+                @endforeach
+              </div>
+            </div>
+
+          </div>
+
+          {{-- <div class="form-row">
+            <div class="form-group col-md-12">
+
+              <label for="orientador">Orientador do Projeto</label>
+
+              <select class="form-control {{ $errors->has('teachers') ? 'is-invalid' : '' }}" name="teachers"
+                id="orientador">
+                <option value="">Selecione</option>
+
+                @foreach ($teachers_users as $teacher)
+                <option value="{{ $teacher->id }}">
+                  {{ $teacher->name }} - {{ $teacher->registration }}
+                </option>
+                @endforeach
+              </select>
+
+              <div class="invalid-feedback">
+                @foreach ($errors->get('teachers') as $error)
+                {{ $error }}
+                @endforeach
+              </div>
+            </div>
+          </div> --}}
+
         </div>
-
-        <div class="form-row">
-
-          <div class="form-group col-md-6">
-
-            <label class="input-group-text" for="institutes">Instituto</label>
-
-            <select class="form-control {{ $errors->has('institutes') ? 'is-invalid' : '' }}" name="institutes"
-              id="institutes">
-              <option value="">
-                Selecione
-              </option>
-
-              @foreach ($institutes as $institute)
-              <option value="{{ $institute->id }}">
-                {{ $institute->initials }} - {{ $institute->name }}
-              </option>
-              @endforeach
-            </select>
-
-            <div class="invalid-feedback">
-              @foreach ($errors->get('institutes') as $error)
-              {{ $error }}
-              @endforeach
-            </div>
-
-          </div>
-
-          <div class="form-group col-md-6">
-
-            <label class="input-group-text" for="specialities">Especialidades</label>
-
-            <select class="form-control {{ $errors->has('specialities') ? 'is-invalid' : '' }}" name="specialities"
-              id="specialities">
-              <option value="">
-                Selecione
-              </option>
-
-              @foreach ($specialities as $specialities)
-              <option value="{{ $specialities->id }}">{{ $specialities->name }}</option>
-              @endforeach
-            </select>
-
-            <div class="invalid-feedback">
-              @foreach ($errors->get('specialities') as $error)
-              {{ $error }}
-              @endforeach
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="form-row">
-
-          <div class="form-group col-md-6">
-
-            <label class="input-group-text" for="big_areas">Grande Área</label>
-
-            <select class="form-control {{ $errors->has('big_areas') ? 'is-invalid' : '' }}"
-              onchange="changeAreas(this)" data-url="{{ url('/project/findAreas') }}" data-token="{{ csrf_token() }}"
-              name="big_areas" id="big_areas">
-              <option value="">Selecione</option>
-
-              @foreach ($big_areas as $area)
-              <option value="{{ $area->id }}">
-                {{ $area->name }}
-              </option>
-              @endforeach
-
-            </select>
-
-            <div class="invalid-feedback">
-              @foreach ($errors->get('big_areas') as $error)
-              {{ $error }}
-              @endforeach
-            </div>
-
-          </div>
-
-          <div class="form-group col-md-6">
-
-            <label class="input-group-text" for="areas">Área</label>
-
-            <select class="form-control {{ $errors->has('areas') ? 'is-invalid' : '' }}" onchange="changeSubAreas(this)"
-              data-url="{{ url('/project/findSubAreas') }}" data-token="{{ csrf_token() }}" name="areas" id="areas"
-              disabled>
-
-              <option value="">
-                Selecione
-              </option>
-
-            </select>
-
-            <div class="invalid-feedback">
-              @foreach ($errors->get('areas') as $error)
-              {{ $error }}
-              @endforeach
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="form-row">
-
-          <div class="form-group col-md-12">
-
-            <label class="input-group-text" for="sub_areas">Sub Área</label>
-
-            <select class="form-control {{ $errors->has('sub_areas') ? 'is-invalid' : '' }}" name="sub_areas"
-              id="sub_areas" disabled>
-              <option value="">
-                Selecione
-              </option>
-            </select>
-
-            <div class="invalid-feedback">
-              @foreach ($errors->get('sub_areas') as $error)
-              {{ $error }}
-              @endforeach
-            </div>
-          </div>
-
-        </div>
-
-        {{-- <div class="form-row">
-          <div class="form-group col-md-12">
-
-            <label for="orientador">Orientador do Projeto</label>
-
-            <select class="form-control {{ $errors->has('teachers') ? 'is-invalid' : '' }}" name="teachers"
-              id="orientador">
-              <option value="">Selecione</option>
-
-              @foreach ($teachers_users as $teacher)
-              <option value="{{ $teacher->id }}">
-                {{ $teacher->name }} - {{ $teacher->registration }}
-              </option>
-              @endforeach
-            </select>
-
-            <div class="invalid-feedback">
-              @foreach ($errors->get('teachers') as $error)
-              {{ $error }}
-              @endforeach
-            </div>
-          </div>
-        </div> --}}
-
       </div>
-    </div>
 
-    <button type="submit" class="btn btn-primary">Anexar</button>
+      <button type="submit" class="btn btn-success"><i class="fas fa-file-upload" aria-hidden="true"></i> Anexar</button>
   </form>
 
 
@@ -344,6 +350,29 @@
             },
          });
       }
+</script>
+
+<script>
+  $('#input-file').change(()=>{
+    var label = document.getElementById("file-name");
+    var input = document.getElementById("input-file");
+
+    if(input.files.length > 0){
+      label.innerHTML = input.files[0].name;
+    }
+  });
+</script>
+
+
+<script>
+  tinymce.init({
+    selector: 'textarea',
+    plugins: 'a11ychecker advcode casechange export formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+    toolbar: 'a11ycheck addcomment showcomments casechange checklist code export formatpainter pageembed permanentpen table',
+    toolbar_mode: 'floating',
+    tinycomments_mode: 'embedded',
+    tinycomments_author: 'Author name',
+  });
 </script>
 @endsection
 

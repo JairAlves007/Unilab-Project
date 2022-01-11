@@ -68,7 +68,9 @@
                       <i class="fas fa-user-edit"></i>
                       Editar
                     </a>
-                    <a href="{{ route('users.destroy', $user_checking) }}" class="dropdown-item text-danger">
+                    <a href="{{ route('users.destroy', $user_checking) }}"
+                      onclick="return confirm('Você deseja realmente apagar o usuário?');"
+                      class="dropdown-item text-danger">
                       <i class="fas fa-user-times"></i>
                       Apagar
                     </a>

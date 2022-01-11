@@ -31,8 +31,8 @@
             <tr>
               <th>ID</th>
               <th>Título</th>
-              <th class="d-none d-sm-table-cell">Código</th>
-              <th class="d-none d-lg-table-cell">Edital Anexado</th>
+              <th>Código</th>
+              <th>Edital Anexado</th>
               <th class="text-center">Ações</th>
             </tr>
           </thead>
@@ -46,8 +46,8 @@
             <tr>
               <th>{{ $project->id }}</th>
               <td>{{ $project->title }}</td>
-              <td class="d-none d-sm-table-cell">{{ $project->code }}</td>
-              <td class="d-none d-lg-table-cell">
+              <td>{{ $project->code }}</td>
+              <td>
 
                 {{ isset($project->edict->edict_title) ? $project->edict->edict_title :
                 $project->edict_title }}

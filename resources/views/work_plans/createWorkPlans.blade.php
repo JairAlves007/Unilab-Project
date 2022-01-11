@@ -18,11 +18,10 @@
       enctype="multipart/form-data">
       @csrf
 
-      <div id="form-area">
+      <div id="container">
 
-        <div class="form-content">
-          <div class="form-row">
-            <div class="form-group col-md-12">
+          <div class="row">
+            <div class="col">
 
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -40,8 +39,8 @@
             </div>
           </div>
 
-          <div class="form-row">
-            <div class="form-group col-md-6">
+          <div class="row">
+            <div class="col">
 
               <label class="input-group-text" for="content">Descrição Completa</label>
 
@@ -55,8 +54,10 @@
               </div>
 
             </div>
+          </div>
+          <div class="row">
 
-            <div class="form-group col-md-6">
+            <div class="col">
 
               <label class="input-group-text" for="abstract">Descrição Resumida</label>
 
@@ -73,8 +74,8 @@
 
           </div>
 
-          <div class="form-row">
-            <div class="form-group col-md-12">
+          <div class="row">
+            <div class="col">
 
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -92,9 +93,9 @@
             </div>
           </div>
 
-          <div class="form-row">
+          <div class="row">
 
-            <div class="form-group col-md-12">
+            <div class="col">
 
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -126,11 +127,11 @@
           </div>
           <div id="res-bolsistas">
           </div>
-        </div>
+
 
       </div>
 
-      <button type="submit" class="btn btn-success">Criar</button>
+      <button type="submit" class="btn btn-success"><i class="fas fa-check"></i> Criar</button>
     </form>
   </div>
 
@@ -160,6 +161,17 @@
          $('#option-checked').prop('selected', 'true');
 
       });
+</script>
+
+<script>
+  tinymce.init({
+    selector: 'textarea',
+    plugins: 'a11ychecker advcode casechange export formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+    toolbar: 'a11ycheck addcomment showcomments casechange checklist code export formatpainter pageembed permanentpen table',
+    toolbar_mode: 'floating',
+    tinycomments_mode: 'embedded',
+    tinycomments_author: 'Author name',
+  });
 </script>
 @endsection
 

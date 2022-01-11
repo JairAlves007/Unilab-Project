@@ -41,8 +41,7 @@
         <div class="card-body">
           <div class="overflow-hidden" style="height: 121.188px">
             <h5 class="card-title">{{ $edict->edict_title }}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Submetido:
-              {{ date('d-m-Y', strtotime($edict->submission_start)) }}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">{{ date('d-m-Y', strtotime($edict->submission_start)) }}</h6>
             <div class="card-text overflow-hidden mb-auto card-formater">
               {!!$edict->description !!}</div>
           </div>
