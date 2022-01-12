@@ -5,7 +5,7 @@
 @section('content')
 
 @include("layouts.navbarWelcome")
-<section id="search-bar">
+<section class="mb-5" id="search-bar">
   <div class="centralizer flex-column mx-2 w-100 h-100">
 
     <h1 class="text-white mb-5">Sistema de Fluxo Contínuo</h1>
@@ -30,7 +30,7 @@
 @if (isset($search))
 <h1 class="title2">Buscando Por: {{ $search }}</h1>
 @else
-<h1 class="title2">Editais</h1>
+<h1 class="text-center mb-5">Editais</h1>
 @endif
 
 <div class="container">
@@ -40,16 +40,19 @@
       <div class="card mx-auto" style="width: 18rem;">
         <div class="card-body">
           <div class="overflow-hidden" style="height: 121.188px">
-            <h5 class="card-title">{{ $edict->edict_title }}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{ date('d-m-Y', strtotime($edict->submission_start)) }}</h6>
-            <div class="card-text overflow-hidden mb-auto card-formater">
+            <h5 class="card-title text-center">{{ $edict->edict_title }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted text-center">{{ date('d-m-Y', strtotime($edict->submission_start))
+              }}</h6>
+            <div class="card-text overflow-hidden mb-auto card-formater text-justify">
               {!!$edict->description !!}</div>
           </div>
           <hr class="mt-0">
-          <a href="{{ route('edicts.showHome', $edict) }}" class="btn btn-info mt-auto">
-            <i class="fas fa-eye mr-1"></i>
-            Ver Mais
-          </a>
+          <div class="text-center">
+            <a href="{{ route('edicts.showHome', $edict) }}" class="btn btn-danger">
+              <i class="fas fa-eye mr-1"></i>
+              Ver Mais
+            </a>
+          </div>
         </div>
       </div>
     </div>

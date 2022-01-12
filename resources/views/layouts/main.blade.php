@@ -22,7 +22,8 @@
 
   @yield('content')
 
-  <script src="https://cdn.tiny.cloud/1/0egjw3r1r8vuitx2k5sxjycb4fg4clxzob5ky0lhboa75w0b/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  <script src="https://cdn.tiny.cloud/1/0egjw3r1r8vuitx2k5sxjycb4fg4clxzob5ky0lhboa75w0b/tinymce/5/tinymce.min.js"
+    referrerpolicy="origin"></script>
 
   <script src="https://kit.fontawesome.com/d9cd4d1e67.js" crossorigin="anonymous"></script>
 

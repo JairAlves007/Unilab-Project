@@ -384,7 +384,6 @@ button a {
   background-size: cover;
   background-position: center;
   height: 400px;
-  margin-bottom: 50px;
 }
 
 .title {
@@ -521,7 +520,6 @@ button a {
   word-wrap: break-word;
 }
 
-
 .formater-1 p {
   word-wrap: break-word !important;
 }
@@ -558,15 +556,20 @@ button a {
   word-wrap: break-word !important;
 }
 
-
 .btn-footer-hover:hover {
   color: #aa1010;
+  border-color: #aa1010;
 }
 
-.page-item.active > .page-link{
-  background-color: #17a2b8;
+.page-item.active > .page-link {
+  background-color: #dc3545;
+  border: #88232d;
+}
+
+.page-link.paginate-hover {
+  color: #dc3545 !important;
 }
 
 .paginate-hover:hover {
-  color: #17a2b8 !important;
+  color: #88232d !important;
 }

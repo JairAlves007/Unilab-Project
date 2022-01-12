@@ -15,7 +15,7 @@
       <div class="row mb-3">
         @if ($user->hasRole(['super-admin']))
         <div class="col-md-3">
-          <div class="card m-3 bg-success text-white">
+          <div class="card m-3 bg-success text-white text-center">
             <div class="card-body">
               <i class="fas fa-users fa-3x mb-2"></i>
               <h6 class="card-title">
@@ -28,7 +28,7 @@
           </div>
         </div>
         <div class="col-md-3">
-          <div class="card m-3 bg-primary text-white">
+          <div class="card m-3 bg-primary text-white text-center">
             <div class="card-body">
               <i class="fas fa-copy fa-3x mb-2"></i>
               <h6 class="card-title">
@@ -42,7 +42,7 @@
         </div>
         @endif
         <div class="col-md-3">
-          <div class="card m-3 bg-danger text-white">
+          <div class="card m-3 bg-danger text-white text-center">
             <div class="card-body">
               <i class="fas fa-file fa-3x mb-2"></i>
               <h6 class="card-title">
@@ -55,7 +55,7 @@
           </div>
         </div>
         <div class="col-md-3">
-          <div class="card m-3 bg-warning text-white">
+          <div class="card m-3 bg-warning text-white text-center">
             <div class="card-body">
               <i class="fas fa-eye fa-3x mb-2"></i>
               <h6 class="card-title">
@@ -66,7 +66,7 @@
           </div>
         </div>
         <div class="col-md-3">
-          <div class="card m-3 bg-info text-white">
+          <div class="card m-3 bg-info text-white text-center">
             <div class="card-body">
               <i class="fas fa-comments fa-3x mb-2"></i>
               <h6 class="card-title">
