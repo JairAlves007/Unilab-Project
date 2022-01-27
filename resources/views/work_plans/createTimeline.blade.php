@@ -42,8 +42,13 @@
                                     <th class="timeline-td">Atividades</th>
 
                                 </tr>
+
+                               
                             </thead>
+
                             <tbody id="table-row">
+
+
                                 <tr>
                                     <td class="d-flex align-items-start timeline-th"
                                         style="text-align: center; vertical-align: middle">
@@ -51,7 +56,7 @@
                                             title="Remover Atividade">
                                             <i class="fas fa-minus-circle"></i>
                                         </button>
-
+                                        
                                         <textarea class="form-control timeline-textarea" name="" id="" cols="25"
                                             rows="1" maxlength="50" placeholder="Máx.50"></textarea>
                                     </td>

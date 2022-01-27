@@ -27,7 +27,7 @@ class FormWorkPlansValidationRequest extends FormRequest
             'title' => ['required'],
             'content' => ['required'],
             'abstract' => ['required'],
-            'references' => ['required', 'url'],
+            'references' => ['required'],
             'bolsistas' => ['required']
         ];
     }
@@ -38,8 +38,7 @@ class FormWorkPlansValidationRequest extends FormRequest
             'title.required' => 'Por Favor, Coloque Um Título Para O Plano De Trabalho',
             'content.required' => 'Por Favor, Coloque Uma Descrição Completa Para O Plano De Trabalho',
             'abstract.required' => 'Por Favor, Coloque Uma Descrição Resumida Para O Plano De Trabalho',
-            'references.required' => 'Por Favor, Coloque Um Link De Referência Para O Plano De Trabalho',
-            'references.url' => 'Por Favor, Coloque Um Link Válido',
+            'references.required' => 'Por Favor, preencha o campo Referência do Plano De Trabalho',
             'bolsistas.required' => 'Por Favor, Coloque Um Bolsista Ao Plano De Trabalho',
         ];
     }

@@ -77,20 +77,24 @@
           <div class="row">
             <div class="col">
 
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
+              {{-- <div class="input-group mb-3"> --}}
+                {{-- <div class="input-group-prepend"> --}}
                   <label class="input-group-text" for="references">Referências</label>
-                </div>
-                <input type="url" name="references"
-                  class="form-control {{ $errors->has('references') ? 'is-invalid' : '' }}" id="references">
+                
+
+                <textarea class="form-control {{ $errors->has('references') ? 'is-invalid' : '' }}" name="references"
+                  id="references" rows="3"></textarea>
+                {{-- <input type="text" name="references"
+                  class="form-control {{ $errors->has('references') ? 'is-invalid' : '' }}" id="references"> --}}
 
                 <div class="invalid-feedback">
                   @foreach ($errors->get('references') as $error)
                   {{ $error }}
                   @endforeach
-                </div>
-              </div>
+                {{-- </div> --}}
+              {{-- </div> --}}
             </div>
+          </div>
           </div>
 
           <div class="row">
